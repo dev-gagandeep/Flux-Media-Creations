@@ -94,7 +94,7 @@ export const SERVICES = [
     slug: "wordpress-website-build",
     title: "WordPress Website Build",
     description:
-      "Custom-designed, lightning-fast WordPress sites built from Figma to go-live. Mobile-first, SEO-ready, PageSpeed 90+.",
+      "Custom WordPress website design built from Figma to go-live. Mobile-first, SEO-optimized, and consistently hitting PageSpeed 90+ scores. Designed for healthcare clinics, home service businesses, and real estate professionals who need a site that actually converts visitors into leads.",
     tags: ["WordPress", "Elementor", "Figma", "SEO"],
     from: "$500",
     href: "/services/wordpress-website-build",
@@ -102,9 +102,9 @@ export const SERVICES = [
   {
     number: "02",
     slug: "gohighlevel-automation",
-    title: "GoHighLevel Automation",
+    title: "GoHighLevel Setup & Automation",
     description:
-      "Full GHL setup: pipelines, missed call text-back, appointment booking, SMS reminders, review generation. A2P verified.",
+      "Full GoHighLevel CRM setup for your business: lead pipelines, missed call text-back, appointment booking, SMS reminders, review generation, and A2P SMS registration. Stop losing leads to slow response times.",
     tags: ["GoHighLevel", "SMS Automation", "CRM", "A2P"],
     from: "$300",
     href: "/services/gohighlevel-automation",
@@ -114,7 +114,7 @@ export const SERVICES = [
     slug: "full-growth-system",
     title: "Full Growth System",
     description:
-      "WordPress site + GHL automation fully connected. Every form submission triggers instant follow-up. One partner, everything built.",
+      "Your WordPress website and GoHighLevel CRM fully connected and working together. Every form submission triggers an instant automated follow-up. One agency, one point of contact, everything built and delivered in 14–21 days.",
     tags: ["Website", "GHL", "Automation", "Integrated"],
     from: "$800",
     href: "/services/full-growth-system",
@@ -123,9 +123,9 @@ export const SERVICES = [
   {
     number: "04",
     slug: "airtable-business-hub",
-    title: "Airtable Business Hub",
+    title: "Airtable CRM & Business Hub",
     description:
-      "Custom Airtable CRM, project tracker, and client portal. Automated email triggers and visual dashboards.",
+      "Custom Airtable CRM, project tracker, and client portal built around how your business actually works. Automated email triggers, visual dashboards, and reporting — without the complexity of enterprise software.",
     tags: ["Airtable", "CRM", "Automation", "Dashboards"],
     from: "$200",
     href: "/services/airtable-business-hub",
@@ -133,9 +133,9 @@ export const SERVICES = [
   {
     number: "05",
     slug: "make-zapier-automation",
-    title: "Make / Zapier Automation",
+    title: "Make & Zapier Automation",
     description:
-      "Connect any tools: Facebook Lead Ads → GHL → Airtable → Calendar. Multi-platform lead routing built in hours.",
+      "Connect your tools and eliminate manual data entry. Facebook Lead Ads → GoHighLevel → Airtable → Calendar. We build multi-platform lead routing and automation workflows that save your team hours every week.",
     tags: ["Make", "Zapier", "Webhooks", "Integrations"],
     from: "$150",
     href: "/services/make-zapier-automation",
@@ -143,9 +143,9 @@ export const SERVICES = [
   {
     number: "06",
     slug: "monthly-maintenance",
-    title: "Monthly Maintenance",
+    title: "WordPress & GHL Monthly Maintenance",
     description:
-      "WordPress updates, security scans, backups, GHL monitoring, speed checks, content updates. Direct access to us.",
+      "WordPress core updates, security scans, daily backups, GoHighLevel workflow monitoring, speed optimization, and content updates. Direct access to us — not a support ticket queue.",
     tags: ["Support", "Maintenance", "Security", "GHL"],
     from: "$150/mo",
     href: "/services/monthly-maintenance",
@@ -155,7 +155,7 @@ export const SERVICES = [
     slug: "search-visibility-engine",
     title: "Search Visibility Engine",
     description:
-      "A smarter discovery system for search, maps, and AI-driven results. Built to help the right people find you faster and trust you sooner.",
+      "A complete discovery system built for search engines, Google Maps, and AI-driven results. We help the right businesses find you faster — across Google, ChatGPT, Perplexity, and local map searches.",
     tags: ["Discovery", "Maps", "AI Search", "Visibility"],
     from: "$400",
     href: "/services/search-visibility-engine",
@@ -536,35 +536,35 @@ export const INDUSTRIES = [
     emoji: "⚕",
     headline: "Every missed patient call is a missed appointment.",
     description:
-      "Pain management clinics, vein centers, orthopedic practices, and wellness centers. We build sites with instant GHL follow-up so no patient lead goes cold — even at 11pm.",
-    what: ["Physician referral pipelines", "Instant patient SMS confirmation", "Appointment booking + reminders", "HIPAA-safe intake forms", "Google review automation"],
+      "We build WordPress websites for pain management clinics, vein treatment centers, orthopedic practices, telehealth providers, and wellness centers across the United States. Every site connects directly to a GoHighLevel CRM with instant SMS follow-up — so no patient inquiry goes cold, even at 11pm. We understand HIPAA-safe intake form requirements and patient portal integrations.",
+    what: ["Physician referral pipelines", "Instant patient SMS confirmation via GoHighLevel", "Appointment booking + automated reminders", "HIPAA-safe intake forms", "Google review automation", "Telehealth integration pages"],
   },
   {
     slug: "home-services",
     label: "Home Services",
     emoji: "🔧",
-    headline: "When a pipe bursts at midnight, they call whoever responds first.",
+    headline: "Your next customer called. Did you answer?",
     description:
-      "HVAC, plumbing, roofing, electrical. Emergency service businesses live and die by response speed. Our missed call text-back automation responds within 30 seconds.",
-    what: ["Missed call text-back (30 seconds)", "Emergency service landing pages", "Seasonal campaign automation", "Service agreement funnels", "Google review recovery"],
+      "HVAC companies, plumbers, electricians, roofers, and cleaning services lose thousands of dollars every month to missed calls and slow follow-up. We build WordPress websites with GoHighLevel missed call text-back and automated lead nurture — so every inquiry gets an instant response, even when your team is on a job.",
+    what: ["Missed call text-back automation", "Online booking and dispatch integration", "Service area landing pages for local SEO", "Facebook Lead Ads to GHL automation", "Review generation workflows"],
   },
   {
     slug: "real-estate",
     label: "Real Estate",
     emoji: "🏠",
-    headline: "Buyers and sellers need a response now — not tomorrow.",
+    headline: "Buyers and sellers choose the agent who responds first.",
     description:
-      "Real estate agents and small brokerages. We build lead capture systems with automated follow-up sequences that nurture buyers and sellers from first click to signed contract.",
-    what: ["Seller lead funnels", "Buyer nurture sequences", "Automated valuation pages", "CRM pipeline setup", "Listing notification automation"],
+      "We build WordPress websites for real estate agents and brokers with IDX property listings, automated lead capture, and GoHighLevel follow-up sequences that keep buyers and sellers engaged from first inquiry to signed contract.",
+    what: ["IDX property search integration", "Automated buyer and seller nurture sequences", "Lead capture forms connected to GoHighLevel", "Neighborhood and listing landing pages", "SMS appointment reminders"],
   },
   {
     slug: "beauty-wellness",
     label: "Beauty & Wellness",
     emoji: "✦",
-    headline: "Your reputation is built on 5-star experiences — let's make sure Google knows.",
+    headline: "Your booking calendar should fill itself.",
     description:
-      "Salons, med spas, gyms, and wellness studios. Appointment booking, membership funnels, and automated review requests that build your Google presence while you work.",
-    what: ["Online booking integration", "Membership upsell sequences", "Before/after showcase pages", "Review generation campaigns", "Rebooking automation"],
+      "Med spas, salons, aesthetics clinics, and wellness studios need websites that make booking effortless. We build WordPress sites with online booking integration and GoHighLevel automation for appointment reminders, review requests, and client reactivation campaigns.",
+    what: ["Online booking integration", "Automated appointment reminders", "Client reactivation SMS campaigns", "Google review automation", "Before/after gallery pages"],
   },
 ];
 
@@ -688,48 +688,48 @@ export const LOCATION_PAGES = [
 export const PROCESS_STEPS = [
   {
     number: "01",
-    title: "Free discovery call",
-    description: "30 minutes. We learn your business, your goals, your current setup. No pitch — just listening.",
+    title: "Free 30-minute discovery call",
+    description: "We learn your business, your goals, your current tech stack, and the leads you're losing right now. No pitch — just a focused conversation about what you actually need. We'll tell you honestly if we're not the right fit.",
   },
   {
     number: "02",
-    title: "Figma design",
-    description: "Every page designed before a line of code. You approve it. No surprises when we build.",
+    title: "Full Figma design — before any code",
+    description: "Every page of your WordPress website is designed in Figma first. You review and approve the complete design before we write a single line of code. No surprises when we build, no back-and-forth revisions mid-development.",
   },
   {
     number: "03",
-    title: "Build & automate",
-    description: "WordPress development and GHL setup running simultaneously. You see the staging site as we build.",
+    title: "WordPress build + GoHighLevel setup — simultaneously",
+    description: "WordPress development and GoHighLevel CRM configuration run in parallel. You see your staging site as we build it. Your automation workflows are built and tested before launch day.",
   },
   {
     number: "04",
-    title: "Test everything",
-    description: "Every form, every automation, every SMS workflow — tested on 5 browsers and mobile before you see it.",
+    title: "Full QA across 5 browsers and mobile",
+    description: "Every contact form, every GoHighLevel automation, every SMS workflow, every booking trigger — tested before you see it. We test across Chrome, Safari, Firefox, Edge, and mobile on both iOS and Android.",
   },
   {
     number: "05",
-    title: "Launch & handover",
-    description: "We handle DNS, hosting, SSL. You get the keys, a recorded walkthrough, and 30 days direct support.",
+    title: "Launch, handover, and 30 days of direct support",
+    description: "We handle DNS migration, hosting configuration, and SSL setup. You receive a full recorded video walkthrough of your WordPress site and GoHighLevel system so you're never dependent on us for basic changes. Then 30 days of direct WhatsApp and email support — no ticket queue.",
   },
 ];
 
 export const WORK_PROJECTS = [
   {
     title: "MVM Health",
-    category: "Healthcare Platform",
+    category: "Healthcare Platform · New Jersey",
     tags: ["WordPress", "GHL", "Telehealth"],
     industry: "healthcare",
     url: "https://mvmhealth.com",
-    description: "Multi-specialty pain management platform with provider directory, patient portal, telehealth integration, and full GHL automation.",
+    description: "Multi-specialty pain management platform with custom WordPress design, provider directory, patient portal, telehealth integration, and full GoHighLevel CRM automation for missed call recovery and appointment booking.",
     accent: "#FF5C35",
   },
   {
     title: "Vascura Pain & Vein",
-    category: "Specialty Clinic",
+    category: "Specialty Clinic · New Jersey",
     tags: ["WordPress", "GHL", "Booking"],
     industry: "healthcare",
     url: "https://vascurapainandvein.com",
-    description: "Pain and vein treatment clinic with appointment booking, instant lead follow-up, and insurance portal.",
+    description: "Pain and vein treatment clinic website with appointment booking system, instant GHL lead follow-up, and patient insurance portal — built on WordPress with Elementor.",
     accent: "#2563EB",
   },
   {
@@ -738,43 +738,43 @@ export const WORK_PROJECTS = [
     tags: ["WordPress", "Elementor", "SEO"],
     industry: "healthcare",
     url: "https://ecboneandjoint.com",
-    description: "Orthopedic and joint health center. Custom design, procedure pages, and integrated booking system.",
+    description: "Orthopedic and joint health center website. Custom WordPress design, individual procedure pages, and integrated online booking system optimized for local SEO.",
     accent: "#16A34A",
   },
   {
     title: "Med Way NJ",
-    category: "Medical Services",
+    category: "Medical Services · New Jersey",
     tags: ["WordPress", "GHL", "Multi-service"],
     industry: "healthcare",
     url: "https://medwaynj.com",
-    description: "Comprehensive medical services platform with multi-specialty pages and full GHL CRM integration.",
+    description: "Comprehensive multi-specialty medical services platform. Custom WordPress build with dedicated service pages and full GoHighLevel CRM integration for lead management.",
     accent: "#9333EA",
   },
   {
     title: "Phone Repair Decatur",
-    category: "Local Service Business",
+    category: "Local Service Business · Atlanta, GA",
     tags: ["WordPress", "Booking", "Local SEO"],
     industry: "home-services",
     url: "https://phonerepairdecatur.com",
-    description: "Mobile phone repair service with online booking, repair status tracker, and local SEO optimized for Atlanta.",
+    description: "Mobile phone repair shop website with online booking, repair status tracker, and local SEO optimization — ranked on Google Maps for phone repair searches in Atlanta.",
     accent: "#EA580C",
   },
   {
     title: "Farhan Yousuf — Realtor",
-    category: "Real Estate Agent",
+    category: "Real Estate · United States",
     tags: ["WordPress", "IDX", "Lead Capture"],
     industry: "real-estate",
     url: "https://farhanyousufirealtor.com",
-    description: "Real estate agent portfolio with property listings, lead capture forms, and automated buyer/seller follow-up.",
+    description: "Real estate agent website with IDX property listings, lead capture forms, and automated GoHighLevel buyer and seller follow-up sequences.",
     accent: "#0891B2",
   },
 ];
 
 export const STATS = [
-  { number: "4+", label: "Years building WordPress + GHL systems for US businesses" },
-  { number: "Long-term", label: "Client partnerships" },
-  { number: "90+", label: "PageSpeed scores" },
-  { number: "24hr", label: "Response time" },
+  { number: "4+", label: "Years — Building WordPress + GoHighLevel systems for US businesses" },
+  { number: "6", label: "Healthcare & service brands delivered" },
+  { number: "90+", label: "PageSpeed score on every site we build" },
+  { number: "14 Days", label: "Average project delivery time" },
 ];
 
 export const TOOLS = [
@@ -785,13 +785,15 @@ export const TOOLS = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Gagan built our healthcare site in under 2 weeks. The GHL automation he set up catches every missed call — we've recovered patients we would have lost completely.",
+    quote: "Gagan built our healthcare website in under two weeks. The GoHighLevel automation he set up catches every missed patient call — we've recovered appointments we would have lost completely. Our Google ranking improved in the first month. Best investment we made for our practice.",
     author: "Healthcare Client",
     location: "New Jersey, US",
+    role: "Pain Management Clinic",
   },
   {
-    quote: "The website speed and design are exactly what we needed. Our Google ranking improved within the first month. Communication was always clear and fast.",
+    quote: "The website speed and design exceeded our expectations. From the first call, communication was always clear and fast. Gagan understood exactly what a medical practice needs — a site that builds trust and makes booking easy. We saw a measurable increase in online appointment requests within 30 days.",
     author: "Medical Practice",
     location: "New Jersey, US",
+    role: "Specialty Clinic",
   },
 ];

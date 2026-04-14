@@ -34,10 +34,13 @@ export default function Work() {
         <div>
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Our work</p>
           <TextReveal
-            text="Selected client engagements and measurable outcomes."
+            text="Real WordPress and GoHighLevel projects. Real results."
             className="font-display font-semibold text-3xl md:text-5xl"
             as="h2"
           />
+          <p className="text-base text-ink/50 leading-relaxed max-w-3xl mt-5">
+            Every project below is a live site we designed, built, and automated — from Figma mockup to deployed WordPress website with GoHighLevel CRM integration.
+          </p>
         </div>
         <Link
           href="/work"

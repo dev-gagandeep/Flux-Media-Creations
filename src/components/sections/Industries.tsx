@@ -23,10 +23,13 @@ export default function Industries() {
         <div className="mb-12">
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Industries we serve</p>
           <TextReveal
-            text="We know your industry — and what your customers need."
+            text="We know your industry — and exactly what your customers search for."
             className="font-display font-semibold text-3xl md:text-5xl max-w-2xl"
             as="h2"
           />
+          <p className="text-base text-ink/50 leading-relaxed max-w-4xl mt-5">
+            We don't apply a generic template to every project. We've built WordPress websites and GoHighLevel systems specifically for the industries below — and we understand the compliance requirements, customer expectations, and lead flow challenges each one involves.
+          </p>
           <Link
             href="/industries"
             className="inline-flex items-center gap-2 mt-5 text-sm font-medium hover:gap-3 transition-all duration-300"

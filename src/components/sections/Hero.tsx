@@ -1,16 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { SITE, STATS } from "@/lib/constants";
+import { STATS } from "@/lib/constants";
 import MagneticButton from "@/components/ui/MagneticButton";
 
-const words = ["Websites.", "Automation.", "Results."];
-
 export default function Hero() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-
   const fadeUp = {
     initial: { opacity: 0, y: 40 },
     animate: { opacity: 1, y: 0 },
@@ -26,29 +21,51 @@ export default function Hero() {
           transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-sm font-medium uppercase tracking-widest text-ink/40 mb-8"
         >
-          WordPress + CRM Systems for US Businesses
+          WordPress + <span style={{ color: "var(--flux)" }}>GoHighLevel</span> Agency for US Businesses
         </motion.p>
 
         <div className="overflow-hidden">
           <motion.h1
             className="font-display font-semibold leading-[0.95]"
-            style={{ fontSize: "clamp(2.1rem, 5.7vw, 5.2rem)", letterSpacing: "-0.03em" }}
+            style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
             initial={{ y: "110%" }}
             animate={{ y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            WordPress &amp; GoHighLevel Agency for Healthcare and Home Service Businesses
+            We build WordPress sites
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            className="font-display font-semibold leading-[0.95]"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            that capture leads,
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            className="font-display font-semibold leading-[0.95]"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            book appointments — and close deals.
           </motion.h1>
         </div>
 
         {/* Subline + CTA row */}
         <motion.div
           variants={fadeUp} initial="initial" animate="animate"
-          transition={{ delay: 0.65, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
-          <p className="text-base md:text-lg text-ink/50 leading-relaxed max-w-md">
-            We build conversion-first WordPress websites, GoHighLevel workflows, and integrated CRM automations that help teams respond faster and close more revenue.
+          <p className="text-base md:text-lg text-ink/50 leading-relaxed max-w-2xl">
+            Flux Media Creations designs and builds conversion-first WordPress websites, GoHighLevel CRM automations, and integrated lead follow-up systems for healthcare clinics, home service businesses, and real estate teams across the United States, Canada, and the UK. Every project is delivered by one dedicated team — from Figma design to go-live.
           </p>
           <div className="flex gap-4 items-center">
             <MagneticButton>
@@ -76,7 +93,7 @@ export default function Hero() {
       {/* Stats bar */}
       <motion.div
         variants={fadeUp} initial="initial" animate="animate"
-        transition={{ delay: 0.85, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ delay: 0.7, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="mt-16 pt-8 border-t border-ink/8 grid grid-cols-2 md:grid-cols-4 gap-6"
       >
         {STATS.map((stat) => (

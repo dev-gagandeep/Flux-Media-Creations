@@ -39,6 +39,7 @@ export default function CTA() {
                 <div>
                   <p className="text-sm font-medium text-ink">{t.author}</p>
                   <p className="text-xs text-ink/40">{t.location}</p>
+                  <p className="text-xs text-ink/40">{t.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -60,7 +61,7 @@ export default function CTA() {
             className="text-sm uppercase tracking-widest mb-6"
             style={{ color: "rgba(250,248,244,0.35)" }}
           >
-            Ready to build?
+            Final step
           </motion.p>
 
           <div className="overflow-hidden mb-6">
@@ -72,7 +73,7 @@ export default function CTA() {
               className="font-display font-semibold text-cream"
               style={{ fontSize: "clamp(2.5rem, 7vw, 6.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
             >
-              Your site should work
+              Your WordPress website should be earning leads
             </motion.h2>
           </div>
           <div className="overflow-hidden mb-10">
@@ -90,7 +91,7 @@ export default function CTA() {
                 fontStyle: "italic",
               }}
             >
-              while you sleep.
+                while you sleep.
             </motion.h2>
           </div>
 
@@ -102,7 +103,7 @@ export default function CTA() {
             className="text-base max-w-md mx-auto mb-10 leading-relaxed"
             style={{ color: "rgba(250,248,244,0.45)" }}
           >
-            Free 30-minute discovery call. No pitch — just a conversation about what you need and how we can help.
+            Free 30-minute discovery call. No pitch — just an honest conversation about what you need and the fastest way to get there. Most clients have a live site within 14 days of signing.
           </motion.p>
 
           <motion.div
@@ -122,7 +123,7 @@ export default function CTA() {
                   boxShadow: "0 4px 30px rgba(255,92,53,0.4)",
                 }}
               >
-                Book a free call
+                Book your free discovery call
                 <span className="text-lg">→</span>
               </Link>
             </MagneticButton>
@@ -146,7 +147,7 @@ export default function CTA() {
             className="mt-8 text-xs"
             style={{ color: "rgba(250,248,244,0.2)" }}
           >
-            {SITE.email} · {SITE.phone}
+            Serving healthcare clinics, home service businesses, and real estate professionals across the United States, Canada, and the United Kingdom.
           </motion.p>
         </div>
       </section>

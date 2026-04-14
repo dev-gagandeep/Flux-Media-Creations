@@ -16,12 +16,12 @@ export default function Process() {
         <div className="md:sticky md:top-28">
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">How it works</p>
           <TextReveal
-            text="Clear process. No surprises. Ever."
+            text="A clear process. No surprises. Delivered on time."
             className="font-display font-semibold text-3xl md:text-5xl mb-6"
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed mb-8 max-w-sm">
-            From the first call to launch day, you'll know exactly what's happening at every step. We've removed all the uncertainty that makes working with agencies frustrating.
+            Most agencies leave you guessing. We don't. From the first discovery call to launch day and beyond, you'll know exactly what's happening at every step. Here's how every Flux Media Creations project works.
           </p>
           <Link
             href="/process"

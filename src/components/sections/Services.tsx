@@ -16,10 +16,13 @@ export default function Services() {
         <div>
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">What we do</p>
           <TextReveal
-            text="Everything your business needs — built by one team."
+            text="Everything your business needs to capture and convert leads — built by one team."
             className="font-display font-semibold text-3xl md:text-5xl max-w-xl"
             as="h2"
           />
+          <p className="text-base text-ink/50 leading-relaxed max-w-3xl mt-5">
+            We don't hand off work. Every WordPress site we build, every GoHighLevel workflow we configure, and every automation we set up is delivered by us — start to finish.
+          </p>
         </div>
         <Link
           href="/services"
