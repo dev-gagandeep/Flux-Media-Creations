@@ -76,21 +76,6 @@ export function generateMeta({
   };
 }
 
-export const schemaOrganization = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: SITE.name,
-  url: SITE.url,
-  email: SITE.email,
-  telephone: SITE.phone,
-  founder: { "@type": "Person", name: SITE.founder },
-  description: SITE.description,
-  serviceType: ["Web Development", "Marketing Automation", "CRM Setup", "GoHighLevel"],
-  areaServed: "US",
-  knowsLanguage: ["en"],
-  sameAs: ["https://gagandeep.space"],
-};
-
 export const schemaWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
