@@ -31,41 +31,13 @@ export default function Hero() {
 
         <div className="overflow-hidden">
           <motion.h1
-            className="font-display font-semibold leading-none"
-            style={{ fontSize: "clamp(3.2rem, 9.5vw, 8.5rem)", letterSpacing: "-0.04em" }}
+            className="font-display font-semibold leading-[0.95]"
+            style={{ fontSize: "clamp(2.1rem, 5.7vw, 5.2rem)", letterSpacing: "-0.03em" }}
             initial={{ y: "110%" }}
             animate={{ y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            We build sites
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden">
-          <motion.h1
-            className="font-display font-semibold leading-none"
-            style={{ fontSize: "clamp(3.2rem, 9.5vw, 8.5rem)", letterSpacing: "-0.04em" }}
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            that close deals
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden">
-          <motion.h1
-            className="font-display font-semibold leading-none flex items-baseline gap-4 flex-wrap"
-            style={{ fontSize: "clamp(3.2rem, 9.5vw, 8.5rem)", letterSpacing: "-0.04em" }}
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            while you{" "}
-            <span
-              className="italic font-display"
-              style={{ color: "var(--flux)", fontStyle: "italic" }}
-            >
-              sleep.
-            </span>
+            WordPress &amp; GoHighLevel Agency for Healthcare and Home Service Businesses
           </motion.h1>
         </div>
 
