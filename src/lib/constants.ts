@@ -159,7 +159,7 @@ export const SERVICES = [
     description:
       "Your WordPress website and GoHighLevel CRM fully connected and working together. Every form submission triggers an instant automated follow-up. One agency, one point of contact, everything built and delivered in 14–21 days.",
     tags: ["Website", "GHL", "Automation", "Integrated"],
-    from: "$800",
+    from: "$1,300",
     href: "/services/full-growth-system",
     featured: true,
   },
