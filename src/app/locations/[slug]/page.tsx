@@ -568,31 +568,6 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
     },
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE.url,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Locations",
-        item: `${SITE.url}/locations`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: location.label,
-        item: `${SITE.url}/locations/${location.slug}`,
-      },
-    ],
-  };
-
   const processSteps = [
     `Discovery call for ${location.label} goals`,
     `Build website and automations for ${location.label} audience intent`,
@@ -604,7 +579,6 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       <section className="section pt-40 md:pt-48 pb-14 max-w-[1100px] mx-auto">

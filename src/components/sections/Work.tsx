@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { WORK_PROJECTS } from "@/lib/constants";
@@ -112,10 +113,19 @@ function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
           background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}30)`,
         }}
       >
-        {/* Placeholder with accent color — swap for real screenshots */}
+        {project.image && (
+          <Image
+            src={project.image}
+            alt={`${project.title} website preview`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        )}
+
         <div
           className="absolute inset-0 flex items-end p-5"
-          style={{ background: `${project.accent}12` }}
+          style={{ background: `linear-gradient(180deg, transparent 45%, ${project.accent}66 100%)` }}
         >
           <div
             className="px-3 py-1.5 rounded-full text-xs font-medium"
@@ -125,15 +135,19 @@ function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
           </div>
         </div>
 
-        {/* Hover reveal — domain label */}
-        <div
-          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400"
+        {/* Hover reveal — clickable live-site link */}
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visit ${project.title} live site`}
+          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-400"
           style={{ background: `${project.accent}ee` }}
         >
           <span className="text-white font-display font-semibold text-lg flex items-center gap-2">
             Visit site →
           </span>
-        </div>
+        </a>
 
         {/* Color bar top */}
         <div

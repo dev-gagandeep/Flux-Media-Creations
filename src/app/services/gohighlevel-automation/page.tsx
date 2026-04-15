@@ -248,24 +248,6 @@ const faqs = [
 ];
 
 export default function GoHighLevelAutomationPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "GoHighLevel Setup and Automation Service",
-    serviceType: "GoHighLevel setup service",
-    description:
-      "Done-for-you GoHighLevel CRM setup, automation workflows, missed call text-back, A2P registration, and lead follow-up systems for US service businesses.",
-    provider: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
-      email: SITE.email,
-      telephone: SITE.phone,
-    },
-    areaServed: ["US", "CA", "GB"],
-    url: `${SITE.url}/services/gohighlevel-automation`,
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -281,7 +263,6 @@ export default function GoHighLevelAutomationPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="section pt-40 md:pt-48 pb-16 max-w-[1400px] mx-auto">

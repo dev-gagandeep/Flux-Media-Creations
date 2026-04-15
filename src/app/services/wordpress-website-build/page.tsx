@@ -276,24 +276,6 @@ const faqs = [
 ];
 
 export default function WordPressWebsiteBuildPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Custom WordPress Website Design",
-    serviceType: "WordPress Website Design for Healthcare Clinics",
-    description:
-      "Custom WordPress website design and development for healthcare clinics, home service businesses, and real estate professionals.",
-    provider: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
-      email: SITE.email,
-      telephone: SITE.phone,
-    },
-    areaServed: ["US", "CA", "GB"],
-    url: `${SITE.url}/services/wordpress-website-build`,
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -309,7 +291,6 @@ export default function WordPressWebsiteBuildPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="section pt-40 md:pt-48 pb-16 max-w-[1400px] mx-auto">

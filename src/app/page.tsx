@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateMeta, schemaHomeAgency, schemaHomeFaq, schemaHomeReviews } from "@/lib/seo";
+import { generateMeta, schemaHomeAgency, schemaHomeFaq, schemaHomePage, schemaHomeReviews } from "@/lib/seo";
 import { TOOLS } from "@/lib/constants";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
@@ -23,6 +23,10 @@ export const metadata: Metadata = generateMeta({
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomePage) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomeAgency) }}
