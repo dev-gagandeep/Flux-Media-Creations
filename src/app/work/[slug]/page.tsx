@@ -62,6 +62,7 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
         {project.title}
       </h1>
       <p className="text-base md:text-lg text-ink/55 max-w-3xl leading-relaxed mb-10">{project.description}</p>
+      <p className="text-sm text-ink/45 mb-10">Delivered as lead developer at Fast Visibility Tech</p>
 
       <div className="grid md:grid-cols-3 gap-4 mb-12">
         {project.tags.map((tag) => (

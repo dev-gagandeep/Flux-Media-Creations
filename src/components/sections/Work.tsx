@@ -153,6 +153,9 @@ function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
         <p className="text-sm text-ink/50 leading-relaxed mb-4">
           {project.description}
         </p>
+        <p className="text-xs text-ink/40 mb-4">
+          Delivered as lead developer at Fast Visibility Tech
+        </p>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
