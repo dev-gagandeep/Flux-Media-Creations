@@ -23,7 +23,23 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const BLOG_POSTS = [
+export type BlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  author: string;
+  cover: string;
+  content: string[];
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
+};
+
+export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "wordpress-ghl-growth-system-us-businesses",
     title: "WordPress + GoHighLevel Growth System for US Businesses: The Practical 2026 Playbook",
@@ -84,6 +100,33 @@ export const BLOG_POSTS = [
       "If your team is losing leads after form fills or missed calls, prioritize GoHighLevel response systems immediately.",
       "If both layers are weak, implement one connected build so your website and automation stack work as a single revenue system.",
       "For implementation support, review [Services], explore project outcomes in [Work], and send your current setup through [Contact]. We can map the exact bottlenecks and suggest the highest-leverage first build.",
+    ],
+    faq: [
+      {
+        question: "What is marketing automation in simple terms?",
+        answer:
+          "It is a connected set of systems that captures leads, replies fast, sends follow-up messages, and helps your team move prospects toward a booked call or sale without manual chasing every time.",
+      },
+      {
+        question: "How does automation help small businesses?",
+        answer:
+          "It reduces response delays, keeps follow-up consistent, improves booking rates, and gives business owners clearer visibility into where leads are getting stuck.",
+      },
+      {
+        question: "Is GoHighLevel suitable for all businesses?",
+        answer:
+          "It works especially well for service businesses, clinics, agencies, and local brands that depend on lead capture, appointment booking, and repeat follow-up. The exact setup still needs to match the business model.",
+      },
+      {
+        question: "Do I need an expert to set it up?",
+        answer:
+          "Not always, but expert setup usually saves time and avoids broken workflows, weak messaging, and tracking gaps. The more tools and handoffs involved, the more valuable good implementation becomes.",
+      },
+      {
+        question: "What should I automate first?",
+        answer:
+          "Start with the places where revenue leaks most often: form responses, missed-call text back, appointment reminders, and pipeline stage movement after a lead comes in.",
+      },
     ],
   },
 ];
