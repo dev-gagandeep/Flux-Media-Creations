@@ -99,6 +99,7 @@ export default function Work() {
 
 function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
   const slug = toSlug(project.title);
+  const previewAlt = `${project.title} website preview`;
 
   return (
     <div
@@ -116,9 +117,9 @@ function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
         {project.image && (
           <Image
             src={project.image}
-            alt={`${project.title} website preview`}
+            alt={previewAlt}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
@@ -144,8 +145,9 @@ function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
           className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-400"
           style={{ background: `${project.accent}ee` }}
         >
-          <span className="text-white font-display font-semibold text-lg flex items-center gap-2">
-            Visit site →
+          <span className="text-white font-display font-semibold text-lg uppercase tracking-[0.12em] flex items-center gap-2">
+            VISIT SITE
+            <span aria-hidden="true">↗</span>
           </span>
         </a>
 
