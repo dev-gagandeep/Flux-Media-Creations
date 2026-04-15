@@ -229,7 +229,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: ["https://wa.me/916284957892", "https://gagandeep.space"],
+  sameAs: ["https://wa.me/916284957892", "https://gagandeep.space", SITE.instagramUrl],
 };
 
 export const schemaHomeFaq = {

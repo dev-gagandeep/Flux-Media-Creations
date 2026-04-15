@@ -53,6 +53,14 @@ export default function Footer() {
               WhatsApp
             </a>
             <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-cream/40 hover:text-flux transition-colors"
+            >
+              Instagram
+            </a>
+            <a
               href={SITE.portfolioUrl}
               target="_blank"
               rel="noopener noreferrer"

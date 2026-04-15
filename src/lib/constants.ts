@@ -11,6 +11,7 @@ export const SITE = {
   founder: "Gagan Deep",
   founderTitle: "Founder & Lead Developer",
   portfolioUrl: "https://gagandeep.space",
+  instagramUrl: "https://www.instagram.com/fluxmediacreations",
 };
 
 export const NAV_LINKS = [
