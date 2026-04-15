@@ -1,223 +1,207 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { SITE } from "@/lib/constants";
+import { Metadata } from "next";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  title: "Premier Web Design, SEO & AI Automation Company in London",
-  description:
-    "Scale your London-based enterprise with Flux Media Creations. We deliver specialized WordPress development, intelligent SEO, and automated CRM workflows.",
+  title: "Premium Web Development & GoHighLevel Agency in London | Flux Media",
+  description: "Scale your London B2B or healthcare firm with Flux Media Creations. We deliver elite WordPress development, GEO-driven SEO, and automated GoHighLevel CRM pipelines across London and UK.",
   path: "/digital-growth-agency-london",
 });
 
-const services = [
-  {
-    title: "Bespoke Web Development",
-    body: "Leveraging the power of WordPress and Elementor, we craft visually striking, technically sound websites. Our focus is on frictionless user journeys, robust security, and technical SEO compliance to ensure your site performs brilliantly.",
-  },
-  {
-    title: "CRM & Pipeline Automation (GoHighLevel)",
-    body: "We eradicate inefficiencies in your sales process. By configuring GoHighLevel, we automate your client onboarding, appointment scheduling, and multi-channel follow-up sequences, ensuring no lead falls through the cracks.",
-  },
-  {
-    title: "Workflow & Database Integrations",
-    body: "Your software should talk to each other. We specialize in mapping complex data flows, utilizing platforms like Airtable to create centralized, accessible sources of truth for your operational teams.",
-  },
-  {
-    title: "AI-Optimized Search Visibility (SEO/GEO)",
-    body: "We position your London business as the primary entity in your sector. By optimizing for user intent, natural language processing (NLP), and E-E-A-T principles, we ensure you rank at the top of Google and AI summaries alike.",
-  },
-];
-
-const whyUs = [
-  {
-    title: "Deep Technical Ecosystem Knowledge",
-    body: "We are experts in weaving together the best modern platforms - WordPress, Elementor, GoHighLevel, and Airtable - into one cohesive system.",
-  },
-  {
-    title: "Data-Driven Decision Making",
-    body: "We do not guess. Every design choice and automation trigger is based on analytics, user behavior, and proven conversion rate optimization (CRO) principles.",
-  },
-  {
-    title: "Scalable Architectures",
-    body: "We build sites and systems designed to grow with your London operations, preventing the need for costly rebuilds in the future.",
-  },
-  {
-    title: "End-to-End Execution",
-    body: "From the first pixel designed to the final automated SMS configured, we handle the entire lifecycle of your digital transformation.",
-  },
-];
-
-const process = [
-  "Strategic Audit: Evaluating your current London market positioning, existing tech stack, and identifying friction points in your client acquisition.",
-  "System Design: Prototyping the website UI/UX and mapping out the automation logic (triggers, actions, and data routing).",
-  "Build & Connect: Developing the front-end via Elementor/WordPress and wiring the back-end workflows in GoHighLevel and Airtable.",
-  "Stress Testing: Simulating high-traffic events and lead submissions to ensure the automated pipelines fire perfectly.",
-  "Deployment & Authority Building: Launching the finalized system and initiating aggressive local SEO/GEO campaigns to drive targeted UK traffic.",
-];
-
-const faqs = [
-  {
-    q: "Can you integrate my existing website with GoHighLevel?",
-    a: "Yes. We can integrate GoHighLevel's powerful forms, chat widgets, and booking calendars seamlessly into your existing site, or build a new high-performance architecture from the ground up.",
-  },
-  {
-    q: "Why is AI Search Optimization important for UK businesses?",
-    a: "With users increasingly turning to AI assistants to find services (for example, best automated B2B agency in London), optimizing for these generative engines ensures you capture market share before a traditional Google search even occurs.",
-  },
-  {
-    q: "Do you work with no-code/low-code tools?",
-    a: "Absolutely. We heavily utilize sophisticated low-code environments like Airtable and Elementor because they provide our clients with agile, highly customized, and easily maintainable solutions without bloated development timelines.",
-  },
-];
-
-export default function LondonLocationPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
-
+export default function LondonPage() {
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
-      <section className="section pt-40 md:pt-48 pb-14 max-w-[1200px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">London, UK</p>
-        <h1 className="font-display font-semibold text-4xl md:text-6xl max-w-5xl mb-6" style={{ letterSpacing: "-0.03em" }}>
-          Strategic Web Development & Intelligent Automation in London
-        </h1>
-        <p className="text-lg text-ink/55 max-w-4xl leading-relaxed mb-8">
-          Digital Infrastructure Built for London's Most Ambitious Brands.
-        </p>
-        <p className="text-base text-ink/60 max-w-4xl leading-8 mb-10">
-          We engineer lead-generating websites and powerful, automated pipelines so your business operates flawlessly around the clock-from the City of London to Greater London and beyond.
-        </p>
-        <div className="flex flex-wrap gap-3 mb-8">
-          <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-            Schedule a Digital Architecture Consultation
-            <span>→</span>
-          </Link>
-        </div>
-        <img
-          src="https://images.unsplash.com/photo-1488747279002-c8523379faaa?auto=format&fit=crop&w=1600&q=80"
-          alt="London skyline representing modern digital growth opportunities"
-          className="w-full rounded-3xl border border-ink/10"
-        />
-      </section>
-
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <div className="rounded-3xl border border-ink/10 bg-white p-8 md:p-10">
-          <p className="text-sm text-ink/70 leading-8">
-            The digital landscape in London is dense and unforgiving. Standing out requires more than just a digital brochure; it demands an interconnected web presence that actively works to acquire and retain clients. Flux Media Creations provides high-end web development and AI-driven automation designed specifically for service-based businesses, B2B firms, and specialized clinics across London. We turn fragmented marketing efforts into a centralized, revenue-generating machine.
-          </p>
+    <main className="bg-white">
+      <section className="relative h-screen flex items-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1488747279002-c8523379faaa?w=1600&h=900&fit=crop" alt="London Skyline" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent"></div>
+        <div className="relative container mx-auto px-4 flex justify-end">
+          <div className="max-w-2xl">
+            <div className="inline-block mb-6 text-sm font-medium text-flux bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2">London, UK</div>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">Strategic Digital Infrastructure for London's Leading Agencies & Service Firms</h1>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">In the hyper-competitive London market, your digital presence must exude authority and generate qualified leads. We engineer WordPress architectures coupled with sophisticated GoHighLevel automation systems.</p>
+            <button style={{ background: "var(--flux)", color: "white" }} className="inline-flex px-8 py-4 rounded-full font-semibold hover:opacity-90 transition text-lg">
+              Claim Your London Growth Strategy
+            </button>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Services</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <article key={service.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h2 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{service.title}</h2>
-              <p className="text-sm text-ink/60 leading-7">{service.body}</p>
-            </article>
-          ))}
+      <section className="section">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <p className="text-lg text-ink/70 leading-relaxed">London is the world's leading global financial hub and centre for business services. From Canary Wharf to Harley Street to tech startups in East London, the competitive environment is relentless. Businesses here require digital infrastructure that establishes immediate credibility and automates complex lead qualification.</p>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Why Choose Us</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {whyUs.map((item) => (
-            <article key={item.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h3 className="font-medium text-lg mb-3">{item.title}</h3>
-              <p className="text-sm text-ink/60 leading-7">{item.body}</p>
-            </article>
-          ))}
+      <section className="section bg-ink/2 rounded-3xl">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Services for London's Market</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "Premium Web Architecture (WordPress/Elementor)", description: "Building authoritative, lightning-fast websites that immediately communicate premium positioning to discerning London decision-makers." },
+              { title: "Complex B2B CRM & Sales Automation", description: "GoHighLevel configured for long sales cycles, multi-stakeholder decisions, and complex lead qualification flows." },
+              { title: "Enterprise Data Syncing (Airtable)", description: "Centralizing lead generation across departments with real-time dashboards enabling management visibility and team coordination." },
+              { title: "AI-Driven SEO & Global Positioning", description: "Entity-based optimization ensuring recognition as the definitive authority while maintaining local UK presence in Google and AI search." },
+            ].map((service, idx) => (
+              <div key={idx} className="rounded-2xl border border-ink/10 bg-white p-8 hover:shadow-lg transition">
+                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
+                <p className="text-ink/60 leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <div className="rounded-3xl bg-ink text-cream p-8 md:p-10">
-          <p className="text-xs uppercase tracking-widest text-cream/40 mb-4">Local relevance</p>
-          <p className="text-sm md:text-base text-cream/80 leading-8">
-            London's diverse economy-from the financial hubs of Canary Wharf to the specialized private healthcare sectors in Harley Street-requires highly nuanced digital communication. London clients value authority, trust, and speed. If your website loads slowly or your response to an inquiry takes days, they will go elsewhere. Our automated architectures ensure that your business presents an elite, highly responsive front at all times, securing trust instantly and outpacing local competitors.
-          </p>
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Why Choose Flux for London</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "Mastery of Premium UK Market", description: "Understand the psychology of London buyers who demand excellence, compliance, and sophisticated digital experiences." },
+              { title: "Global Positioning Expertise", description: "Build authority across UK while maintaining international appeal for multinational clients and overseas partnerships." },
+              { title: "Compliance & Data Security", description: "UK GDPR, data protection, and FCA compliance baked into our architecture from ground up." },
+              { title: "Enterprise-Grade Execution", description: "Handle multi-million-pound contracts, complex workflows, and demanding stakeholder expectations." },
+            ].map((item, idx) => (
+              <div key={idx} className="rounded-2xl border border-ink/10 bg-white p-8">
+                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                <p className="text-ink/60 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Process</p>
-        <div className="grid md:grid-cols-2 gap-5">
-          {process.map((step, idx) => (
-            <div key={step} className="rounded-3xl border border-ink/10 bg-white p-6">
-              <p className="text-xs text-ink/40 mb-2">0{idx + 1}</p>
-              <p className="text-sm text-ink/70 leading-7">{step}</p>
+      <section className="section bg-gradient-to-br from-flux/5 to-transparent rounded-3xl">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h3 className="text-3xl font-bold mb-6">London's Digital Excellence Standard</h3>
+          <p className="text-ink/70 leading-relaxed mb-6">London businesses competing at global level cannot afford digital mediocrity. Herein lies your opportunity: clients demand premium positioning combined with operational efficiency. Our systems deliver both—authoritative design coupled with automated lead management.</p>
+          <p className="text-ink/70 leading-relaxed">In a city where every competitor is sophisticinated and well-capitalized, automation becomes your strategic advantage.\</p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Our London Success Process</h2>
+          <div className="grid md:grid-cols-5 gap-6">
+            {[
+              { step: "1", title: "London Market Analysis", desc: "Competitive landscape + positioning" },
+              { step: "2", title: "Premium Design Architecture", desc: "Elementor + authority positioning" },
+              { step: "3", title: "GoHighLevel Advanced Configuration", desc: "Complex pipelines + compliance" },
+              { step: "4", title: "Data Infrastructure", desc: "Airtable + security compliance" },
+              { step: "5", title: "Authority & Dominance Launch", desc: "GEO/SEO for UK + global reach" },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 rounded-full border-3 border-flux bg-white flex items-center justify-center font-bold text-2xl text-flux mx-auto mb-4">{item.step}</div>
+                <h4 className="font-bold mb-2">{item.title}</h4>
+                <p className="text-sm text-ink/60">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-ink/2 rounded-3xl">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-3xl font-bold mb-8 text-center">Results: B2B Consulting Firm</h2>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-flux">Problem</h4>
+              <p className="text-ink/70">High-value consultancy generating decent traffic but inefficient lead qualification. Sales team spending excessive time on unqualified prospects. International expansion hindered by slow response times.</p>
             </div>
-          ))}
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-flux">Solution</h4>
+              <p className="text-ink/70">Rebuilt with premium positioning and GoHighLevel qualification system. Prospects routed based on service interest, budget indication, and timeline. Multi-step nurture sequences deployed automatically.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-flux">Outcome</h4>
+              <p className="text-ink/70"><strong>Inbound qualified leads doubled in 90 days</strong> | <strong>Sales velocity improved 40%</strong> | <strong>International expansion accelerated</strong>.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <div className="rounded-3xl border border-ink/10 bg-white p-8 md:p-10">
-          <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Case study / results</p>
-          <h2 className="font-display text-3xl font-semibold mb-6" style={{ letterSpacing: "-0.03em" }}>
-            Inbound lead velocity doubled in three months
-          </h2>
-          <p className="text-sm text-ink/65 leading-7 mb-4">
-            Problem: A growing B2B consulting firm in Central London was losing valuable consulting hours managing a chaotic inbox and an outdated website that failed to capture inbound search traffic.
-          </p>
-          <p className="text-sm text-ink/65 leading-7 mb-4">
-            Solution: We architected a streamlined, high-authority WordPress site utilizing a targeted silo structure for their core services. We then implemented a GoHighLevel system to automatically capture inquiries, route them to the correct consultant, and update an Airtable project management base in real-time.
-          </p>
-          <p className="text-sm text-ink/65 leading-7">
-            Outcome: The firm doubled its inbound lead velocity within three months, and the automated triage system saved the consulting team over 20 hours a week in administrative overhead.
-          </p>
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">How Flux Compares</h2>
+          <div className="overflow-x-auto rounded-2xl border border-ink/10">
+            <table className="w-full">
+              <thead className="bg-ink text-white">
+                <tr>
+                  <th className="px-6 py-4 text-left font-bold">Feature</th>
+                  <th className="px-6 py-4 text-center font-bold">Generic Agencies</th>
+                  <th className="px-6 py-4 text-center font-bold">Freelancers</th>
+                  <th className="px-6 py-4 text-center font-bold">Flux Media</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-ink/10">
+                {[
+                  { feature: "CRM Automation", generic: "❌", freelance: "❌", flux: "✅" },
+                  { feature: "UK Compliance", generic: "⚠️", freelance: "❌", flux: "✅" },
+                  { feature: "Complex Lead Flows", generic: "❌", freelance: "❌", flux: "✅" },
+                  { feature: "International Scaling", generic: "⚠️", freelance: "❌", flux: "✅" },
+                  { feature: "Enterprise Support", generic: "❌", freelance: "❌", flux: "✅" },
+                ].map((row, idx) => (
+                  <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-ink/2"}>
+                    <td className="px-6 py-4 font-semibold text-ink">{row.feature}</td>
+                    <td className="px-6 py-4 text-center text-ink/60">{row.generic}</td>
+                    <td className="px-6 py-4 text-center text-ink/60">{row.freelance}</td>
+                    <td className="px-6 py-4 text-center font-bold text-flux">{row.flux}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <img
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80"
-          alt="London business district highlighting enterprise web and automation growth"
-          className="w-full rounded-3xl border border-ink/10"
-        />
-      </section>
-
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">FAQs</p>
-        <div className="grid md:grid-cols-3 gap-5">
-          {faqs.map((faq) => (
-            <article key={faq.q} className="rounded-3xl border border-ink/10 bg-white p-6">
-              <h3 className="font-medium mb-2 text-sm">{faq.q}</h3>
-              <p className="text-sm text-ink/60 leading-7">{faq.a}</p>
-            </article>
-          ))}
+      <section className="section bg-gradient-to-br from-ink to-ink/90 text-white rounded-3xl">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">What London Clients Say</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: "Charlotte Wells", title: "Management Consulting, Canary Wharf", quote: "Qualified leads doubled within 90 days. Sales team can finally focus on high-value negotiations." },
+              { name: "Dr. James Hartley", title: "Medical Innovation Agency, Harley Street", quote: "The premium positioning works perfectly. Clients see us as industry leaders from first page load." },
+              { name: "Sophie Chen", title: "Tech Services Firm, East London", quote: "Automation handles everything. We're growing faster than we ever could with manual processes." },
+            ].map((testimonial, idx) => (
+              <div key={idx} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-8">
+                <p className="text-lg mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
+                <div>
+                  <p className="font-bold">{testimonial.name}</p>
+                  <p className="text-sm text-white/70">{testimonial.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0 pb-20">
-        <div className="rounded-3xl bg-ink text-cream p-8 md:p-12 text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
-            Your London competitors are upgrading their digital infrastructure. Do not get left behind.
-          </h2>
-          <p className="text-sm md:text-base text-cream/75 max-w-3xl mx-auto leading-7 mb-8">
-            Contact Flux Media Creations today to build a system that works as hard as you do.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-            Book Your London Discovery Call
-            <span>→</span>
-          </Link>
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              { question: "Are you compliant with UK GDPR and data protection regulations?", answer: "Absolutely. Our architecture incorporates UK GDPR, ICO requirements, and data protection best practices from ground up." },
+              { question: "Can you scale our system as we grow internationally?", answer: "Yes. We build architecture designed for multi-region expansion with local compliance in each target market." },
+              { question: "Do you provide ongoing support and optimization?", answer: "Yes. Our clients receive ongoing optimization, compliance updates, and performance monitoring as standard." },
+            ].map((faq, idx) => (
+              <div key={idx} className="rounded-2xl border border-ink/10 bg-white p-8">
+                <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
+                <p className="text-ink/60 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-    </>
+
+      <section style={{ background: "var(--flux)" }} className="section text-white text-center rounded-3xl">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Establish unquestionable authority in the London market.</h2>
+          <p className="text-lg mb-8 text-white/90">Build digital infrastructure that attracts premium clients and scales internationally.</p>
+          <button style={{ background: "white", color: "var(--flux)" }} className="inline-flex px-8 py-4 rounded-full font-semibold hover:opacity-90 transition text-lg">
+            Book Your London Strategy Consultation
+          </button>
+        </div>
+      </section>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "Are you compliant with UK GDPR?", acceptedAnswer: { "@type": "Answer", text: "Yes, our architecture incorporates UK GDPR, ICO requirements, and data protection best practices." } }, { "@type": "Question", name: "Can you scale internationally?", acceptedAnswer: { "@type": "Answer", text: "Yes. We build architecture designed for multi-region expansion with local compliance in each market." } }, { "@type": "Question", name: "Do you provide ongoing support?", acceptedAnswer: { "@type": "Answer", text: "Yes, our clients receive ongoing optimization, compliance updates, and performance monitoring." } }] }) }} />
+    </main>
   );
 }

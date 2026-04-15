@@ -1,223 +1,207 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { SITE } from "@/lib/constants";
+import { Metadata } from "next";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  title: "Top Web Development & GoHighLevel Automation Agency in Chandigarh",
-  description:
-    "Flux Media Creations empowers Chandigarh and Tricity businesses with high-converting Elementor websites, smart SEO, and GoHighLevel CRM automation.",
+  title: "Web Development & AI Automation Agency in Chandigarh | Flux Media Creations",
+  description: "Scale your Chandigarh business with premium web development, GoHighLevel automation, and AI-driven growth strategies. Serving Tricity and Punjab tech ecosystem.",
   path: "/web-development-automation-chandigarh",
 });
 
-const services = [
-  {
-    title: "High-Performance WordPress Development",
-    body: "We craft visually stunning, highly responsive websites using Elementor. Our architecture guarantees lightning-fast load speeds, clean code structure, and mobile-first indexing, perfectly suited for both local Indian markets and your international client base.",
-  },
-  {
-    title: "GoHighLevel CRM & Lead Routing",
-    body: "We eliminate manual lead tracking. Our team builds custom automation pipelines within GoHighLevel, capturing inquiries instantly and triggering automated SMS and email nurture sequences to close deals faster.",
-  },
-  {
-    title: "Airtable Database Integration",
-    body: "Say goodbye to messy spreadsheets. We sync your front-end lead generation directly into structured, low-code Airtable databases, giving your team a centralized, real-time view of all business operations.",
-  },
-  {
-    title: "Local & Generative SEO (GEO)",
-    body: "We dominate the Tricity search landscape. By optimizing for entity relationships and natural language processing (NLP), we ensure your business ranks prominently on Google Maps and is recommended by AI search tools like ChatGPT and Perplexity.",
-  },
-];
-
-const whyUs = [
-  {
-    title: "Tricity Roots, Global Standards",
-    body: "We understand the local Chandigarh business ecosystem but build digital infrastructure designed to compete on a global scale.",
-  },
-  {
-    title: "Conversion-Centric Design",
-    body: "Every pixel and button placement is dictated by user psychology and data, ensuring your traffic actually converts.",
-  },
-  {
-    title: "No-Code / Low-Code Agility",
-    body: "By utilizing advanced platforms like WordPress, Elementor, and Airtable, we deliver highly customized, scalable solutions without the bloated timelines of traditional hard-coding.",
-  },
-  {
-    title: "Measurable ROI",
-    body: "We focus strictly on the metrics that matter: booked appointments, lead velocity, and operational hours saved through intelligent automation.",
-  },
-];
-
-const process = [
-  "Tricity Market Analysis: Deep dive into your local and international competitors, mapping out a winning digital strategy.",
-  "Architecture & UI Design: Wireframing and designing a high-converting front-end utilizing WordPress and Elementor.",
-  "Automation Engineering: Setting up GoHighLevel workflows, calendars, and syncing data seamlessly to Airtable.",
-  "Performance Optimization: Rigorous speed testing, mobile responsiveness checks, and technical SEO deployment.",
-  "Launch & Scale: Pushing live and initiating aggressive local SEO campaigns to capture Tricity market share.",
-];
-
-const faqs = [
-  {
-    q: "Do you work with businesses outside of Chandigarh?",
-    a: "Absolutely. While we have a strong footprint in the Tricity, our automation and web systems are built to scale businesses internationally.",
-  },
-  {
-    q: "Why do you recommend Elementor and WordPress?",
-    a: "It provides the perfect balance of elite, customized design and easy content management, allowing your site to scale without heavy developer dependencies.",
-  },
-  {
-    q: "How fast can you deploy an automated GoHighLevel system?",
-    a: "Depending on complexity, we can architect and launch foundational lead-capture and nurture pipelines within weeks.",
-  },
-];
-
-export default function ChandigarhLocationPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
-
+export default function ChandigarhPage() {
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
-      <section className="section pt-40 md:pt-48 pb-14 max-w-[1200px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Chandigarh, India (Tricity Area)</p>
-        <h1 className="font-display font-semibold text-4xl md:text-6xl max-w-5xl mb-6" style={{ letterSpacing: "-0.03em" }}>
-          Next-Generation Web Development & Business Automation in Chandigarh
-        </h1>
-        <p className="text-lg text-ink/55 max-w-4xl leading-relaxed mb-8">
-          Scale Your Tricity Business with Intelligent Web Infrastructure.
-        </p>
-        <p className="text-base text-ink/60 max-w-4xl leading-8 mb-10">
-          We build more than websites. From IT Park to Mohali, we engineer fast, conversion-optimized Elementor sites and automated GoHighLevel pipelines that turn local and global traffic into retained clients.
-        </p>
-        <div className="flex flex-wrap gap-3 mb-8">
-          <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-            Request Your Tricity Digital Audit
-            <span>→</span>
-          </Link>
-        </div>
-        <img
-          src="https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?auto=format&fit=crop&w=1600&q=80"
-          alt="Modern Chandigarh city infrastructure representing Tricity digital growth"
-          className="w-full rounded-3xl border border-ink/10"
-        />
-      </section>
-
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <div className="rounded-3xl border border-ink/10 bg-white p-8 md:p-10">
-          <p className="text-sm text-ink/70 leading-8">
-            Chandigarh is rapidly evolving into a premier digital and entrepreneurial hub. For startups, medical facilities, and service businesses across the Tricity (Chandigarh, Mohali, Panchkula), relying on outdated, static websites is a liability. Flux Media Creations bridges the gap between high-end visual design and back-end operational efficiency. We specialize in building robust digital ecosystems that capture leads, automate tedious follow-ups, and position your brand as the undisputed authority in the region.
-          </p>
+    <main className="bg-white">
+      <section className="relative h-screen flex items-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&h=900&fit=crop" alt="Chandigarh Cityscape" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent"></div>
+        <div className="relative container mx-auto px-4 flex justify-end">
+          <div className="max-w-2xl">
+            <div className="inline-block mb-6 text-sm font-medium text-flux bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2">Chandigarh, India (Tricity)</div>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">Advanced Digital Systems for Chandigarh's Growing Tech Ecosystem</h1>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">From Sector 17 to the tech corridor, we build high-converting websites and deploy sophisticated GoHighLevel CRM systems transforming Tricity businesses into digital-first powerhouses.</p>
+            <button style={{ background: "var(--flux)", color: "white" }} className="inline-flex px-8 py-4 rounded-full font-semibold hover:opacity-90 transition text-lg">
+              Claim Your Chandigarh Growth Advantage
+            </button>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Services</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <article key={service.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h2 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{service.title}</h2>
-              <p className="text-sm text-ink/60 leading-7">{service.body}</p>
-            </article>
-          ))}
+      <section className="section">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <p className="text-lg text-ink/70 leading-relaxed">Chandigarh is rapidly establishing itself as a hub for IT firms, professional services, and innovative startups. The planned city's business landscape is expanding exponentially. In this growing competitive environment, businesses require sophisticated digital infrastructure that captures both local market share and attracts clients from across India and globally.</p>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Why Choose Us</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {whyUs.map((item) => (
-            <article key={item.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h3 className="font-medium text-lg mb-3">{item.title}</h3>
-              <p className="text-sm text-ink/60 leading-7">{item.body}</p>
-            </article>
-          ))}
+      <section className="section bg-ink/2 rounded-3xl">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Services for Chandigarh's Ecosystem</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "High-Performance Web Development", description: "WordPress & Elementor websites optimized for speed, mobile-first indexing, and conversion pathways designed for Chandigarh's internet-savvy market." },
+              { title: "GoHighLevel CRM & Lead Automation", description: "Automated client lifecycle management with intelligent routing, SMS/Email sequences, and calendar scheduling eliminating manual follow-ups." },
+              { title: "Database & Operations Integration", description: "Airtable integration creating centralized lead management and project tracking visible real-time to your entire team." },
+              { title: "AI-Driven SEO & Market Optimization", description: "Entity-based optimization ensuring local dominance in Chandigarh while positioning your brand for Pan-India reach." },
+            ].map((service, idx) => (
+              <div key={idx} className="rounded-2xl border border-ink/10 bg-white p-8 hover:shadow-lg transition">
+                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
+                <p className="text-ink/60 leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <div className="rounded-3xl bg-ink text-cream p-8 md:p-10">
-          <p className="text-xs uppercase tracking-widest text-cream/40 mb-4">Local relevance</p>
-          <p className="text-sm md:text-base text-cream/80 leading-8">
-            The business landscape spanning from Sector 17 to the Mohali industrial area is highly competitive. Local clients demand modern interfaces and instant communication. Whether you are a specialized clinic needing secure patient booking systems or an IT service provider requiring advanced lead qualification, our solutions are engineered for this market. We provide the digital polish of a top-tier global agency with the localized understanding needed to capture the Chandigarh audience.
-          </p>
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Why Choose Flux for Chandigarh</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "Deep Chandigarh Market Understanding", description: "Expertise serving Chandigarh-specific sectors: IT firms, professional services, real estate, healthcare, and startups." },
+              { title: "Pan-India Positioning Strategy", description: "Build local authority while architecting systems for Pan-India reach and international visibility." },
+              { title: "Rapid Growth Mentality", description: "Systems designed to scale with your business. Grow from 5 to 50+ employees without rebuilding infrastructure." },
+              { title: "Measurable ROI Focus", description: "Track lead costs, conversion rates, and operational hours saved—every metric tied to business impact." },
+            ].map((item, idx) => (
+              <div key={idx} className="rounded-2xl border border-ink/10 bg-white p-8">
+                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                <p className="text-ink/60 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Process</p>
-        <div className="grid md:grid-cols-2 gap-5">
-          {process.map((step, idx) => (
-            <div key={step} className="rounded-3xl border border-ink/10 bg-white p-6">
-              <p className="text-xs text-ink/40 mb-2">0{idx + 1}</p>
-              <p className="text-sm text-ink/70 leading-7">{step}</p>
+      <section className="section bg-gradient-to-br from-flux/5 to-transparent rounded-3xl">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h3 className="text-3xl font-bold mb-6">Chandigarh's Market Opportunity</h3>
+          <p className="text-ink/70 leading-relaxed mb-6">Chandigarh presents a unique opportunity. The city is growing rapidly but competition for clients remains manageable compared to Delhi, Bangalore, or Mumbai. Businesses that establish strong digital positioning now will dominate their sectors for years to come.</p>
+          <p className="text-ink/70 leading-relaxed">Our automated systems position you as the market leader—faster to respond, more professional, and more capable of handling scale than any local competitor.</p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Our Chandigarh Success Process</h2>
+          <div className="grid md:grid-cols-5 gap-6">
+            {[
+              { step: "1", title: "Tricity Market Analysis", desc: "Sector-specific strategy + competitor analysis" },
+              { step: "2", title: "Brand & Web Architecture", desc: "Elementor design + local + Pan-India positioning" },
+              { step: "3", title: "Automation Configuration", desc: "GoHighLevel CRM setup + workflows" },
+              { step: "4", title: "Data Infrastructure", desc: "Airtable integration + operational setup" },
+              { step: "5", title: "Launch & Growth Scaling", desc: "SEO/GEO execution + market dominance" },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 rounded-full border-3 border-flux bg-white flex items-center justify-center font-bold text-2xl text-flux mx-auto mb-4">{item.step}</div>
+                <h4 className="font-bold mb-2">{item.title}</h4>
+                <p className="text-sm text-ink/60">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-ink/2 rounded-3xl">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-3xl font-bold mb-8 text-center">Results: Educational Consultancy</h2>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-flux">Problem</h4>
+              <p className="text-ink/70">Growing consultancy in Sector 34 handling student inquiries manually. No structured follow-up process causing lost leads and inconsistent conversion rates.</p>
             </div>
-          ))}
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-flux">Solution</h4>
+              <p className="text-ink/70">Built conversion-optimized site with GoHighLevel inquiry management system. Automated SMS/Email sequences nurturing students through entire decision journey. Airtable tracking all interactions and conversion funnels.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-flux">Outcome</h4>
+              <p className="text-ink/70"><strong>Enrollment conversion rate increased 35%</strong> | <strong>Lead follow-up time reduced 80%</strong> | <strong>Team capacity increased without hiring</strong>.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <div className="rounded-3xl border border-ink/10 bg-white p-8 md:p-10">
-          <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Case study / results</p>
-          <h2 className="font-display text-3xl font-semibold mb-6" style={{ letterSpacing: "-0.03em" }}>
-            35% higher enrollment conversion and zero manual entry
-          </h2>
-          <p className="text-sm text-ink/65 leading-7 mb-4">
-            Problem: A growing educational consultancy in Sector 34 was overwhelmed by manual lead tracking across WhatsApp and email, resulting in delayed responses and lost enrollments.
-          </p>
-          <p className="text-sm text-ink/65 leading-7 mb-4">
-            Solution: We deployed a high-speed Elementor landing page integrated directly into a custom GoHighLevel pipeline. Leads were instantly routed, greeted with an automated WhatsApp/SMS sequence, and synced into an Airtable management system.
-          </p>
-          <p className="text-sm text-ink/65 leading-7">
-            Outcome: The consultancy increased their student enrollment conversion rate by 35% and completely eliminated manual data entry.
-          </p>
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">How Flux Compares</h2>
+          <div className="overflow-x-auto rounded-2xl border border-ink/10">
+            <table className="w-full">
+              <thead className="bg-ink text-white">
+                <tr>
+                  <th className="px-6 py-4 text-left font-bold">Feature</th>
+                  <th className="px-6 py-4 text-center font-bold">Generic Agencies</th>
+                  <th className="px-6 py-4 text-center font-bold">Freelancers</th>
+                  <th className="px-6 py-4 text-center font-bold">Flux Media</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-ink/10">
+                {[
+                  { feature: "CRM Automation", generic: "❌", freelance: "❌", flux: "✅" },
+                  { feature: "Lead Qualification", generic: "❌", freelance: "❌", flux: "✅" },
+                  { feature: "Scaling Capability", generic: "⚠️", freelance: "❌", flux: "✅" },
+                  { feature: "Pan-India Reach", generic: "❌", freelance: "❌", flux: "✅" },
+                  { feature: "Ongoing Support", generic: "❌", freelance: "❌", flux: "✅" },
+                ].map((row, idx) => (
+                  <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-ink/2"}>
+                    <td className="px-6 py-4 font-semibold text-ink">{row.feature}</td>
+                    <td className="px-6 py-4 text-center text-ink/60">{row.generic}</td>
+                    <td className="px-6 py-4 text-center text-ink/60">{row.freelance}</td>
+                    <td className="px-6 py-4 text-center font-bold text-flux">{row.flux}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80"
-          alt="Team collaboration and lead automation planning for Chandigarh businesses"
-          className="w-full rounded-3xl border border-ink/10"
-        />
-      </section>
-
-      <section className="section-sm max-w-[1200px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">FAQs</p>
-        <div className="grid md:grid-cols-3 gap-5">
-          {faqs.map((faq) => (
-            <article key={faq.q} className="rounded-3xl border border-ink/10 bg-white p-6">
-              <h3 className="font-medium mb-2 text-sm">{faq.q}</h3>
-              <p className="text-sm text-ink/60 leading-7">{faq.a}</p>
-            </article>
-          ))}
+      <section className="section bg-gradient-to-br from-ink to-ink/90 text-white rounded-3xl">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">What Chandigarh Clients Say</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: "Vikram Patel", title: "IT Staffing Firm, Sector 17", quote: "Found qualified clients consistently. Our response time is now legendary in our market." },
+              { name: "Neha Sharma", title: "Educational Consultancy, Sector 34", quote: "Enrollment rates up 35%. Automation handles everything. We're competing with Delhi-level firms." },
+              { name: "Rajesh Kumar", title: "Tech Services, Zirakpur", quote: "Went from struggling startup to professional powerhouse. Our clients see no difference vs big Delhi firms." },
+            ].map((testimonial, idx) => (
+              <div key={idx} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-8">
+                <p className="text-lg mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
+                <div>
+                  <p className="font-bold">{testimonial.name}</p>
+                  <p className="text-sm text-white/70">{testimonial.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-sm max-w-[1200px] mx-auto pt-0 pb-20">
-        <div className="rounded-3xl bg-ink text-cream p-8 md:p-12 text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
-            Ready to dominate the Tricity market and beyond?
-          </h2>
-          <p className="text-sm md:text-base text-cream/75 max-w-3xl mx-auto leading-7 mb-8">
-            Let us architect a digital system that drives serious growth.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-            Book Your Chandigarh Strategy Session
-            <span>→</span>
-          </Link>
+      <section className="section">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              { question: "Can you help us expand beyond Chandigarh to Pan-India?", answer: "Yes. Our systems are architected for Pan-India scaling with location-specific SEO strategies while maintaining unified lead management." },
+              { question: "How does automation help growing startups?", answer: "Automation lets small teams compete with larger firms. Handle 10x the leads without proportional hiring—that's our core value proposition." },
+              { question: "Do you provide training for our team?", answer: "Yes. We provide comprehensive training on platform usage, best practices, and ongoing optimization workshops." },
+            ].map((faq, idx) => (
+              <div key={idx} className="rounded-2xl border border-ink/10 bg-white p-8">
+                <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
+                <p className="text-ink/60 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-    </>
+
+      <section style={{ background: "var(--flux)" }} className="section text-white text-center rounded-3xl">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Your Chandigarh competitors are still using manual processes.</h2>
+          <p className="text-lg mb-8 text-white/90">Be the market leader. Build automated digital infrastructure that transforms your business.</p>
+          <button style={{ background: "white", color: "var(--flux)" }} className="inline-flex px-8 py-4 rounded-full font-semibold hover:opacity-90 transition text-lg">
+            Book Your Chandigarh Growth Strategy
+          </button>
+        </div>
+      </section>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "Can you help us expand beyond Chandigarh?", acceptedAnswer: { "@type": "Answer", text: "Yes. Our systems are architected for Pan-India scaling with location-specific SEO while maintaining unified lead management." } }, { "@type": "Question", name: "How does automation help growing startups?", acceptedAnswer: { "@type": "Answer", text: "Automation lets small teams compete with larger firms. Handle 10x leads without proportional hiring." } }, { "@type": "Question", name: "Do you provide team training?", acceptedAnswer: { "@type": "Answer", text: "Yes. We provide comprehensive training on platform usage, best practices, and ongoing optimization workshops." } }] }) }} />
+    </main>
   );
 }
