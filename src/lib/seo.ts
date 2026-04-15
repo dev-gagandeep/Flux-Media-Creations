@@ -3,6 +3,7 @@ import { SITE } from "./constants";
 
 interface SeoProps {
   title?: string;
+  absoluteTitle?: string;
   description?: string;
   path?: string;
   image?: string;
@@ -10,11 +11,12 @@ interface SeoProps {
 
 export function generateMeta({
   title,
+  absoluteTitle,
   description = SITE.description,
   path = "",
   image = "/og-image.jpg",
 }: SeoProps = {}): Metadata {
-  const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
+  const fullTitle = absoluteTitle ?? (title ? `${title} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`);
   const url = `${SITE.url}${path}`;
 
   return {
