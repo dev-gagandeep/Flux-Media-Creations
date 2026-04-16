@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG_POSTS, SERVICES, SITE, type BlogPost } from "@/lib/constants";
+import { BLOG_DETAILS } from "@/lib/blog-detail";
 import { generateMeta } from "@/lib/seo";
 
 type BlogPostPageProps = {
@@ -150,8 +151,9 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   }
 
   return generateMeta({
+    absoluteTitle: post.metaTitle,
     title: post.title,
-    description: post.excerpt,
+    description: post.metaDescription ?? post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.cover,
   });
@@ -165,6 +167,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const { blocks, toc } = parseBlogContent(post);
+  const detail = BLOG_DETAILS[post.slug];
   const inlineImages = BLOG_INLINE_IMAGES[post.slug] ?? [];
   const recentPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug).slice(0, 3);
   const sidebarPosts = recentPosts.length > 0 ? recentPosts : BLOG_POSTS.slice(0, 3);
@@ -172,104 +175,196 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     acc[item.category] = (acc[item.category] ?? 0) + 1;
     return acc;
   }, {});
+  const faqSchema = post.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+  const howToSchema =
+    detail?.schemaType === "HowTo" && detail.howTo
+      ? {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: post.title,
+          description: post.metaDescription ?? post.excerpt,
+          author: {
+            "@type": "Person",
+            name: "Gagan Deep",
+            url: `${SITE.url}/about`,
+            jobTitle: "Founder, Flux Media Creations",
+            worksFor: {
+              "@type": "Organization",
+              name: SITE.name,
+              url: SITE.url,
+            },
+          },
+          publisher: {
+            "@type": "Organization",
+            name: SITE.name,
+            url: SITE.url,
+          },
+          datePublished: post.date,
+          dateModified: post.date,
+          image: `${SITE.url}${post.cover}`,
+          step: detail.howTo.steps.map((step, index) => ({
+            "@type": "HowToStep",
+            name: step.name,
+            text: step.text,
+            position: index + 1,
+          })),
+          tool: detail.howTo.tools?.map((tool) => ({
+            "@type": "HowToTool",
+            name: tool,
+          })),
+          totalTime: detail.howTo.totalTime,
+        }
+      : null;
 
   return (
-    <article className="section pt-32 max-w-[1320px] mx-auto">
-      <Link href="/blog" className="text-sm text-ink/45 hover:text-flux transition-colors">
-        ← Back to blog
-      </Link>
+    <>
+      {howToSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} /> : null}
+      {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> : null}
 
-      <div className="max-w-4xl mt-8 mb-12">
-        <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">{post.category}</p>
-        <h1 className="font-display text-4xl md:text-6xl font-semibold mb-6" style={{ letterSpacing: "-0.03em" }}>
-          {post.title}
-        </h1>
+      <article className="section pt-32 max-w-[1320px] mx-auto">
+        <Link href="/blog" className="text-sm text-ink/45 hover:text-flux transition-colors">
+          ← Back to blog
+        </Link>
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-ink/40 border-y border-ink/10 py-4">
-          <span>{new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
-          <span>•</span>
-          <span>{post.readTime}</span>
-          <span>•</span>
-          <span>By {post.author}</span>
+        <div className="max-w-4xl mt-8 mb-12">
+          <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">{post.category}</p>
+          <h1 className="font-display text-4xl md:text-6xl font-semibold mb-6" style={{ letterSpacing: "-0.03em" }}>
+            {post.title}
+          </h1>
+
+          <div className="flex flex-wrap items-center gap-4 text-sm text-ink/40 border-y border-ink/10 py-4">
+            <span>{new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+            <span>•</span>
+            <span>{post.readTime}</span>
+            <span>•</span>
+            <span>By {post.author}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-        <div className="order-2 lg:order-1 space-y-6 text-base leading-8 text-ink/75">
-          {blocks.map((block, index) => (
-            <div key={`block-${index}`} className="space-y-6">
-              {block.type === "section" ? (
-                <section id={block.id} className="scroll-mt-32 space-y-5">
-                  {block.level === 2 ? (
-                    <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink" style={{ letterSpacing: "-0.02em" }}>
-                      {block.title}
-                    </h2>
-                  ) : (
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-ink" style={{ letterSpacing: "-0.02em" }}>
-                      {block.title}
-                    </h3>
-                  )}
-                  {block.body ? renderParagraphWithLinks(block.body, `section-${index}`) : null}
-                </section>
-              ) : (
-                renderParagraphWithLinks(block.body, `paragraph-${index}`)
-              )}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+          <div className="order-2 lg:order-1 space-y-6 text-base leading-8 text-ink/75">
+            {blocks.map((block, index) => (
+              <div key={`block-${index}`} className="space-y-6">
+                {block.type === "section" ? (
+                  <section id={block.id} className="scroll-mt-32 space-y-5">
+                    {block.level === 2 ? (
+                      <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink" style={{ letterSpacing: "-0.02em" }}>
+                        {block.title}
+                      </h2>
+                    ) : (
+                      <h3 className="font-display text-xl md:text-2xl font-semibold text-ink" style={{ letterSpacing: "-0.02em" }}>
+                        {block.title}
+                      </h3>
+                    )}
+                    {block.body ? renderParagraphWithLinks(block.body, `section-${index}`) : null}
+                  </section>
+                ) : (
+                  renderParagraphWithLinks(block.body, `paragraph-${index}`)
+                )}
 
-              {inlineImages
-                .filter((image) => image.insertAfter === index)
-                .map((image) => (
-                  <figure key={`${image.src}-${index}`} className="overflow-hidden rounded-lg border border-ink/10 bg-white">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={1400}
-                      height={900}
-                      className="w-full h-auto"
-                    />
-                    <figcaption className="px-4 py-3 text-sm text-ink/55">{image.caption}</figcaption>
-                  </figure>
-                ))}
-            </div>
-          ))}
-
-          {post.faq?.length ? (
-            <section id="faqs" className="scroll-mt-32 pt-4">
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink mb-6" style={{ letterSpacing: "-0.02em" }}>
-                FAQs
-              </h2>
-              <div className="space-y-4">
-                {post.faq.map((item) => (
-                  <div key={item.question} className="rounded-lg border border-ink/10 bg-white px-5 py-4">
-                    <h3 className="font-medium text-ink mb-2">{item.question}</h3>
-                    <p className="text-sm leading-7 text-ink/65">{item.answer}</p>
-                  </div>
-                ))}
+                {inlineImages
+                  .filter((image) => image.insertAfter === index)
+                  .map((image) => (
+                    <figure key={`${image.src}-${index}`} className="overflow-hidden rounded-lg border border-ink/10 bg-white">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={1400}
+                        height={900}
+                        className="w-full h-auto"
+                      />
+                      <figcaption className="px-4 py-3 text-sm text-ink/55">{image.caption}</figcaption>
+                    </figure>
+                  ))}
               </div>
-            </section>
-          ) : null}
-        </div>
+            ))}
 
-        <aside className="order-1 lg:order-2">
-          <div className="lg:sticky lg:top-28 space-y-4">
-            {toc.length ? (
-              <section className="rounded-lg border border-ink/10 bg-white p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Table of Contents</p>
-                <nav aria-label="Table of contents">
-                  <ul className="space-y-2.5 text-sm text-ink/65">
-                    {toc.map((item) => (
-                      <li key={item.id}>
-                        <a
-                          href={`#${item.id}`}
-                          className={`block hover:text-flux transition-colors ${item.level === 3 ? "pl-4 text-[13px]" : ""}`}
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+            {post.faq?.length ? (
+              <section id="faqs" className="scroll-mt-32 pt-4">
+                <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink mb-6" style={{ letterSpacing: "-0.02em" }}>
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-4">
+                  {post.faq.map((item) => (
+                    <div key={item.question} className="rounded-lg border border-ink/10 bg-white px-5 py-4">
+                      <h3 className="font-medium text-ink mb-2">{item.question}</h3>
+                      <p className="text-sm leading-7 text-ink/65">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
               </section>
             ) : null}
+
+            {post.authorBio ? (
+              <section className="rounded-lg border border-ink/10 bg-white p-6">
+                <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">About the Author</p>
+                <p className="text-sm leading-7 text-ink/68 mb-4">{post.authorBio.body}</p>
+                {post.authorBio.links?.length ? (
+                  <div className="flex flex-wrap gap-3">
+                    {post.authorBio.links.map((link) => (
+                      <Link key={link.href} href={link.href} className="text-sm font-medium text-flux hover:underline">
+                        {link.label} →
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </section>
+            ) : null}
+
+            {post.relatedPosts?.length ? (
+              <section className="rounded-lg border border-ink/10 bg-white p-6">
+                <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Related Posts</p>
+                <ul className="space-y-3 text-sm leading-7 text-ink/68">
+                  {post.relatedPosts.map((item) => (
+                    <li key={item.label}>
+                      {item.href ? (
+                        <Link href={item.href} className="text-flux hover:underline">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span>{item.label}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
+          </div>
+
+          <aside className="order-1 lg:order-2">
+            <div className="lg:sticky lg:top-28 space-y-4">
+              {toc.length ? (
+                <section className="rounded-lg border border-ink/10 bg-white p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Table of Contents</p>
+                  <nav aria-label="Table of contents">
+                    <ul className="space-y-2.5 text-sm text-ink/65">
+                      {toc.map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={`#${item.id}`}
+                            className={`block hover:text-flux transition-colors ${item.level === 3 ? "pl-4 text-[13px]" : ""}`}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </section>
+              ) : null}
 
             <section className="rounded-lg bg-[#1D1738] p-5 text-white">
               <p className="text-lg font-display font-semibold mb-2" style={{ letterSpacing: "-0.02em" }}>
@@ -344,9 +439,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 <span aria-hidden="true">↗</span>
               </a>
             </section>
-          </div>
-        </aside>
-      </div>
-    </article>
+            </div>
+          </aside>
+        </div>
+      </article>
+    </>
   );
 }
