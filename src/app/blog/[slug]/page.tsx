@@ -58,6 +58,14 @@ const BLOG_INLINE_IMAGES: Record<
       insertAfter: 24,
     },
   ],
+  "how-to-set-up-gohighlevel-missed-call-text-back": [
+    {
+      src: "/images/blog/go-high-level.webp",
+      alt: "GoHighLevel automation dashboard showing conversations, workflows, and lead management tools.",
+      caption: "A missed call text-back workflow belongs inside a wider lead-response system, not as a disconnected one-off automation.",
+      insertAfter: 12,
+    },
+  ],
 };
 
 function slugify(input: string) {
