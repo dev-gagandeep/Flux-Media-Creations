@@ -4,7 +4,7 @@ export const SITE = {
   description:
     "We build high-converting WordPress websites and GoHighLevel automation systems for healthcare clinics and home service businesses across the US. From design to deployment — fully connected.",
   url: "https://fluxmediacreations.com",
-  email: "fluxmediacreations@gmail.com",
+  email: "contact@fluxmediacreations.com",
   phone: "+91 6284957892",
   whatsapp: "916284957892",
   location: "India — Serving US clients remotely",

@@ -145,7 +145,7 @@ export const schemaHomeAgency = {
     "Flux Media Creations builds conversion-first WordPress websites, GoHighLevel CRM automations, and integrated growth systems for US businesses that can't afford to lose a single lead.",
   slogan: "Websites & Automation That Work While You Sleep",
   foundingDate: "2022",
-  email: "fluxmediacreations@gmail.com",
+  email: "contact@fluxmediacreations.com",
   telephone: "+916284957892",
   contactPoint: {
     "@type": "ContactPoint",

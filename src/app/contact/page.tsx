@@ -28,7 +28,7 @@ const BUDGETS = [
   "Let's discuss",
 ];
 
-const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/xeevqevv";
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/xbdqqvjy";
 
 export default function ContactPage() {
   const [step, setStep] = useState(1);
