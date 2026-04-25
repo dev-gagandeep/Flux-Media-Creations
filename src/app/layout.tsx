@@ -1,5 +1,6 @@
 import "./globals.css";
 import { generateMeta, schemaWebsite } from "@/lib/seo";
+import ChatbotWrapper from "@/components/chatbot/ChatbotWrapper";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import RouteSchemas from "@/components/seo/RouteSchemas";
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-cream text-ink overflow-x-hidden">
         <RouteSchemas />
         <RootLayoutClient>{children}</RootLayoutClient>
+        <ChatbotWrapper />
       </body>
     </html>
   );
