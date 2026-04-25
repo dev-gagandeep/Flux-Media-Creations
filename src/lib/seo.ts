@@ -146,10 +146,10 @@ export const schemaHomeAgency = {
   slogan: "Websites & Automation That Work While You Sleep",
   foundingDate: "2022",
   email: "contact@fluxmediacreations.com",
-  telephone: "+916284957892",
+  telephone: "+17789836113",
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+916284957892",
+    telephone: "+17789836113",
     contactType: "customer support",
     availableLanguage: "English",
     areaServed: ["US", "GB", "CA", "IN"],
@@ -229,7 +229,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: ["https://wa.me/916284957892", "https://gagandeep.space", SITE.instagramUrl],
+  sameAs: ["https://wa.me/17789836113", "https://gagandeep.space", SITE.instagramUrl],
 };
 
 export const schemaHomeFaq = {

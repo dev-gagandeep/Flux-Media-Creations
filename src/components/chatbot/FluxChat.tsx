@@ -12,57 +12,41 @@ interface Message {
 }
 
 const QUICK_PROMPTS = [
-  { label: "Pricing", text: "What are your prices?" },
-  { label: "How fast?", text: "How quickly can you build a website?" },
-  { label: "GHL setup", text: "Can you set up GoHighLevel for my business?" },
-  { label: "Book a call", text: "I want to book a free discovery call" },
-  { label: "Healthcare", text: "Do you work with healthcare clinics?" },
-  { label: "What is AEO?", text: "What is AEO and AI search optimisation?" },
+  { emoji: "💰", label: "Pricing", text: "What are your prices for a website?" },
+  { emoji: "⚡", label: "How fast?", text: "How quickly can you deliver?" },
+  { emoji: "🔧", label: "GHL setup", text: "Can you set up GoHighLevel for my business?" },
+  { emoji: "📞", label: "Book a call", text: "I want to book a free discovery call" },
+  { emoji: "🏥", label: "Healthcare", text: "Do you work with healthcare clinics?" },
+  { emoji: "🌍", label: "Your work", text: "Show me some websites you've built" },
 ];
 
-const GREETING = `Hey, I'm Flux, the AI assistant for Flux Media Creations.
+const GREETING = `Hey! I'm **Flux** - the assistant for **Flux Media Creations**.
 
 I can help you with:
-- services and pricing
-- how we build websites and automations
-- portfolio examples
-- getting a quote
-- booking a free discovery call
+- Services and pricing
+- How we build websites and automations
+- Portfolio examples
+- Getting a quote
+- Booking a free discovery call
 
 What would you like to know?`;
 
-function renderMarkdown(text: string): string {
+function renderMd(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    .replace(/`(.+?)`/g, "<code>$1</code>")
-    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    .replace(
+      /`(.+?)`/g,
+      '<code style="background:rgba(13,13,13,0.07);padding:1px 5px;border-radius:4px;font-size:0.88em;font-family:monospace">$1</code>'
+    )
+    .replace(/^### (.+)$/gm, '<p style="font-weight:700;margin:8px 0 3px;font-family:Clash Display,sans-serif">$1</p>')
     .replace(/^- (.+)$/gm, "<li>$1</li>")
-    .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
-    .replace(/\n\n/g, "</p><p>")
-    .replace(/\n/g, "<br/>")
-    .replace(/^(.+)$/, "<p>$1</p>");
+    .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, (match) => `<ul style="margin:6px 0 6px 16px;display:flex;flex-direction:column;gap:3px">${match}</ul>`)
+    .replace(/\n\n/g, '<div style="height:8px"></div>')
+    .replace(/\n/g, "<br/>");
 }
 
-function TypingIndicator() {
-  return (
-    <div className="flex items-center gap-1.5 py-0.5">
-      {[0, 1, 2].map((i) => (
-        <span
-          key={i}
-          className="h-1.5 w-1.5 rounded-full"
-          style={{
-            background: "var(--flux)",
-            animation: `chatDot 1.2s ease-in-out ${i * 0.18}s infinite`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function MessageBubble({ msg }: { msg: Message }) {
+function Bubble({ msg }: { msg: Message }) {
   const isUser = msg.role === "user";
 
   return (
@@ -70,42 +54,76 @@ function MessageBubble({ msg }: { msg: Message }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex items-end gap-3 ${isUser ? "flex-row-reverse" : "flex-row"}`}
+      style={{ display: "flex", gap: 10, flexDirection: isUser ? "row-reverse" : "row", alignItems: "flex-end" }}
     >
       {!isUser && (
         <div
-          className="mb-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold"
-          style={{ background: "var(--flux)", color: "white", fontFamily: "Clash Display, sans-serif" }}
+          style={{
+            width: 30,
+            height: 30,
+            borderRadius: "50%",
+            background: "#FF5C35",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: 700,
+            fontSize: 12,
+            color: "white",
+            flexShrink: 0,
+            fontFamily: "Clash Display, sans-serif",
+            marginBottom: 2,
+          }}
         >
           F
         </div>
       )}
 
       <div
-        className={`relative max-w-[82%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-          isUser ? "rounded-br-sm text-white" : "rounded-bl-sm"
-        }`}
-        style={
-          isUser
-            ? { background: "var(--ink)", color: "#FAF8F4" }
-            : {
-                background: "white",
-                color: "var(--ink)",
-                border: "1px solid rgba(13,13,13,0.08)",
-                boxShadow: "0 1px 8px rgba(0,0,0,0.06)",
-              }
-        }
+        style={{
+          maxWidth: "82%",
+          padding: "10px 14px",
+          borderRadius: isUser ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
+          fontSize: 13.5,
+          lineHeight: 1.6,
+          background: isUser ? "#0D0D0D" : "white",
+          color: isUser ? "#FAF8F4" : "#0D0D0D",
+          border: isUser ? "none" : "1px solid rgba(13,13,13,0.08)",
+          boxShadow: isUser ? "none" : "0 1px 8px rgba(0,0,0,0.07)",
+        }}
       >
         {msg.streaming && msg.content === "" ? (
-          <TypingIndicator />
+          <div style={{ display: "flex", gap: 5, padding: "3px 0" }}>
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                style={{
+                  width: 7,
+                  height: 7,
+                  borderRadius: "50%",
+                  background: "#FF5C35",
+                  display: "block",
+                  animation: `fluxDot 1.2s ease-in-out ${i * 0.18}s infinite`,
+                }}
+              />
+            ))}
+          </div>
         ) : (
-          <div className="chat-content" dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }} />
-        )}
-        {msg.streaming && msg.content !== "" && (
-          <span
-            className="ml-0.5 inline-block h-3.5 w-1 rounded-sm align-middle animate-pulse"
-            style={{ background: "var(--flux)" }}
-          />
+          <>
+            <div dangerouslySetInnerHTML={{ __html: renderMd(msg.content) }} />
+            {msg.streaming && (
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 2,
+                  height: 14,
+                  background: "#FF5C35",
+                  marginLeft: 2,
+                  verticalAlign: "middle",
+                  animation: "fluxCursor 0.8s ease-in-out infinite",
+                }}
+              />
+            )}
+          </>
         )}
       </div>
     </motion.div>
@@ -115,7 +133,7 @@ function MessageBubble({ msg }: { msg: Message }) {
 export default function FluxChat() {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
+  const [msgs, setMsgs] = useState<Message[]>([
     { id: "0", role: "assistant", content: GREETING, timestamp: new Date() },
   ]);
   const [input, setInput] = useState("");
@@ -123,19 +141,14 @@ export default function FluxChat() {
   const [showQuick, setShowQuick] = useState(true);
   const [unread, setUnread] = useState(0);
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const abortRef = useRef<AbortController | null>(null);
-
-  const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
 
   useEffect(() => {
     if (open) {
-      scrollToBottom();
+      endRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages, open, scrollToBottom]);
+  }, [msgs, open]);
 
   useEffect(() => {
     if (open) {
@@ -143,12 +156,6 @@ export default function FluxChat() {
       window.setTimeout(() => inputRef.current?.focus(), 350);
     }
   }, [open]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-    e.target.style.height = "auto";
-    e.target.style.height = `${Math.min(e.target.scrollHeight, 120)}px`;
-  };
 
   const sendMessage = useCallback(
     async (text: string) => {
@@ -163,108 +170,42 @@ export default function FluxChat() {
         inputRef.current.style.height = "auto";
       }
 
-      const userMsg: Message = {
-        id: Date.now().toString(),
-        role: "user",
-        content: trimmed,
-        timestamp: new Date(),
-      };
+      const userMsg: Message = { id: `u${Date.now()}`, role: "user", content: trimmed, timestamp: new Date() };
+      const assistantMsgId = `a${Date.now() + 1}`;
+      const assistantMsg: Message = { id: assistantMsgId, role: "assistant", content: "", timestamp: new Date(), streaming: true };
 
-      const assistantMsgId = (Date.now() + 1).toString();
-      const assistantMsg: Message = {
-        id: assistantMsgId,
-        role: "assistant",
-        content: "",
-        timestamp: new Date(),
-        streaming: true,
-      };
-
-      setMessages((prev) => [...prev, userMsg, assistantMsg]);
+      setMsgs((prev) => [...prev, userMsg, assistantMsg]);
       setLoading(true);
 
       if (!open) {
         setUnread((count) => count + 1);
       }
 
-      const history = [...messages, userMsg].map((message) => ({
-        role: message.role,
-        content: message.content,
-      }));
+      const reply = getFallbackResponse(trimmed);
+      let i = 0;
 
-      try {
-        abortRef.current = new AbortController();
+      const interval = window.setInterval(() => {
+        i += 1;
+        const partial = reply.slice(0, i * 3);
+        const isStreaming = i * 3 < reply.length;
 
-        const response = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages: history }),
-          signal: abortRef.current.signal,
-        });
-
-        if (!response.ok) {
-          throw new Error("API error");
-        }
-
-        const reader = response.body?.getReader();
-        if (!reader) {
-          throw new Error("No stream");
-        }
-
-        const decoder = new TextDecoder();
-        let fullText = "";
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) {
-            break;
-          }
-
-          const chunk = decoder.decode(value, { stream: true });
-          const lines = chunk.split("\n").filter((line) => line.startsWith("data: "));
-
-          for (const line of lines) {
-            try {
-              const data = JSON.parse(line.slice(6));
-              if (data.text) {
-                fullText += data.text;
-                setMessages((prev) =>
-                  prev.map((message) =>
-                    message.id === assistantMsgId ? { ...message, content: fullText, streaming: true } : message
-                  )
-                );
-              }
-            } catch {
-              // Ignore partial event payloads.
-            }
-          }
-        }
-
-        setMessages((prev) =>
-          prev.map((message) => (message.id === assistantMsgId ? { ...message, streaming: false } : message))
-        );
-      } catch (error: unknown) {
-        if (error instanceof Error && error.name === "AbortError") {
-          return;
-        }
-
-        setMessages((prev) =>
+        setMsgs((prev) =>
           prev.map((message) =>
-            message.id === assistantMsgId
-              ? {
-                  ...message,
-                  content:
-                    "Sorry, something went wrong. Please email us at **contact@fluxmediacreations.com** or WhatsApp **+91 6284957892**.",
-                  streaming: false,
-                }
-              : message
+            message.id === assistantMsgId ? { ...message, content: partial, streaming: isStreaming } : message
           )
         );
-      } finally {
-        setLoading(false);
-        abortRef.current = null;
+
+        if (!isStreaming) {
+          window.clearInterval(interval);
+          setLoading(false);
+        }
+      }, 15);
+
+      return () => {
+        window.clearInterval(interval);
       }
     },
-    [loading, messages, open]
+    [loading, open]
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -274,160 +215,214 @@ export default function FluxChat() {
     }
   };
 
-  const stopStreaming = () => {
-    abortRef.current?.abort();
-    setLoading(false);
-    setMessages((prev) => prev.map((message) => (message.streaming ? { ...message, streaming: false } : message)));
-  };
-
   const clearChat = () => {
-    setMessages([{ id: "0", role: "assistant", content: GREETING, timestamp: new Date() }]);
+    setMsgs([{ id: "0", role: "assistant", content: GREETING, timestamp: new Date() }]);
     setShowQuick(true);
+    setLoading(false);
   };
 
-  const chatWidth = expanded ? "min(700px, 95vw)" : "min(420px, 95vw)";
-  const chatHeight = expanded ? "min(700px, 90vh)" : "min(600px, 80vh)";
+  const chatWidth = expanded ? "min(680px, 96vw)" : "min(400px, 96vw)";
+  const chatHeight = expanded ? "min(680px, 88vh)" : "min(580px, 82vh)";
 
   return (
     <>
       <style>{`
-        @keyframes chatDot {
-          0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
-          40% { transform: scale(1); opacity: 1; }
+        @keyframes fluxDot {
+          0%,80%,100% { transform:scale(0.6); opacity:0.35; }
+          40% { transform:scale(1); opacity:1; }
         }
-        @keyframes chatPulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(255, 92, 53, 0.4); }
-          50% { box-shadow: 0 0 0 8px rgba(255, 92, 53, 0); }
+        @keyframes fluxCursor {
+          0%,100% { opacity:1; }
+          50% { opacity:0; }
         }
-        .chat-content p { margin-bottom: 0.6em; }
-        .chat-content p:last-child { margin-bottom: 0; }
-        .chat-content ul { margin: 0.4em 0 0.6em 1.2em; }
-        .chat-content li { margin-bottom: 0.2em; list-style: disc; }
-        .chat-content strong { font-weight: 600; }
-        .chat-content code {
-          background: rgba(13, 13, 13, 0.07);
-          padding: 1px 5px;
-          border-radius: 4px;
-          font-size: 0.85em;
-          font-family: monospace;
+        @keyframes fluxPulse {
+          0%,100% { box-shadow:0 4px 20px rgba(255,92,53,0.45); }
+          50% { box-shadow:0 4px 20px rgba(255,92,53,0.45),0 0 0 10px rgba(255,92,53,0.08); }
         }
-        .chat-content h2,
-        .chat-content h3 {
-          font-weight: 600;
-          margin: 0.5em 0 0.3em;
-          font-family: "Clash Display", sans-serif;
+        .flux-scroll::-webkit-scrollbar { width:3px; }
+        .flux-scroll::-webkit-scrollbar-thumb { background:rgba(13,13,13,0.1); border-radius:2px; }
+        .flux-scroll::-webkit-scrollbar-track { background:transparent; }
+        .flux-ta { scrollbar-width:none; }
+        .flux-ta::-webkit-scrollbar { display:none; }
+        .flux-qbtn {
+          font-size:11.5px;
+          padding:5px 11px;
+          border-radius:100px;
+          border:1px solid rgba(13,13,13,0.11);
+          background:white;
+          color:#0D0D0D;
+          cursor:pointer;
+          font-family:Satoshi,Inter,sans-serif;
+          transition:all 0.15s;
+          white-space:nowrap;
         }
-        .chat-scroll::-webkit-scrollbar { width: 4px; }
-        .chat-scroll::-webkit-scrollbar-track { background: transparent; }
-        .chat-scroll::-webkit-scrollbar-thumb {
-          background: rgba(13, 13, 13, 0.12);
-          border-radius: 2px;
+        .flux-qbtn:hover { border-color:#FF5C35; color:#FF5C35; transform:translateY(-1px); }
+        .flux-hbtn {
+          width:30px;
+          height:30px;
+          border-radius:8px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          cursor:pointer;
+          color:rgba(250,248,244,0.45);
+          background:transparent;
+          border:none;
+          transition:background 0.15s;
+          flex-shrink:0;
         }
-        .chat-input-area::-webkit-scrollbar { display: none; }
-        .chat-fab-pulse { animation: chatPulse 2s ease-in-out infinite; }
+        .flux-hbtn:hover { background:rgba(255,255,255,0.1); }
+        .flux-send:hover { opacity:0.88; }
+        .flux-send:active { transform:scale(0.9); }
+        .flux-fab:hover { transform:scale(1.08); }
+        .flux-fab:active { transform:scale(0.93); }
       `}</style>
 
-      <div className="fixed bottom-6 right-6 z-[9998] flex flex-col items-end gap-3">
+      <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 9998, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
         <AnimatePresence>
           {!open && (
             <motion.div
               initial={{ opacity: 0, y: 8, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.9 }}
-              transition={{ delay: 1.5, duration: 0.4 }}
-              className="cursor-pointer select-none rounded-full px-3.5 py-2 text-xs font-medium shadow-lg"
+              transition={{ delay: 1.8, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                background: "var(--ink)",
+                background: "#0D0D0D",
                 color: "#FAF8F4",
-                fontFamily: "Satoshi, sans-serif",
+                fontSize: 12.5,
+                fontWeight: 500,
+                padding: "8px 14px",
+                borderRadius: 100,
+                cursor: "pointer",
                 whiteSpace: "nowrap",
+                fontFamily: "Satoshi, Inter, sans-serif",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
               }}
               onClick={() => setOpen(true)}
             >
-              Chat with us
+              💬 Chat with us
             </motion.div>
           )}
         </AnimatePresence>
 
-        <motion.button
+        <button
           onClick={() => setOpen((isOpen) => !isOpen)}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.93 }}
-          className="chat-fab-pulse relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl"
-          style={{ background: "var(--flux)", color: "white" }}
-          aria-label={open ? "Close chat" : "Open chat"}
+          className="flux-fab"
+          style={{
+            width: 56,
+            height: 56,
+            borderRadius: "50%",
+            background: "#FF5C35",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "none",
+            cursor: "pointer",
+            position: "relative",
+            animation: "fluxPulse 2.5s ease-in-out infinite",
+            transition: "transform 0.2s cubic-bezier(0.16,1,0.3,1)",
+            boxShadow: "0 4px 20px rgba(255,92,53,0.45)",
+          }}
         >
           <AnimatePresence mode="wait">
             {open ? (
               <motion.span
-                key="close"
+                key="x"
                 initial={{ rotate: -90, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="select-none text-xl leading-none"
+                transition={{ duration: 0.18 }}
+                style={{ fontSize: 18, color: "white", lineHeight: 1, fontWeight: 300 }}
               >
-                x
+                ✕
               </motion.span>
             ) : (
               <motion.span
-                key="open"
+                key="c"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="text-2xl leading-none"
+                transition={{ duration: 0.18 }}
+                style={{ fontSize: 24, lineHeight: 1 }}
               >
-                ?
+                💬
               </motion.span>
             )}
           </AnimatePresence>
 
           <AnimatePresence>
             {unread > 0 && !open && (
-              <motion.span
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
-                className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold text-white"
                 style={{ background: "#DC2626" }}
               >
-                {unread}
-              </motion.span>
+                <div
+                  style={{
+                    position: "absolute",
+                    top: -4,
+                    right: -4,
+                    width: 20,
+                    height: 20,
+                    borderRadius: "50%",
+                    background: "#DC2626",
+                    border: "2px solid white",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    color: "white",
+                  }}
+                >
+                  {unread}
+                </div>
+              </motion.div>
             )}
           </AnimatePresence>
-        </motion.button>
+        </button>
       </div>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            key="chat-window"
+            key="chat"
             initial={{ opacity: 0, scale: 0.9, y: 20, originX: 1, originY: 1 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.88, y: 16 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-24 right-4 z-[9997] flex flex-col overflow-hidden md:right-6"
             style={{
+              position: "fixed",
+              bottom: 90,
+              right: 16,
               width: chatWidth,
               height: chatHeight,
-              background: "var(--cream, #FAF8F4)",
+              background: "#FAF8F4",
               borderRadius: "20px",
               boxShadow: "0 24px 80px rgba(0,0,0,0.18), 0 4px 20px rgba(0,0,0,0.1)",
               border: "1px solid rgba(13,13,13,0.08)",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
+              zIndex: 9997,
               transition: "width 0.35s cubic-bezier(0.16,1,0.3,1), height 0.35s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
-            <div
-              className="flex flex-shrink-0 items-center justify-between px-4 py-3.5"
-              style={{ background: "var(--ink, #0D0D0D)", borderRadius: "20px 20px 0 0" }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="relative">
+            <div style={{ background: "#0D0D0D", padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div style={{ position: "relative" }}>
                   <div
-                    className="flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold"
                     style={{
-                      background: "var(--flux, #FF5C35)",
+                      width: 36,
+                      height: 36,
+                      borderRadius: "50%",
+                      background: "#FF5C35",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 700,
+                      fontSize: 14,
                       color: "white",
                       fontFamily: "Clash Display, sans-serif",
                     }}
@@ -435,15 +430,24 @@ export default function FluxChat() {
                     F
                   </div>
                   <span
-                    className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2"
-                    style={{ background: "#22C55E", borderColor: "var(--ink)" }}
+                    style={{
+                      position: "absolute",
+                      bottom: -1,
+                      right: -1,
+                      width: 11,
+                      height: 11,
+                      borderRadius: "50%",
+                      background: "#22C55E",
+                      border: "2px solid #0D0D0D",
+                    }}
                   />
                 </div>
 
                 <div>
                   <div
-                    className="text-sm font-semibold leading-tight"
                     style={{
+                      fontSize: 14,
+                      fontWeight: 600,
                       color: "#FAF8F4",
                       fontFamily: "Clash Display, sans-serif",
                       letterSpacing: "-0.02em",
@@ -451,12 +455,12 @@ export default function FluxChat() {
                   >
                     Flux Assistant
                   </div>
-                  <div className="text-xs" style={{ color: "rgba(250,248,244,0.45)" }}>
+                  <div style={{ fontSize: 11.5, color: "rgba(250,248,244,0.42)", display: "flex", alignItems: "center", gap: 5 }}>
                     {loading ? (
-                      <span className="flex items-center gap-1.5">
-                        <span className="inline-block h-1 w-1 rounded-full bg-green-400 animate-pulse" />
+                      <>
+                        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E", display: "inline-block", animation: "fluxDot 1.2s ease-in-out infinite" }} />
                         Typing...
-                      </span>
+                      </>
                     ) : (
                       "Online · Usually replies instantly"
                     )}
@@ -464,11 +468,10 @@ export default function FluxChat() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1">
+              <div style={{ display: "flex", gap: 2, alignItems: "center" }}>
                 <button
                   onClick={() => setExpanded((value) => !value)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg transition-all duration-200 hover:bg-white/10"
-                  style={{ color: "rgba(250,248,244,0.5)" }}
+                  className="flux-hbtn"
                   title={expanded ? "Compact" : "Expand"}
                 >
                   {expanded ? (
@@ -494,8 +497,7 @@ export default function FluxChat() {
 
                 <button
                   onClick={clearChat}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg transition-all duration-200 hover:bg-white/10"
-                  style={{ color: "rgba(250,248,244,0.5)" }}
+                  className="flux-hbtn"
                   title="New chat"
                 >
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -524,8 +526,7 @@ export default function FluxChat() {
 
                 <button
                   onClick={() => setOpen(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg transition-all duration-200 hover:bg-white/10"
-                  style={{ color: "rgba(250,248,244,0.5)" }}
+                  className="flux-hbtn"
                   title="Close"
                 >
                   <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -535,36 +536,29 @@ export default function FluxChat() {
               </div>
             </div>
 
-            <div className="chat-scroll flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4" style={{ background: "#F7F5F1" }}>
-              {messages.map((message) => (
-                <MessageBubble key={message.id} msg={message} />
+            <div className="flux-scroll" style={{ flex: 1, overflowY: "auto", padding: "14px 14px", display: "flex", flexDirection: "column", gap: 12, background: "#F4F2EE" }}>
+              {msgs.map((message) => (
+                <Bubble key={message.id} msg={message} />
               ))}
-              <div ref={messagesEndRef} />
+              <div ref={endRef} />
             </div>
 
             <AnimatePresence>
-              {showQuick && messages.length <= 2 && (
+              {showQuick && msgs.length <= 2 && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="overflow-hidden"
                 >
-                  <div className="flex flex-wrap gap-2 px-4 py-3" style={{ borderTop: "1px solid rgba(13,13,13,0.06)" }}>
+                  <div style={{ padding: "10px 14px", borderTop: "1px solid rgba(13,13,13,0.06)", display: "flex", flexWrap: "wrap", gap: 7, background: "#FAF8F4" }}>
                     {QUICK_PROMPTS.map((prompt) => (
                       <button
                         key={prompt.text}
                         onClick={() => sendMessage(prompt.text)}
-                        className="rounded-full px-3 py-1.5 text-xs transition-all duration-200 hover:scale-105 active:scale-95"
-                        style={{
-                          border: "1px solid rgba(13,13,13,0.12)",
-                          background: "white",
-                          color: "var(--ink, #0D0D0D)",
-                          fontFamily: "Satoshi, sans-serif",
-                        }}
+                        className="flux-qbtn"
                       >
-                        {prompt.label}
+                        {prompt.emoji} {prompt.label}
                       </button>
                     ))}
                   </div>
@@ -573,72 +567,79 @@ export default function FluxChat() {
             </AnimatePresence>
 
             <div
-              className="flex-shrink-0 px-3 pb-3 pt-2"
-              style={{ background: "var(--cream, #FAF8F4)", borderTop: "1px solid rgba(13,13,13,0.07)" }}
+              style={{ padding: "10px 12px 10px", background: "#FAF8F4", borderTop: "1px solid rgba(13,13,13,0.07)", flexShrink: 0 }}
             >
               <div
-                className="flex items-end gap-2 rounded-2xl px-4 py-2.5"
                 style={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  gap: 8,
                   background: "white",
                   border: "1.5px solid rgba(13,13,13,0.1)",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  borderRadius: 16,
+                  padding: "9px 10px 9px 14px",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
                 }}
               >
                 <textarea
                   ref={inputRef}
                   value={input}
-                  onChange={handleInputChange}
+                  onChange={(e) => {
+                    setInput(e.target.value);
+                    e.target.style.height = "auto";
+                    e.target.style.height = `${Math.min(e.target.scrollHeight, 110)}px`;
+                  }}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask anything about our services..."
                   rows={1}
-                  className="chat-input-area flex-1 resize-none bg-transparent text-sm leading-relaxed outline-none"
+                  className="flux-ta"
                   style={{
-                    color: "var(--ink, #0D0D0D)",
-                    fontFamily: "Satoshi, sans-serif",
-                    maxHeight: "120px",
-                    minHeight: "20px",
+                    flex: 1,
+                    resize: "none",
+                    outline: "none",
+                    border: "none",
+                    background: "transparent",
+                    fontSize: 13.5,
+                    lineHeight: 1.5,
+                    color: "#0D0D0D",
+                    fontFamily: "Satoshi, Inter, sans-serif",
+                    maxHeight: 110,
                   }}
                 />
 
-                <motion.button
-                  onClick={loading ? stopStreaming : () => sendMessage(input)}
-                  whileTap={{ scale: 0.9 }}
+                <button
+                  className="flux-send"
+                  onClick={() => sendMessage(input)}
                   disabled={!loading && !input.trim()}
-                  className="mb-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl transition-all duration-200"
                   style={{
-                    background: loading || input.trim() ? "var(--flux, #FF5C35)" : "rgba(13,13,13,0.08)",
-                    color: loading || input.trim() ? "white" : "rgba(13,13,13,0.3)",
+                    width: 32,
+                    height: 32,
+                    borderRadius: 10,
+                    border: "none",
+                    cursor: loading || input.trim() ? "pointer" : "default",
+                    background: loading || input.trim() ? "#FF5C35" : "rgba(13,13,13,0.08)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    marginBottom: 1,
+                    transition: "background 0.2s, transform 0.15s",
                   }}
-                  aria-label={loading ? "Stop" : "Send"}
                 >
-                  {loading ? (
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                      <rect x="2" y="2" width="3" height="8" rx="1" />
-                      <rect x="7" y="2" width="3" height="8" rx="1" />
-                    </svg>
-                  ) : (
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path
-                        d="M7 11V3M7 3L3 7M7 3L11 7"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  )}
-                </motion.button>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke={input.trim() ? "white" : "rgba(13,13,13,0.3)"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 11V3M7 3L3 7M7 3L11 7" />
+                  </svg>
+                </button>
               </div>
 
-              <div className="mt-2 text-center">
-                <span className="text-xs" style={{ color: "rgba(13,13,13,0.28)", fontFamily: "Satoshi, sans-serif" }}>
+              <div style={{ textAlign: "center", marginTop: 7, fontSize: 11, color: "rgba(13,13,13,0.28)", fontFamily: "Satoshi, Inter, sans-serif" }}>
+                <span>
                   Powered by{" "}
                   <a
                     href="https://fluxmediacreations.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold transition-colors hover:text-flux"
-                    style={{ color: "var(--flux, #FF5C35)" }}
+                    style={{ color: "#FF5C35", fontWeight: 600, textDecoration: "none" }}
                   >
                     Flux Media Creations
                   </a>
@@ -650,4 +651,103 @@ export default function FluxChat() {
       </AnimatePresence>
     </>
   );
+}
+
+function getFallbackResponse(input: string): string {
+  const q = input.toLowerCase();
+
+  if (q.match(/price|cost|how much|pricing|charge|fee/)) {
+    return `Our services start from:
+
+- **WordPress Website** - from $500 (7-10 days)
+- **GoHighLevel Automation** - from $300 (5-7 days)
+- **Full Growth System** (Website + GHL) - from $800 (14 days) <- most popular
+- **Paid Ads Management** - from $400/month
+- **Monthly Care Plan** - from $150/month
+
+For a custom quote based on your needs, WhatsApp us at **+1 778 983 6113** or email **contact@fluxmediacreations.com**.`;
+  }
+
+  if (q.match(/how fast|how long|timeline|deliver|days|weeks/)) {
+    return `Our typical delivery times:
+
+- **GHL automation only** - 5-7 days
+- **WordPress website** - 7-10 days
+- **Full system (Website + GHL)** - 14 days
+
+Every project starts with a Figma design you approve before we write code. You can book a free call here: **fluxmediacreations.com/contact**`;
+  }
+
+  if (q.match(/ghl|gohighlevel|go high level|crm|automation|sms|missed call/)) {
+    return `Yes, GoHighLevel is one of our core specialties.
+
+We set up pipelines, missed-call text-back, appointment calendars, SMS and email sequences, and A2P 10DLC registration so messages land properly.
+
+GHL automation starts from **$300**. The full connected website + GHL system starts from **$800**.`;
+  }
+
+  if (q.match(/healthcare|medical|clinic|doctor|pain|ortho|dental|physio|health/)) {
+    return `Healthcare is one of our main focus areas.
+
+We've built systems for pain management clinics, vein centers, orthopedic practices, and multi-specialty medical platforms.
+
+Examples:
+- **mvmhealth.com**
+- **vascurapainandvein.com**
+- **ecboneandjoint.com**
+
+To discuss your clinic, email **contact@fluxmediacreations.com**.`;
+  }
+
+  if (q.match(/book|call|meeting|talk|discovery|schedule|contact/)) {
+    return `Absolutely, the first conversation is free.
+
+You can reach us here:
+- **Email:** contact@fluxmediacreations.com
+- **WhatsApp:** +1 778 983 6113
+- **Contact page:** fluxmediacreations.com/contact
+
+We usually reply within a few hours.`;
+  }
+
+  if (q.match(/work|portfolio|project|example|site|built|made/)) {
+    return `Here are some live examples of our work:
+
+- **mvmhealth.com**
+- **vascurapainandvein.com**
+- **ecboneandjoint.com**
+- **medwaynj.com**
+- **phonerepairdecatur.com**
+- **farhanyousufirealtor.com**
+
+You can also view more at **fluxmediacreations.com/work**.`;
+  }
+
+  if (q.match(/seo|rank|google|search|ai search|aeo|geo/)) {
+    return `We offer **AI & Digital Growth Strategy** starting from **$350/month**.
+
+This covers SEO, AEO, and GEO so your business can get found across Google and AI search tools.
+
+If you want a strategy recommendation for your business, email **contact@fluxmediacreations.com**.`;
+  }
+
+  if (q.match(/who|about|gagan|founder|team|company|studio/)) {
+    return `Flux Media Creations is founded and led by **Gagan Deep**, a WordPress developer and GoHighLevel specialist based in India serving clients globally.
+
+You work directly with the person building your project, without account-manager handoffs.
+
+You can learn more at **fluxmediacreations.com/about**.`;
+  }
+
+  if (q.match(/hi|hello|hey|start|help/)) {
+    return `Hi there.
+
+I can help with pricing, services, portfolio examples, timelines, and booking a call. What would you like to know?`;
+  }
+
+  return `The best next step is to contact us directly so we can give you a precise answer for your project.
+
+- **WhatsApp:** +1 778 983 6113
+- **Email:** contact@fluxmediacreations.com
+- **Book a call:** fluxmediacreations.com/contact`;
 }
