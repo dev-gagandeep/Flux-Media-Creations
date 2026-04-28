@@ -132,7 +132,7 @@ export default function ContactPage() {
                 </span>
                 <div>
                   <p className="text-xs text-ink/30 mb-0.5">WhatsApp</p>
-                  <p className="text-sm font-medium group-hover:text-flux transition-colors">{SITE.phone}</p>
+                  <p className="text-sm font-medium group-hover:text-flux transition-colors">{SITE.phoneDisplay}</p>
                 </div>
               </a>
 

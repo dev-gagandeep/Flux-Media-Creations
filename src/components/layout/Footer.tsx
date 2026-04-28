@@ -117,7 +117,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-sm text-cream/70 hover:text-flux transition-colors"
               >
-                {SITE.phone}
+                {SITE.phoneDisplay}
               </a>
             </li>
             <li>

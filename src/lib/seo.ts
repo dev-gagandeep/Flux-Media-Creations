@@ -146,14 +146,23 @@ export const schemaHomeAgency = {
   slogan: "Websites & Automation That Work While You Sleep",
   foundingDate: "2022",
   email: "contact@fluxmediacreations.com",
-  telephone: "+17789836113",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+17789836113",
-    contactType: "customer support",
-    availableLanguage: "English",
-    areaServed: ["US", "GB", "CA", "IN"],
-  },
+  telephone: SITE.phone,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: SITE.phone,
+      contactType: "customer support",
+      availableLanguage: "English",
+      areaServed: ["US", "GB", "CA", "IN"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: SITE.phoneIndia,
+      contactType: "customer support",
+      availableLanguage: "English",
+      areaServed: ["US", "GB", "CA", "IN"],
+    },
+  ],
   areaServed: [
     { "@type": "Country", name: "United States" },
     { "@type": "Country", name: "United Kingdom" },
@@ -229,7 +238,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: ["https://wa.me/17789836113", "https://gagandeep.space", SITE.instagramUrl],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, `https://wa.me/${SITE.whatsappIndia}`, "https://gagandeep.space", SITE.instagramUrl],
 };
 
 export const schemaHomeFaq = {

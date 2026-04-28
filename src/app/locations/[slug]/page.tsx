@@ -595,7 +595,7 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
             <span>→</span>
           </Link>
           <a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} className="text-sm font-medium text-ink/70 hover:text-ink transition-colors">
-            {SITE.phone}
+            {SITE.phoneDisplay}
           </a>
         </div>
       </section>
@@ -755,7 +755,7 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
               We will review your current funnel, identify lead leaks, and propose a practical execution plan.
             </p>
             <div className="mt-5 text-sm text-cream/70 space-y-1">
-              <p>Phone: {SITE.phone}</p>
+              <p>Phone: {SITE.phoneDisplay}</p>
               <p>Email: {SITE.email}</p>
             </div>
           </div>

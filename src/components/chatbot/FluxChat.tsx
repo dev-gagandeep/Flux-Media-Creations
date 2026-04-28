@@ -665,7 +665,7 @@ function getFallbackResponse(input: string): string {
 - **Paid Ads Management** - from $400/month
 - **Monthly Care Plan** - from $150/month
 
-For a custom quote based on your needs, WhatsApp us at **+1 778 983 6113** or email **contact@fluxmediacreations.com**.`;
+For a custom quote based on your needs, reach us at **+1 778 983 6113** or **+91 6284957892**, or email **contact@fluxmediacreations.com**.`;
   }
 
   if (q.match(/how fast|how long|timeline|deliver|days|weeks/)) {
@@ -704,7 +704,8 @@ To discuss your clinic, email **contact@fluxmediacreations.com**.`;
 
 You can reach us here:
 - **Email:** contact@fluxmediacreations.com
-- **WhatsApp:** +1 778 983 6113
+- **Abroad / WhatsApp:** +1 778 983 6113
+- **India:** +91 6284957892
 - **Contact page:** fluxmediacreations.com/contact
 
 We usually reply within a few hours.`;
@@ -747,7 +748,8 @@ I can help with pricing, services, portfolio examples, timelines, and booking a 
 
   return `The best next step is to contact us directly so we can give you a precise answer for your project.
 
-- **WhatsApp:** +1 778 983 6113
+- **Abroad / WhatsApp:** +1 778 983 6113
+- **India:** +91 6284957892
 - **Email:** contact@fluxmediacreations.com
 - **Book a call:** fluxmediacreations.com/contact`;
 }
