@@ -781,24 +781,6 @@ export const SECONDARY_INDUSTRIES = [
 
 export const LOCATION_PAGES = [
   {
-    slug: "us",
-    label: "United States",
-    short: "US",
-    headline: "Built for high-intent US service markets.",
-    summary:
-      "We help US clinics and service businesses convert more inbound leads with fast websites, automation follow-up, and practical visibility systems.",
-    focus: ["Local intent pages", "Fast mobile performance", "Lead response automation", "Conversion-first UX"],
-  },
-  {
-    slug: "uk",
-    label: "United Kingdom",
-    short: "UK",
-    headline: "Conversion-focused systems for UK growth teams.",
-    summary:
-      "From clinic websites to service funnels, we build clean digital systems that make your brand easier to discover and contact in the UK market.",
-    focus: ["Market-fit messaging", "Service landing pages", "Lead capture flows", "Trust signal design"],
-  },
-  {
     slug: "canada",
     label: "Canada",
     short: "CA",
@@ -815,33 +797,6 @@ export const LOCATION_PAGES = [
     summary:
       "For Indian companies scaling online, we build modern websites, process automation, and better conversion journeys that reduce manual operations.",
     focus: ["Speed optimization", "Modern UI architecture", "CRM-ready forms", "Automation workflow setup"],
-  },
-  {
-    slug: "chandigarh",
-    label: "Chandigarh",
-    short: "CHD",
-    headline: "Premium web presence for Chandigarh businesses.",
-    summary:
-      "We help Chandigarh-based businesses stand out with polished websites, stronger credibility, and lead systems built for local intent.",
-    focus: ["Local service pages", "Brand-first design", "Lead inquiry routing", "Review-friendly structure"],
-  },
-  {
-    slug: "hoshiarpur",
-    label: "Hoshiarpur",
-    short: "HSP",
-    headline: "Digital growth support for Hoshiarpur businesses.",
-    summary:
-      "From business websites to automation basics, we help Hoshiarpur brands create stronger first impressions and capture more qualified inquiries.",
-    focus: ["Local discoverability", "Service credibility pages", "Simple automation flows", "Conversion CTA architecture"],
-  },
-  {
-    slug: "punjab",
-    label: "Punjab",
-    short: "PB",
-    headline: "Scalable digital foundations for businesses across Punjab.",
-    summary:
-      "We support Punjab-focused businesses with dependable websites, process automation, and SEO-friendly structures that support long-term growth.",
-    focus: ["Regional targeting pages", "Technical SEO structure", "Workflow automation", "Mobile-first experience"],
   },
 ];
 

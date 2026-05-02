@@ -141,27 +141,6 @@ export default function Footer() {
           <Link href="/web-development-automation-new-jersey" className="text-sm text-cream/60 hover:text-cream transition-colors">
             New Jersey, USA
           </Link>
-          <Link href="/digital-automation-agency-toronto" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            Toronto, Canada
-          </Link>
-          <Link href="/web-development-ghl-automation-mohali" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            Mohali, Punjab
-          </Link>
-          <Link href="/digital-growth-automation-delhi-ncr" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            Delhi NCR, India
-          </Link>
-          <Link href="/web-development-digital-marketing-hoshiarpur" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            Hoshiarpur, Punjab
-          </Link>
-          <Link href="/web-development-automation-chicago" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            Chicago, Illinois
-          </Link>
-          <Link href="/digital-growth-agency-london" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            London, UK
-          </Link>
-          <Link href="/web-development-automation-chandigarh" className="text-sm text-cream/60 hover:text-cream transition-colors">
-            Chandigarh, India (Tricity)
-          </Link>
           {LOCATION_PAGES.map((location) => (
             <Link key={location.slug} href={`/locations/${location.slug}`} className="text-sm text-cream/60 hover:text-cream transition-colors">
               {location.label}

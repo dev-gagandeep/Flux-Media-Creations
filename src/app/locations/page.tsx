@@ -6,7 +6,7 @@ import { generateMeta } from "@/lib/seo";
 export const metadata: Metadata = generateMeta({
   title: "Locations",
   description:
-    "Areas we target and serve: US, UK, Canada, India, Chandigarh, Hoshiarpur, and Punjab.",
+    "Areas we target and serve: Canada and India.",
   path: "/locations",
 });
 

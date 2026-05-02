@@ -3,7 +3,6 @@ import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${SITE.name}`,
-  robots: { index: false },
 };
 
 export default function PrivacyPage() {

@@ -7,50 +7,15 @@ import { BLOG_POSTS, LOCATION_PAGES, PROCESS_STEPS, SERVICES, SERVICE_PAGES, SIT
 type JsonLd = Record<string, unknown>;
 
 const STATIC_LOCATION_LANDING_SCHEMAS: Record<string, { name: string; area: string; path: string }> = {
-  "/digital-automation-agency-toronto": {
-    name: "Flux Media Creations Toronto",
-    area: "Toronto, Canada",
-    path: "/digital-automation-agency-toronto",
-  },
-  "/digital-growth-agency-london": {
-    name: "Flux Media Creations London",
-    area: "London, United Kingdom",
-    path: "/digital-growth-agency-london",
-  },
-  "/digital-growth-automation-delhi-ncr": {
-    name: "Flux Media Creations Delhi NCR",
-    area: "Delhi NCR, India",
-    path: "/digital-growth-automation-delhi-ncr",
-  },
   "/web-development-ai-automation-new-york": {
     name: "Flux Media Creations New York",
     area: "New York, United States",
     path: "/web-development-ai-automation-new-york",
   },
-  "/web-development-automation-chandigarh": {
-    name: "Flux Media Creations Chandigarh",
-    area: "Chandigarh, India",
-    path: "/web-development-automation-chandigarh",
-  },
-  "/web-development-automation-chicago": {
-    name: "Flux Media Creations Chicago",
-    area: "Chicago, United States",
-    path: "/web-development-automation-chicago",
-  },
   "/web-development-automation-new-jersey": {
     name: "Flux Media Creations New Jersey",
     area: "New Jersey, United States",
     path: "/web-development-automation-new-jersey",
-  },
-  "/web-development-digital-marketing-hoshiarpur": {
-    name: "Flux Media Creations Hoshiarpur",
-    area: "Hoshiarpur, India",
-    path: "/web-development-digital-marketing-hoshiarpur",
-  },
-  "/web-development-ghl-automation-mohali": {
-    name: "Flux Media Creations Mohali",
-    area: "Mohali, India",
-    path: "/web-development-ghl-automation-mohali",
   },
 };
 

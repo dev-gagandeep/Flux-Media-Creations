@@ -14,7 +14,7 @@ export function generateMeta({
   absoluteTitle,
   description = SITE.description,
   path = "",
-  image = "/og-image.jpg",
+  image = "/og-image.svg",
 }: SeoProps = {}): Metadata {
   const fullTitle = absoluteTitle ?? (title ? `${title} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`);
   const url = `${SITE.url}${path}`;
@@ -23,6 +23,7 @@ export function generateMeta({
     title: fullTitle,
     description,
     metadataBase: new URL(SITE.url),
+    manifest: "/manifest.webmanifest",
     alternates: { canonical: url },
     openGraph: {
       title: fullTitle,
@@ -47,14 +48,14 @@ export function generateMeta({
       images: [image],
     },
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       googleBot: {
-        index: false,
-        follow: false,
-        "max-video-preview": 0,
-        "max-image-preview": "none",
-        "max-snippet": 0,
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     authors: [{ name: SITE.founder }],
