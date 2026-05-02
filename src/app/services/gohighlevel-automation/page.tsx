@@ -1,250 +1,225 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE } from "@/lib/constants";
+import { SITE, TESTIMONIALS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  title: "GoHighLevel Setup & Automation Service for US Businesses",
+  title: "GoHighLevel Setup & Automation Service | Flux Media Creations",
   description:
-    "Expert GoHighLevel CRM setup, pipeline automation, missed call text-back, SMS workflows, and A2P registration for US healthcare clinics and service businesses. Done-for-you GHL configuration.",
+    "Expert GoHighLevel setup and automation service for pipelines, lead follow-up, booking systems, and A2P-compliant SMS. Starting from $300.",
   path: "/services/gohighlevel-automation",
 });
 
-const heroStats = [
-  { number: "5 min", label: "Average lead response time with GHL automation active" },
-  { number: "100%", label: "Projects with A2P SMS registration completed" },
-  { number: "7 Core", label: "Automation workflows built into every system" },
-  { number: "24/7", label: "Your GHL system follows up even when you are closed" },
+const summaryCards = [
+  { label: "Starting from", value: "$300" },
+  { label: "Typical turnaround", value: "5-10 business days" },
+  { label: "Best fit", value: "Service businesses, agencies, consultants" },
+  { label: "Delivery model", value: "US clients, worldwide service" },
 ];
 
-const problems = [
-  {
-    title: "Missed calls with no follow-up",
-    body: "A potential patient or client calls your clinic or business. Nobody answers. They leave no voicemail. You have no idea they called. They find someone else within minutes. With GoHighLevel missed call text-back, the moment a call goes unanswered, an automated SMS fires - keeping that lead in your pipeline.",
-  },
-  {
-    title: "Form submissions sitting in an inbox",
-    body: "Someone fills out your contact form at 9pm on a Friday. Your team sees it Monday morning - if they remember to check. By then that person has already booked with a competitor. GoHighLevel connects every form submission to an instant automated follow-up sequence - no human needed.",
-  },
-  {
-    title: "No system for follow-up after the first contact",
-    body: "Most businesses make one attempt to reach a lead. If that fails, the lead is gone. A properly configured GoHighLevel CRM follows up via SMS, email, and voicemail drop across 5-7 touchpoints automatically - recovering leads your team would have written off.",
-  },
+const trustNotes = [
+  "Founder-led setup and handoff",
+  "A2P-aware SMS workflow setup",
+  "Workflow QA before launch",
+  "Documentation and recorded walkthrough included",
+  "Built around your real lead flow, not a generic snapshot",
 ];
 
-const features = [
+const includedItems = [
+  "CRM pipeline setup with opportunity stages mapped to your sales process",
+  "Missed-call text-back and instant lead acknowledgment workflows",
+  "Appointment booking, reminders, and no-show recovery sequences",
+  "Lead nurture email and SMS sequences with exit logic",
+  "Review request and reputation management automation",
+  "Reactivation campaigns for cold or dormant leads",
+  "A2P 10DLC guidance and setup support for US business texting",
+  "Basic reporting visibility for pipeline movement and lead status",
+  "Written workflow documentation and recorded walkthrough",
+  "Handoff training so your team can run the system confidently",
+];
+
+const audienceItems = [
   {
-    title: "GoHighLevel CRM Setup and Pipeline Configuration",
-    body: "We set up your GoHighLevel sub-account from scratch (or audit and rebuild your existing one). Custom sales pipeline stages built around your specific sales process - whether that is New Lead -> Contacted -> Appointment Booked -> Showed -> Closed, or a multi-stage nurture sequence specific to your industry. Every contact field, every tag, every pipeline stage is configured before we touch the automations.",
+    title: "Local service businesses",
+    body: "Ideal for clinics, med spas, home service companies, law firms, and real estate teams losing leads because response time is slow or inconsistent.",
   },
   {
-    title: "Missed Call Text-Back Automation",
-    body: "The single highest-ROI automation in GoHighLevel. The moment an inbound call goes unanswered, an automated SMS fires to the caller within 30 seconds: \"Hi, we just missed your call - how can we help you?\" Most missed leads respond. Many book. This one workflow alone recovers an average of 20-30 leads per month for active service businesses.",
-    bullets: [
-      "Trigger: missed inbound call",
-      "SMS template written for your business and tone",
-      "Response handling - when the lead replies, your team gets notified",
-      "Working hours logic - different messages during business hours vs. after hours",
-    ],
+    title: "Agencies setting up GoHighLevel for clients",
+    body: "Useful when you need a clean build, documented automation, white-label friendly structure, and a system your team can support after handoff.",
   },
   {
-    title: "Lead Form -> CRM -> Instant SMS Follow-Up",
-    body: "Every contact form on your WordPress website (or landing page) connects directly to GoHighLevel. The moment someone submits a form, they receive an instant, personalized SMS - and your team gets a notification with the lead's details. No inbox monitoring required. No leads waiting hours for a response.",
-    bullets: [
-      "Webhook connection from your website form to GHL",
-      "Instant SMS sent to the lead (within 60 seconds of submission)",
-      "Internal notification to your team",
-      "Lead automatically added to the correct pipeline stage",
-    ],
+    title: "Coaches and consultants",
+    body: "Strong fit if you need booking automation, lead nurture, and a cleaner client acquisition path without learning the full platform yourself.",
   },
   {
-    title: "Appointment Booking and Automated Reminders",
-    body: "GoHighLevel's calendar system lets leads book directly from your website, your Google Business Profile, or an SMS link - without calling your office. We configure your booking calendar, set your availability windows, and build an automated reminder sequence: 24 hours before, 2 hours before, and a post-appointment follow-up.",
-    bullets: [
-      "GHL calendar with your availability and buffer times",
-      "Booking confirmation SMS and email",
-      "24-hour reminder SMS",
-      "2-hour reminder SMS",
-      "No-show re-engagement workflow",
-      "Post-appointment review request",
-    ],
+    title: "Businesses migrating from another CRM",
+    body: "Works well for teams moving from HubSpot, ActiveCampaign, Salesforce, or fragmented tools that currently create response delays and handoff problems.",
   },
   {
-    title: "A2P SMS Registration (10DLC)",
-    body: "If you are sending SMS messages to US phone numbers through GoHighLevel, A2P 10DLC registration is legally required. Unregistered SMS campaigns are blocked by carriers and can result in your GHL account being flagged. We handle the complete A2P registration process - brand registration, campaign registration, and carrier approval - so your SMS workflows actually reach your leads.",
-    body2: "Most agencies skip this step. We do not. Every GoHighLevel automation system we build is A2P compliant before launch.",
-  },
-  {
-    title: "Review Generation Automation",
-    body: "Google reviews are the single most powerful local SEO signal for service businesses. A properly timed review request - sent automatically 24-48 hours after a completed appointment or service - generates 3-5x more reviews than asking manually.",
-    bullets: [
-      "Trigger: appointment completed or job closed",
-      "Delay: 24-48 hours (configurable)",
-      "SMS with direct Google review link",
-      "Follow-up if no review left after 3 days",
-      "Positive review redirect to Google / Negative review redirect to internal feedback form",
-    ],
-  },
-  {
-    title: "Lead Nurture Sequences",
-    body: "Not every lead books immediately. Some need 5 touchpoints over 2 weeks before they are ready. We build multi-step nurture sequences that keep your business top of mind across SMS, email, and voicemail drop - automatically - until the lead either books or opts out.",
-    bullets: [
-      "5-7 step nurture sequence (SMS + email)",
-      "Delay logic between each touchpoint",
-      "Exit conditions - if lead books, they exit the nurture immediately",
-      "Re-engagement sequence for cold leads after 30+ days",
-    ],
-  },
-  {
-    title: "GoHighLevel + WordPress Integration",
-    body: "Every GoHighLevel system we build connects directly to your WordPress website. Contact forms, booking buttons, live chat widgets, and popup forms all feed directly into your GHL pipeline - creating one unified lead management system with no manual data entry.",
+    title: "Agencies exploring SaaS mode",
+    body: "Good fit for teams that want sub-account structure, clearer onboarding, and a more productized GoHighLevel offer under their own brand.",
   },
 ];
 
-const industries = [
+const processSteps = [
   {
-    title: "GoHighLevel for Healthcare Clinics and Medical Practices",
-    body: "Pain management clinics, vein centers, orthopedic practices, telehealth providers, and multi-specialty groups across the US are using GoHighLevel to recover missed patient calls, automate appointment reminders, and generate Google reviews consistently. We have built GHL systems for healthcare clients in New Jersey, New York, and beyond - and we understand HIPAA-safe data handling requirements for patient communication workflows.",
-    bullets: [
-      "Missed patient call text-back (30-second response)",
-      "New patient lead -> instant SMS confirmation",
-      "Appointment reminder sequences (24hr + 2hr)",
-      "No-show re-engagement SMS",
-      "Post-visit review request",
-      "Physician referral pipeline tracking",
-    ],
+    title: "Step 1 — Discovery and lead-flow audit",
+    body: "We map how leads arrive today, what happens after a form fill or call, where drop-off occurs, and which workflows need to go live first. We do not build until the logic is clear.",
   },
   {
-    title: "GoHighLevel for Home Service Companies",
-    body: "HVAC companies, plumbers, roofers, electricians, and cleaning services operate in high-competition local markets where response speed is everything. A lead that does not hear from you in 5 minutes calls the next number on Google. We configure GoHighLevel to respond to every inquiry instantly - 24 hours a day, 7 days a week - without adding headcount.",
-    bullets: [
-      "Missed call text-back - every unanswered call",
-      "Job estimate request -> instant follow-up",
-      "Facebook Lead Ads -> GHL -> SMS within 60 seconds",
-      "Job completion -> review request automation",
-      "Seasonal re-engagement campaigns for past clients",
-      "Emergency service lead routing",
-    ],
+    title: "Step 2 — Pipeline and workflow build",
+    body: "We configure pipelines, write automation logic, connect forms and calendars, and build the messaging sequences needed for lead acknowledgment, reminders, nurture, and recovery.",
   },
   {
-    title: "GoHighLevel for Real Estate Agents and Brokers",
-    body: "Real estate is a response-speed business. The agent who responds first gets the listing or the buyer. We build GoHighLevel systems that follow up with every new buyer and seller lead automatically - keeping them warm across a multi-week nurture sequence until they are ready to move.",
-    bullets: [
-      "New buyer lead -> instant SMS + email follow-up",
-      "Seller inquiry -> automated valuation request sequence",
-      "Open house attendee -> post-visit nurture",
-      "Long-term buyer nurture (30/60/90 day sequences)",
-      "Past client re-engagement for referral generation",
-      "Appointment booking with automated reminders",
-    ],
+    title: "Step 3 — QA, documentation, and handoff",
+    body: "We test edge cases, verify delivery paths, document the system, and record a walkthrough so your team can operate it without being dependent on us for every small change.",
   },
 ];
 
-const processTimeline = [
+const industryRows = [
   {
-    title: "Day 1-2: Strategy and workflow mapping",
-    body: "We start with a structured intake call - mapping your current lead flow, identifying every point where leads are currently falling through the cracks, and agreeing on which workflows to build first. You receive a written workflow map showing every automation before we build anything.",
+    title: "Real estate agencies and teams",
+    useCase: "Lead routing, pipeline stages, buyer and seller follow-up, appointment booking",
   },
   {
-    title: "Day 2-5: CRM setup and pipeline configuration",
-    body: "GoHighLevel sub-account setup (or audit of existing account). Pipeline stages configured for your sales process. Custom fields, tags, and contact organization built. A2P SMS brand and campaign registration submitted to carriers.",
+    title: "Medical spas and clinics",
+    useCase: "Missed-call text-back, booking reminders, review requests, intake follow-up",
   },
   {
-    title: "Day 5-10: Automation workflow build",
-    body: "Every agreed workflow is built: missed call text-back, lead form connection, appointment booking, reminder sequences, review generation, and nurture sequences. All SMS and email templates written for your business tone and industry.",
+    title: "Home services",
+    useCase: "Speed-to-lead workflows, estimate follow-up, job completion review requests",
   },
   {
-    title: "Day 10-12: Testing with live contacts",
-    body: "Every single workflow is tested using real test contacts - not simulated. We confirm every SMS fires correctly, every email arrives, every form submission routes to the right pipeline stage, and every calendar booking triggers the correct confirmation and reminder sequence.",
+    title: "Marketing agencies",
+    useCase: "Client sub-account setup, reusable process structure, white-label CRM delivery",
   },
   {
-    title: "Day 12-14: Handover and team training",
-    body: "You receive a full recorded Loom video walkthrough of your GoHighLevel system - every pipeline, every workflow, how to add contacts, how to read your dashboard, and how to make basic changes yourself. 30 days of direct support via WhatsApp included.",
+    title: "Coaches and consultants",
+    useCase: "Discovery call booking, nurture sequences, offer follow-up automation",
+  },
+  {
+    title: "Law firms",
+    useCase: "Lead capture, intake automation, consultation scheduling, follow-up discipline",
+  },
+  {
+    title: "Gyms and fitness studios",
+    useCase: "Trial signup automation, attendance follow-up, membership reactivation",
+  },
+  {
+    title: "SaaS and service brands",
+    useCase: "Trial nurture, post-demo follow-up, reactivation workflows, pipeline visibility",
   },
 ];
 
-const pricing = [
+const proofCards = [
   {
-    tier: "Core Automation Setup",
-    price: "from $300",
-    bestFor: "Businesses that want the essential lead capture and follow-up workflows",
-    items: [
-      "GoHighLevel sub-account setup",
-      "1 sales pipeline configured",
-      "Missed call text-back automation",
-      "Lead form -> CRM -> instant SMS connection (1 form source)",
-      "Appointment booking calendar setup",
-      "A2P SMS registration",
-      "30 days support",
-    ],
+    title: "Healthcare systems with real lead-routing depth",
+    body: "Projects like MVM Health, Vascura Pain & Vein, and Med Way NJ show the kind of booking, follow-up, and CRM-connected delivery we build for healthcare teams.",
+    href: "/work",
+    label: "View healthcare work",
   },
   {
-    tier: "Full Automation System (Most Popular)",
-    price: "from $600",
-    bestFor: "Healthcare clinics, home service companies, real estate teams",
-    items: [
-      "Everything in Core Automation",
-      "Up to 3 pipeline stages fully configured",
-      "5-step lead nurture sequence (SMS + email)",
-      "Appointment reminder sequence (24hr + 2hr + post-visit)",
-      "No-show re-engagement workflow",
-      "Review generation automation",
-      "Up to 3 form/lead source connections",
-      "Full SMS and email template copywriting",
-      "Recorded handover walkthrough",
-      "30 days direct WhatsApp support",
-    ],
+    title: "Real estate and local service follow-up flows",
+    body: "We have also built lead-capture and follow-up systems for real estate and local service businesses where response speed directly affects revenue.",
+    href: "/work/farhan-yousuf-realtor",
+    label: "See real estate example",
   },
   {
-    tier: "Full Growth System",
-    price: "from $1,300",
-    bestFor: "Businesses that want their WordPress website and GoHighLevel working as one system",
-    items: [
-      "Everything in Full Automation System",
-      "Custom WordPress website (up to 10 pages)",
-      "WordPress forms connected to GHL pipelines",
-      "Live chat or popup lead capture connected to GHL",
-      "Facebook Lead Ads -> GHL integration (if applicable)",
-      "PageSpeed 90+ WordPress site",
-      "Full on-page SEO setup",
-      "30 days post-launch support",
-    ],
+    title: "Website and CRM systems built together",
+    body: "If you need the front end and automation layer built as one connected system, our Full Growth System combines WordPress and GoHighLevel in a single delivery path.",
+    href: "/services/full-growth-system",
+    label: "Explore Full Growth System",
   },
+];
+
+const comparisonRows = [
+  {
+    flux: "Founder-led build so you work directly with the builder and strategist",
+    other: "Often sold by one person and built by someone else later",
+  },
+  {
+    flux: "Lead-flow audit before any workflow is built",
+    other: "Generic snapshot or rushed setup without business-specific logic",
+  },
+  {
+    flux: "Documentation and recorded walkthrough included",
+    other: "Little to no handoff material, creating long-term dependency",
+  },
+  {
+    flux: "Website, CRM, and automation thinking connected from the start",
+    other: "GoHighLevel built in isolation without front-end conversion context",
+  },
+  {
+    flux: "Clear starting price and scoped build path",
+    other: "Vague pricing, scope drift, and unclear post-launch responsibility",
+  },
+];
+
+const pricingNotes = [
+  "Foundational builds start from $300 and usually cover pipeline setup, missed-call text-back, and lead acknowledgment.",
+  "Larger builds that include nurture sequences, SaaS mode configuration, funnel logic, or multi-source lead routing are scoped per project.",
+  "You keep your own GoHighLevel subscription and account ownership. We do not mark up your software subscription.",
 ];
 
 const faqs = [
   {
+    q: "What is a GoHighLevel setup service?",
+    a: "A GoHighLevel setup service is a done-for-you implementation where an expert builds your CRM pipelines, lead automation workflows, booking sequences, and communication logic inside GoHighLevel so the system is ready to use quickly.",
+  },
+  {
+    q: "How much does GoHighLevel setup cost?",
+    a: "GoHighLevel setup can start around $300 for a foundational build and rise into the low thousands for larger systems with multi-channel automation, SaaS mode, funnel work, and advanced sub-account structure. Our service starts from $300 with transparent scoping.",
+  },
+  {
     q: "Do I need my own GoHighLevel account?",
-    a: "Yes. You purchase and own your GoHighLevel account directly from GoHighLevel (gohighlevel.com). The Starter plan is $97/month. We set up everything inside your account - you are never locked into us to access your own system. We can also point you toward a reseller option that may reduce your monthly cost depending on your usage.",
+    a: "Yes. We build inside your GoHighLevel account so you keep full ownership. If you have not chosen a plan yet, we can guide you toward the right one based on your business and workflow needs.",
   },
   {
-    q: "What is A2P SMS registration and why do I need it?",
-    a: "A2P (Application-to-Person) 10DLC registration is required by US mobile carriers for any business sending automated SMS messages to US phone numbers. Without it, your text messages will be filtered or blocked by carriers - meaning your automation workflows will not reach your leads. The registration process involves registering your brand and your SMS campaign with The Campaign Registry (TCR). We handle this entire process for every GoHighLevel system we build. It typically takes 5-10 business days to receive carrier approval.",
+    q: "How long does GoHighLevel setup take?",
+    a: "A standard GoHighLevel automation build usually takes 5 to 10 business days from discovery to handoff. More complex builds with migrations, multiple funnels, or SaaS mode take longer.",
   },
   {
-    q: "Can you audit and fix my existing GoHighLevel setup?",
-    a: "Yes. If you already have a GoHighLevel account but your automations are not working correctly, your pipelines are messy, or you are not sure if your SMS is actually reaching leads - we offer a GHL audit and rebuild service. Book a discovery call and we will review your current setup.",
+    q: "What is missed-call text-back in GoHighLevel?",
+    a: "Missed-call text-back is an automation that sends an SMS within seconds after an inbound call goes unanswered, helping keep the conversation alive before the lead moves to a competitor.",
   },
   {
-    q: "Will this work for my industry?",
-    a: "GoHighLevel works for any service business that depends on inbound leads, phone calls, or appointment bookings. We have configured GHL systems for healthcare clinics, HVAC companies, real estate agents, med spas, law firms, and more. If your business needs to capture leads and follow up fast - GHL is the right tool.",
+    q: "Will GoHighLevel work with my existing website?",
+    a: "Yes. We can connect GoHighLevel forms, booking calendars, and follow-up systems to your existing WordPress, Webflow, Squarespace, or custom website so you do not need a full rebuild just to add automation.",
   },
   {
-    q: "How long does it take before my automations are live?",
-    a: "A Core Automation setup is live in 7-10 business days. A Full Automation System takes 10-14 days. A2P SMS registration runs in parallel - if carrier approval has not come through by launch, your email workflows go live first and SMS activates as soon as A2P is approved (typically within 5-10 business days of submission).",
+    q: "What is GoHighLevel SaaS mode and do you set it up?",
+    a: "GoHighLevel SaaS mode lets agencies resell the platform under their own brand with pricing tiers and sub-account creation. Yes, we can scope and set up SaaS-mode builds for agencies that want to productize their offer.",
   },
   {
-    q: "Can GoHighLevel replace my current CRM?",
-    a: "In most cases, yes. GoHighLevel replaces the need for separate tools like HubSpot (CRM), Calendly (booking), Mailchimp (email), and Twilio (SMS) - combining all of them into one platform. For healthcare clients with EHR/EMR systems, GHL handles the front-end patient communication and lead management while your EHR handles clinical records.",
+    q: "What is A2P 10DLC and why does it matter?",
+    a: "A2P 10DLC is the US carrier registration framework required for most business texting through software platforms. Without it, GoHighLevel SMS messages may be filtered or blocked. We account for this in US-focused builds.",
   },
   {
-    q: "What happens after the 30-day support period?",
-    a: "You can continue managing your GoHighLevel system yourself - you will have the recorded walkthrough and the knowledge from your handover call. If you want ongoing monitoring, workflow updates, and monthly reporting, our Monthly Maintenance plan ($150/mo) covers GHL monitoring and light workflow adjustments.",
+    q: "Can you migrate our existing CRM data into GoHighLevel?",
+    a: "Yes. We can help map and migrate contact data from other systems, clean field structure, and make sure your new GoHighLevel setup starts organized instead of carrying old CRM clutter forward.",
   },
   {
-    q: "Do you guarantee results?",
-    a: "We guarantee that every automation workflow we build will be correctly configured and thoroughly tested before handover. We cannot guarantee specific lead volumes or revenue outcomes - those depend on your ad spend, lead sources, and offer. What we can guarantee is that when a lead comes in, your GHL system will respond instantly and follow up consistently - which is what the data consistently shows drives conversion rate improvement.",
+    q: "Is GoHighLevel good for small businesses?",
+    a: "Yes, especially for service businesses that need faster lead response, cleaner follow-up, booking automation, and fewer disconnected tools. The ROI usually comes from better speed to lead and more consistent nurture rather than from the software alone.",
   },
+];
+
+const internalLinks = [
+  { label: "See our full growth system", href: "/services/full-growth-system" },
+  { label: "Make and Zapier automation services", href: "/services/make-zapier-automation" },
+  { label: "Monthly maintenance plans", href: "/services/monthly-maintenance" },
+  { label: "Our work and case studies", href: "/work" },
+  { label: "New York client page", href: "/web-development-ai-automation-new-york" },
+  { label: "New Jersey client page", href: "/web-development-automation-new-jersey" },
+];
+
+const editorialRoadmap = [
+  "How to Set Up GoHighLevel for a Service Business: Step-by-Step Guide",
+  "GoHighLevel vs HubSpot: Which CRM Is Right for Your Agency?",
+  "What Is A2P 10DLC and Why Your GoHighLevel SMS Is Getting Blocked",
+  "How Much Does GoHighLevel Setup Cost? Honest Price Breakdown",
+  "GoHighLevel for Real Estate Agents: The Complete Automation Setup",
+  "GoHighLevel SaaS Mode Explained: How Agencies Resell GHL Under Their Brand",
 ];
 
 export default function GoHighLevelAutomationPage() {
@@ -261,177 +236,302 @@ export default function GoHighLevelAutomationPage() {
     })),
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "GoHighLevel Setup & Automation Service",
+    description:
+      "Done-for-you GoHighLevel CRM setup, pipeline configuration, and automation builds for service businesses, agencies, and consultants.",
+    provider: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      telephone: SITE.phone,
+      sameAs: [SITE.instagramUrl],
+    },
+    serviceType: "GoHighLevel Automation",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: "300",
+    },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Canada" },
+    ],
+    url: `${SITE.url}/services/gohighlevel-automation`,
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="section pt-40 md:pt-48 pb-16 max-w-[1400px] mx-auto">
         <p className="text-sm text-ink/45 mb-6">
-          <Link href="/services" className="hover:text-flux transition-colors">Services</Link>
+          <Link href="/services" className="hover:text-flux transition-colors">
+            Services
+          </Link>
           <span className="mx-2">→</span>
-          <span>GoHighLevel Automation</span>
+          <span>GoHighLevel Setup &amp; Automation</span>
         </p>
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">GoHighLevel CRM Setup & Automation</p>
-        <h1 className="font-display font-semibold text-4xl md:text-6xl max-w-5xl leading-tight mb-6" style={{ letterSpacing: "-0.03em" }}>
-          GoHighLevel Setup and Automation - Done For You, Built to Stop Lead Leakage
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">GoHighLevel CRM Setup</p>
+        <h1
+          className="font-display font-semibold text-4xl md:text-6xl max-w-5xl leading-tight mb-6"
+          style={{ letterSpacing: "-0.03em" }}
+        >
+          GoHighLevel Setup &amp; Automation Service
         </h1>
-        <p className="text-base md:text-lg text-ink/55 max-w-4xl leading-relaxed mb-10">
-          Every missed call, every unanswered form submission, every lead that waited more than 5 minutes for a response - that is revenue walking out the door. We set up and configure your complete GoHighLevel CRM system: pipelines, missed call text-back, appointment booking, SMS follow-up sequences, review automation, and A2P SMS registration. Built for US healthcare clinics, home service businesses, and real estate professionals who cannot afford to lose a single lead.
+        <p className="text-base md:text-lg text-ink/55 max-w-4xl leading-relaxed mb-6">
+          We build GoHighLevel systems that capture every lead, follow up instantly, and book appointments on autopilot
+          so you stop losing revenue between the form submission, the missed call, and the first reply.
         </p>
-        <div className="flex flex-wrap gap-3 mb-12">
-          <Link href="/contact" className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-            Get your GHL system built
+        <p className="text-sm text-ink/45 mb-10">
+          Starting from $300 · Done-for-you delivery · US clients, worldwide service
+        </p>
+
+        <div className="flex flex-wrap gap-3 mb-10">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium"
+            style={{ background: "var(--flux)", color: "white" }}
+          >
+            Start your build
             <span>→</span>
           </Link>
-          <Link href="/process" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border border-ink/15 hover:border-ink/40 transition-colors">
-            See how it works
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border border-ink/15 hover:border-ink/40 transition-colors"
+          >
+            See our work
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {heroStats.map((item) => (
+        <div className="grid md:grid-cols-4 gap-4 mb-8">
+          {summaryCards.map((item) => (
             <div key={item.label} className="rounded-2xl border border-ink/8 bg-white p-5">
-              <p className="font-display font-semibold text-2xl md:text-3xl" style={{ color: "var(--flux)", letterSpacing: "-0.03em" }}>
-                {item.number}
+              <p className="text-xs uppercase tracking-widest text-ink/35 mb-2">{item.label}</p>
+              <p className="font-display font-semibold text-xl leading-snug" style={{ color: "var(--flux)", letterSpacing: "-0.02em" }}>
+                {item.value}
               </p>
-              <p className="text-sm text-ink/55 mt-2 leading-6">{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {trustNotes.map((item) => (
+            <span key={item} className="rounded-full bg-blush px-4 py-2 text-xs text-ink/70 border border-flux/10">
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-sm max-w-[1400px] mx-auto pt-0 grid lg:grid-cols-[1.1fr_0.9fr] gap-6">
+        <div className="rounded-3xl border border-ink/10 bg-white p-8">
+          <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">What is GoHighLevel?</p>
+          <h2 className="font-display font-semibold text-3xl md:text-4xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+            An all-in-one CRM and marketing automation platform built for lead follow-up, booking, and pipeline management.
+          </h2>
+          <p className="text-sm text-ink/60 leading-7 mb-4">
+            GoHighLevel, also called GHL or HighLevel, combines CRM automation, email, SMS, booking calendars, funnel tools,
+            reputation management, and sales pipeline management into one platform. For service businesses and agencies, it
+            replaces the messy stack of disconnected tools that often creates response delays and missed opportunities.
+          </p>
+          <p className="text-sm text-ink/60 leading-7">
+            The platform is powerful, but correct setup matters. A broken workflow, unclear pipeline, weak lead nurture
+            sequence, or missing A2P registration can quietly cost you leads. Our role is to set it up around your real
+            business process so the system works from day one.
+          </p>
+        </div>
+
+        <div className="rounded-3xl border border-ink/10 bg-white p-8">
+          <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">What we do</p>
+          <h2 className="font-display font-semibold text-3xl md:text-4xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+            Done-for-you GoHighLevel setup mapped to how your leads actually move.
+          </h2>
+          <p className="text-sm text-ink/60 leading-7 mb-4">
+            We handle the technical build: pipeline setup, workflow automation, lead follow-up automation, appointment booking,
+            review requests, reactivation campaigns, and the operational logic needed to keep your CRM useful instead of
+            overwhelming.
+          </p>
+          <p className="text-sm text-ink/60 leading-7">
+            This is not a generic onboarding template. We build around where leads come from, how fast your team needs to
+            respond, which channels you use, and what has to happen for the lead to become a booked call, consult, or sale.
+          </p>
+        </div>
+      </section>
+
+      <section className="section max-w-[1400px] mx-auto">
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">What&apos;s included</p>
+        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-5" style={{ letterSpacing: "-0.03em" }}>
+          The deliverables that make a GoHighLevel setup service useful in the real world.
+        </h2>
+        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-10">
+          Specificity matters here. The more clearly a service page explains the build, the easier it is for search engines,
+          AI answer engines, and buyers to understand what is actually included.
+        </p>
+        <div className="grid md:grid-cols-2 gap-4">
+          {includedItems.map((item) => (
+            <div key={item} className="rounded-3xl border border-ink/10 bg-white p-6 flex gap-3">
+              <span className="text-lg" style={{ color: "var(--flux)" }}>
+                •
+              </span>
+              <p className="text-sm text-ink/65 leading-7">{item}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="section-sm max-w-[1400px] mx-auto pt-0">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">What is costing you right now</p>
-        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
-          Your leads are not disappearing. They are going to whoever responds first.
+      <section className="section max-w-[1400px] mx-auto">
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Who this is for</p>
+        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-10" style={{ letterSpacing: "-0.03em" }}>
+          Built for teams that need speed to lead, cleaner automation, and a CRM that does not fall apart after setup.
         </h2>
-        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-10">
-          Research is clear: 78% of customers buy from the first business that responds to their inquiry. If that is not you, it is your competitor. Here is what is happening in most service businesses right now.
-        </p>
-        <div className="grid md:grid-cols-3 gap-5">
-          {problems.map((item) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {audienceItems.map((item) => (
             <article key={item.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h3 className="font-display text-2xl font-semibold mb-4" style={{ letterSpacing: "-0.02em" }}>{item.title}</h3>
+              <h3 className="font-display text-2xl font-semibold mb-4" style={{ letterSpacing: "-0.02em" }}>
+                {item.title}
+              </h3>
               <p className="text-sm text-ink/60 leading-7">{item.body}</p>
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="section max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">What we build for you</p>
-        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-5" style={{ letterSpacing: "-0.03em" }}>
-          Your complete GoHighLevel system - every workflow built, tested, and handed over.
-        </h2>
-        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-10">
-          This is not a GoHighLevel account setup tutorial. We do the work. Every pipeline, every automation workflow, every SMS template, and every integration is built by us - then tested with real contacts before we hand it over.
+        <p className="text-sm text-ink/60 mt-8 leading-7">
+          If your lead follow-up takes more than a few minutes, or your team still depends on inbox checking and manual reminders,
+          there is usually a workflow gap worth fixing first.
         </p>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {features.map((feature) => (
-            <article key={feature.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{feature.title}</h3>
-              <p className="text-sm text-ink/60 leading-7 mb-3">{feature.body}</p>
-              {feature.body2 && <p className="text-sm text-ink/60 leading-7 mb-3">{feature.body2}</p>}
-              {feature.bullets && (
-                <ul className="space-y-2 mt-4">
-                  {feature.bullets.map((bullet) => (
-                    <li key={bullet} className="text-sm text-ink/65 leading-7 flex gap-2">
-                      <span style={{ color: "var(--flux)" }}>•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </article>
-          ))}
-        </div>
       </section>
 
       <section className="section max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Built for businesses like yours</p>
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">How it works</p>
         <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-10" style={{ letterSpacing: "-0.03em" }}>
-          GoHighLevel automation works best for businesses where every lead matters.
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {industries.map((industry) => (
-            <article key={industry.title} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h3 className="font-display text-2xl font-semibold mb-4" style={{ letterSpacing: "-0.02em" }}>{industry.title}</h3>
-              <p className="text-sm text-ink/60 leading-7 mb-4">{industry.body}</p>
-              <ul className="space-y-2">
-                {industry.bullets.map((item) => (
-                  <li key={item} className="text-sm text-ink/65 leading-7 flex gap-2">
-                    <span style={{ color: "var(--flux)" }}>•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">How your GHL system gets built</p>
-        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-10" style={{ letterSpacing: "-0.03em" }}>
-          Your GoHighLevel system built, tested, and live - in 7-14 days.
+          Our GoHighLevel setup process is structured so nothing important gets guessed.
         </h2>
         <div className="space-y-5">
-          {processTimeline.map((step, idx) => (
-            <div key={step.title} className="rounded-3xl border border-ink/10 bg-white p-7 md:p-8 grid md:grid-cols-[90px_1fr] gap-4">
-              <div className="font-display text-2xl" style={{ color: "var(--flux)", letterSpacing: "-0.02em" }}>
-                0{idx + 1}
-              </div>
-              <div>
-                <h3 className="font-medium text-lg mb-2">{step.title}</h3>
-                <p className="text-sm text-ink/60 leading-7">{step.body}</p>
-              </div>
+          {processSteps.map((step) => (
+            <div key={step.title} className="rounded-3xl border border-ink/10 bg-white p-7 md:p-8">
+              <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em", color: "var(--flux)" }}>
+                {step.title}
+              </h3>
+              <p className="text-sm text-ink/60 leading-7">{step.body}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="section max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Investment</p>
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Industries and locations</p>
         <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-5" style={{ letterSpacing: "-0.03em" }}>
-          GoHighLevel automation pricing - transparent and fixed.
+          We build GoHighLevel systems for service businesses that depend on faster follow-up and cleaner pipeline visibility.
         </h2>
-        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-4">
-          You will need a GoHighLevel account to use this service. The Starter plan is $97/month directly from GoHighLevel, and you own it completely. We set everything up - you are never dependent on us to access your own system.
+        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-8">
+          We work with clients across the United States, Canada, and internationally, with especially relevant experience for
+          New York, New Jersey, California, Texas, and Florida-oriented service businesses that need remote delivery without
+          timezone friction.
         </p>
-
-        <div className="grid lg:grid-cols-3 gap-6 mt-8">
-          {pricing.map((tier) => (
-            <article key={tier.tier} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <p className="text-xs uppercase tracking-widest text-ink/35 mb-2">{tier.tier}</p>
-              <p className="font-display text-4xl font-semibold mb-2" style={{ color: "var(--flux)", letterSpacing: "-0.03em" }}>{tier.price}</p>
-              <p className="text-sm text-ink/55 mb-5">Best for: {tier.bestFor}</p>
-              <ul className="space-y-2">
-                {tier.items.map((item) => (
-                  <li key={item} className="text-sm text-ink/60 leading-7 flex gap-2">
-                    <span style={{ color: "var(--flux)" }}>•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
+        <div className="rounded-3xl border border-ink/10 bg-white overflow-hidden">
+          {industryRows.map((row, index) => (
+            <div
+              key={row.title}
+              className={`grid md:grid-cols-[0.9fr_1.1fr] gap-4 p-6 ${index !== industryRows.length - 1 ? "border-b border-ink/8" : ""}`}
+            >
+              <h3 className="font-medium text-ink">{row.title}</h3>
+              <p className="text-sm text-ink/60 leading-7">{row.useCase}</p>
+            </div>
           ))}
         </div>
-
-        <p className="text-sm text-ink/55 mt-8 leading-7">
-          GoHighLevel subscription ($97-$297/month) is purchased directly by you from GoHighLevel. We do not mark this up. All projects are 50% upfront, 50% on completion.
-        </p>
       </section>
 
       <section className="section max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">GoHighLevel questions</p>
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Results and proof</p>
+        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-5" style={{ letterSpacing: "-0.03em" }}>
+          The goal is not more software. The goal is faster response, cleaner follow-up, and fewer lost leads.
+        </h2>
+        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-10">
+          We do not promise fixed revenue numbers because every business and traffic source is different. What we do build are
+          systems that consistently reduce response delays, improve booking follow-through, and make pipeline movement more visible.
+        </p>
+        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+          {proofCards.map((card) => (
+            <article key={card.title} className="rounded-3xl border border-ink/10 bg-white p-7">
+              <h3 className="font-display text-2xl font-semibold mb-4" style={{ letterSpacing: "-0.02em" }}>
+                {card.title}
+              </h3>
+              <p className="text-sm text-ink/60 leading-7 mb-5">{card.body}</p>
+              <Link href={card.href} className="text-sm font-medium hover:opacity-80" style={{ color: "var(--flux)" }}>
+                {card.label} →
+              </Link>
+            </article>
+          ))}
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {TESTIMONIALS.map((item) => (
+            <blockquote key={`${item.author}-${item.role}`} className="rounded-3xl border border-ink/10 bg-white p-7">
+              <p className="text-sm text-ink/65 leading-7 mb-4">&ldquo;{item.quote}&rdquo;</p>
+              <p className="text-sm font-medium">{item.author}</p>
+              <p className="text-xs text-ink/45 mt-1">
+                {item.role} · {item.location}
+              </p>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+
+      <section className="section max-w-[1400px] mx-auto">
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Why Flux</p>
         <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-10" style={{ letterSpacing: "-0.03em" }}>
-          Everything you need to know before we set up your GHL system.
+          Why businesses choose Flux over a generic freelancer or snapshot-first agency.
+        </h2>
+        <div className="rounded-3xl border border-ink/10 bg-white overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-0 border-b border-ink/8">
+            <div className="p-6 bg-blush/70">
+              <p className="text-xs uppercase tracking-widest text-ink/35 mb-2">With Flux Media Creations</p>
+            </div>
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-widest text-ink/35 mb-2">With a generic alternative</p>
+            </div>
+          </div>
+          {comparisonRows.map((row, index) => (
+            <div key={row.flux} className={`grid md:grid-cols-2 gap-0 ${index !== comparisonRows.length - 1 ? "border-b border-ink/8" : ""}`}>
+              <div className="p-6 bg-blush/40 text-sm text-ink/70 leading-7">{row.flux}</div>
+              <div className="p-6 text-sm text-ink/60 leading-7">{row.other}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section max-w-[1400px] mx-auto">
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Pricing</p>
+        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-5" style={{ letterSpacing: "-0.03em" }}>
+          Clear pricing signals for buyers comparing GoHighLevel setup options.
+        </h2>
+        <p className="text-base text-ink/50 max-w-4xl leading-relaxed mb-8">
+          We keep pricing transparent because commercial-intent visitors usually want a range before they reach out. Foundational
+          GoHighLevel setup starts from $300, and more advanced builds scale with scope.
+        </p>
+        <div className="rounded-3xl border border-ink/10 bg-white p-8">
+          <ul className="space-y-4">
+            {pricingNotes.map((item) => (
+              <li key={item} className="text-sm text-ink/65 leading-7 flex gap-3">
+                <span style={{ color: "var(--flux)" }}>•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section max-w-[1400px] mx-auto">
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Frequently asked questions</p>
+        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-4xl leading-tight mb-10" style={{ letterSpacing: "-0.03em" }}>
+          Direct answers for search, AI engines, and buyers comparing GoHighLevel experts.
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {faqs.map((item) => (
             <article key={item.q} className="rounded-3xl border border-ink/10 bg-white p-7">
-              <h3 className="font-medium mb-2">{item.q}</h3>
+              <h3 className="font-medium mb-3">{item.q}</h3>
               <p className="text-sm text-ink/60 leading-7">{item.a}</p>
             </article>
           ))}
@@ -439,24 +539,67 @@ export default function GoHighLevelAutomationPage() {
       </section>
 
       <section className="section-sm max-w-[1400px] mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6">
+          <div className="rounded-3xl border border-ink/10 bg-white p-8">
+            <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Internal links</p>
+            <h2 className="font-display font-semibold text-3xl md:text-4xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+              Related services and proof paths that strengthen this page.
+            </h2>
+            <div className="space-y-3">
+              {internalLinks.map((item) => (
+                <Link key={item.href} href={item.href} className="block text-sm text-ink/65 hover:text-flux transition-colors">
+                  {item.label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-ink/10 bg-white p-8">
+            <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Editorial roadmap</p>
+            <h2 className="font-display font-semibold text-3xl md:text-4xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+              Recommended future pages to build topical authority around GoHighLevel.
+            </h2>
+            <ul className="space-y-3">
+              {editorialRoadmap.map((item) => (
+                <li key={item} className="text-sm text-ink/60 leading-7 flex gap-3">
+                  <span style={{ color: "var(--flux)" }}>•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-sm max-w-[1400px] mx-auto">
         <div className="rounded-3xl bg-ink text-cream p-8 md:p-12 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
-            Stop losing leads to slow response times. Let us build your GoHighLevel system.
+            Ready to build your GoHighLevel automation system?
           </h2>
           <p className="text-sm md:text-base text-cream/75 max-w-3xl mx-auto leading-7 mb-8">
-            Book a free 30-minute discovery call. We will map your current lead flow, identify exactly where leads are falling through the cracks, and show you the specific automations that will fix it. Most clients see their first missed call recovered within 24 hours of their system going live.
+            Tell us about your current setup, the tools you use, and the outcome you want. We will scope it clearly, explain the
+            right first build, and get back to you within one business day.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-6">
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-              Book your free discovery call
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium"
+              style={{ background: "var(--flux)", color: "white" }}
+            >
+              Start the conversation
               <span>→</span>
             </Link>
-            <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium border border-cream/35 text-cream/90">
+            <a
+              href={`https://wa.me/${SITE.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium border border-cream/35 text-cream/90"
+            >
               WhatsApp us now
             </a>
           </div>
           <p className="text-xs text-cream/55 max-w-4xl mx-auto">
-            GoHighLevel automation built for US healthcare clinics, home service businesses, and real estate professionals. A2P compliant. Fully tested. Delivered in 7-14 days.
+            No vague retainers. No outsourced build chain. Just a clean GoHighLevel system that is mapped, tested, and handed over properly.
           </p>
         </div>
       </section>

@@ -11,6 +11,12 @@ export default function Hero() {
     animate: { opacity: 1, y: 0 },
   };
 
+  const headlineLines = [
+    "We build WordPress sites",
+    "that capture leads,",
+    "book appointments — and close deals.",
+  ];
+
   return (
     <section className="min-h-screen flex flex-col justify-between pt-28 md:pt-32 pb-16 px-6 md:px-10 max-w-[1400px] mx-auto">
 
@@ -24,39 +30,23 @@ export default function Hero() {
           WordPress + <span style={{ color: "var(--flux)" }}>GoHighLevel</span> Agency for US Businesses
         </motion.p>
 
-        <div className="overflow-hidden">
-          <motion.h1
-            className="font-display font-semibold leading-[0.95]"
-            style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            We build WordPress sites
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden">
-          <motion.h1
-            className="font-display font-semibold leading-[0.95]"
-            style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            that capture leads,
-          </motion.h1>
-        </div>
-        <div className="overflow-hidden">
-          <motion.h1
-            className="font-display font-semibold leading-[0.95]"
-            style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            book appointments — and close deals.
-          </motion.h1>
-        </div>
+        <motion.h1
+          className="font-display font-semibold leading-[0.95]"
+          style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
+        >
+          {headlineLines.map((line, index) => (
+            <span key={line} className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {line}
+              </motion.span>
+            </span>
+          ))}
+        </motion.h1>
 
         {/* Subline + CTA row */}
         <motion.div
