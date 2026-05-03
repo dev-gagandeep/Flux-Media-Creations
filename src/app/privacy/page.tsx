@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
+import { generateMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `Privacy Policy | ${SITE.name}`,
-};
+export const metadata: Metadata = generateMeta({
+  title: "Privacy Policy",
+  description: `Privacy policy for ${SITE.name}, including contact form data, cookies, analytics, and user rights.`,
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
@@ -26,7 +29,7 @@ export default function PrivacyPage() {
           Cookies and analytics
         </h2>
         <p>
-          We use Google Analytics to understand how visitors interact with our site. This data is anonymous and does not identify individual users. You can opt out of Google Analytics tracking via your browser settings.
+          We use Google Tag Manager and analytics tools to understand how visitors interact with our site. This data is anonymous and does not identify individual users. You can opt out of analytics tracking via your browser settings.
         </p>
         <h2 className="font-display font-semibold text-xl text-ink mt-4" style={{ letterSpacing: "-0.02em" }}>
           Your rights
