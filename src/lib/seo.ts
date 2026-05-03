@@ -7,6 +7,31 @@ interface SeoProps {
   description?: string;
   path?: string;
   image?: string;
+  noIndex?: boolean;
+}
+
+function normalizeTitle(title: string) {
+  return title
+    .replace(/\s*[|—-]\s*Flux Media Creations\s*$/i, "")
+    .replace(/\s*[|—-]\s*Flux\s*$/i, "")
+    .trim();
+}
+
+function normalizeAbsoluteTitle(title: string) {
+  return title
+    .replace(/\s*\|\s*Flux\s*(?=\|\s*Flux Media Creations\s*$)/i, "")
+    .replace(/(\s*[|—-]\s*Flux Media Creations)(?:\s*[|—-]\s*Flux Media Creations)+\s*$/i, "$1")
+    .trim();
+}
+
+function normalizeDescription(description: string) {
+  if (description.length <= 160) {
+    return description;
+  }
+
+  const clipped = description.slice(0, 157);
+  const lastSpace = clipped.lastIndexOf(" ");
+  return `${clipped.slice(0, lastSpace > 120 ? lastSpace : 157).trimEnd()}...`;
 }
 
 export function generateMeta({
@@ -15,19 +40,21 @@ export function generateMeta({
   description = SITE.description,
   path = "",
   image = "/og-image.svg",
+  noIndex = false,
 }: SeoProps = {}): Metadata {
-  const fullTitle = absoluteTitle ?? (title ? `${title} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`);
+  const fullTitle = absoluteTitle ? normalizeAbsoluteTitle(absoluteTitle) : title ? `${normalizeTitle(title)} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
+  const metaDescription = normalizeDescription(description);
   const url = `${SITE.url}${path}`;
 
   return {
     title: fullTitle,
-    description,
+    description: metaDescription,
     metadataBase: new URL(SITE.url),
     manifest: "/manifest.webmanifest",
     alternates: { canonical: url },
     openGraph: {
       title: fullTitle,
-      description,
+      description: metaDescription,
       url,
       siteName: SITE.name,
       type: "website",
@@ -44,15 +71,15 @@ export function generateMeta({
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
-      description,
+      description: metaDescription,
       images: [image],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: !noIndex,
+      follow: !noIndex,
       googleBot: {
-        index: true,
-        follow: true,
+        index: !noIndex,
+        follow: !noIndex,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -185,7 +212,7 @@ export const schemaHomeAgency = {
           "Custom-designed, lightning-fast WordPress sites built from Figma to go-live. Mobile-first, SEO-ready, PageSpeed 90+.",
         price: "500",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/wordpress-website-build",
+        url: `${SITE.url}/services/wordpress-website-build`,
       },
       {
         "@type": "Offer",
@@ -194,7 +221,7 @@ export const schemaHomeAgency = {
           "Full GHL setup: pipelines, missed call text-back, appointment booking, SMS reminders, review generation. A2P verified.",
         price: "300",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/gohighlevel-automation",
+        url: `${SITE.url}/services/gohighlevel-automation`,
       },
       {
         "@type": "Offer",
@@ -212,7 +239,7 @@ export const schemaHomeAgency = {
           "Custom Airtable CRM, project tracker, and client portal. Automated email triggers and visual dashboards.",
         price: "200",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/airtable-business-hub",
+        url: `${SITE.url}/services/airtable-business-hub`,
       },
       {
         "@type": "Offer",
@@ -221,7 +248,7 @@ export const schemaHomeAgency = {
           "Connect any tools: Facebook Lead Ads -> GHL -> Airtable -> Calendar. Multi-platform lead routing built in hours.",
         price: "150",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/make-zapier-automation",
+        url: `${SITE.url}/services/make-zapier-automation`,
       },
       {
         "@type": "Offer",
@@ -230,7 +257,7 @@ export const schemaHomeAgency = {
           "WordPress updates, security scans, backups, GHL monitoring, speed checks, content updates. Direct access to us.",
         price: "150",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/monthly-maintenance",
+        url: `${SITE.url}/services/monthly-maintenance`,
       },
       {
         "@type": "Offer",
@@ -239,7 +266,7 @@ export const schemaHomeAgency = {
           "A smarter discovery system for search, maps, and AI-driven results. Built to help the right people find you faster.",
         price: "400",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/search-visibility-engine",
+        url: `${SITE.url}/services/search-visibility-engine`,
       },
     ],
   },
@@ -297,7 +324,7 @@ export const schemaHomeReviews = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Flux Media Creations",
-  url: "https://www.fluxmediacreations.com/",
+  url: `${SITE.url}/`,
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",

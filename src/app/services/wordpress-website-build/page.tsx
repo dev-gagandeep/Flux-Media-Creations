@@ -6,7 +6,7 @@ import { generateMeta } from "@/lib/seo";
 export const metadata: Metadata = generateMeta({
   title: "WordPress Website for Healthcare Clinics and Service Businesses",
   description:
-    "WordPress website design for healthcare clinics and service businesses. Figma-first, Elementor Pro build, PageSpeed 90+, mobile-first UX, and conversion-focused structure. Starting from $500.",
+    "WordPress website design for clinics and service businesses with Figma-first UX, Elementor Pro builds, PageSpeed 90+, and conversion-focused structure.",
   path: "/services/wordpress-website-build",
 });
 
@@ -466,7 +466,7 @@ export default function WordPressWebsiteBuildPage() {
         </div>
 
         <p className="text-sm text-ink/55 mt-8 leading-7">
-          All projects are 50% upfront, 50% on launch. Payment plans available. Book a free discovery call for a custom quote based on your specific requirements.
+          All projects are 50% upfront, 50% on launch. Payment plans available. Contact us for a custom quote based on your specific requirements.
         </p>
       </section>
 
@@ -491,11 +491,11 @@ export default function WordPressWebsiteBuildPage() {
             Ready to build a WordPress website that actually brings in leads?
           </h2>
           <p className="text-sm md:text-base text-cream/75 max-w-3xl mx-auto leading-7 mb-8">
-            Book a free 30-minute discovery call. We will review your current site (if you have one), identify what is costing you leads, and map out exactly what needs to be built. Most clients have a live site within 10 days of signing.
+            Contact us with your current site or project goals. We will identify what is costing you leads and map out exactly what needs to be built. Most clients have a live site within 10 days of signing.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-6">
-            <Link href="/book-a-call" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
-              Book your free discovery call
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
+              Contact us
               <span>→</span>
             </Link>
             <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium border border-cream/35 text-cream/90">

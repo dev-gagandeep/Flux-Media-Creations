@@ -134,7 +134,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
             { title: "Schema markup", body: "Organization, Service, and FAQ schema implemented for richer visibility in search." },
             { title: "PageSpeed 90+ target", body: "Image optimization, Cloudflare CDN, caching, and clean code so the site loads fast from day one." },
             { title: "GA4 and Search Console setup", body: "Both tools are verified and configured on launch day." },
-            { title: "Conversion-focused copy direction", body: "Core page messaging shaped around what your visitors need to see to contact, book, or call." },
+            { title: "Conversion-focused copy direction", body: "Core page messaging shaped around what your visitors need to see to contact you." },
           ],
         },
         {
@@ -170,7 +170,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           title: "Home service businesses",
-          body: "Ideal for companies starting fresh or replacing a site that is not generating calls. The website drives demand and the CRM handles the speed-to-lead problem automatically.",
+          body: "Ideal for companies starting fresh or replacing a site that is not generating enquiries. The website drives demand and the CRM handles the speed-to-lead problem automatically.",
         },
         {
           title: "Real estate professionals",
@@ -187,7 +187,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       title: "From discovery to live system in 14 to 21 days.",
       steps: [
         {
-          title: "Discovery call",
+          title: "Project review",
           body: "We learn your business, your goals, your existing tools, and where leads are being lost.",
         },
         {
@@ -232,7 +232,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     },
     faqSection: {
       label: "Questions about the Full Growth System",
-      title: "What people ask before booking.",
+      title: "What people ask before starting.",
       items: [
         { q: "Can I get just the website or just the automation instead?", a: "Yes. Our WordPress Website Build starts from $500 and our GoHighLevel Automation setup starts from $300. The Full Growth System is the strongest option when you need both built together and connected from the start." },
         { q: "Do you build the GoHighLevel automations while building the website?", a: "Yes. Design, development, and GHL configuration run in parallel. We do not finish the website and then start the automation later." },
@@ -244,7 +244,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     },
     finalCta: {
       title: "Stop running your website and CRM as two separate things. Build them together.",
-      body: "Book a free 30-minute discovery call. We will map your current lead flow, identify what is leaking, and show you exactly what your Full Growth System should look like. Most clients are live within three weeks of signing.",
+      body: "Contact us with your current lead flow. We will identify what is leaking and show you exactly what your Full Growth System should look like. Most clients are live within three weeks of signing.",
       primaryLabel: "Get your Growth System built →",
       secondaryLabel: "WhatsApp us",
       trust: "One team. One point of contact. WordPress and GoHighLevel built together for US healthcare clinics, home service businesses, and real estate professionals.",
@@ -254,7 +254,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "airtable-business-hub",
     metaTitle: "Airtable CRM Setup & Business Hub for Small Businesses | Flux Media Creations",
     metaDescription:
-      "Custom Airtable CRM, project tracker, and client portal built for your business. Automated email triggers, visual dashboards, and workflow automation. Done-for-you Airtable setup from $200.",
+      "Custom Airtable CRM, project tracker, client portal, automations, and dashboards for small businesses. Done-for-you Airtable setup from $200.",
     image: {
       src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
       alt: "Business dashboard and analytics workspace representing a custom Airtable operations hub.",
@@ -325,7 +325,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       label: "How we build your Airtable system",
       title: "Discovery to delivered system in 5–7 days.",
       steps: [
-        { title: "Day 1: Workflow mapping call", body: "We map how you currently track clients, projects, billing, and the data your team needs every day before building anything." },
+        { title: "Day 1: Workflow mapping", body: "We map how you currently track clients, projects, billing, and the data your team needs every day before building anything." },
         { title: "Day 2–3: Base build", body: "Your custom Airtable base is built with the right tables, fields, linked records, and views for your workflow." },
         { title: "Day 4–5: Automation setup", body: "Email triggers, form integrations, and Make or Zapier connections are built alongside your dashboard and reporting layer." },
         { title: "Day 6: QA and data import", body: "Existing spreadsheet data is cleaned and imported, then every automation is tested with real sample records." },
@@ -399,7 +399,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     },
     finalCta: {
       title: "Replace your scattered spreadsheets with one clean Airtable system.",
-      body: "Book a free 30-minute discovery call. We will review your current workflow, map what your Airtable system needs to do, and give you a fixed-price quote within 24 hours.",
+      body: "Contact us with your current workflow. We will map what your Airtable system needs to do and give you a fixed-price quote within 24 hours.",
       primaryLabel: "Get your Airtable system built →",
       secondaryLabel: "WhatsApp us",
       trust: "Custom Airtable CRM and operations systems for agencies, healthcare practices, home service companies, and real estate teams. Delivered in 5–14 days.",
@@ -409,7 +409,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "make-zapier-automation",
     metaTitle: "Make & Zapier Automation Setup Service for US Businesses | Flux Media Creations",
     metaDescription:
-      "We build Make (formerly Integromat) and Zapier automation workflows that connect your tools and eliminate manual work. Facebook Ads → GHL → Airtable → Calendar. Done-for-you automation from $150.",
+      "Make and Zapier automation workflows that connect your tools, route leads, and eliminate manual work. Done-for-you automation from $150.",
     image: {
       src: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80",
       alt: "Code and automation workflow visual on a screen representing connected tools running in the background.",
@@ -471,7 +471,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       label: "How we build your automation",
       title: "Discovery to live automation in 3–7 days.",
       steps: [
-        { title: "Day 1: Workflow discovery call", body: "We map the current manual process step by step, document the trigger, outputs, tools involved, and expected outcome, then agree on the workflow before we build." },
+        { title: "Day 1: Workflow discovery", body: "We map the current manual process step by step, document the trigger, outputs, tools involved, and expected outcome, then agree on the workflow before we build." },
         { title: "Day 2–4: Automation build", body: "The workflow is built in Make or Zapier, connections are configured, and error handling or fallback logic is added so failures are visible instead of silent." },
         { title: "Day 5–6: Testing", body: "We run the automation with real data under multiple conditions, including blanks, failures, and retries, so the workflow behaves properly in the real world." },
         { title: "Day 7: Handover", body: "You receive a recorded walkthrough, written notes on how to monitor or pause the workflow, and 30 days of support." },
@@ -539,7 +539,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     },
     finalCta: {
       title: "Stop doing manually what a machine should be doing for you.",
-      body: "Book a free 30-minute discovery call. Tell us your biggest manual workflow headache and we will map the automation on the call, then give you a fixed quote within 24 hours.",
+      body: "Contact us with your biggest manual workflow headache and we will map the automation, then give you a fixed quote within 24 hours.",
       primaryLabel: "Get your automation built →",
       secondaryLabel: "WhatsApp us",
       trust: "Make and Zapier automation workflows built for agencies, healthcare practices, home service businesses, and e-commerce brands. Delivered in 3–14 days and fully tested.",
@@ -549,7 +549,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "monthly-maintenance",
     metaTitle: "WordPress & GoHighLevel Monthly Maintenance Service | Flux Media Creations",
     metaDescription:
-      "WordPress updates, security scans, daily backups, GoHighLevel monitoring, speed checks, and content updates. Direct access — no ticket queue. Monthly WordPress maintenance from $150/mo.",
+      "WordPress updates, security scans, backups, GoHighLevel monitoring, speed checks, and content updates. Maintenance from $150/mo.",
     image: {
       src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80",
       alt: "Cybersecurity and site monitoring visual representing maintenance, uptime, and system protection.",
@@ -686,7 +686,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     },
     finalCta: {
       title: "Stop hoping your WordPress site stays secure. Know it is.",
-      body: "Book a free 15-minute maintenance consultation. We will review your current site health, identify the biggest vulnerabilities, and recommend the right monthly plan.",
+      body: "Contact us for a maintenance review. We will check your current site health, identify the biggest vulnerabilities, and recommend the right monthly plan.",
       primaryLabel: "Start your maintenance plan →",
       secondaryLabel: "WhatsApp us",
       trust: "WordPress and GoHighLevel monthly maintenance for healthcare clinics, home service businesses, real estate professionals, and agencies. No contracts. Direct access.",
@@ -696,7 +696,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "search-visibility-engine",
     metaTitle: "Search Visibility Engine — SEO, Google Maps & AI Search for Service Businesses | Flux Media Creations",
     metaDescription:
-      "Get found on Google Search, Google Maps, and AI-driven results like ChatGPT and Perplexity. We build search visibility systems for US healthcare clinics and service businesses. From $400.",
+      "Get found on Google Search, Google Maps, ChatGPT, and Perplexity with search visibility systems for US service businesses. From $400.",
     image: {
       src: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
       alt: "Search analytics and performance dashboard representing SEO, Google Maps, and AI search visibility.",
@@ -813,7 +813,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
             "Competitor ranking analysis",
             "Featured snippet targeting and tracking",
             "Qualified backlink outreach",
-            "Bi-weekly check-in calls",
+            "Bi-weekly check-ins",
           ],
         },
       ],
@@ -833,7 +833,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     },
     finalCta: {
       title: "Your next client is already searching for what you offer. Make sure they find you.",
-      body: "Book a free 30-minute visibility audit call. We will review your current rankings, Google Business Profile, and AI search presence, then show you where visibility is leaking and what it will take to fix it.",
+      body: "Contact us for a visibility review. We will check your rankings, Google Business Profile, and AI search presence, then show you where visibility is leaking.",
       primaryLabel: "Build my search visibility →",
       secondaryLabel: "WhatsApp us",
       trust: "Search visibility systems built for US healthcare clinics, home service businesses, real estate professionals, and agencies. SEO, AEO, and GEO under one roof.",

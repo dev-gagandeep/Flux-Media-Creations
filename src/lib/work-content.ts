@@ -24,7 +24,7 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     slug: "mvm-health",
     metaTitle: "MVM Health — Multi-Specialty Pain Management Platform | Flux Media Creations",
     metaDescription:
-      "How we built a custom WordPress website and GoHighLevel CRM automation system for MVM Health, a multi-specialty pain management clinic in New Jersey, improving patient lead response time and appointment booking.",
+      "MVM Health case study: custom WordPress website and GoHighLevel CRM automation for a multi-specialty pain management clinic.",
     title: "MVM Health",
     categoryTag: "Healthcare · Pain Management · New Jersey",
     published: "2026-01-15",
@@ -71,13 +71,13 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     ],
     techStack: ["WordPress", "Elementor Pro", "GoHighLevel", "Figma", "Rank Math Pro", "Cloudflare", "Google Analytics 4", "Search Console", "Telehealth booking", "Patient portal integration"],
     ctaTitle: "Building a healthcare website or patient automation system?",
-    ctaBody: "Book a free discovery call. We’ll review your current setup and show you exactly what a system like this could look like for your practice.",
+    ctaBody: "Contact us with your current setup and we’ll show you exactly what a system like this could look like for your practice.",
   },
   "vascura-pain-vein": {
     slug: "vascura-pain-vein",
     metaTitle: "Vascura Pain & Vein — Specialty Clinic WordPress Website | Flux Media Creations",
     metaDescription:
-      "How we designed and built a custom WordPress website with appointment booking and GoHighLevel automation for Vascura Pain & Vein, a specialty pain and vein treatment clinic in New Jersey.",
+      "Vascura Pain & Vein case study: custom WordPress website with appointment booking and GoHighLevel automation for a specialty clinic.",
     title: "Vascura Pain & Vein",
     categoryTag: "Healthcare · Specialty Clinic · New Jersey",
     published: "2026-02-01",
@@ -121,13 +121,13 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     ],
     techStack: ["WordPress", "Elementor Pro", "GoHighLevel", "Figma", "Rank Math Pro", "Cloudflare", "GA4"],
     ctaTitle: "Running a specialty clinic that needs a better website and patient automation?",
-    ctaBody: "Book a free discovery call and we’ll map the booking, trust, and follow-up system your clinic actually needs.",
+    ctaBody: "Contact us and we’ll map the booking, trust, and follow-up system your clinic actually needs.",
   },
   "ec-bone-joint": {
     slug: "ec-bone-joint",
     metaTitle: "EC Bone & Joint — Orthopedic Practice WordPress Website | Flux Media Creations",
     metaDescription:
-      "How we built a custom WordPress website with procedure pages, provider profiles, and booking integration for EC Bone & Joint, an orthopedic and joint health practice.",
+      "EC Bone & Joint case study: custom WordPress website with procedure pages, provider profiles, and booking integration.",
     title: "EC Bone & Joint",
     categoryTag: "Healthcare · Orthopedics · WordPress",
     published: "2026-01-20",
@@ -166,13 +166,13 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     ],
     techStack: ["WordPress", "Elementor Pro", "Figma", "Rank Math Pro", "Cloudflare", "GA4", "Search Console"],
     ctaTitle: "Running an orthopedic practice or specialist clinic?",
-    ctaBody: "Book a free discovery call and we’ll show you how procedure pages, provider trust, and booking flow can work together on one site.",
+    ctaBody: "Contact us and we’ll show you how procedure pages, provider trust, and booking flow can work together on one site.",
   },
   "med-way-nj": {
     slug: "med-way-nj",
     metaTitle: "Med Way NJ — Multi-Specialty Medical Services WordPress Website | Flux Media Creations",
     metaDescription:
-      "How we built a comprehensive multi-specialty medical services WordPress platform with GoHighLevel CRM integration for Med Way NJ, a multi-specialty practice in New Jersey.",
+      "Med Way NJ case study: multi-specialty medical services WordPress platform with GoHighLevel CRM integration.",
     title: "Med Way NJ",
     categoryTag: "Healthcare · Multi-Specialty · New Jersey",
     published: "2026-02-10",
@@ -212,13 +212,13 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     ],
     techStack: ["WordPress", "Elementor Pro", "GoHighLevel", "Figma", "Rank Math Pro", "Cloudflare", "GA4"],
     ctaTitle: "Running a multi-specialty practice or medical group?",
-    ctaBody: "Book a free discovery call and we’ll map the service architecture and routing logic your patient journey actually needs.",
+    ctaBody: "Contact us and we’ll map the service architecture and routing logic your patient journey actually needs.",
   },
   "phone-repair-decatur": {
     slug: "phone-repair-decatur",
     metaTitle: "Phone Repair Decatur — Local Service Business WordPress Website | Flux Media Creations",
     metaDescription:
-      "How we built a local SEO-optimized WordPress website with online booking and repair tracker for Phone Repair Decatur, ranked on Google Maps for phone repair searches in Atlanta.",
+      "Phone Repair Decatur case study: local SEO WordPress website with online booking, repair tracking, and Google Maps visibility.",
     title: "Phone Repair Decatur",
     categoryTag: "Local Service · Home Services · Atlanta, GA",
     published: "2025-11-15",
@@ -261,13 +261,13 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     ],
     techStack: ["WordPress", "Elementor Pro", "Figma", "Rank Math Pro", "Local Business Schema", "Cloudflare", "GA4", "Search Console", "GBP Optimization"],
     ctaTitle: "Running a local service business that needs to rank on Google Maps?",
-    ctaBody: "Book a free discovery call and we’ll map the local SEO, booking, and review system your service business needs.",
+    ctaBody: "Contact us and we’ll map the local SEO, booking, and review system your service business needs.",
   },
   "farhan-yousuf-realtor": {
     slug: "farhan-yousuf-realtor",
     metaTitle: "Farhan Yousuf Realtor — Real Estate Agent WordPress Website | Flux Media Creations",
     metaDescription:
-      "How we built a custom real estate agent WordPress website with IDX listings, lead capture forms, and GoHighLevel automated buyer and seller follow-up for Farhan Yousuf, Realtor.",
+      "Farhan Yousuf Realtor case study: custom real estate WordPress website with IDX listings, lead capture, and automated follow-up.",
     title: "Farhan Yousuf — Realtor",
     categoryTag: "Real Estate · IDX Website · Lead Automation",
     published: "2025-12-01",
@@ -307,6 +307,6 @@ export const WORK_CASE_STUDIES: Record<string, WorkCaseStudy> = {
     ],
     techStack: ["WordPress", "Elementor Pro", "IDX Integration", "GoHighLevel", "Figma", "Rank Math Pro", "GA4"],
     ctaTitle: "Real estate agent or broker who needs a website and lead automation system?",
-    ctaBody: "Book a free discovery call and we’ll map the site, IDX, and nurture system that fits your market and follow-up style.",
+    ctaBody: "Contact us and we’ll map the site, IDX, and nurture system that fits your market and follow-up style.",
   },
 };

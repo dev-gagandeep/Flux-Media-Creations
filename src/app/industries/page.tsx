@@ -7,7 +7,7 @@ import { generateMeta } from "@/lib/seo";
 export const metadata: Metadata = generateMeta({
   absoluteTitle: "Industries We Serve — Healthcare, Home Services, Real Estate & More | Flux Media Creations",
   description:
-    "WordPress web design and GoHighLevel automation built for healthcare clinics, home service businesses, real estate professionals, and beauty & wellness brands across the US, UK, and Canada.",
+    "WordPress web design and GoHighLevel automation for healthcare, home services, real estate, and wellness brands across the US, UK, and Canada.",
   path: "/industries",
 });
 
@@ -17,11 +17,11 @@ const industryPageSchema = {
   name: "Industries We Serve | Flux Media Creations",
   description:
     "WordPress web design and GoHighLevel automation for healthcare clinics, home service businesses, real estate professionals, and beauty and wellness brands.",
-  url: "https://www.fluxmediacreations.com/industries",
+  url: `${SITE.url}/industries`,
   provider: {
     "@type": "ProfessionalService",
     name: "Flux Media Creations",
-    url: "https://www.fluxmediacreations.com",
+    url: SITE.url,
     founder: {
       "@type": "Person",
       name: "Gagan Deep",
@@ -159,10 +159,10 @@ export default function IndustriesPage() {
           <p className="text-sm md:text-base text-cream/72 leading-7 max-w-3xl mb-6">
             We&apos;ve also built websites and automation systems for law firms, financial advisors, fitness studios, ecommerce brands, and SaaS companies.
             If your business captures leads, books appointments, or manages client relationships, there is a good chance we can build a better system for it.
-            Book a free discovery call and tell us what you do.
+            Contact us and tell us what you do.
           </p>
           <Link
-            href="/book-a-call"
+            href="/contact"
             className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
             style={{ background: "var(--flux)" }}
           >

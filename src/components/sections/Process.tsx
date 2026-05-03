@@ -15,13 +15,13 @@ export default function Process() {
         {/* Left sticky header */}
         <div className="md:sticky md:top-28">
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">How it works</p>
-          <TextReveal
-            text="A clear process from discovery call to go-live."
+        <TextReveal
+            text="A clear process from first enquiry to go-live."
             className="font-display font-semibold text-3xl md:text-5xl mb-6"
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed mb-8 max-w-sm">
-            We start with a free 30-minute discovery call, design everything in Figma before code, build WordPress and GoHighLevel in parallel when needed, test across browsers and devices, and hand the project over with a recorded walkthrough and 30 days of direct support.
+            We start with a focused project review, design everything in Figma before code, build WordPress and GoHighLevel in parallel when needed, test across browsers and devices, and hand the project over with a recorded walkthrough and 30 days of direct support.
           </p>
           <Link
             href="/process"

@@ -2,7 +2,7 @@ export const SITE = {
   name: "Flux Media Creations",
   tagline: "Websites & Automation That Work While You Sleep",
   description:
-    "We build high-converting WordPress websites and GoHighLevel automation systems for healthcare clinics and home service businesses across the US. From design to deployment — fully connected.",
+    "WordPress websites and GoHighLevel automation for healthcare, home services, and real estate teams across the US.",
   url: "https://fluxmediacreations.com",
   email: "contact@fluxmediacreations.com",
   phone: "+1 778 983 6113",
@@ -81,7 +81,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "A stat bar under the fold builds fast trust when done correctly. Use proof-oriented metrics only: years building systems, delivery consistency, platform outcomes, or response standards.",
       "Part 3: Service page architecture. Each service page should follow the same decision pattern: problem, what is delivered, how delivery works, expected outcomes, and common objections.",
       "Do not hide core details. Buyers are not only comparing price. They are comparing certainty. The more clearly they understand scope and process, the lower your sales friction.",
-      "Every service page should include one direct CTA and one softer CTA. For example: Book a call or send requirements. This captures both high-intent and lower-intent leads.",
+      "Every service page should include one direct CTA and one softer CTA. For example: contact us or send requirements. This captures both high-intent and lower-intent leads.",
       "Part 4: Trust stack. Most websites add testimonials at the end. Strong websites distribute proof through the entire page.",
       "Use micro-proof near claims: short client outcomes, implementation snapshots, platform badges, and specific project context. This keeps credibility tied to the promise being made.",
       "If you have case studies, convert them into scannable cards with business type, stack used, and measurable impact. You can showcase them in [Work] and link from related service pages.",
@@ -151,7 +151,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "How to Set Up GoHighLevel Missed Call Text-Back (Step-by-Step for 2026)",
     metaTitle: "How to Set Up GoHighLevel Missed Call Text-Back (Step-by-Step Guide for 2026)",
     metaDescription:
-      "Step-by-step guide to setting up GoHighLevel missed call text-back for service businesses. Stop losing leads to unanswered calls with this simple GHL automation workflow.",
+      "Set up GoHighLevel missed call text-back for service businesses and stop losing leads to unanswered calls.",
     excerpt:
       "A practical step-by-step guide to setting up GoHighLevel missed call text-back, including business-hours logic, A2P requirements, testing, and the mistakes most businesses make.",
     date: "2026-04-15",
@@ -803,7 +803,7 @@ export const LOCATION_PAGES = [
 export const PROCESS_STEPS = [
   {
     number: "01",
-    title: "Free 30-minute discovery call",
+    title: "Free project review",
     description: "We learn your business, your goals, your current tech stack, and the leads you're losing right now. No pitch — just a focused conversation about what you actually need. We'll tell you honestly if we're not the right fit.",
   },
   {

@@ -8,7 +8,7 @@ import TextReveal from "@/components/ui/TextReveal";
 export const metadata: Metadata = generateMeta({
   title: "Services",
   description:
-    "WordPress website development, GoHighLevel CRM automation, Airtable systems, discovery visibility, and Make/Zapier integrations for healthcare and home service businesses in the US.",
+    "WordPress websites, GoHighLevel automation, Airtable systems, SEO visibility, and Make/Zapier integrations for US service businesses.",
   path: "/services",
 });
 

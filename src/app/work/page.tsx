@@ -7,7 +7,7 @@ import TextReveal from "@/components/ui/TextReveal";
 export const metadata: Metadata = generateMeta({
   title: "Our Work",
   description:
-    "Portfolio of WordPress websites and GoHighLevel automation systems built for healthcare clinics, home service businesses, and real estate professionals across the US.",
+    "Portfolio of WordPress websites and GoHighLevel automation systems for healthcare, home services, and real estate teams.",
   path: "/work",
 });
 

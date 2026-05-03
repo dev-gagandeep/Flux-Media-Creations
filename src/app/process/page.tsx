@@ -8,7 +8,7 @@ import TextReveal from "@/components/ui/TextReveal";
 export const metadata: Metadata = generateMeta({
   title: "How We Work",
   description:
-    "Clear process, no surprises. From discovery call to launch day — see exactly how a Flux Media Creations project runs.",
+    "Clear process, no surprises. From first enquiry to launch day, see exactly how a Flux Media Creations project runs.",
   path: "/process",
 });
 

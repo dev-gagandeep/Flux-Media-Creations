@@ -145,7 +145,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: [email],
-      subject: "You're booked - Free discovery call with Flux Media Creations",
+      subject: "Contact request received - Flux Media Creations",
       html: `
 <!DOCTYPE html>
 <html>
@@ -158,9 +158,9 @@ export async function POST(req: NextRequest) {
           <span style="font-size:22px;font-weight:700;">Flux.</span>
         </td></tr>
         <tr><td style="padding:30px 38px;">
-          <h1 style="font-size:24px;font-weight:700;margin:0 0 8px;">You're booked, ${safe.name}.</h1>
+          <h1 style="font-size:24px;font-weight:700;margin:0 0 8px;">We received your request, ${safe.name}.</h1>
           <p style="color:#9a958d;font-size:15px;line-height:1.6;margin:0 0 26px;">
-            Your free 30-minute discovery call is confirmed. Our team will send you a Google Meet or Zoom link shortly.
+            Your request is confirmed. Our team will review the details and reply with the clearest next step shortly.
           </p>
           <table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(240,237,230,0.04);border:1px solid rgba(240,237,230,0.1);border-radius:8px;margin-bottom:26px;">
             <tr><td style="padding:20px 24px;">
@@ -190,7 +190,7 @@ export async function POST(req: NextRequest) {
       from: FROM_EMAIL,
       to: [OWNER_EMAIL],
       replyTo: email,
-      subject: `New call booked - ${name} (${formattedDate} at ${time})`,
+      subject: `New contact request - ${name} (${formattedDate} at ${time})`,
       html: `
 <!DOCTYPE html>
 <html>

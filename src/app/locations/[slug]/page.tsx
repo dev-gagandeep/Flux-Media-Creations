@@ -468,7 +468,7 @@ const LOCATION_BLUEPRINTS: Record<string, LocationBlueprint> = {
       },
       {
         q: "How do we start the process?",
-        a: "Start with a quick call or contact request and we will map your key bottlenecks.",
+        a: "Start with a contact request and we will map your key bottlenecks.",
       },
     ],
     geo: { lat: 31.1471, lng: 75.3412 },
@@ -502,7 +502,7 @@ export function generateMetadata({ params }: LocationPageProps): Metadata {
   const profile = LOCATION_BLUEPRINTS[location.slug];
 
   return generateMeta({
-    title: `${profile?.serviceName ?? "Web Services"} in ${location.label} | Flux`,
+    title: `${profile?.serviceName ?? "Web Services"} in ${location.label}`,
     description: profile?.localIntro ?? location.summary,
     path: `/locations/${location.slug}`,
   });
@@ -569,7 +569,7 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
   };
 
   const processSteps = [
-    `Discovery call for ${location.label} goals`,
+    `Project review for ${location.label} goals`,
     `Build website and automations for ${location.label} audience intent`,
     "Launch with QA, tracking, and handover",
     `Support and optimize for ${location.label} growth`,
@@ -749,7 +749,7 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-widest text-cream/40 mb-4">Ready to grow in {location.label}?</p>
             <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
-              Book a free strategy call for your {location.label} business.
+              Contact us about your {location.label} business.
             </h2>
             <p className="text-sm md:text-base text-cream/70 leading-7 max-w-xl">
               We will review your current funnel, identify lead leaks, and propose a practical execution plan.

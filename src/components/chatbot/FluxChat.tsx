@@ -15,7 +15,6 @@ const QUICK_PROMPTS = [
   { emoji: "💰", label: "Pricing", text: "What are your prices for a website?" },
   { emoji: "⚡", label: "How fast?", text: "How quickly can you deliver?" },
   { emoji: "🔧", label: "GHL setup", text: "Can you set up GoHighLevel for my business?" },
-  { emoji: "📞", label: "Book a call", text: "I want to book a free discovery call" },
   { emoji: "🏥", label: "Healthcare", text: "Do you work with healthcare clinics?" },
   { emoji: "🌍", label: "Your work", text: "Show me some websites you've built" },
 ];
@@ -27,7 +26,7 @@ I can help you with:
 - How we build websites and automations
 - Portfolio examples
 - Getting a quote
-- Booking a free discovery call
+- Contacting the team
 
 What would you like to know?`;
 
@@ -719,7 +718,7 @@ For a custom quote based on your needs, reach us at **+1 778 983 6113** or **+91
 - **WordPress website** - 7-10 days
 - **Full system (Website + GHL)** - 14-21 days
 
-Every project starts with a Figma design you approve before we write code. You can book a free call here: **fluxmediacreations.com/book-a-call**`;
+Every project starts with a Figma design you approve before we write code. You can contact us here: **fluxmediacreations.com/contact**`;
   }
 
   if (q.match(/ghl|gohighlevel|go high level|crm|automation|sms|missed call/)) {
@@ -750,7 +749,7 @@ You can reach us here:
 - **Email:** contact@fluxmediacreations.com
 - **Abroad / WhatsApp:** +1 778 983 6113
 - **India:** +91 6284957892
-- **Book a call:** fluxmediacreations.com/book-a-call
+- **Contact page:** fluxmediacreations.com/contact
 
 We usually reply within a few hours.`;
   }
@@ -787,7 +786,7 @@ You can learn more at **fluxmediacreations.com/about**.`;
   if (q.match(/hi|hello|hey|start|help/)) {
     return `Hi there.
 
-I can help with pricing, services, portfolio examples, timelines, and booking a call. What would you like to know?`;
+I can help with pricing, services, portfolio examples, timelines, and contacting the team. What would you like to know?`;
   }
 
   return `The best next step is to contact us directly so we can give you a precise answer for your project.
@@ -795,5 +794,5 @@ I can help with pricing, services, portfolio examples, timelines, and booking a 
 - **Abroad / WhatsApp:** +1 778 983 6113
 - **India:** +91 6284957892
 - **Email:** contact@fluxmediacreations.com
-- **Book a call:** fluxmediacreations.com/book-a-call`;
+- **Contact page:** fluxmediacreations.com/contact`;
 }

@@ -379,13 +379,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 Ready to Automate?
               </p>
               <p className="text-sm leading-6 text-white/70 mb-4">
-                Book a free 30-minute strategy call. We&apos;ll map your complete GHL automation roadmap.
+                Contact us and we&apos;ll map your complete GHL automation roadmap.
               </p>
               <Link
-                href="/book-a-call"
+                href="/contact"
                 className="inline-flex w-full items-center justify-center rounded-lg bg-[#7C5CFF] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#6d4ff0]"
               >
-                Book Free Call →
+                Contact Us →
               </Link>
             </section>
 

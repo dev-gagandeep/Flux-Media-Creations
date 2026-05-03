@@ -103,7 +103,7 @@ export default function ContactPage() {
               <span style={{ color: "var(--flux)", fontStyle: "italic" }}>project.</span>
             </h1>
             <p className="text-base text-ink/50 leading-relaxed mb-10 max-w-sm">
-              Free 30-minute discovery call. We'll learn exactly what you need and tell you honestly whether we're the right fit.
+              Send the details and we&apos;ll tell you honestly what to build first, what to skip, and whether we&apos;re the right fit.
             </p>
 
             {/* Contact methods */}
@@ -153,8 +153,8 @@ export default function ContactPage() {
               <ol className="flex flex-col gap-2">
                 {[
                   "We review your submission within 24 hours",
-                  "We send a calendar link for a 30-min call",
-                  "We send a proposal within 48 hours of the call",
+                  "We reply with the clearest next step",
+                  "We send a proposal within 48 hours when the fit is right",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-ink/60">
                     <span className="text-xs font-medium w-4 flex-shrink-0 mt-0.5" style={{ color: "#16A34A" }}>

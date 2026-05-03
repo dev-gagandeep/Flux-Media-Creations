@@ -2,12 +2,12 @@ const blocks = [
   {
     icon: "⏱",
     title: "One team. No handoffs.",
-    body: "Gagan Deep builds every WordPress website and configures every GoHighLevel system we deliver. You speak to the same person from your discovery call to your launch day walkthrough. There is no account manager passing notes between you and a developer in another time zone.",
+    body: "Gagan Deep builds every WordPress website and configures every GoHighLevel system we deliver. You speak to the same person from first enquiry to your launch day walkthrough. There is no account manager passing notes between you and a developer in another time zone.",
   },
   {
     icon: "⚡",
     title: "Built to convert, not just look good.",
-    body: "A website that gets compliments but does not generate leads is an expense, not an investment. Every page we build has a clear purpose, a specific call to action, and a path that moves the visitor toward booking or contacting you.",
+    body: "A website that gets compliments but does not generate leads is an expense, not an investment. Every page we build has a clear purpose, a specific action, and a path that moves the visitor toward contacting you.",
   },
   {
     icon: "🛡",

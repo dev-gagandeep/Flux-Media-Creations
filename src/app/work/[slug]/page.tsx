@@ -193,11 +193,11 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
           <p className="text-sm md:text-base leading-7 text-ink/65 max-w-3xl mb-6">{detail.ctaBody}</p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/book-a-call"
+              href="/contact"
               className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
               style={{ background: "var(--flux)" }}
             >
-              Book your free call →
+              Contact us →
             </Link>
             <a
               href={project.url}

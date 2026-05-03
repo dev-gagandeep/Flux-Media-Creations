@@ -4,7 +4,7 @@ import { SITE, TESTIMONIALS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  title: "GoHighLevel Setup & Automation Service | Flux Media Creations",
+  title: "GoHighLevel Setup & Automation Service",
   description:
     "Expert GoHighLevel setup and automation service for pipelines, lead follow-up, booking systems, and A2P-compliant SMS. Starting from $300.",
   path: "/services/gohighlevel-automation",

@@ -103,7 +103,7 @@ export default function CTA() {
             className="text-base max-w-md mx-auto mb-10 leading-relaxed"
             style={{ color: "rgba(250,248,244,0.45)" }}
           >
-            Free 30-minute discovery call. No pitch — just an honest conversation about what you need and the fastest way to get there. Most clients have a live site within 14 days of signing.
+            Send us your project goals. No pitch, just an honest conversation about what you need and the fastest way to get there. Most clients have a live site within 14 days of signing.
           </motion.p>
 
           <motion.div
@@ -115,7 +115,7 @@ export default function CTA() {
           >
             <MagneticButton>
               <Link
-                href="/book-a-call"
+                href="/contact"
                 className="flex items-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-all duration-300 hover:scale-105"
                 style={{
                   background: "var(--flux)",
@@ -123,7 +123,7 @@ export default function CTA() {
                   boxShadow: "0 4px 30px rgba(255,92,53,0.4)",
                 }}
               >
-                Book your free discovery call
+                Contact us
                 <span className="text-lg">→</span>
               </Link>
             </MagneticButton>

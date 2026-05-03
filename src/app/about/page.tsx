@@ -151,10 +151,10 @@ export default function AboutPage() {
                 <p>You value clear explanations, founder-led delivery, and a system that still works after launch.</p>
               </div>
               <Link
-                href="/book-a-call"
+                href="/contact"
                 className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white hover:text-flux transition-colors"
               >
-                Start with a discovery call
+                Contact us
                 <span>→</span>
               </Link>
             </div>
@@ -249,16 +249,16 @@ export default function AboutPage() {
             If you need a website that generates leads and a CRM that follows up automatically, we should talk.
           </h2>
           <p className="text-sm md:text-base text-cream/75 max-w-3xl leading-7 mb-8">
-            Start with a free 30-minute discovery call. We will learn about your business, your current setup, and where you are
+            Start with a quick project enquiry. We will learn about your business, your current setup, and where you are
             losing leads right now. Then we will tell you exactly what we would build and how long it would take.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
-              href="/book-a-call"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium"
               style={{ background: "var(--flux)", color: "white" }}
             >
-              Book your discovery call
+              Contact us
               <span>→</span>
             </Link>
             <Link
