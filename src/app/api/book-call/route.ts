@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getBookedTimes, isSlotBooked, saveBooking, updateBookingEmailStatus } from "@/lib/bookings";
 
-const OWNER_EMAIL = "contact@fluxmediacreations.com";
-const FROM_EMAIL = "Flux Media Creations <noreply@fluxmediacreations.com>";
+const OWNER_EMAIL = process.env.BOOKING_OWNER_EMAIL || "contact@fluxmediacreations.com";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Flux Media Creations <noreply@fluxmediacreations.com>";
 
 function escapeHtml(value: unknown) {
   return String(value ?? "")
@@ -26,11 +27,18 @@ function formatDate(iso: string) {
   });
 }
 
-export async function POST(req: NextRequest) {
-  if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json({ error: "Email service is not configured" }, { status: 500 });
+export async function GET(req: NextRequest) {
+  const dateKey = req.nextUrl.searchParams.get("date");
+
+  if (!dateKey) {
+    return NextResponse.json({ error: "Missing date" }, { status: 400 });
   }
 
+  const bookedTimes = await getBookedTimes(dateKey);
+  return NextResponse.json({ bookedTimes });
+}
+
+export async function POST(req: NextRequest) {
   const body = await req.json();
   const name = String(body.name ?? "").trim();
   const email = String(body.email ?? "").trim();
@@ -41,9 +49,10 @@ export async function POST(req: NextRequest) {
   const budget = String(body.budget ?? "").trim();
   const message = String(body.message ?? "").trim();
   const date = String(body.date ?? "").trim();
+  const dateKey = String(body.dateKey ?? "").trim();
   const time = String(body.time ?? "").trim();
 
-  if (!name || !email || !date || !time || services.length === 0) {
+  if (!name || !email || !date || !dateKey || !time || services.length === 0) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
@@ -51,6 +60,33 @@ export async function POST(req: NextRequest) {
 
   if (!Number.isFinite(timestamp)) {
     return NextResponse.json({ error: "Invalid date" }, { status: 400 });
+  }
+
+  if (await isSlotBooked(dateKey, time)) {
+    return NextResponse.json({ error: "This time has already been booked" }, { status: 409 });
+  }
+
+  const saved = await saveBooking({
+    name,
+    email,
+    phone,
+    website,
+    organisation,
+    services,
+    budget,
+    message,
+    date,
+    dateKey,
+    time,
+    emailSent: false,
+  });
+
+  if (!saved.saved) {
+    return NextResponse.json({ error: "This time has already been booked" }, { status: 409 });
+  }
+
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ success: true, emailSent: false });
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -87,7 +123,7 @@ export async function POST(req: NextRequest) {
         <tr><td style="padding:30px 38px;">
           <h1 style="font-size:24px;font-weight:700;margin:0 0 8px;">You're booked, ${safe.name}.</h1>
           <p style="color:#9a958d;font-size:15px;line-height:1.6;margin:0 0 26px;">
-            Your free 30-minute discovery call is confirmed. Gagan will send you a Google Meet or Zoom link shortly.
+            Your free 30-minute discovery call is confirmed. Our team will send you a Google Meet or Zoom link shortly.
           </p>
           <table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(240,237,230,0.04);border:1px solid rgba(240,237,230,0.1);border-radius:8px;margin-bottom:26px;">
             <tr><td style="padding:20px 24px;">
@@ -103,7 +139,7 @@ export async function POST(req: NextRequest) {
             Need to add context before the call? <a href="https://wa.me/17789836113" style="color:#f0ede6;">WhatsApp us directly</a>.
           </p>
           <p style="color:#6f6a63;font-size:13px;line-height:1.6;margin:0;">
-            Gagan Deep<br/>Flux Media Creations
+            Flux Media Creations Team
           </p>
         </td></tr>
       </table>
@@ -152,9 +188,11 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    return NextResponse.json({ success: true });
+    await updateBookingEmailStatus(saved.booking.id, true);
+
+    return NextResponse.json({ success: true, emailSent: true });
   } catch (error) {
     console.error("book-call API error:", error);
-    return NextResponse.json({ error: "Failed to send booking emails" }, { status: 500 });
+    return NextResponse.json({ success: true, emailSent: false });
   }
 }

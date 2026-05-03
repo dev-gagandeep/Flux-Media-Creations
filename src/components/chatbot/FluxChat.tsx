@@ -39,6 +39,28 @@ function renderMd(text: string): string {
       /`(.+?)`/g,
       '<code style="background:rgba(13,13,13,0.07);padding:1px 5px;border-radius:4px;font-size:0.88em;font-family:monospace">$1</code>'
     )
+    .replace(
+      /(?<![@\w/])((?:https?:\/\/)?(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:\/[a-z0-9._~:/?#[\]@!$&'()*+,;=%-]*)?)/gi,
+      (match) => {
+        const normalized = match.replace(/^https?:\/\//, "").replace(/^www\./, "");
+        const href = normalized.startsWith("fluxmediacreations.com")
+          ? normalized.replace("fluxmediacreations.com", "") || "/"
+          : `https://${normalized}`;
+        const label = normalized.startsWith("fluxmediacreations.com/")
+          ? normalized.replace("fluxmediacreations.com", "").replace("/", "").replace(/-/g, " ") || "homepage"
+          : normalized;
+
+        return `<a class="flux-chat-link" href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${label}</a>`;
+      }
+    )
+    .replace(
+      /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi,
+      '<a class="flux-chat-text-link" href="mailto:$1">$1</a>'
+    )
+    .replace(
+      /(\+1\s?778\s?983\s?6113|\+91\s?6284957892)/g,
+      (match) => `<a class="flux-chat-text-link" href="tel:${match.replace(/\s+/g, "")}">${match}</a>`
+    )
     .replace(/^### (.+)$/gm, '<p style="font-weight:700;margin:8px 0 3px;font-family:Clash Display,sans-serif">$1</p>')
     .replace(/^- (.+)$/gm, "<li>$1</li>")
     .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, (match) => `<ul style="margin:6px 0 6px 16px;display:flex;flex-direction:column;gap:3px">${match}</ul>`)
@@ -276,6 +298,26 @@ export default function FluxChat() {
         .flux-send:active { transform:scale(0.9); }
         .flux-fab:hover { transform:scale(1.08); }
         .flux-fab:active { transform:scale(0.93); }
+        .flux-chat-link {
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          margin:4px 4px 2px 0;
+          padding:5px 9px;
+          border-radius:8px;
+          background:#FF5C35;
+          color:white !important;
+          font-size:12px;
+          font-weight:600;
+          text-decoration:none;
+          text-transform:capitalize;
+        }
+        .flux-chat-text-link {
+          color:#FF5C35 !important;
+          font-weight:700;
+          text-decoration:underline;
+          text-underline-offset:2px;
+        }
       `}</style>
 
       <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 9998, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
@@ -677,7 +719,7 @@ For a custom quote based on your needs, reach us at **+1 778 983 6113** or **+91
 - **WordPress website** - 7-10 days
 - **Full system (Website + GHL)** - 14-21 days
 
-Every project starts with a Figma design you approve before we write code. You can book a free call here: **fluxmediacreations.com/contact**`;
+Every project starts with a Figma design you approve before we write code. You can book a free call here: **fluxmediacreations.com/book-a-call**`;
   }
 
   if (q.match(/ghl|gohighlevel|go high level|crm|automation|sms|missed call/)) {
@@ -708,7 +750,7 @@ You can reach us here:
 - **Email:** contact@fluxmediacreations.com
 - **Abroad / WhatsApp:** +1 778 983 6113
 - **India:** +91 6284957892
-- **Contact page:** fluxmediacreations.com/contact
+- **Book a call:** fluxmediacreations.com/book-a-call
 
 We usually reply within a few hours.`;
   }
@@ -753,5 +795,5 @@ I can help with pricing, services, portfolio examples, timelines, and booking a 
 - **Abroad / WhatsApp:** +1 778 983 6113
 - **India:** +91 6284957892
 - **Email:** contact@fluxmediacreations.com
-- **Book a call:** fluxmediacreations.com/contact`;
+- **Book a call:** fluxmediacreations.com/book-a-call`;
 }

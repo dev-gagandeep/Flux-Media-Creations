@@ -494,7 +494,7 @@ export default function WordPressWebsiteBuildPage() {
             Book a free 30-minute discovery call. We will review your current site (if you have one), identify what is costing you leads, and map out exactly what needs to be built. Most clients have a live site within 10 days of signing.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-6">
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
+            <Link href="/book-a-call" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
               Book your free discovery call
               <span>→</span>
             </Link>

@@ -382,7 +382,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 Book a free 30-minute strategy call. We&apos;ll map your complete GHL automation roadmap.
               </p>
               <Link
-                href="/contact"
+                href="/book-a-call"
                 className="inline-flex w-full items-center justify-center rounded-lg bg-[#7C5CFF] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#6d4ff0]"
               >
                 Book Free Call →

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
 const SERVICES = [
@@ -63,6 +63,13 @@ function formatDate(date: Date) {
   });
 }
 
+function getDateKey(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 function stepDone(step: Step, current: Step) {
   const order: Step[] = ["info", "calendar", "confirm"];
   return order.indexOf(step) < order.indexOf(current);
@@ -72,8 +79,11 @@ export default function BookACallPage() {
   const days = useMemo(() => getDays(), []);
   const [step, setStep] = useState<Step>("info");
   const [loading, setLoading] = useState(false);
+  const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [emailSent, setEmailSent] = useState(true);
   const [error, setError] = useState("");
+  const [bookedSlots, setBookedSlots] = useState<string[]>([]);
   const [form, setForm] = useState<BookingForm>({
     name: "",
     email: "",
@@ -89,6 +99,38 @@ export default function BookACallPage() {
 
   const infoValid = form.name.trim().length > 1 && form.email.includes("@") && form.services.length > 0;
   const calendarValid = Boolean(form.date && form.time);
+
+  useEffect(() => {
+    if (!form.date) {
+      setBookedSlots([]);
+      return;
+    }
+
+    let active = true;
+    setLoadingSlots(true);
+
+    fetch(`/api/book-call?date=${getDateKey(form.date)}`)
+      .then((response) => (response.ok ? response.json() : { bookedTimes: [] }))
+      .then((data) => {
+        if (active) {
+          setBookedSlots(Array.isArray(data.bookedTimes) ? data.bookedTimes : []);
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setBookedSlots([]);
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setLoadingSlots(false);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [form.date]);
 
   const updateForm = <K extends keyof BookingForm>(key: K, value: BookingForm[K]) => {
     setForm((current) => ({ ...current, [key]: value }));
@@ -116,16 +158,20 @@ export default function BookACallPage() {
         body: JSON.stringify({
           ...form,
           date: form.date?.toISOString(),
+          dateKey: form.date ? getDateKey(form.date) : "",
         }),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to book call");
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Failed to book call");
       }
 
+      const data = await response.json().catch(() => ({ emailSent: true }));
+      setEmailSent(data.emailSent !== false);
       setSubmitted(true);
-    } catch {
-      setError("Something went wrong. Please try again or WhatsApp us directly.");
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "Something went wrong. Please try again or WhatsApp us directly.");
     } finally {
       setLoading(false);
     }
@@ -133,33 +179,41 @@ export default function BookACallPage() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen bg-ink px-6 py-28 text-cream">
+      <main className="min-h-screen bg-cream px-6 py-28 text-ink">
         <section className="mx-auto max-w-xl text-center">
           <div className="mb-6 text-4xl text-flux">*</div>
           <h1 className="font-display text-4xl font-semibold" style={{ letterSpacing: "-0.03em" }}>
             You're booked.
           </h1>
-          <p className="mt-4 text-sm leading-7 text-cream/60">
-            A confirmation email is on its way to <strong className="text-cream">{form.email}</strong>. Gagan will review your details and send the meeting link shortly.
+          <p className="mt-4 text-sm leading-7 text-ink/60">
+            {emailSent ? (
+              <>
+                A confirmation email is on its way to <strong className="text-ink">{form.email}</strong>. Our team will review your details and send the meeting link shortly.
+              </>
+            ) : (
+              <>
+                Your booking is saved. Our team will review your details and send the meeting link shortly. If you do not receive an email, please check WhatsApp or contact us directly.
+              </>
+            )}
           </p>
 
-          <div className="mt-8 rounded-lg border border-cream/10 bg-cream/[0.04] p-5 text-left">
-            <div className="flex justify-between gap-4 border-b border-cream/10 py-3 text-sm">
-              <span className="text-cream/45">Date</span>
-              <span className="text-right text-cream/80">{form.date ? formatDate(form.date) : ""}</span>
+          <div className="mt-8 rounded-lg border border-ink/10 bg-white p-5 text-left">
+            <div className="flex justify-between gap-4 border-b border-ink/10 py-3 text-sm">
+              <span className="text-ink/45">Date</span>
+              <span className="text-right text-ink/80">{form.date ? formatDate(form.date) : ""}</span>
             </div>
-            <div className="flex justify-between gap-4 border-b border-cream/10 py-3 text-sm">
-              <span className="text-cream/45">Time</span>
-              <span className="text-right text-cream/80">{form.time}</span>
+            <div className="flex justify-between gap-4 border-b border-ink/10 py-3 text-sm">
+              <span className="text-ink/45">Time</span>
+              <span className="text-right text-ink/80">{form.time}</span>
             </div>
             <div className="flex justify-between gap-4 py-3 text-sm">
-              <span className="text-cream/45">Interest</span>
-              <span className="text-right text-cream/80">{form.services.join(", ")}</span>
+              <span className="text-ink/45">Interest</span>
+              <span className="text-right text-ink/80">{form.services.join(", ")}</span>
             </div>
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/" className="rounded-lg border border-cream/15 px-5 py-3 text-sm font-medium text-cream transition-colors hover:border-cream/30">
+            <Link href="/" className="rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
               Back to home
             </Link>
             <a
@@ -178,27 +232,27 @@ export default function BookACallPage() {
   }
 
   return (
-    <main className="min-h-screen bg-ink px-6 py-28 text-cream">
+    <main className="min-h-screen bg-cream px-6 py-28 text-ink">
       <section className="mx-auto max-w-3xl">
         <div className="mb-10">
-          <Link href="/" className="text-sm text-cream/50 transition-colors hover:text-cream">
+          <Link href="/" className="text-sm text-ink/50 transition-colors hover:text-ink">
             Flux.
           </Link>
-          <p className="mt-12 text-xs uppercase tracking-widest text-cream/35">Free 30-minute discovery call</p>
+          <p className="mt-12 text-xs uppercase tracking-widest text-ink/35">Free 30-minute discovery call</p>
           <h1 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl" style={{ letterSpacing: "-0.03em" }}>
             Tell us about your project. We'll tell you what to build first.
           </h1>
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-cream/55">
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-ink/55">
             No pitch. No pressure. Just an honest conversation about what you need and the fastest way to get there.
           </p>
         </div>
 
-        <div className="mb-10 grid overflow-hidden rounded-lg border border-cream/10 md:grid-cols-3">
+        <div className="mb-10 grid overflow-hidden rounded-lg border border-ink/10 bg-white md:grid-cols-3">
           {(["info", "calendar", "confirm"] as Step[]).map((item, index) => (
             <div
               key={item}
-              className={`flex items-center gap-3 border-cream/10 px-4 py-3 text-sm md:border-r md:last:border-r-0 ${
-                step === item ? "bg-cream/[0.06] text-cream" : "text-cream/40"
+              className={`flex items-center gap-3 border-ink/10 px-4 py-3 text-sm md:border-r md:last:border-r-0 ${
+                step === item ? "bg-flux/10 text-ink" : "text-ink/40"
               }`}
             >
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs">
@@ -238,8 +292,8 @@ export default function BookACallPage() {
                     onClick={() => toggleService(service)}
                     className={`rounded-full border px-3 py-2 text-xs transition-colors ${
                       form.services.includes(service)
-                        ? "border-cream bg-cream text-ink"
-                        : "border-cream/15 text-cream/55 hover:border-cream/30 hover:text-cream"
+                        ? "border-flux bg-flux text-white"
+                        : "border-ink/15 text-ink/55 hover:border-ink/30 hover:text-ink"
                     }`}
                   >
                     {service}
@@ -257,8 +311,8 @@ export default function BookACallPage() {
                     onClick={() => updateForm("budget", budget)}
                     className={`rounded-full border px-3 py-2 text-xs transition-colors ${
                       form.budget === budget
-                        ? "border-cream bg-cream text-ink"
-                        : "border-cream/15 text-cream/55 hover:border-cream/30 hover:text-cream"
+                        ? "border-flux bg-flux text-white"
+                        : "border-ink/15 text-ink/55 hover:border-ink/30 hover:text-ink"
                     }`}
                   >
                     {budget}
@@ -284,11 +338,11 @@ export default function BookACallPage() {
 
         {step === "calendar" ? (
           <section className="flex flex-col gap-6">
-            <button type="button" className="self-start text-sm text-cream/45 transition-colors hover:text-cream" onClick={() => setStep("info")}>
+            <button type="button" className="self-start text-sm text-ink/45 transition-colors hover:text-ink" onClick={() => setStep("info")}>
               ← Back
             </button>
             <div>
-              <h2 className="text-base font-medium text-cream">Choose a date</h2>
+              <h2 className="text-base font-medium text-ink">Choose a date</h2>
               <div className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5">
                 {days.map((day) => (
                   <button
@@ -297,8 +351,8 @@ export default function BookACallPage() {
                     onClick={() => setForm((current) => ({ ...current, date: day, time: "" }))}
                     className={`rounded-lg border px-2 py-3 text-center transition-colors ${
                       form.date?.toDateString() === day.toDateString()
-                        ? "border-cream bg-cream text-ink"
-                        : "border-cream/15 text-cream/55 hover:border-cream/30 hover:text-cream"
+                        ? "border-flux bg-flux text-white"
+                        : "border-ink/15 bg-white text-ink/55 hover:border-ink/30 hover:text-ink"
                     }`}
                   >
                     <span className="block text-[11px] uppercase tracking-widest">{day.toLocaleDateString("en-US", { weekday: "short" })}</span>
@@ -311,23 +365,33 @@ export default function BookACallPage() {
 
             {form.date ? (
               <div>
-                <h2 className="text-base font-medium text-cream">Choose a time</h2>
-                <p className="mt-2 text-xs text-cream/40">Times are shown in your local timezone. The call is 30 minutes.</p>
+                <h2 className="text-base font-medium text-ink">Choose a time</h2>
+                <p className="mt-2 text-xs text-ink/40">
+                  Times are shown in your local timezone. The call is 30 minutes. {loadingSlots ? "Checking availability..." : ""}
+                </p>
                 <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
-                  {TIME_SLOTS.map((time) => (
-                    <button
-                      key={time}
-                      type="button"
-                      onClick={() => updateForm("time", time)}
-                      className={`rounded-lg border px-4 py-3 text-sm transition-colors ${
-                        form.time === time
-                          ? "border-cream bg-cream text-ink"
-                          : "border-cream/15 text-cream/55 hover:border-cream/30 hover:text-cream"
-                      }`}
-                    >
-                      {time}
-                    </button>
-                  ))}
+                  {TIME_SLOTS.map((time) => {
+                    const booked = bookedSlots.includes(time);
+
+                    return (
+                      <button
+                        key={time}
+                        type="button"
+                        disabled={booked || loadingSlots}
+                        onClick={() => updateForm("time", time)}
+                        className={`rounded-lg border px-4 py-3 text-sm transition-colors ${
+                          booked
+                            ? "cursor-not-allowed border-ink/10 bg-ink/5 text-ink/30"
+                            : form.time === time
+                              ? "border-flux bg-flux text-white"
+                              : "border-ink/15 bg-white text-ink/55 hover:border-ink/30 hover:text-ink"
+                        }`}
+                      >
+                        <span>{time}</span>
+                        {booked ? <span className="ml-2 rounded-full bg-ink/10 px-2 py-0.5 text-[10px] uppercase tracking-widest text-ink/35">Booked</span> : null}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             ) : null}
@@ -340,11 +404,11 @@ export default function BookACallPage() {
 
         {step === "confirm" ? (
           <section className="flex flex-col gap-6">
-            <button type="button" className="self-start text-sm text-cream/45 transition-colors hover:text-cream" onClick={() => setStep("calendar")}>
+            <button type="button" className="self-start text-sm text-ink/45 transition-colors hover:text-ink" onClick={() => setStep("calendar")}>
               ← Back
             </button>
-            <h2 className="text-base font-medium text-cream">Review and confirm</h2>
-            <div className="rounded-lg border border-cream/10 bg-cream/[0.04] p-5">
+            <h2 className="text-base font-medium text-ink">Review and confirm</h2>
+            <div className="rounded-lg border border-ink/10 bg-white p-5">
               <Summary label="Name" value={form.name} />
               <Summary label="Email" value={form.email} />
               {form.phone ? <Summary label="Phone" value={form.phone} /> : null}
@@ -352,12 +416,12 @@ export default function BookACallPage() {
               {form.website ? <Summary label="Website" value={form.website} /> : null}
               <Summary label="Services" value={form.services.join(", ")} />
               {form.budget ? <Summary label="Budget" value={form.budget} /> : null}
-              <div className="my-3 border-t border-cream/10" />
+              <div className="my-3 border-t border-ink/10" />
               <Summary label="Date" value={form.date ? formatDate(form.date) : ""} strong />
               <Summary label="Time" value={form.time} strong />
             </div>
-            <p className="text-xs leading-6 text-cream/45">
-              By confirming, you'll receive an email confirmation. Gagan will send a meeting link to <strong className="text-cream/65">{form.email}</strong>.
+            <p className="text-xs leading-6 text-ink/45">
+              By confirming, you'll receive an email confirmation. Our team will send a meeting link to <strong className="text-ink/65">{form.email}</strong>.
             </p>
             {error ? <p className="rounded-lg border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-200">{error}</p> : null}
             <button type="button" className="book-button" disabled={loading} onClick={handleSubmit}>
@@ -366,7 +430,7 @@ export default function BookACallPage() {
           </section>
         ) : null}
 
-        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs text-cream/30">
+        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs text-ink/30">
           <span>No credit card required</span>
           <span>30-minute call, no commitment</span>
           <span>Reply within 24 hours</span>
@@ -379,7 +443,7 @@ export default function BookACallPage() {
 function Field({ label, className = "", children }: { label: string; className?: string; children: React.ReactNode }) {
   return (
     <label className={`flex flex-col gap-2 ${className}`}>
-      <span className="text-xs font-medium text-cream/50">{label}</span>
+      <span className="text-xs font-medium text-ink/50">{label}</span>
       {children}
     </label>
   );
@@ -388,8 +452,8 @@ function Field({ label, className = "", children }: { label: string; className?:
 function Summary({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
   return (
     <div className="flex justify-between gap-5 py-2 text-sm">
-      <span className="shrink-0 text-cream/40">{label}</span>
-      <span className={`text-right ${strong ? "font-medium text-cream" : "text-cream/70"}`}>{value}</span>
+      <span className="shrink-0 text-ink/40">{label}</span>
+      <span className={`text-right ${strong ? "font-medium text-ink" : "text-ink/70"}`}>{value}</span>
     </div>
   );
 }

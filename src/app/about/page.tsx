@@ -151,7 +151,7 @@ export default function AboutPage() {
                 <p>You value clear explanations, founder-led delivery, and a system that still works after launch.</p>
               </div>
               <Link
-                href="/contact"
+                href="/book-a-call"
                 className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white hover:text-flux transition-colors"
               >
                 Start with a discovery call
@@ -254,7 +254,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
-              href="/contact"
+              href="/book-a-call"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium"
               style={{ background: "var(--flux)", color: "white" }}
             >

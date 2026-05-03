@@ -300,7 +300,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             <p className="text-base md:text-lg text-ink/62 leading-8 max-w-3xl mb-8">{detail.heroBody}</p>
             <div className="flex flex-wrap gap-3 mb-8">
               <Link
-                href="/contact"
+                href="/book-a-call"
                 className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
                 style={{ background: "var(--flux)" }}
               >

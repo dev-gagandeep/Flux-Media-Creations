@@ -115,7 +115,7 @@ export default function CTA() {
           >
             <MagneticButton>
               <Link
-                href="/contact"
+                href="/book-a-call"
                 className="flex items-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-all duration-300 hover:scale-105"
                 style={{
                   background: "var(--flux)",

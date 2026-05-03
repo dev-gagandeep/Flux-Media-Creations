@@ -192,10 +192,10 @@ h1, h2, h3, h4, h5 {
 .book-input {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid rgba(250, 248, 244, 0.12);
-  background: rgba(250, 248, 244, 0.04);
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  background: #fff;
   padding: 0.75rem 0.875rem;
-  color: var(--cream);
+  color: var(--ink);
   font-family: "Satoshi", sans-serif;
   font-size: 0.95rem;
   outline: none;
@@ -203,19 +203,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .book-input:focus {
-  border-color: rgba(250, 248, 244, 0.35);
-  background: rgba(250, 248, 244, 0.06);
+  border-color: var(--flux);
+  background: #fff;
 }
 
 .book-input::placeholder {
-  color: rgba(250, 248, 244, 0.25);
+  color: rgba(13, 13, 13, 0.3);
 }
 
 .book-button {
   align-self: flex-start;
   border-radius: 8px;
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--flux);
+  color: #fff;
   padding: 0.85rem 1.5rem;
   font-size: 0.9rem;
   font-weight: 600;
