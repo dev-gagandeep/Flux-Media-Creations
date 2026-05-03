@@ -433,7 +433,7 @@ export default function ServicePage({ params }: ServicePageProps) {
         </h2>
         <div className={`grid gap-5 ${detail.pricingSection.plans.length > 1 ? "lg:grid-cols-3" : "lg:grid-cols-[minmax(0,0.9fr)]"}`}>
           {detail.pricingSection.plans.map((plan) => (
-            <div key={plan.name} className="rounded-lg border border-ink/10 bg-white p-6">
+            <div key={plan.name} className="flex flex-col rounded-lg border border-ink/10 bg-white p-6">
               <div className="mb-5">
                 <h3 className="font-display text-2xl font-semibold mb-2" style={{ letterSpacing: "-0.02em" }}>
                   {plan.name}
@@ -454,6 +454,13 @@ export default function ServicePage({ params }: ServicePageProps) {
                 ))}
               </ul>
               {plan.note ? <p className="mt-5 text-sm leading-7 text-ink/55">{plan.note}</p> : null}
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
+                style={{ background: "var(--flux)" }}
+              >
+                Get started
+              </Link>
             </div>
           ))}
         </div>

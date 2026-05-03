@@ -442,11 +442,11 @@ export default function WordPressWebsiteBuildPage() {
 
         <div className="grid lg:grid-cols-3 gap-6">
           {pricing.map((tier) => (
-            <article key={tier.tier} className="rounded-3xl border border-ink/10 bg-white p-7">
+            <article key={tier.tier} className="flex flex-col rounded-3xl border border-ink/10 bg-white p-7">
               <p className="text-xs uppercase tracking-widest text-ink/35 mb-2">{tier.tier}</p>
               <p className="font-display text-4xl font-semibold mb-2" style={{ color: "var(--flux)", letterSpacing: "-0.03em" }}>{tier.price}</p>
               <p className="text-sm text-ink/55 mb-5">Best for: {tier.bestFor}</p>
-              <ul className="space-y-2">
+              <ul className="space-y-2 flex-1">
                 {tier.items.map((item) => (
                   <li key={item} className="text-sm text-ink/60 leading-7 flex gap-2">
                     <span style={{ color: "var(--flux)" }}>•</span>
@@ -454,6 +454,13 @@ export default function WordPressWebsiteBuildPage() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
+                style={{ background: "var(--flux)" }}
+              >
+                Get started
+              </Link>
             </article>
           ))}
         </div>

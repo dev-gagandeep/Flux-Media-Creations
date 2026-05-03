@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/process`, priority: 0.7, changeFrequency: "monthly" as const },
     { url: `${SITE.url}/blog`, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${SITE.url}/contact`, priority: 0.9, changeFrequency: "monthly" as const },
+    { url: `${SITE.url}/book-a-call`, priority: 0.9, changeFrequency: "monthly" as const },
     { url: `${SITE.url}/web-development-ai-automation-new-york`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${SITE.url}/web-development-automation-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${SITE.url}/privacy`, priority: 0.4, changeFrequency: "yearly" as const },
