@@ -14,9 +14,9 @@ import CTA from "@/components/sections/CTA";
 import Marquee from "@/components/ui/Marquee";
 
 export const metadata: Metadata = generateMeta({
-  title: "WordPress GoHighLevel Agency for Healthcare and Service Businesses | Flux Media Creations",
+  title: "GoHighLevel Automation & Web Design | FluxMedia Creations",
   description:
-    "Flux Media Creations is a WordPress GoHighLevel agency building conversion-focused websites and CRM automation for healthcare clinics, home service businesses, and real estate teams across the United States.",
+    "Automate your business with GoHighLevel. Capture leads, follow up automatically, and scale faster with our complete digital solutions.",
   path: "/",
 });
 

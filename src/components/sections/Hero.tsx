@@ -12,9 +12,9 @@ export default function Hero() {
   };
 
   const headlineLines = [
-    "We build WordPress sites",
-    "that capture leads,",
-    "book appointments — and close deals.",
+    "Struggling to Get Leads Online?",
+    "We Build Systems",
+    "That Actually Convert.",
   ];
 
   return (
