@@ -11,11 +11,7 @@ export default function Hero() {
     animate: { opacity: 1, y: 0 },
   };
 
-  const headlineLines = [
-    "Struggling to Get Leads Online?",
-    "We Build Systems",
-    "That Actually Convert.",
-  ];
+  const subheadingLines = ["We Build Systems", "That Actually Convert."];
 
   return (
     <section className="min-h-screen flex flex-col justify-between pt-28 md:pt-32 pb-16 px-6 md:px-10 max-w-[1400px] mx-auto">
@@ -34,19 +30,35 @@ export default function Hero() {
           className="font-display font-semibold leading-[0.95]"
           style={{ fontSize: "clamp(2.4rem, 6vw, 5.7rem)", letterSpacing: "-0.03em" }}
         >
-          {headlineLines.map((line, index) => (
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block"
+              initial={{ y: "110%" }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Struggling to Get Leads Online?
+            </motion.span>
+          </span>
+        </motion.h1>
+
+        <motion.h2
+          className="mt-5 font-display font-semibold leading-[1.02]"
+          style={{ fontSize: "clamp(1.8rem, 4.2vw, 4rem)", letterSpacing: "-0.03em" }}
+        >
+          {subheadingLines.map((line, index) => (
             <span key={line} className="block overflow-hidden">
               <motion.span
                 className="block"
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ delay: 0.2 + index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: 0.3 + index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
                 {line}
               </motion.span>
             </span>
           ))}
-        </motion.h1>
+        </motion.h2>
 
         {/* Subline + CTA row */}
         <motion.div
