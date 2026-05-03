@@ -27,6 +27,25 @@ function formatDate(iso: string) {
   });
 }
 
+async function sendAutomationWebhook(payload: Record<string, unknown>) {
+  if (!process.env.AUTOMATION_WEBHOOK_URL) {
+    return false;
+  }
+
+  try {
+    const response = await fetch(process.env.AUTOMATION_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    return response.ok;
+  } catch (error) {
+    console.error("book-call webhook error:", error);
+    return false;
+  }
+}
+
 export async function GET(req: NextRequest) {
   const dateKey = req.nextUrl.searchParams.get("date");
 
@@ -85,12 +104,30 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "This time has already been booked" }, { status: 409 });
   }
 
+  const formattedDate = formatDate(date);
+  const webhookSent = await sendAutomationWebhook({
+    source: "book-a-call",
+    submittedAt: saved.booking.createdAt,
+    bookingId: saved.booking.id,
+    name,
+    email,
+    phone,
+    website,
+    organisation,
+    services,
+    budget,
+    message,
+    date,
+    dateKey,
+    formattedDate,
+    time,
+  });
+
   if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json({ success: true, emailSent: false });
+    return NextResponse.json({ success: true, emailSent: false, webhookSent });
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const formattedDate = formatDate(date);
   const safe = {
     name: escapeHtml(name),
     email: escapeHtml(email),
@@ -180,17 +217,9 @@ export async function POST(req: NextRequest) {
 </html>`,
     });
 
-    if (process.env.AUTOMATION_WEBHOOK_URL) {
-      await fetch(process.env.AUTOMATION_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, website, organisation, services, budget, message, date, time }),
-      });
-    }
-
     await updateBookingEmailStatus(saved.booking.id, true);
 
-    return NextResponse.json({ success: true, emailSent: true });
+    return NextResponse.json({ success: true, emailSent: true, webhookSent });
   } catch (error) {
     console.error("book-call API error:", error);
     return NextResponse.json({ success: true, emailSent: false });
