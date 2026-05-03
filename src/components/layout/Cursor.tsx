@@ -4,93 +4,59 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   useEffect(() => {
     const cursor = cursorRef.current;
-    const dot = dotRef.current;
-    if (!cursor || !dot) return;
+    if (!cursor) return;
 
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
+    const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!supportsFinePointer) return;
+
+    const interactiveSelector = "a, button, input, textarea, select, [role='button'], [data-cursor='hover']";
 
     const onMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      setIsVisible(true);
+      setIsHovering(Boolean((e.target as Element | null)?.closest(interactiveSelector)));
     };
 
-    const onMouseDown = () => setIsClicking(true);
-    const onMouseUp = () => setIsClicking(false);
-
-    const addHoverListeners = () => {
-      const els = document.querySelectorAll("a, button, [data-cursor='hover'], .service-card, .work-card");
-      els.forEach((el) => {
-        el.addEventListener("mouseenter", () => setIsHovering(true));
-        el.addEventListener("mouseleave", () => setIsHovering(false));
-      });
-    };
+    const onMouseLeave = () => setIsVisible(false);
+    const onMouseDown = () => setIsPressed(true);
+    const onMouseUp = () => setIsPressed(false);
 
     window.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
     window.addEventListener("mousedown", onMouseDown);
     window.addEventListener("mouseup", onMouseUp);
-    addHoverListeners();
-
-    let animFrame: number;
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
-    const animate = () => {
-      cursorX = lerp(cursorX, mouseX, 0.1);
-      cursorY = lerp(cursorY, mouseY, 0.1);
-      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-      animFrame = requestAnimationFrame(animate);
-    };
-    animFrame = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
-      cancelAnimationFrame(animFrame);
     };
   }, []);
 
+  const size = isHovering ? 34 : 16;
+
   return (
-    <>
-      {/* Large follower circle */}
-      <div
-        ref={cursorRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden md:block"
-        style={{ willChange: "transform" }}
-      >
-        <div
-          className="w-10 h-10 rounded-full border border-ink -translate-x-1/2 -translate-y-1/2 transition-all duration-300"
-          style={{
-            transform: `translate(-50%, -50%) scale(${isHovering ? 2.5 : isClicking ? 0.8 : 1})`,
-            background: isHovering ? "var(--flux)" : "transparent",
-            borderColor: "#FF5C35",
-            mixBlendMode: isHovering ? "normal" : "difference",
-          }}
-        />
-      </div>
-      {/* Small dot — instant */}
-      <div
-        ref={dotRef}
-        className="fixed top-0 left-0 pointer-events-none z-[10000] hidden md:block"
-        style={{ willChange: "transform" }}
-      >
-        <div
-          className="w-1.5 h-1.5 rounded-full bg-ink -translate-x-1/2 -translate-y-1/2"
-          style={{
-            background: "#FF5C35",
-            transform: `translate(-50%, -50%) scale(${isClicking ? 0.5 : 1})`,
-            transition: "transform 0.15s ease",
-            mixBlendMode: isHovering ? "normal" : "difference",
-          }}
-        />
-      </div>
-    </>
+    <div
+      ref={cursorRef}
+      className="fixed left-0 top-0 pointer-events-none z-[10000] hidden rounded-full border-2 md:block"
+      aria-hidden="true"
+      style={{
+        width: size,
+        height: size,
+        borderColor: "var(--flux)",
+        background: isHovering ? "rgba(255, 92, 53, 0.14)" : "transparent",
+        opacity: isVisible ? 1 : 0,
+        scale: isPressed ? 0.75 : 1,
+        transition: "width 160ms ease, height 160ms ease, opacity 160ms ease, scale 120ms ease, background-color 160ms ease",
+        willChange: "transform, width, height, opacity",
+      }}
+    />
   );
 }
