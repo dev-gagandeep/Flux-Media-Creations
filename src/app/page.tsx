@@ -14,7 +14,7 @@ import CTA from "@/components/sections/CTA";
 import Marquee from "@/components/ui/Marquee";
 
 export const metadata: Metadata = generateMeta({
-  title: "GoHighLevel Automation & Web Design | FluxMedia Creations",
+  absoluteTitle: "GoHighLevel Automation & Web Design | Flux Media Creations",
   description:
     "Automate your business with GoHighLevel. Capture leads, follow up automatically, and scale faster with our complete digital solutions.",
   path: "/",
