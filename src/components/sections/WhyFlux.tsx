@@ -1,18 +1,18 @@
 const blocks = [
   {
     icon: "⏱",
-    title: "One team. Start to finish.",
-    body: "No handoffs. No outsourcing. Gagan Deep personally builds every WordPress site and GoHighLevel system we deliver. You talk to the same person from discovery call to launch day — and after.",
+    title: "One team. No handoffs.",
+    body: "Gagan Deep builds every WordPress website and configures every GoHighLevel system we deliver. You speak to the same person from your discovery call to your launch day walkthrough. There is no account manager passing notes between you and a developer in another time zone.",
   },
   {
     icon: "⚡",
-    title: "Built for lead capture — not just looks.",
-    body: "Every site we build has one job: turn visitors into booked appointments or qualified leads. We write conversion-focused copy, place strategic CTAs, and connect your site directly to your CRM follow-up system.",
+    title: "Built to convert, not just look good.",
+    body: "A website that gets compliments but does not generate leads is an expense, not an investment. Every page we build has a clear purpose, a specific call to action, and a path that moves the visitor toward booking or contacting you.",
   },
   {
     icon: "🛡",
-    title: "Proven in healthcare and home services.",
-    body: "We've built WordPress websites and GoHighLevel systems for pain management clinics, orthopedic practices, vein centers, phone repair shops, and real estate agents. We understand your industry's compliance needs, patient expectations, and lead flow challenges.",
+    title: "Real results in healthcare and home services.",
+    body: "We have built sites for pain management clinics in New Jersey, local service businesses that rank on Google Maps, and GoHighLevel systems that recover missed calls automatically. We know what works in these industries because we have delivered it.",
   },
 ];
 
@@ -22,7 +22,7 @@ export default function WhyFlux() {
       <div className="mb-12">
         <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Why businesses choose us</p>
         <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-3xl leading-tight" style={{ letterSpacing: "-0.03em" }}>
-          You don't need another agency that disappears after launch.
+          You do not need another agency that disappears after launch.
         </h2>
       </div>
       <div className="grid md:grid-cols-3 gap-6">

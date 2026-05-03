@@ -138,16 +138,20 @@ export const schemaHomePage = {
 
 export const schemaHomeAgency = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Flux Media Creations",
-  url: "https://www.fluxmediacreations.com/",
-  logo: "https://www.fluxmediacreations.com/wp-content/uploads/flux-logo.png",
+  "@type": "LocalBusiness",
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/og-image.svg`,
   description:
-    "Flux Media Creations builds conversion-first WordPress websites, GoHighLevel CRM automations, and integrated growth systems for US businesses that can't afford to lose a single lead.",
+    "Flux Media Creations is a WordPress GoHighLevel agency building conversion-first websites, CRM automation, and integrated growth systems for service businesses.",
   slogan: "Websites & Automation That Work While You Sleep",
   foundingDate: "2022",
-  email: "contact@fluxmediacreations.com",
+  email: SITE.email,
   telephone: SITE.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+  },
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -197,9 +201,9 @@ export const schemaHomeAgency = {
         name: "Full Growth System",
         description:
           "WordPress site + GHL automation fully connected. Every form submission triggers instant follow-up.",
-        price: "800",
+        price: "1300",
         priceCurrency: "USD",
-        url: "https://www.fluxmediacreations.com/services/full-growth-system",
+        url: `${SITE.url}/services/full-growth-system`,
       },
       {
         "@type": "Offer",
@@ -239,7 +243,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, `https://wa.me/${SITE.whatsappIndia}`, "https://gagandeep.space", SITE.instagramUrl],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, `https://wa.me/${SITE.whatsappIndia}`, SITE.portfolioUrl, SITE.instagramUrl],
 };
 
 export const schemaHomeFaq = {
@@ -248,66 +252,42 @@ export const schemaHomeFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What services does Flux Media Creations offer?",
+      name: "Do you only work with US businesses?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Flux Media Creations offers WordPress website design and development, GoHighLevel CRM automation, Full Growth Systems (WordPress + GHL combined), Airtable business hubs, Make/Zapier automation, monthly maintenance, and Search Visibility Engine services for US businesses.",
+        text: "Our main focus is US service businesses, but we also work with clients in Canada and the United Kingdom. All work is delivered in English and we communicate via email, WhatsApp, and video call.",
       },
     },
     {
       "@type": "Question",
-      name: "How much does a WordPress website cost at Flux Media Creations?",
+      name: "How long does a project take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "WordPress website builds start from $500. This includes a custom Figma design, mobile-first development, SEO setup, and a PageSpeed score of 90+. Pricing varies based on the scope of the project.",
+        text: "A WordPress-only site takes 7 to 10 business days. A full WordPress plus GoHighLevel growth system takes 14 to 21 days. We set clear milestones at the start of every project.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the Full Growth System?",
+      name: "Do I need to buy my own GoHighLevel account?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Full Growth System is Flux Media Creations' most popular package, starting at $800. It combines a WordPress website with GoHighLevel automation - fully integrated so every form submission triggers instant follow-up, appointment booking, and SMS reminders.",
+        text: "Yes. GoHighLevel's Starter plan is $97 per month and you own the account directly. We set up everything inside your account and hand it over fully configured.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does it take to build a website with Flux Media Creations?",
+      name: "Can you work with my existing website?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Projects typically complete within 2 weeks. The process includes a free discovery call, Figma design approval, simultaneous WordPress build and GHL setup, full testing across 5 browsers and mobile, and then launch with DNS, SSL, and a recorded walkthrough.",
+        text: "Yes. We can audit your current site, rebuild it while preserving your content and SEO history, or add specific components like booking systems or lead capture forms to what already exists.",
       },
     },
     {
       "@type": "Question",
-      name: "Do you work with US-based businesses only?",
+      name: "What makes you different from other WordPress agencies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Flux Media Creations primarily serves US clients but also works with businesses in the United Kingdom, Canada, and India. All communication is in English and projects are delivered remotely.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What industries does Flux Media Creations specialize in?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Flux Media Creations specializes in healthcare clinics (pain management, vein centers, orthopedic practices), home services businesses, real estate agents, and beauty & wellness brands.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is GoHighLevel automation and why do I need it?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GoHighLevel (GHL) is a CRM and automation platform. Flux Media Creations sets up pipelines, missed call text-back, appointment booking, SMS reminders, and review generation - so your business responds to every lead instantly, even after hours.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What happens after my website launches?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Every project includes 30 days of direct post-launch support and a recorded walkthrough so you can make changes independently. Ongoing monthly maintenance plans are also available from $150/month.",
+        text: "Most agencies build a website and move on. We build the website, connect the CRM, configure the automations, and deliver a system that generates and follows up with leads automatically.",
       },
     },
   ],

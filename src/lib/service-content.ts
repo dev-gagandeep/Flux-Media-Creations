@@ -83,18 +83,18 @@ export type ServiceDetailContent = {
 export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
   "full-growth-system": {
     slug: "full-growth-system",
-    metaTitle: "Full Growth System — WordPress Website + GoHighLevel CRM Built Together | Flux Media Creations",
+    metaTitle: "WordPress GoHighLevel Growth System | Flux Media Creations",
     metaDescription:
-      "Get your WordPress website and GoHighLevel CRM automation built together as one connected system. Every lead captured, instantly followed up, automatically booked. Delivered in 14–21 days.",
+      "Get your WordPress website and GoHighLevel CRM built and connected by one team. Complete lead capture and follow-up system delivered in 14 to 21 days.",
     image: {
       src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
       alt: "Team planning a connected website and CRM growth system around a desk with laptops and notes.",
     },
     breadcrumb: ["Services", "Full Growth System"],
-    preHeadline: "Most Popular Package",
-    heroTitle: "One System. One Team. Your WordPress Website and GoHighLevel CRM Built to Work Together From Day One.",
+    preHeadline: "Most Popular Engagement",
+    heroTitle: "Full Growth System — Your WordPress Website and GoHighLevel CRM Built and Connected by One Team.",
     heroBody:
-      "Most businesses have a website that looks good and a CRM they barely use, and the two never talk to each other. The Full Growth System changes that. We design and build your custom WordPress website and configure your complete GoHighLevel automation system simultaneously, fully connected, fully tested, and delivered in 14–21 days by one dedicated team.",
+      "A website without a CRM is a net. A CRM without a website is a bucket. Most service businesses have one or the other, but not both working together. The Full Growth System solves that by building your WordPress site and GoHighLevel CRM at the same time, connecting them directly, and delivering a complete lead capture and follow-up system in 14 to 21 days.",
     heroStats: [
       { value: "14–21 Days", label: "Complete system delivery" },
       { value: "1 Team", label: "Design, build, and automation all by us" },
@@ -102,39 +102,39 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       { value: "90+", label: "PageSpeed score on every WordPress site" },
     ],
     problemSection: {
-      label: "Why separate tools fail you",
-      title: "A website without automation loses leads. Automation without a website has nowhere to send traffic. You need both, connected.",
+      label: "Why separate tools fail",
+      title: "A website and CRM that work in silos will leak leads every week.",
       cards: [
         {
-          title: "Your website generates leads your team never follows up on",
-          body: "A visitor fills out your contact form at 8pm. The submission lands in an inbox. Your team sees it the next morning, maybe. By then that lead has booked with whoever responded at 8:01pm. A connected GoHighLevel system fires an instant SMS the moment any form is submitted, day or night.",
+          title: "Your website captures leads but nothing automatic happens next",
+          body: "When a visitor fills out your contact form and the response depends on someone checking an inbox later, you are already behind. In the Full Growth System, every form submission can trigger an instant, relevant follow-up automatically.",
         },
         {
-          title: "Your CRM has no traffic coming into it",
-          body: "GoHighLevel is only as good as the lead sources feeding it. Without a well-built, SEO-optimized WordPress website driving consistent organic traffic, your GHL pipelines stay empty. The Full Growth System builds both, so traffic comes in and every visitor is captured.",
+          title: "Your CRM exists, but your website is not feeding it cleanly",
+          body: "GoHighLevel is only useful when the right lead sources, form fields, tags, and pipeline logic are connected from the start. We build the front-end site and the CRM structure together so data flows properly from day one.",
         },
         {
-          title: "Two agencies, two contracts, nothing integrated",
-          body: "Hiring a web agency and a separate automation consultant means two points of contact, two invoices, two people blaming each other when something breaks, and a system that was never properly designed to work together. We build everything, and everything connects.",
+          title: "Two vendors usually means nobody owns the gap between them",
+          body: "If one team builds the website and another builds the automation later, the integration usually becomes an afterthought. We handle the site, the CRM, the workflows, and the testing as one system with one point of responsibility.",
         },
       ],
     },
     includedSection: {
-      label: "Everything in the Full Growth System",
-      title: "Your complete WordPress and GoHighLevel growth system, every component built and connected.",
-      body: "The Full Growth System combines everything from our WordPress Website Build and GoHighLevel Automation services into one integrated package, built simultaneously by the same team and connected from the first day of development.",
+      label: "What the Full Growth System includes",
+      title: "Your complete WordPress and GoHighLevel growth system, built and connected from the start.",
+      body: "This package combines the website, CRM, automation, and integration layer into one delivery path so nothing important gets bolted on after launch.",
       groups: [
         {
           title: "WordPress Website",
           items: [
             { title: "Custom Figma design for every page", body: "Full design approval before any code is written. What you approve is exactly what gets built." },
-            { title: "Elementor Pro WordPress development", body: "Up to 10 custom pages, including Home, About, Service pages, Contact, and any pages specific to your business." },
+            { title: "Elementor Pro WordPress development", body: "Up to 10 custom pages including home, service, about, contact, and any pages specific to your business." },
             { title: "Conversion-focused page structure", body: "Strategic CTAs, trust signals, and social proof placed where they actually convert." },
             { title: "On-page SEO on every page", body: "Target keywords in H1s, metadata, image alt text, internal links, and a fully configured Rank Math setup." },
             { title: "Schema markup", body: "Organization, Service, and FAQ schema implemented for richer visibility in search." },
             { title: "PageSpeed 90+ target", body: "Image optimization, Cloudflare CDN, caching, and clean code so the site loads fast from day one." },
             { title: "GA4 and Search Console setup", body: "Both tools are verified and configured on launch day." },
-            { title: "Blog setup", body: "WordPress blog structure configured, categories set up, and the first-post framework provided." },
+            { title: "Conversion-focused copy direction", body: "Core page messaging shaped around what your visitors need to see to contact, book, or call." },
           ],
         },
         {
@@ -144,7 +144,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
             { title: "Missed call text-back", body: "Every unanswered inbound call triggers an instant SMS to the caller within 30 seconds." },
             { title: "Form to CRM to instant SMS", body: "Every WordPress form submission routes directly to GoHighLevel and triggers an automated response." },
             { title: "Appointment booking and reminders", body: "Calendar setup with confirmation, 24-hour reminder, 2-hour reminder, and post-appointment follow-up." },
-            { title: "5-step lead nurture", body: "Multi-touch SMS and email follow-up across two weeks for leads that do not book immediately." },
+            { title: "Lead nurture sequences", body: "Multi-touch SMS and email follow-up for leads that do not book immediately." },
             { title: "Review generation automation", body: "Review request SMS sent automatically after completed visits or jobs." },
             { title: "A2P SMS registration", body: "Complete 10DLC brand and campaign registration handled so your SMS actually gets delivered." },
             { title: "No-show re-engagement", body: "If a booked appointment is missed, a reschedule workflow fires automatically." },
@@ -161,42 +161,42 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       ],
     },
     audienceSection: {
-      label: "Built for your business",
-      title: "The Full Growth System is built for service businesses where every lead has real dollar value.",
+      label: "Who this is right for",
+      title: "The Full Growth System is built for service businesses where each lead has real value.",
       blocks: [
         {
-          title: "WordPress and GoHighLevel for Healthcare Clinics",
-          body: "A new patient lead has a lifetime value of hundreds to thousands of dollars. Missing that lead because your site was slow, your form went to an unmonitored inbox, or your team did not respond fast enough is expensive. This system captures every patient inquiry on a fast, credible WordPress website and follows up within 60 seconds through GoHighLevel automation. We have delivered this exact setup for pain management clinics, vein centers, orthopedic practices, and multi-specialty medical groups.",
+          title: "Healthcare clinics",
+          body: "A strong fit for clinics that need both a patient-facing website and an automated follow-up system. We have delivered this model for pain management, vein treatment, orthopedic, and multi-specialty practices.",
         },
         {
-          title: "WordPress and GoHighLevel for Home Service Companies",
-          body: "HVAC companies, plumbers, roofers, and electricians operate in markets where the first to respond often wins the job. Your Full Growth System gives you a local-SEO-ready WordPress website and a GoHighLevel backend that replies instantly, even when your team is off the clock.",
+          title: "Home service businesses",
+          body: "Ideal for companies starting fresh or replacing a site that is not generating calls. The website drives demand and the CRM handles the speed-to-lead problem automatically.",
         },
         {
-          title: "WordPress and GoHighLevel for Real Estate Professionals",
-          body: "Buyers and sellers choose the agent who responds first and stays in touch consistently. This system gives you a professional WordPress site with IDX-style lead capture, connected to GoHighLevel follow-up sequences that nurture every buyer and seller lead automatically across 30, 60, and 90 days.",
+          title: "Real estate professionals",
+          body: "Useful for agents and teams that want a complete lead capture and nurturing system instead of a site that only showcases listings.",
         },
         {
-          title: "WordPress and GoHighLevel for Beauty and Wellness",
-          body: "Med spas and wellness clinics need a polished website that drives bookings, plus a backend that sends reminders, review requests, and client reactivation campaigns without the front desk carrying all of it manually.",
+          title: "Service businesses that want one team handling everything",
+          body: "Best for owners who do not want to coordinate between a designer, developer, automation consultant, and support person just to launch one working system.",
         },
       ],
     },
     processSection: {
-      label: "How it gets built",
-      title: "Two systems built simultaneously. Live in 14–21 days.",
+      label: "Delivery process",
+      title: "From discovery to live system in 14 to 21 days.",
       steps: [
         {
-          title: "Week 1: Discovery, design, and CRM foundation",
-          body: "Discovery call to map your lead flow, sales process, and website goals. Figma design begins for all WordPress pages while GoHighLevel account setup and pipeline configuration run in parallel. A2P SMS registration is submitted to carriers.",
+          title: "Discovery call",
+          body: "We learn your business, your goals, your existing tools, and where leads are being lost.",
         },
         {
-          title: "Week 2: WordPress development and automation build",
-          body: "Approved Figma designs are built in WordPress while GoHighLevel workflows are built in parallel, including missed call text-back, form connections, nurture sequences, and booking calendars. Every system element is designed to connect cleanly to the other from the start.",
+          title: "Figma design",
+          body: "Every page of your site is designed and approved before development begins.",
         },
         {
-          title: "Week 3: Integration, QA, and launch",
-          body: "WordPress forms are connected to GHL pipelines. Every automation is tested with live test contacts. Full QA across browsers and mobile is completed, then DNS, SSL, hosting, and go-live are handled. A recorded walkthrough and 30 days of direct support follow.",
+          title: "Parallel build, integration, and testing",
+          body: "WordPress development and GoHighLevel configuration run simultaneously, then we connect your forms to GHL, run test leads through every workflow, verify the automations, complete QA across browsers and mobile, and handle launch and handover.",
         },
       ],
     },

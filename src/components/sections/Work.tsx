@@ -35,12 +35,12 @@ export default function Work() {
         <div>
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Our work</p>
           <TextReveal
-            text="Real WordPress and GoHighLevel projects. Real results."
+            text="Real projects we have built for healthcare, local service, and real estate businesses."
             className="font-display font-semibold text-3xl md:text-5xl"
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed max-w-3xl mt-5">
-            Every project below is a live site we designed, built, and automated — from Figma mockup to deployed WordPress website with GoHighLevel CRM integration.
+            These are not concept pieces. They are live WordPress and GoHighLevel projects built for real businesses, including MVM Health in New Jersey, Vascura Pain & Vein, and Phone Repair Decatur in Atlanta.
           </p>
         </div>
         <Link

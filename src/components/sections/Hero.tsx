@@ -27,7 +27,7 @@ export default function Hero() {
           transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-sm font-medium uppercase tracking-widest text-ink/40 mb-8"
         >
-          WordPress + <span style={{ color: "var(--flux)" }}>GoHighLevel</span> Agency for US Businesses
+          WordPress <span style={{ color: "var(--flux)" }}>GoHighLevel</span> Agency for Service Businesses
         </motion.p>
 
         <motion.h1
@@ -55,7 +55,7 @@ export default function Hero() {
           className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <p className="text-base md:text-lg text-ink/50 leading-relaxed max-w-2xl">
-            Flux Media Creations designs and builds conversion-first WordPress websites, GoHighLevel CRM automations, and integrated lead follow-up systems for healthcare clinics, home service businesses, and real estate teams across the United States, Canada, and the UK. Every project is delivered by one dedicated team — from Figma design to go-live.
+            Most service businesses have a website. Very few have one that actually works. Flux Media Creations builds WordPress websites and GoHighLevel CRM automations that connect together so every visitor who fills out a form gets a reply within seconds, not hours. We serve healthcare clinics, home service businesses, and real estate teams across the United States. One team builds everything. Nothing gets outsourced.
           </p>
           <div className="flex gap-4 items-center">
             <MagneticButton>

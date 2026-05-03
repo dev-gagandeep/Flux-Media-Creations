@@ -16,12 +16,12 @@ export default function Process() {
         <div className="md:sticky md:top-28">
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">How it works</p>
           <TextReveal
-            text="A clear process. No surprises. Delivered on time."
+            text="A clear process from discovery call to go-live."
             className="font-display font-semibold text-3xl md:text-5xl mb-6"
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed mb-8 max-w-sm">
-            Most agencies leave you guessing. We don't. From the first discovery call to launch day and beyond, you'll know exactly what's happening at every step. Here's how every Flux Media Creations project works.
+            We start with a free 30-minute discovery call, design everything in Figma before code, build WordPress and GoHighLevel in parallel when needed, test across browsers and devices, and hand the project over with a recorded walkthrough and 30 days of direct support.
           </p>
           <Link
             href="/process"
@@ -34,7 +34,7 @@ export default function Process() {
           <div className="mt-10 p-5 rounded-2xl border border-ink/8 bg-blush">
             <p className="text-sm font-medium text-ink mb-1">30 days post-launch support</p>
             <p className="text-sm text-ink/50">
-              Direct access to us — not a ticket system. Every project includes a recorded walkthrough so you're never dependent on us for changes.
+              Direct access to us, not a ticket queue. Every project includes a recorded walkthrough so you are never dependent on us for basic edits or daily use.
             </p>
           </div>
         </div>

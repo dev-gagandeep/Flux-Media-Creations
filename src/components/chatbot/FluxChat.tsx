@@ -661,9 +661,11 @@ function getFallbackResponse(input: string): string {
 
 - **WordPress Website** - from $500 (7-10 days)
 - **GoHighLevel Automation** - from $300 (5-7 days)
-- **Full Growth System** (Website + GHL) - from $800 (14 days) <- most popular
-- **Paid Ads Management** - from $400/month
-- **Monthly Care Plan** - from $150/month
+- **Full Growth System** (Website + GHL) - from $1,300 (14-21 days) <- most popular
+- **Airtable CRM & Business Hub** - from $200
+- **Make & Zapier Automation** - from $150
+- **Monthly Maintenance** - from $150/month
+- **Search Visibility Engine** - from $400
 
 For a custom quote based on your needs, reach us at **+1 778 983 6113** or **+91 6284957892**, or email **contact@fluxmediacreations.com**.`;
   }
@@ -673,7 +675,7 @@ For a custom quote based on your needs, reach us at **+1 778 983 6113** or **+91
 
 - **GHL automation only** - 5-7 days
 - **WordPress website** - 7-10 days
-- **Full system (Website + GHL)** - 14 days
+- **Full system (Website + GHL)** - 14-21 days
 
 Every project starts with a Figma design you approve before we write code. You can book a free call here: **fluxmediacreations.com/contact**`;
   }
@@ -683,7 +685,7 @@ Every project starts with a Figma design you approve before we write code. You c
 
 We set up pipelines, missed-call text-back, appointment calendars, SMS and email sequences, and A2P 10DLC registration so messages land properly.
 
-GHL automation starts from **$300**. The full connected website + GHL system starts from **$800**.`;
+GHL automation starts from **$300**. The full connected website + GHL system starts from **$1,300**.`;
   }
 
   if (q.match(/healthcare|medical|clinic|doctor|pain|ortho|dental|physio|health/)) {

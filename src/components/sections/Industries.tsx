@@ -23,12 +23,12 @@ export default function Industries() {
         <div className="mb-12">
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Industries we serve</p>
           <TextReveal
-            text="We know your industry — and exactly what your customers search for."
+            text="Who we build for and why industry context matters."
             className="font-display font-semibold text-3xl md:text-5xl max-w-2xl"
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed max-w-4xl mt-5">
-            We don't apply a generic template to every project. We've built WordPress websites and GoHighLevel systems specifically for the industries below — and we understand the compliance requirements, customer expectations, and lead flow challenges each one involves.
+            Healthcare clinics, home service businesses, and real estate professionals all lose leads differently. We do not apply the same template to all of them. We build around the trust signals, compliance requirements, local visibility needs, and lead-flow behavior each industry actually has.
           </p>
           <Link
             href="/industries"

@@ -4,9 +4,9 @@ import { SITE } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  title: "Custom WordPress Website Design for Healthcare & Service Businesses",
+  title: "WordPress Website for Healthcare Clinics and Service Businesses",
   description:
-    "We design and build custom WordPress websites for US healthcare clinics, home service businesses, and real estate professionals. Mobile-first, SEO-ready, PageSpeed 90+. Delivered in 7-10 days.",
+    "WordPress website design for healthcare clinics and service businesses. Figma-first, Elementor Pro build, PageSpeed 90+, mobile-first UX, and conversion-focused structure. Starting from $500.",
   path: "/services/wordpress-website-build",
 });
 
@@ -242,36 +242,24 @@ const pricing = [
 
 const faqs = [
   {
-    q: "How long does a WordPress website build take?",
-    a: "A Starter site (up to 5 pages) takes 7-10 business days from signed contract to live site. A Growth site (up to 10 pages) takes 10-14 days. A Full Growth System with GoHighLevel integration takes 14-21 days. We set clear milestones on day one so you always know the exact timeline.",
+    q: "Do you use page builders or write custom code?",
+    a: "We build on WordPress with Elementor Pro. For complex UI elements like animations, smooth scroll effects, and custom interactive components, we use custom code where needed. The goal is a site that looks and performs better than a standard page-builder build without unnecessary fragility.",
   },
   {
-    q: "Do you use page builders or custom code?",
-    a: "We build with Elementor Pro on a clean WordPress foundation. Elementor Pro gives us design flexibility while keeping your site lightweight, fast, and easy for you to update after handover. We avoid bloated plugin stacks that slow sites down. Where custom functionality is needed, we write clean code.",
+    q: "What hosting do I need?",
+    a: "We recommend managed WordPress hosting from providers like WP Engine, Cloudways, or Kinsta for most service business sites. If you already have hosting, we evaluate it and tell you honestly whether it can support the performance target we build toward.",
   },
   {
-    q: "Will my WordPress site rank on Google?",
-    a: "Every site we build includes full on-page SEO - target keywords in H1, meta title, meta description, image alt text, URL slugs, and internal linking structure. We also set up Rank Math, submit your XML sitemap to Google Search Console, and implement schema markup for rich results. This gives your site the best possible technical foundation for ranking. Organic rankings take time - typically 3-6 months to see meaningful movement - but the foundation will be correct from day one.",
+    q: "Will the site rank on Google?",
+    a: "On-page SEO is built into every site we deliver. We handle the technical foundation: clean URL structure, sitemap setup, metadata, schema, and page speed. Ranking also depends on ongoing content, local citations, and backlinks. If you want a wider visibility strategy, our Search Visibility Engine is built for that next layer.",
   },
   {
-    q: "Can you redesign my existing WordPress website?",
-    a: "Yes. We audit your current site, identify what is hurting your rankings and conversions, and rebuild it properly. We migrate all existing content and preserve your SEO history where possible. If you are happy with your current hosting and domain setup, we can work within that environment.",
+    q: "Can you redesign an existing WordPress site?",
+    a: "Yes. We audit your current site, identify what is holding back conversions and rankings, and rebuild it with everything that should have been there from the start. We migrate existing content and preserve your SEO history where possible.",
   },
   {
-    q: "Will I be able to update the site myself after launch?",
-    a: "Yes. You receive a full recorded Loom video walkthrough after launch showing you how to update text, images, and content in WordPress and Elementor. You will not be dependent on us for basic changes - but we are available during your 30-day support window if you need help.",
-  },
-  {
-    q: "Do you build e-commerce websites?",
-    a: "Our focus is lead-generation and service websites - not product e-commerce. If your goal is selling physical products online via WooCommerce, we can discuss whether we are the right fit on a discovery call.",
-  },
-  {
-    q: "Do you offer WordPress maintenance after launch?",
-    a: "Yes. Our Monthly Maintenance plan ($150/mo) covers WordPress core updates, security scans, daily backups, speed monitoring, and content updates. You get direct access to us - no support ticket system.",
-  },
-  {
-    q: "What do I need to provide to get started?",
-    a: "Your domain access credentials, any existing brand assets (logo, brand colors, fonts if you have them), a brief description of your services and target clients, and any reference sites you like the look and feel of. We guide you through a structured brief on the discovery call - you do not need to have everything figured out before we talk.",
+    q: "How long does the website build take?",
+    a: "A WordPress-only site with up to 7 pages usually takes 7 to 10 business days from design approval. Larger sites with custom functionality tend to take 10 to 14 days. We set clear milestones at the start so you always know what is happening and when.",
   },
 ];
 
@@ -299,12 +287,12 @@ export default function WordPressWebsiteBuildPage() {
           <span className="mx-2">→</span>
           <span>WordPress Website Build</span>
         </p>
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">Custom WordPress Web Design</p>
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">WordPress Website Build</p>
         <h1 className="font-display font-semibold text-4xl md:text-6xl max-w-5xl leading-tight mb-6" style={{ letterSpacing: "-0.03em" }}>
-          WordPress Website Design That Captures Leads and Converts Visitors Into Clients
+          WordPress Website Build for Healthcare Clinics and Service Businesses
         </h1>
         <p className="text-base md:text-lg text-ink/55 max-w-4xl leading-relaxed mb-10">
-          We build custom WordPress websites for healthcare clinics, home service businesses, and real estate professionals across the United States, Canada, and the United Kingdom. Every site is designed in Figma first, built with Elementor Pro, optimized to PageSpeed 90+, and connected directly to your CRM follow-up system - so visitors do not just browse, they book.
+          The average service business website was built years ago by an agency that has not touched it since. It is slow, weak on mobile, unclear in its conversion path, and invisible for searches that matter. We build WordPress websites from scratch, designed in Figma and built with Elementor Pro, consistently targeting PageSpeed 90 or above. Every site is built around one question: what does this visitor need to see to take the next step?
         </p>
         <div className="flex flex-wrap gap-3 mb-12">
           <Link href="/contact" className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium" style={{ background: "var(--flux)", color: "white" }}>
