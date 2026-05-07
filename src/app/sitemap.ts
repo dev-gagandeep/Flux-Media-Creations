@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { BLOG_POSTS, LOCATION_PAGES, SERVICE_PAGES, SITE, WORK_PROJECTS } from "@/lib/constants";
+import { WORK_CASE_STUDIES } from "@/lib/work-content";
 
 function toSlug(input: string) {
   return input
@@ -9,46 +10,66 @@ function toSlug(input: string) {
     .replace(/\s+/g, "-");
 }
 
+const DEFAULT_LAST_MODIFIED = new Date("2026-05-07");
+const BLOG_LAST_MODIFIED = new Date("2026-04-13");
+const SERVICE_LAST_MODIFIED = new Date("2026-05-07");
+const LOCATION_LAST_MODIFIED = new Date("2026-05-07");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    { url: SITE.url, priority: 1.0, changeFrequency: "weekly" as const },
-    { url: `${SITE.url}/about`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/services`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/locations`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${SITE.url}/work`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/industries`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/process`, priority: 0.7, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/blog`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${SITE.url}/contact`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/web-development-ai-automation-new-york`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/web-development-automation-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${SITE.url}/privacy`, priority: 0.4, changeFrequency: "yearly" as const },
-    { url: `${SITE.url}/terms`, priority: 0.4, changeFrequency: "yearly" as const },
+    { url: SITE.url, priority: 1.0, changeFrequency: "weekly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/about`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/services`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
+    { url: `${SITE.url}/locations`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: LOCATION_LAST_MODIFIED },
+    { url: `${SITE.url}/work`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/industries`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/process`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/blog`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: BLOG_LAST_MODIFIED },
+    { url: `${SITE.url}/contact`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/web-development-ai-automation-new-york`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: LOCATION_LAST_MODIFIED },
+    { url: `${SITE.url}/web-development-automation-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: LOCATION_LAST_MODIFIED },
+    { url: `${SITE.url}/privacy`, priority: 0.4, changeFrequency: "yearly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/terms`, priority: 0.4, changeFrequency: "yearly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     ...BLOG_POSTS.map((post) => ({
       url: `${SITE.url}/blog/${post.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,
+      lastModified: new Date(post.date || BLOG_LAST_MODIFIED),
     })),
     ...SERVICE_PAGES.map((service) => ({
       url: `${SITE.url}/services/${service.slug}`,
       priority: 0.8,
       changeFrequency: "monthly" as const,
+      lastModified: SERVICE_LAST_MODIFIED,
     })),
-    ...WORK_PROJECTS.map((project) => ({
-      url: `${SITE.url}/work/${toSlug(project.title)}`,
+    ...WORK_PROJECTS.map((project) => {
+      const slug = toSlug(project.title);
+      return {
+        url: `${SITE.url}/work/${slug}`,
+        priority: 0.7,
+        changeFrequency: "monthly" as const,
+        lastModified: new Date(WORK_CASE_STUDIES[slug]?.modified || DEFAULT_LAST_MODIFIED),
+      };
+    }),
+    ...Object.values(WORK_CASE_STUDIES).map((caseStudy) => ({
+      url: `${SITE.url}/work/${caseStudy.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,
+      lastModified: new Date(caseStudy.modified),
     })),
     ...LOCATION_PAGES.map((location) => ({
       url: `${SITE.url}/locations/${location.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,
+      lastModified: LOCATION_LAST_MODIFIED,
     })),
   ];
 
-  return routes.map((route) => ({
+  const uniqueRoutes = Array.from(new Map(routes.map((route) => [route.url, route])).values());
+
+  return uniqueRoutes.map((route) => ({
     url: route.url,
-    lastModified: new Date(),
+    lastModified: route.lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));

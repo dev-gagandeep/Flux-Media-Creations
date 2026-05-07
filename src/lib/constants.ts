@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "Websites & Automation That Work While You Sleep",
   description:
     "WordPress websites and GoHighLevel automation for healthcare, home services, and real estate teams across the US.",
-  url: "https://fluxmediacreations.com",
+  url: "https://www.fluxmediacreations.com",
   email: "contact@fluxmediacreations.com",
   phone: "+1 778 983 6113",
   whatsapp: "17789836113",
