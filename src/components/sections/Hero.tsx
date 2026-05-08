@@ -33,7 +33,7 @@ export default function Hero() {
 
           <motion.h1
             className="font-display font-semibold leading-[0.96] max-w-4xl"
-            style={{ fontSize: "clamp(3.05rem, 6.4vw, 6.7rem)", letterSpacing: "0" }}
+            style={{ fontSize: "clamp(3.35rem, 7vw, 7.2rem)", letterSpacing: "0" }}
           >
             <span className="block overflow-hidden">
               <motion.span
@@ -45,17 +45,16 @@ export default function Hero() {
                 Build a Clinic Website
               </motion.span>
             </span>
-            <span className="block overflow-hidden text-flux">
-              <motion.span
-                className="block"
-                initial={{ y: "110%" }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                That Captures Leads and Follows Up Automatically
-              </motion.span>
-            </span>
           </motion.h1>
+
+          <motion.p
+            variants={fadeUp} initial="initial" animate="animate"
+            transition={{ delay: 0.34, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-5 max-w-3xl font-display text-3xl font-semibold leading-tight text-flux md:text-5xl"
+            style={{ letterSpacing: "0" }}
+          >
+            That captures leads and follows up automatically.
+          </motion.p>
 
           <motion.div
             variants={fadeUp} initial="initial" animate="animate"
