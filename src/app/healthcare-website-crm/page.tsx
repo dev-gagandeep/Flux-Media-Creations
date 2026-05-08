@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
+import HealthcareFaq from "./HealthcareFaq";
 
 export const metadata: Metadata = {
   title: "Healthcare Website & CRM Solutions | Launch in 14 Days | Flux Media Creations",
@@ -141,20 +142,32 @@ const testimonials = [
 
 const faqs = [
   {
-    q: "Is this HIPAA compliant?",
-    a: "We build HIPAA-aware intake and follow-up flows with privacy-conscious form structure, access-controlled pipelines, and secure implementation practices. Clinics should still review BAA, storage, and compliance requirements with their legal or compliance advisor.",
+    q: "Do Healthcare Clinics Need HIPAA-Compliant Forms?",
+    a: "Yes. If your healthcare clinic collects sensitive patient information through website forms, HIPAA-compliant forms are highly recommended. Standard contact forms may not securely protect patient data, which can create compliance risks. A properly configured healthcare website should use secure form handling, encrypted data transmission, protected storage systems, and restricted access controls to help safeguard patient information. At Flux Media Creations, we help healthcare practices implement secure lead capture systems and compliant workflows designed for modern patient communication.",
+  },
+  {
+    q: "Can GoHighLevel Work for Medical Practices?",
+    a: "Yes. GoHighLevel can work extremely well for medical practices when configured correctly. Healthcare clinics can use it for appointment reminders, missed-call text back, patient follow-up automation, lead tracking, review requests, pipeline management, and internal communication workflows. For clinics looking to improve response times and patient engagement, GoHighLevel helps centralize operations into one easy-to-manage platform.",
   },
   {
     q: "Do we need our own GoHighLevel account?",
     a: "Yes. You own your GoHighLevel account directly. We configure the CRM, workflows, calendars, forms, and handover inside your account.",
   },
   {
-    q: "Can you work with our existing clinic website?",
-    a: "Yes. We can audit the current site, connect it to GoHighLevel, or rebuild it if the design, speed, SEO, or conversion path is limiting patient inquiries.",
+    q: "How Long Does a Healthcare Website Take to Build?",
+    a: "Most healthcare websites can be designed, developed, and launched within 14-21 days depending on the project scope, number of pages, integrations, and content readiness. Custom medical websites with CRM automation, booking systems, SEO optimization, and advanced workflows may require additional setup time. Our process focuses on launching healthcare websites quickly without sacrificing performance, mobile responsiveness, or patient experience.",
   },
   {
-    q: "How fast can this launch?",
-    a: "Most healthcare website and CRM bundles can launch in about 14 days when content, branding, access, and approvals are ready on time.",
+    q: "Do You Integrate Appointment Booking Systems?",
+    a: "Yes. We integrate healthcare websites with appointment booking systems, scheduling tools, calendar platforms, and CRM workflows. Patients can easily request appointments online while clinics automatically receive notifications, follow-up reminders, and lead tracking inside the CRM. This helps reduce missed appointments and improves patient communication efficiency.",
+  },
+  {
+    q: "Can You Redesign an Existing Clinic Website?",
+    a: "Absolutely. Many clinics already have outdated websites that load slowly, generate few patient inquiries, or lack automation systems. We redesign existing healthcare websites with modern layouts, faster performance, mobile optimization, improved SEO structure, and integrated CRM workflows. Our goal is to transform older clinic websites into patient-generating systems built for long-term growth.",
+  },
+  {
+    q: "Is this HIPAA compliant?",
+    a: "We build HIPAA-aware intake and follow-up flows with privacy-conscious form structure, access-controlled pipelines, and secure implementation practices. Clinics should still review BAA, storage, and compliance requirements with their legal or compliance advisor.",
   },
   {
     q: "What happens after launch?",
@@ -416,14 +429,7 @@ export default function HealthcareWebsiteCrmPage() {
           <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-8" style={{ letterSpacing: "-0.03em" }}>
             Questions clinics usually ask before starting.
           </h2>
-          <div className="grid gap-5 md:grid-cols-2">
-            {faqs.map((item) => (
-              <details key={item.q} className="group rounded-lg border border-ink/10 bg-white p-6">
-                <summary className="cursor-pointer list-none font-medium text-ink">{item.q}</summary>
-                <p className="mt-4 text-sm leading-7 text-ink/65">{item.a}</p>
-              </details>
-            ))}
-          </div>
+          <HealthcareFaq items={faqs} />
         </section>
       </main>
     </>
