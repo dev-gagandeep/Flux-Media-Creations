@@ -11,7 +11,7 @@ function toSlug(input: string) {
 }
 
 const DEFAULT_LAST_MODIFIED = new Date("2026-05-07");
-const BLOG_LAST_MODIFIED = new Date("2026-04-13");
+const BLOG_LAST_MODIFIED = new Date("2026-05-08");
 const SERVICE_LAST_MODIFIED = new Date("2026-05-07");
 const LOCATION_LAST_MODIFIED = new Date("2026-05-07");
 
@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/industries`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/process`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/blog`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: BLOG_LAST_MODIFIED },
+    { url: `${SITE.url}/blog/healthcare-website-design-clinic-conversions`, priority: 0.75, changeFrequency: "monthly" as const, lastModified: BLOG_LAST_MODIFIED },
     { url: `${SITE.url}/contact`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/web-development-ai-automation-new-york`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: LOCATION_LAST_MODIFIED },
     { url: `${SITE.url}/web-development-automation-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: LOCATION_LAST_MODIFIED },

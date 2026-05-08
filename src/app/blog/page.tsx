@@ -11,7 +11,22 @@ export const metadata: Metadata = generateMeta({
   path: "/blog",
 });
 
+const FEATURED_BLOG_POSTS = [
+  {
+    slug: "healthcare-website-design-clinic-conversions",
+    title: "Healthcare Website Design: What Every Clinic Needs to Convert Visitors Into Appointments",
+    excerpt:
+      "A practical clinic website design guide covering patient journeys, trust signals, local SEO structure, appointment booking, and GoHighLevel CRM automation.",
+    date: "2026-05-08",
+    readTime: "12 min read",
+    category: "Healthcare Website Design",
+    author: "Gagan Deep",
+  },
+];
+
 export default function BlogPage() {
+  const posts = [...FEATURED_BLOG_POSTS, ...BLOG_POSTS];
+
   return (
     <section className="section pt-32 max-w-[1100px] mx-auto">
       <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">Blog</p>
@@ -26,7 +41,7 @@ export default function BlogPage() {
       </p>
 
       <div className="grid gap-6">
-        {BLOG_POSTS.map((post) => (
+        {posts.map((post) => (
           <article
             key={post.slug}
             className="border border-ink/10 rounded-2xl bg-white p-6 md:p-8 hover:border-ink/25 transition-colors"
