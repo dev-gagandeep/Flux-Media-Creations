@@ -161,9 +161,19 @@ export default function FluxChat() {
   const [loading, setLoading] = useState(false);
   const [showQuick, setShowQuick] = useState(true);
   const [unread, setUnread] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 640px)");
+    const syncMobile = () => setIsMobile(media.matches);
+
+    syncMobile();
+    media.addEventListener("change", syncMobile);
+    return () => media.removeEventListener("change", syncMobile);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -244,6 +254,9 @@ export default function FluxChat() {
 
   const chatWidth = expanded ? "min(680px, 96vw)" : "min(400px, 96vw)";
   const chatHeight = expanded ? "min(680px, 88vh)" : "min(580px, 82vh)";
+  const launcherBottom = isMobile ? 126 : 24;
+  const launcherRight = isMobile ? 16 : 24;
+  const panelBottom = isMobile ? 154 : 90;
 
   return (
     <>
@@ -319,7 +332,7 @@ export default function FluxChat() {
         }
       `}</style>
 
-      <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 9998, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
+      <div style={{ position: "fixed", bottom: launcherBottom, right: launcherRight, zIndex: 9998, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
         <AnimatePresence>
           {!open && (
             <motion.div
@@ -435,7 +448,7 @@ export default function FluxChat() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: "fixed",
-              bottom: 90,
+              bottom: panelBottom,
               right: 16,
               width: chatWidth,
               height: chatHeight,
