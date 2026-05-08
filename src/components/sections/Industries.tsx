@@ -23,13 +23,33 @@ export default function Industries() {
         <div className="mb-12">
           <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Industries we serve</p>
           <TextReveal
-            text="Who we build for and why industry context matters."
+            text="Who we build for."
             className="font-display font-semibold text-3xl md:text-5xl max-w-2xl"
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed max-w-4xl mt-5">
-            Healthcare clinics, home service businesses, and real estate professionals all lose leads differently. We do not apply the same template to all of them. We build around the trust signals, compliance requirements, local visibility needs, and lead-flow behavior each industry actually has.
+            We work with service-based businesses where every lead counts and fast follow-up has a direct revenue impact. Clinics, home service companies, and real estate professionals all lose leads differently, so we build around the trust signals, local visibility needs, and lead-flow behavior each industry actually has.
           </p>
+          <div className="mt-8 rounded-xl border border-flux/15 bg-white p-6">
+            <p className="text-xs uppercase tracking-widest text-flux mb-4">Healthcare industry</p>
+            <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-4" style={{ letterSpacing: "0" }}>
+              Web design for healthcare that answers patient questions, not passive traffic.
+            </h3>
+            <p className="text-sm leading-7 text-ink/58">
+              Flux Media Creations is a healthcare website design agency for clinics that want more than a clean homepage. We build websites that help patients understand what you do, trust your team, and confidently take the next step.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-ink/58">
+              Speed is essential in healthcare. A patient may call once, fill out one form, or check appointment availability after hours. That window can close when your system does not respond quickly, so we connect WordPress websites to GoHighLevel CRM automation with SMS auto-responses, booking links, internal notifications, reminder sequences, and pipeline updates.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Pain clinics", "Vein treatment clinics", "Orthopedic practices", "Telehealth providers", "Health clinics", "Chiropractic and physical therapy", "Specialty practices"].map((item) => (
+                <span key={item} className="rounded-full bg-blush px-3 py-1 text-xs text-ink/58">{item}</span>
+              ))}
+            </div>
+            <Link href="/healthcare-website-crm" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-flux px-5 py-3 text-sm font-medium text-white">
+              Create a clinic growth system →
+            </Link>
+          </div>
           <Link
             href="/industries"
             className="inline-flex items-center gap-2 mt-5 text-sm font-medium hover:gap-3 transition-all duration-300"

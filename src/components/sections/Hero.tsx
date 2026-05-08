@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 const journeySteps = [
-  { label: "Search visitor", detail: "SEO page + service intent", value: "01" },
-  { label: "Lead captured", detail: "Form, call, chat, or WhatsApp", value: "02" },
-  { label: "Instant follow-up", detail: "GHL SMS + email workflow", value: "03" },
-  { label: "Booked call", detail: "Pipeline, reminders, reporting", value: "04" },
+  { label: "Visitor search", detail: "A high-intent visitor arrives at your SEO optimized WordPress website.", value: "01" },
+  { label: "Lead recovered", detail: "They fill out a form, call your business, begin a chat, or request an appointment.", value: "02" },
+  { label: "Follow-up immediately", detail: "GoHighLevel sends the proper SMS, email, reminder, and missed-call reply.", value: "03" },
+  { label: "Call set up", detail: "The lead enters your pipeline and progresses toward a confirmed appointment.", value: "04" },
 ];
 
-const stackItems = ["WordPress", "GoHighLevel", "SEO", "GA4", "Make"];
+const stackItems = ["WordPress", "GoHighLevel", "SEO", "GA4", "Make", "Zapier"];
 
 export default function Hero() {
   const fadeUp = {
@@ -28,7 +28,7 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-xs font-semibold uppercase tracking-widest text-flux mb-5"
           >
-            Websites and automation for service businesses
+            WordPress GoHighLevel agency for service businesses
           </motion.p>
 
           <motion.h1
@@ -42,7 +42,7 @@ export default function Hero() {
                 animate={{ y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                More leads from your website.
+                More leads from your site.
               </motion.span>
             </span>
             <span className="block overflow-hidden text-flux">
@@ -52,7 +52,7 @@ export default function Hero() {
                 animate={{ y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                Faster follow-up from your CRM.
+                Quicker follow-up from your CRM.
               </motion.span>
             </span>
           </motion.h1>
@@ -63,7 +63,10 @@ export default function Hero() {
             className="mt-6"
           >
             <p className="text-base md:text-lg text-ink/55 leading-relaxed max-w-2xl">
-              Flux Media Creations builds premium WordPress websites with organic SEO foundations and GoHighLevel automations, so every enquiry is captured, replied to, tracked, and moved toward a booked call.
+              Flux Media Creations is a WordPress GoHighLevel agency for service businesses that can&apos;t afford to lose leads. We build fast, premium WordPress websites that integrate with GoHighLevel CRM automation so every form fill, call, chat, and booking request is captured, followed up, and driven toward an appointment.
+            </p>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-ink/45">
+              Built for healthcare clinics, home service companies, real estate professionals, and local service brands that need a website and CRM to work together.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
               <MagneticButton>
@@ -80,7 +83,7 @@ export default function Hero() {
                 href="/work"
                 className="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink/70 transition-colors hover:border-ink/35 hover:text-ink"
               >
-                Explore work
+                See our work
               </Link>
             </div>
           </motion.div>
@@ -108,9 +111,9 @@ function LeadJourneyPreview() {
       <div className="relative rounded-[1.45rem] border border-ink/8 bg-cream p-5 md:p-6">
         <div className="flex items-start justify-between gap-4 border-b border-ink/8 pb-5">
           <div>
-            <p className="text-xs uppercase tracking-widest text-ink/35">Growth system preview</p>
+            <p className="text-xs uppercase tracking-widest text-ink/35">Preview growth system</p>
             <h2 className="mt-2 font-display text-3xl font-semibold leading-none text-ink md:text-4xl" style={{ letterSpacing: "0" }}>
-              Visitor to booked call
+              Visitor on booked call
             </h2>
           </div>
           <div className="rounded-full bg-sage px-3 py-1 text-xs font-semibold text-ink/65">Live flow</div>
@@ -140,7 +143,7 @@ function LeadJourneyPreview() {
 
         <div className="mt-5 rounded-2xl bg-ink p-4 text-cream">
           <div className="mb-4 flex items-center justify-between">
-            <p className="text-xs uppercase tracking-widest text-cream/35">Stack connected</p>
+            <p className="text-xs uppercase tracking-widest text-cream/35">Connected stack</p>
             <span className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_0_6px_rgba(34,197,94,0.14)]" />
           </div>
           <div className="flex flex-wrap gap-2">

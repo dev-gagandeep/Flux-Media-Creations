@@ -21,7 +21,7 @@ export default function Process() {
             as="h2"
           />
           <p className="text-base text-ink/50 leading-relaxed mb-8 max-w-sm">
-            We start with a focused project review, design everything in Figma before code, build WordPress and GoHighLevel in parallel when needed, test across browsers and devices, and hand the project over with a recorded walkthrough and 30 days of direct support.
+            From first enquiry to launch, every step is built around clarity, speed, and fewer lost leads. We define the offer, shape the website, connect the CRM, test the workflows, and improve after launch.
           </p>
           <Link
             href="/process"

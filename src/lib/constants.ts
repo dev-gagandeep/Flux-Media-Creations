@@ -803,28 +803,33 @@ export const LOCATION_PAGES = [
 export const PROCESS_STEPS = [
   {
     number: "01",
-    title: "Free project review",
-    description: "We learn your business, your goals, your current tech stack, and the leads you're losing right now. No pitch — just a focused conversation about what you actually need. We'll tell you honestly if we're not the right fit.",
+    title: "Strategy & offer transparency",
+    description: "We review your services, audience, current website, CRM gaps, and lead flow. Next, we diagram the architecture your website and automation system require.",
   },
   {
     number: "02",
-    title: "Full Figma design — before any code",
-    description: "Every page of your WordPress website is designed in Figma first. You review and approve the complete design before we write a single line of code. No surprises when we build, no back-and-forth revisions mid-development.",
+    title: "Website architecture",
+    description: "We build your homepage, service pages, calls to action, trust sections, forms, and conversion paths around the way your buyers actually make decisions.",
   },
   {
     number: "03",
-    title: "WordPress build + GoHighLevel setup — simultaneously",
-    description: "WordPress development and GoHighLevel CRM configuration run in parallel. You see your staging site as we build it. Your automation workflows are built and tested before launch day.",
+    title: "WordPress design & development",
+    description: "Your website is built with a clean visual direction, mobile-first layout, SEO-friendly structure, and conversion-focused website design principles.",
   },
   {
     number: "04",
-    title: "Full QA across 5 browsers and mobile",
-    description: "Every contact form, every GoHighLevel automation, every SMS workflow, every booking trigger — tested before you see it. We test across Chrome, Safari, Firefox, Edge, and mobile on both iOS and Android.",
+    title: "GoHighLevel setup",
+    description: "We set up your CRM, pipelines, calendars, workflows, SMS and email follow-up, missed-call recovery, and appointment booking automation.",
   },
   {
     number: "05",
-    title: "Launch, handover, and 30 days of direct support",
-    description: "We handle DNS migration, hosting configuration, and SSL setup. You receive a full recorded video walkthrough of your WordPress site and GoHighLevel system so you're never dependent on us for basic changes. Then 30 days of direct WhatsApp and email support — no ticket queue.",
+    title: "Test & launch",
+    description: "We test forms, calls, workflows, notifications, tracking, page speed, mobile experience, and booking flows before they go live.",
+  },
+  {
+    number: "06",
+    title: "Optimization after launch",
+    description: "Once we go live, we measure what is working, where leads are coming from, and where follow-up can be improved.",
   },
 ];
 

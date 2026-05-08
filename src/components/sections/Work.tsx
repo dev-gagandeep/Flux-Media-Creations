@@ -34,10 +34,10 @@ export default function Work() {
         <div>
           <p className="text-xs uppercase tracking-widest text-flux mb-4">Our work</p>
           <h2 className="font-display font-semibold text-4xl md:text-6xl leading-none max-w-3xl" style={{ letterSpacing: "0" }}>
-            Real projects built for service businesses.
+            Real projects for service companies.
           </h2>
           <p className="text-base text-ink/50 leading-relaxed max-w-3xl mt-5">
-            These are not concept pieces. They are live WordPress and GoHighLevel projects built for real businesses, including MVM Health in New Jersey, Vascura Pain & Vein, and Phone Repair Decatur in Atlanta.
+            We develop real growth systems, not concept designs. Each project is designed to help real businesses earn trust, capture leads, follow up faster, and book more calls or appointments.
           </p>
         </div>
         <Link
@@ -88,6 +88,32 @@ export default function Work() {
           ))}
         </motion.div>
       </AnimatePresence>
+
+      <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        {[
+          {
+            title: "Medical Clinics",
+            body: "WordPress custom sites and GoHighLevel automation for pain clinics, vein clinics, orthopedic practices, wellness providers, and medical service brands. Clear patient pathways, powerful service pages, appointment booking automation, insurance or intake form flows, and immediate follow-up for new patient inquiries.",
+            services: "Healthcare Website Design · WordPress · GoHighLevel · Scheduling Automation",
+          },
+          {
+            title: "Home Service Companies",
+            body: "Websites for lead generation and CRM workflows for contractors, repair companies, local service providers, and appointment-based teams. We help service businesses capture quote requests, respond to missed calls, automate follow-up, and track leads from first contact to booked job.",
+            services: "Lead capture · GHL CRM automation · Missed-call retrieval",
+          },
+          {
+            title: "Real Estate Specialists",
+            body: "IDX-ready websites, buyer and seller lead capture, long-term nurture workflows, and personal brand websites. GoHighLevel can automatically follow up on listings, valuation form responses, and pipeline tracking so inquiries move into one CRM.",
+            services: "WordPress website · Lead automation · CRM nurture",
+          },
+        ].map((card) => (
+          <article key={card.title} className="rounded-xl border border-ink/8 bg-blush/45 p-6">
+            <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "0" }}>{card.title}</h3>
+            <p className="text-sm leading-7 text-ink/58">{card.body}</p>
+            <p className="mt-5 text-xs uppercase tracking-wide text-flux">{card.services}</p>
+          </article>
+        ))}
+      </div>
       </div>
     </section>
   );

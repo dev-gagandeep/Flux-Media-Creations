@@ -1,23 +1,23 @@
 const stats = [
   {
     number: "14 days",
-    label: "Average WordPress + GoHighLevel project delivery",
-    subtext: "From signed contract to live site — not months.",
+    label: "Average time for many WordPress + GoHighLevel builds",
+    subtext: "Depending on content, integrations, and scope.",
   },
   {
     number: "90+",
-    label: "PageSpeed score on every site we build",
-    subtext: "Faster sites rank higher and convert more visitors.",
+    label: "PageSpeed target for fast, mobile-first sites",
+    subtext: "Built to keep people engaged on mobile and desktop.",
   },
   {
     number: "100%",
-    label: "Projects with post-launch GHL automation active",
-    subtext: "Every site we build connects to an automated follow-up system.",
+    label: "Growth systems built with active post-launch automation",
+    subtext: "So leads do not get lost in an inbox.",
   },
   {
     number: "4+",
-    label: "Years building WordPress + GoHighLevel systems",
-    subtext: "Exclusively for US healthcare and service businesses.",
+    label: "Years experience",
+    subtext: "Building WordPress websites, CRM workflows, and automation systems for service businesses.",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function Numbers() {
       <div className="mb-12">
         <p className="text-xs uppercase tracking-widest text-flux mb-4">By the numbers</p>
         <h2 className="font-display font-semibold text-4xl md:text-6xl max-w-3xl leading-none" style={{ letterSpacing: "0" }}>
-          What happens when your website and CRM work together.
+          What happens when your website talks to your CRM.
         </h2>
       </div>
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">

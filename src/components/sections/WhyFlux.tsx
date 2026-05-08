@@ -1,18 +1,23 @@
 const blocks = [
   {
-    icon: "⏱",
-    title: "One team. No handoffs.",
-    body: "Gagan Deep builds every WordPress website and configures every GoHighLevel system we deliver. You speak to the same person from first enquiry to your launch day walkthrough. There is no account manager passing notes between you and a developer in another time zone.",
+    title: "Combine all questions",
+    body: "You can integrate your GoHighLevel pipeline with website forms, calls, chat requests, and booking actions so every inquiry lands in one organized system.",
   },
   {
-    icon: "⚡",
-    title: "Built to convert, not just look good.",
-    body: "A website that gets compliments but does not generate leads is an expense, not an investment. Every page we build has a clear purpose, a specific action, and a path that moves the visitor toward contacting you.",
+    title: "Reply before the competition",
+    body: "Trigger automated SMS and email follow-up in seconds, so your business responds while the lead is still interested.",
   },
   {
-    icon: "🛡",
-    title: "Real results in healthcare and home services.",
-    body: "We have built sites for pain management clinics in New Jersey, local service businesses that rank on Google Maps, and GoHighLevel systems that recover missed calls automatically. We know what works in these industries because we have delivered it.",
+    title: "Catch up on missed calls",
+    body: "Missed call text back setup sends an instant message when your team is unavailable, giving the prospect an easy way to book or continue the conversation.",
+  },
+  {
+    title: "Schedule more appointments",
+    body: "Automated appointment booking lets prospects pick a time, receive reminders, and helps reduce no-shows.",
+  },
+  {
+    title: "Follow every step",
+    body: "Your team can see where each lead came from, what they asked for, and what stage they are at inside the pipeline.",
   },
 ];
 
@@ -21,12 +26,15 @@ export default function WhyFlux() {
     <section className="bg-ink px-6 py-24 text-cream md:px-10 md:py-32">
       <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <p className="text-xs uppercase tracking-widest text-cream/30 mb-5">Why businesses choose us</p>
+          <p className="text-xs uppercase tracking-widest text-cream/30 mb-5">Automation division</p>
           <h2 className="font-display font-semibold text-4xl md:text-6xl leading-none" style={{ letterSpacing: "0" }}>
-            Engineered for <span className="text-flux">Autonomy.</span>
+            Designed for automation. Created to <span className="text-flux">regain lost leads.</span>
           </h2>
           <p className="mt-6 max-w-xl text-sm md:text-base leading-7 text-cream/50">
-            You do not need another agency that disappears after launch. Flux builds the site, connects the CRM, configures the automations, and leaves you with a system your team can actually operate.
+            Most businesses don&apos;t lose leads because their offer is weak. They lose leads because of slow response time, inconsistent follow-up, and a CRM that is not connected to the website.
+          </p>
+          <p className="mt-4 max-w-xl text-sm md:text-base leading-7 text-cream/50">
+            That&apos;s what our GoHighLevel systems are designed to fix. We link lead sources such as forms, calls, chats, calendars, and landing pages to the workflows that help your team move quickly.
           </p>
         </div>
 

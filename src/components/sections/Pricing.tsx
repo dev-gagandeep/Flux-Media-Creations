@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { SERVICES } from "@/lib/constants";
 
 const COMPARISON = [
   { feature: "Custom WordPress design", s1: true, s2: false, s3: true },
@@ -14,10 +13,68 @@ const COMPARISON = [
   { feature: "30-day support", s1: true, s2: true, s3: true },
 ];
 
-export default function Pricing() {
-  const primary = SERVICES.slice(0, 3);
-  const secondary = SERVICES.slice(3);
+const pricingCards = [
+  {
+    number: "01",
+    title: "Build a website on WordPress",
+    href: "/services/wordpress-website-build",
+    price: "$500",
+    intro:
+      "Custom WordPress website design from strategy to launch. We create fast, mobile-first, SEO-ready websites for clinics, local service businesses, real estate professionals, and growing brands who need more qualified leads.",
+    includes: [
+      "Conversion-focused website design",
+      "Mobile-first WordPress development",
+      "Page structure for SEO",
+      "Clear call to action sections",
+      "Landing pages and service pages",
+      "Setup focused on speed",
+      "Analytics-ready infrastructure",
+    ],
+    bestFor: "Businesses who need a professional website built to generate leads.",
+  },
+  {
+    number: "02",
+    title: "GoHighLevel Setup & Automation",
+    href: "/services/gohighlevel-automation",
+    price: "$300",
+    intro:
+      "A full GoHighLevel setup service for businesses who want better lead tracking, faster follow-up, and fewer missed opportunities.",
+    includes: [
+      "GHL CRM deployment",
+      "Lead pipeline work",
+      "Missed call reply setup",
+      "Email and SMS workflows",
+      "Automated appointment scheduling",
+      "Reminder sequences",
+      "Review request automation",
+      "Basic reporting framework",
+    ],
+    bestFor: "Clinics and small businesses getting leads but losing them because of slow or inconsistent follow-up.",
+  },
+  {
+    number: "03",
+    title: "Full Growth System",
+    href: "/services/full-growth-system",
+    price: "$1,300",
+    intro:
+      "Your WordPress website and GoHighLevel CRM created and connected by one team. This is the whole system to turn visitors into leads, and leads into booked appointments.",
+    includes: [
+      "WordPress website build",
+      "GoHighLevel CRM automation setup",
+      "Lead capture forms",
+      "Appointment booking",
+      "Missed call recovery",
+      "Follow-up sequences",
+      "Pipeline tracking",
+      "SEO basics",
+      "Conversion tracking and analytics",
+    ],
+    bestFor: "Service businesses that want one connected system for growth, not disconnected tools.",
+    featured: true,
+  },
+];
 
+export default function Pricing() {
   return (
     <section className="bg-blush/45 px-6 py-24 md:px-10 md:py-28">
       <div className="mx-auto max-w-[1400px]">
@@ -25,10 +82,10 @@ export default function Pricing() {
           <div>
             <p className="text-xs uppercase tracking-widest text-flux mb-4">Pricing</p>
             <h2 className="font-display text-4xl font-semibold leading-none md:text-6xl" style={{ letterSpacing: "0" }}>
-              Simple, transparent starting points.
+              Clear, open starting points.
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-ink/55 md:text-base">
-              The same pricing signal from the previous live site, now styled to match the new premium homepage direction.
+              Choose the build that fits your current stage of development. Start with a better website, add automation, or combine them into one complete lead generation platform.
             </p>
           </div>
           <Link href="/services" className="self-start rounded-full border border-ink/15 px-5 py-3 text-sm font-medium text-ink/65 transition-colors hover:border-ink/35 hover:text-ink md:self-end">
@@ -37,9 +94,9 @@ export default function Pricing() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
-          {primary.map((service) => (
+          {pricingCards.map((service) => (
             <Link
-              key={service.slug}
+              key={service.title}
               href={service.href}
               className={`relative rounded-xl border p-7 transition-transform duration-300 hover:-translate-y-1 ${
                 service.featured ? "border-flux/25 bg-ink text-cream" : "border-ink/8 bg-white text-ink"
@@ -56,32 +113,34 @@ export default function Pricing() {
               <h3 className="mt-8 font-display text-3xl font-semibold leading-tight" style={{ letterSpacing: "0" }}>
                 {service.title}
               </h3>
-              <p className={`mt-4 min-h-[6rem] text-sm leading-7 ${service.featured ? "text-cream/55" : "text-ink/55"}`}>
-                {service.description}
+              <p className={`mt-4 text-sm leading-7 ${service.featured ? "text-cream/55" : "text-ink/55"}`}>
+                {service.intro}
               </p>
               <div className="mt-8">
                 <p className={`text-xs uppercase tracking-widest ${service.featured ? "text-cream/35" : "text-ink/30"}`}>Starting from</p>
                 <p className="mt-1 font-display text-5xl font-semibold text-flux" style={{ letterSpacing: "0" }}>
-                  {service.from}
+                  {service.price}
+                </p>
+              </div>
+              <div className={`mt-7 border-t pt-5 ${service.featured ? "border-cream/10" : "border-ink/8"}`}>
+                <p className={`mb-3 text-xs uppercase tracking-widest ${service.featured ? "text-cream/35" : "text-ink/30"}`}>Includes</p>
+                <ul className={`space-y-2 text-xs leading-5 ${service.featured ? "text-cream/55" : "text-ink/55"}`}>
+                  {service.includes.slice(0, 6).map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="text-flux">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className={`mt-5 text-xs leading-6 ${service.featured ? "text-cream/42" : "text-ink/42"}`}>
+                  Best for: {service.bestFor}
                 </p>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-5 grid gap-5 lg:grid-cols-[0.78fr_1.22fr]">
-          <div className="rounded-xl border border-ink/8 bg-white p-6">
-            <p className="text-xs uppercase tracking-widest text-ink/35 mb-5">Other starting rates</p>
-            <div className="divide-y divide-ink/8">
-              {secondary.map((service) => (
-                <Link key={service.slug} href={service.href} className="flex items-center justify-between gap-4 py-4 text-sm group">
-                  <span className="font-medium text-ink/70 group-hover:text-flux">{service.title}</span>
-                  <span className="font-display text-lg font-semibold text-flux">{service.from}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
+        <div className="mt-5">
           <div className="overflow-x-auto rounded-xl border border-ink/8 bg-white p-2">
             <table className="w-full min-w-[680px] border-collapse">
               <thead>

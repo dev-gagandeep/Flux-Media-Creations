@@ -57,7 +57,7 @@ export default function CTA() {
             transition={{ duration: 0.5 }}
             className="text-xs uppercase tracking-widest mb-6 text-flux"
           >
-            Final step
+            Let&apos;s create something extraordinary.
           </motion.p>
 
           <div className="overflow-hidden mb-6">
@@ -69,7 +69,7 @@ export default function CTA() {
               className="font-display font-semibold text-ink"
               style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)", letterSpacing: "0", lineHeight: 1 }}
             >
-              Your WordPress website should be earning leads
+              Your WordPress website should be generating leads
             </motion.h2>
           </div>
           <div className="overflow-hidden mb-10">
@@ -98,7 +98,7 @@ export default function CTA() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-base max-w-md mx-auto mb-10 leading-relaxed text-ink/50"
           >
-            Send us your project goals. No pitch, just an honest conversation about what you need and the fastest way to get there. Most clients have a live site within 14 days of signing.
+            Your website should not just appear professional. It must attract the right visitors, make your offer instantly clear, capture every inquiry, and trigger follow-up automatically. Looking for a WordPress GoHighLevel agency to build your website, CRM, automation, and lead flow all in one? Flux Media Creations can set you up with a system built for real business growth.
           </motion.p>
 
           <motion.div
@@ -118,7 +118,7 @@ export default function CTA() {
                   boxShadow: "0 4px 30px rgba(255,92,53,0.4)",
                 }}
               >
-                Contact us
+                Start a project
                 <span className="text-lg">→</span>
               </Link>
             </MagneticButton>

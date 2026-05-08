@@ -15,9 +15,9 @@ import CTA from "@/components/sections/CTA";
 import Marquee from "@/components/ui/Marquee";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "Conversion-Focused WordPress Websites, SEO & GoHighLevel Automation | Flux Media Creations",
+  absoluteTitle: "Service-Based Business WordPress GoHighLevel Agency | Flux Media Creations",
   description:
-    "Get a conversion-focused WordPress website with organic SEO foundations and GoHighLevel automations that capture leads, reply fast, and turn more visitors into booked calls.",
+    "Flux Media Creations is a WordPress GoHighLevel agency that specializes in conversion-driven website design, GoHighLevel setup services, CRM automation, missed call text back setup, and appointment booking automation for clinics and service businesses.",
   path: "/",
 });
 
