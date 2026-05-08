@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const positionRef = useRef({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
@@ -15,10 +17,19 @@ export default function Cursor() {
     const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!supportsFinePointer) return;
 
+    document.documentElement.classList.add("has-custom-cursor");
     const interactiveSelector = "a, button, input, textarea, select, [role='button'], [data-cursor='hover']";
 
+    const moveCursor = () => {
+      cursor.style.transform = `translate3d(${positionRef.current.x}px, ${positionRef.current.y}px, 0) translate(-50%, -50%)`;
+      rafRef.current = null;
+    };
+
     const onMouseMove = (e: MouseEvent) => {
-      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      positionRef.current = { x: e.clientX, y: e.clientY };
+      if (rafRef.current === null) {
+        rafRef.current = window.requestAnimationFrame(moveCursor);
+      }
       setIsVisible(true);
       setIsHovering(Boolean((e.target as Element | null)?.closest(interactiveSelector)));
     };
@@ -33,6 +44,8 @@ export default function Cursor() {
     window.addEventListener("mouseup", onMouseUp);
 
     return () => {
+      document.documentElement.classList.remove("has-custom-cursor");
+      if (rafRef.current !== null) window.cancelAnimationFrame(rafRef.current);
       window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("mousedown", onMouseDown);

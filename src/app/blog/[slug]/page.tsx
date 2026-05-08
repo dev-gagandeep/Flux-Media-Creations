@@ -68,6 +68,11 @@ const BLOG_INLINE_IMAGES: Record<
   ],
 };
 
+const HEALTHCARE_CTA_POSTS = new Set([
+  "wordpress-ghl-growth-system-us-businesses",
+  "how-to-set-up-gohighlevel-missed-call-text-back",
+]);
+
 function slugify(input: string) {
   return input
     .toLowerCase()
@@ -177,6 +182,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const { blocks, toc } = parseBlogContent(post);
   const detail = BLOG_DETAILS[post.slug];
   const inlineImages = BLOG_INLINE_IMAGES[post.slug] ?? [];
+  const showHealthcareCta = HEALTHCARE_CTA_POSTS.has(post.slug);
   const recentPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug).slice(0, 3);
   const sidebarPosts = recentPosts.length > 0 ? recentPosts : BLOG_POSTS.slice(0, 3);
   const categoryCounts = BLOG_POSTS.reduce<Record<string, number>>((acc, item) => {
@@ -300,6 +306,21 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             ))}
 
+            {showHealthcareCta ? (
+              <section className="rounded-lg border border-flux/15 bg-blush p-6">
+                <p className="text-xs uppercase tracking-widest text-flux mb-4">For healthcare clinics</p>
+                <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink mb-3" style={{ letterSpacing: "-0.02em" }}>
+                  Want the website and GoHighLevel system built together?
+                </h2>
+                <p className="text-sm leading-7 text-ink/68 mb-5">
+                  Our healthcare landing page breaks down the clinic-specific version: WordPress website, CRM pipeline, appointment reminders, missed-call text-back, and post-launch support.
+                </p>
+                <Link href="/healthcare-website-crm" className="inline-flex items-center rounded-lg px-5 py-3 text-sm font-medium text-white" style={{ background: "var(--flux)" }}>
+                  View Healthcare Website &amp; CRM Solutions →
+                </Link>
+              </section>
+            ) : null}
+
             {post.faq?.length ? (
               <section id="faqs" className="scroll-mt-32 pt-4">
                 <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink mb-6" style={{ letterSpacing: "-0.02em" }}>
@@ -376,16 +397,18 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
             <section className="rounded-lg bg-[#1D1738] p-5 text-white">
               <p className="text-lg font-display font-semibold mb-2" style={{ letterSpacing: "-0.02em" }}>
-                Ready to Automate?
+                {showHealthcareCta ? "Clinic Website + CRM?" : "Ready to Automate?"}
               </p>
               <p className="text-sm leading-6 text-white/70 mb-4">
-                Contact us and we&apos;ll map your complete GHL automation roadmap.
+                {showHealthcareCta
+                  ? "See the dedicated healthcare system for websites, reminders, and missed-call recovery."
+                  : "Contact us and we&apos;ll map your complete GHL automation roadmap."}
               </p>
               <Link
-                href="/contact"
+                href={showHealthcareCta ? "/healthcare-website-crm" : "/contact"}
                 className="inline-flex w-full items-center justify-center rounded-lg bg-[#7C5CFF] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#6d4ff0]"
               >
-                Contact Us →
+                {showHealthcareCta ? "View Healthcare Solution →" : "Contact Us →"}
               </Link>
             </section>
 

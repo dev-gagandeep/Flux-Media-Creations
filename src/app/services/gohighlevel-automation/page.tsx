@@ -115,8 +115,8 @@ const proofCards = [
   {
     title: "Healthcare systems with real lead-routing depth",
     body: "Projects like MVM Health, Vascura Pain & Vein, and Med Way NJ show the kind of booking, follow-up, and CRM-connected delivery we build for healthcare teams.",
-    href: "/work",
-    label: "View healthcare work",
+    href: "/healthcare-website-crm",
+    label: "Explore healthcare CRM solution",
   },
   {
     title: "Real estate and local service follow-up flows",
@@ -206,6 +206,7 @@ const faqs = [
 
 const internalLinks = [
   { label: "See our full growth system", href: "/services/full-growth-system" },
+  { label: "Healthcare website and CRM solution", href: "/healthcare-website-crm" },
   { label: "Make and Zapier automation services", href: "/services/make-zapier-automation" },
   { label: "Monthly maintenance plans", href: "/services/monthly-maintenance" },
   { label: "Our work and case studies", href: "/work" },

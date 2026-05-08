@@ -31,7 +31,7 @@ body {
   color: var(--ink);
   font-family: "Satoshi", sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 
 @media (max-width: 768px) {
@@ -67,9 +67,11 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Hide default cursor on desktop */
-@media (pointer: fine) {
-  * { cursor: none !important; }
-  a, button, [role="button"] { cursor: none !important; }
+@media (pointer: fine) and (hover: hover) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
 }
 
 /* Nav link underline animation */

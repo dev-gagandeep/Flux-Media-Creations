@@ -408,6 +408,31 @@ export default function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
+      {params.slug === "full-growth-system" ? (
+        <section className="section-sm max-w-[1400px] mx-auto">
+          <div className="rounded-lg border border-flux/15 bg-blush p-8 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-flux mb-4">Healthcare-focused bundle</p>
+                <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
+                  Need the Full Growth System for a clinic?
+                </h2>
+                <p className="text-sm md:text-base leading-7 text-ink/68 max-w-3xl">
+                  We created a dedicated healthcare version with patient intake flow, appointment reminders, missed-call recovery, and clinic-specific trust sections.
+                </p>
+              </div>
+              <Link
+                href="/healthcare-website-crm"
+                className="inline-flex items-center justify-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
+                style={{ background: "var(--flux)" }}
+              >
+                View healthcare solution →
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section id="process" className="section max-w-[1400px] mx-auto scroll-mt-28">
         <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">{detail.processSection.label}</p>
         <h2 className="font-display text-3xl md:text-5xl font-semibold mb-8 max-w-4xl" style={{ letterSpacing: "-0.03em" }}>

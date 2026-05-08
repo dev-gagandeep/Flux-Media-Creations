@@ -12,6 +12,10 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
   useEffect(() => {
     let lenis: any;
     async function initLenis() {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (isMobile || prefersReducedMotion) return;
+
       const { default: Lenis } = await import("@studio-freight/lenis");
       lenis = new Lenis({
         duration: 1.2,

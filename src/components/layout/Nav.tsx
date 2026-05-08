@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { NAV_LINKS, SERVICES, SITE } from "@/lib/constants";
+import { NAV_LINKS, SITE } from "@/lib/constants";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -16,9 +16,34 @@ export default function Nav() {
   const lastY = useRef(0);
   const isServicesPath = pathname.startsWith("/services");
 
-  const serviceMenuItems = [
-    { label: "All services", href: "/services" },
-    ...SERVICES.map((service) => ({ label: service.title, href: service.href })),
+  const serviceCategories = [
+    {
+      title: "Web Development",
+      body: "Premium websites and full website plus CRM builds.",
+      items: [
+        { name: "WordPress Website Build", href: "/services/wordpress-website-build", note: "Custom Figma to WordPress sites" },
+        { name: "Full Growth System", href: "/services/full-growth-system", note: "Website and CRM built together" },
+        { name: "Healthcare Website & CRM", href: "/healthcare-website-crm", note: "Clinic-focused patient acquisition system" },
+      ],
+    },
+    {
+      title: "SEO & Visibility",
+      body: "Organic discovery across Google, Maps, and AI search.",
+      items: [
+        { name: "Search Visibility Engine", href: "/services/search-visibility-engine", note: "SEO, Maps, and AI search visibility" },
+        { name: "Healthcare SEO Structure", href: "/healthcare-website-crm", note: "Clinic service pages and trust-led SEO" },
+      ],
+    },
+    {
+      title: "GoHighLevel & Automation",
+      body: "CRM, follow-up, integrations, and operational systems.",
+      items: [
+        { name: "GoHighLevel Setup & Automation", href: "/services/gohighlevel-automation", note: "Pipelines, SMS, booking, reminders" },
+        { name: "Airtable CRM & Business Hub", href: "/services/airtable-business-hub", note: "Dashboards and internal operations" },
+        { name: "Make & Zapier Automation", href: "/services/make-zapier-automation", note: "Tool connections and lead routing" },
+        { name: "WordPress & GHL Monthly Maintenance", href: "/services/monthly-maintenance", note: "Ongoing website and workflow support" },
+      ],
+    },
   ];
 
   const primaryNavLinks = NAV_LINKS.filter((link) => link.href !== "/services");
@@ -91,27 +116,45 @@ export default function Nav() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 12 }}
                     transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-0 top-full mt-4 w-[320px] rounded-3xl border border-ink/10 bg-cream shadow-[0_24px_60px_rgba(13,13,13,0.12)] p-3"
+                    className="absolute left-1/2 top-full mt-4 w-[min(920px,calc(100vw-48px))] -translate-x-1/2 rounded-2xl border border-ink/10 bg-cream shadow-[0_24px_60px_rgba(13,13,13,0.12)] p-5"
                     role="menu"
                   >
-                    <div className="px-3 py-2 mb-2">
-                      <p className="text-xs uppercase tracking-widest text-ink/30 mb-1">Services</p>
-                      <p className="text-sm text-ink/50">Browse the full service stack.</p>
+                    <div className="mb-5 flex items-end justify-between gap-6 border-b border-ink/10 pb-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-widest text-ink/30 mb-1">Services</p>
+                        <p className="text-sm text-ink/55">Choose the build path that matches your growth problem.</p>
+                      </div>
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        className="shrink-0 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-flux"
+                        role="menuitem"
+                      >
+                        View all services
+                      </Link>
                     </div>
-                    <div className="max-h-[360px] overflow-y-auto pr-1">
-                      {serviceMenuItems.map((item, index) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={`flex items-start justify-between gap-4 rounded-2xl px-3 py-3 text-sm transition-colors hover:bg-ink/5 ${
-                            index === 0 ? "font-medium" : "text-ink/70"
-                          }`}
-                          onClick={() => setServicesOpen(false)}
-                          role="menuitem"
-                        >
-                          <span>{item.label}</span>
-                          {index === 0 ? <span className="text-ink/30">↗</span> : <span className="text-ink/20">→</span>}
-                        </Link>
+                    <div className="grid gap-4 lg:grid-cols-3">
+                      {serviceCategories.map((category) => (
+                        <div key={category.title} className="rounded-lg border border-ink/8 bg-white p-4">
+                          <h3 className="font-display text-xl font-semibold mb-2" style={{ letterSpacing: "-0.02em" }}>
+                            {category.title}
+                          </h3>
+                          <p className="mb-4 min-h-10 text-xs leading-5 text-ink/45">{category.body}</p>
+                          <div className="space-y-1">
+                            {category.items.map((item) => (
+                              <Link
+                                key={item.href + item.name}
+                                href={item.href}
+                                className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-blush"
+                                onClick={() => setServicesOpen(false)}
+                                role="menuitem"
+                              >
+                                <span className="block text-sm font-medium text-ink">{item.name}</span>
+                                <span className="mt-0.5 block text-xs leading-5 text-ink/45">{item.note}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -178,9 +221,9 @@ export default function Nav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-cream flex flex-col"
+            className="fixed inset-0 z-40 bg-cream flex flex-col overflow-y-auto"
           >
-            <div className="flex-1 flex flex-col justify-center px-8 gap-6 mt-16">
+            <div className="flex min-h-full flex-col px-8 pb-10 pt-28 gap-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -211,15 +254,25 @@ export default function Nav() {
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="mt-4 ml-2 pl-5 border-l border-ink/10 flex flex-col gap-3">
-                              {serviceMenuItems.map((item) => (
-                                <Link
-                                  key={item.href}
-                                  href={item.href}
-                                  className="text-base font-medium text-ink/65 hover:text-flux transition-colors"
-                                >
-                                  {item.label}
-                                </Link>
+                            <div className="mt-5 grid gap-4">
+                              <Link href="/services" className="text-base font-medium text-flux">
+                                All Services
+                              </Link>
+                              {serviceCategories.map((category) => (
+                                <div key={category.title} className="border-l border-ink/10 pl-4">
+                                  <p className="mb-3 text-xs uppercase tracking-widest text-ink/35">{category.title}</p>
+                                  <div className="flex flex-col gap-3">
+                                    {category.items.map((item) => (
+                                      <Link
+                                        key={item.href + item.name}
+                                        href={item.href}
+                                        className="text-base font-medium text-ink/65 hover:text-flux transition-colors"
+                                      >
+                                        {item.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
                               ))}
                             </div>
                           </motion.div>

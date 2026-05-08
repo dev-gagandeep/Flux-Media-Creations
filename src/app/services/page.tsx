@@ -146,6 +146,29 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="section-sm max-w-[1400px] mx-auto pt-0">
+        <div className="rounded-lg border border-flux/15 bg-blush p-8 md:p-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-flux mb-4">Industry solution</p>
+              <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
+                Healthcare Website &amp; CRM Solutions
+              </h2>
+              <p className="text-sm md:text-base leading-7 text-ink/68 max-w-3xl">
+                A clinic-specific version of our website plus GoHighLevel system: patient intake flow, appointment reminders, missed-call recovery, review automation, and healthcare-focused SEO structure.
+              </p>
+            </div>
+            <Link
+              href="/healthcare-website-crm"
+              className="inline-flex items-center justify-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
+              style={{ background: "var(--flux)" }}
+            >
+              View healthcare solution →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison table */}
       <section className="section max-w-[1400px] mx-auto">
         <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Compare packages</p>
