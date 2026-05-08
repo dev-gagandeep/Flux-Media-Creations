@@ -241,7 +241,7 @@ export default function ContactPage() {
                       <label className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp</label>
                       <input
                         className="flux-input"
-                        placeholder="+1 201 555 0100"
+                        placeholder="+91 62849 57892"
                         value={form.phone}
                         onChange={(e) => set("phone", e.target.value)}
                       />

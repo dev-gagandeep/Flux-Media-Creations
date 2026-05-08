@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { WORK_PROJECTS } from "@/lib/constants";
-import TextReveal from "@/components/ui/TextReveal";
 
 const FILTERS = ["All", "Healthcare", "Home Services", "Real Estate"];
 
@@ -29,16 +28,14 @@ export default function Work() {
       );
 
   return (
-    <section className="section max-w-[1400px] mx-auto" ref={ref}>
-      {/* Header */}
+    <section className="bg-white px-6 py-24 md:px-10 md:py-28" ref={ref}>
+      <div className="mx-auto max-w-[1400px]">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
-          <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Our work</p>
-          <TextReveal
-            text="Real projects we have built for healthcare, local service, and real estate businesses."
-            className="font-display font-semibold text-3xl md:text-5xl"
-            as="h2"
-          />
+          <p className="text-xs uppercase tracking-widest text-flux mb-4">Our work</p>
+          <h2 className="font-display font-semibold text-4xl md:text-6xl leading-none max-w-3xl" style={{ letterSpacing: "0" }}>
+            Real projects built for service businesses.
+          </h2>
           <p className="text-base text-ink/50 leading-relaxed max-w-3xl mt-5">
             These are not concept pieces. They are live WordPress and GoHighLevel projects built for real businesses, including MVM Health in New Jersey, Vascura Pain & Vein, and Phone Repair Decatur in Atlanta.
           </p>
@@ -53,7 +50,6 @@ export default function Work() {
         </Link>
       </div>
 
-      {/* Filter tabs */}
       <div className="flex gap-2 flex-wrap mb-10">
         {FILTERS.map((f) => (
           <button
@@ -71,7 +67,6 @@ export default function Work() {
         ))}
       </div>
 
-      {/* Project grid */}
       <AnimatePresence mode="wait">
         <motion.div
           key={active}
@@ -93,6 +88,7 @@ export default function Work() {
           ))}
         </motion.div>
       </AnimatePresence>
+      </div>
     </section>
   );
 }
@@ -102,73 +98,28 @@ function WorkCard({ project }: { project: (typeof WORK_PROJECTS)[0] }) {
   const previewAlt = `${project.title} website preview`;
 
   return (
-    <div
-      className="work-card group block rounded-2xl overflow-hidden border border-ink/6 hover:border-ink/20 transition-all duration-500 bg-white"
-      data-cursor="hover"
-    >
-      {/* Image area */}
-      <div
-        className="relative overflow-hidden"
-        style={{
-          height: "220px",
-          background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}30)`,
-        }}
-      >
+    <div className="work-card group block rounded-2xl overflow-hidden border border-ink/6 hover:border-ink/20 transition-all duration-500 bg-white" data-cursor="hover">
+      <div className="relative overflow-hidden" style={{ height: "220px", background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}30)` }}>
         {project.image && (
-          <Image
-            src={project.image}
-            alt={previewAlt}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          <Image src={project.image} alt={previewAlt} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
         )}
-
-        <div
-          className="absolute inset-0 flex items-end p-5"
-          style={{ background: `linear-gradient(180deg, transparent 45%, ${project.accent}66 100%)` }}
-        >
-          <div
-            className="px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: project.accent, color: "white" }}
-          >
+        <div className="absolute inset-0 flex items-end p-5" style={{ background: `linear-gradient(180deg, transparent 45%, ${project.accent}66 100%)` }}>
+          <div className="px-3 py-1.5 rounded-full text-xs font-medium" style={{ background: project.accent, color: "white" }}>
             {project.category}
           </div>
         </div>
-
-        {/* Hover reveal — clickable live-site link */}
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Visit ${project.title} live site`}
-          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-400"
-          style={{ background: `${project.accent}ee` }}
-        >
+        <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title} live site`} className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-400" style={{ background: `${project.accent}ee` }}>
           <span className="text-white font-display font-semibold text-lg uppercase tracking-[0.12em] flex items-center gap-2">
-            VISIT SITE
-            <span aria-hidden="true">↗</span>
+            VISIT SITE <span aria-hidden="true">↗</span>
           </span>
         </a>
-
-        {/* Color bar top */}
-        <div
-          className="absolute top-0 left-0 right-0 h-1"
-          style={{ background: project.accent }}
-        />
+        <div className="absolute top-0 left-0 right-0 h-1" style={{ background: project.accent }} />
       </div>
-
-      {/* Card content */}
       <div className="p-5">
-        <h3
-          className="font-display font-semibold text-lg mb-1.5 group-hover:text-flux transition-colors duration-300"
-          style={{ letterSpacing: "-0.02em" }}
-        >
+        <h3 className="font-display font-semibold text-lg mb-1.5 group-hover:text-flux transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
           {project.title}
         </h3>
-        <p className="text-sm text-ink/50 leading-relaxed mb-4">
-          {project.description}
-        </p>
+        <p className="text-sm text-ink/50 leading-relaxed mb-4">{project.description}</p>
         <p className="text-xs text-ink/40 mb-4">
           Delivered as lead developer at Fast Visibility Tech
         </p>

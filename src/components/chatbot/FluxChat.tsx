@@ -57,7 +57,7 @@ function renderMd(text: string): string {
       '<a class="flux-chat-text-link" href="mailto:$1">$1</a>'
     )
     .replace(
-      /(\+1\s?778\s?983\s?6113|\+91\s?6284957892)/g,
+      /(\+91\s?6284957892)/g,
       (match) => `<a class="flux-chat-text-link" href="tel:${match.replace(/\s+/g, "")}">${match}</a>`
     )
     .replace(/^### (.+)$/gm, '<p style="font-weight:700;margin:8px 0 3px;font-family:Clash Display,sans-serif">$1</p>')
@@ -708,7 +708,7 @@ function getFallbackResponse(input: string): string {
 - **Monthly Maintenance** - from $150/month
 - **Search Visibility Engine** - from $400
 
-For a custom quote based on your needs, reach us at **+1 778 983 6113** or **+91 6284957892**, or email **contact@fluxmediacreations.com**.`;
+For a custom quote based on your needs, reach us on WhatsApp at **+91 6284957892**, or email **contact@fluxmediacreations.com**.`;
   }
 
   if (q.match(/how fast|how long|timeline|deliver|days|weeks/)) {
@@ -747,8 +747,7 @@ To discuss your clinic, email **contact@fluxmediacreations.com**.`;
 
 You can reach us here:
 - **Email:** contact@fluxmediacreations.com
-- **Abroad / WhatsApp:** +1 778 983 6113
-- **India:** +91 6284957892
+- **WhatsApp:** +91 6284957892
 - **Contact page:** fluxmediacreations.com/contact
 
 We usually reply within a few hours.`;
@@ -791,8 +790,7 @@ I can help with pricing, services, portfolio examples, timelines, and contacting
 
   return `The best next step is to contact us directly so we can give you a precise answer for your project.
 
-- **Abroad / WhatsApp:** +1 778 983 6113
-- **India:** +91 6284957892
+- **WhatsApp:** +91 6284957892
 - **Email:** contact@fluxmediacreations.com
 - **Contact page:** fluxmediacreations.com/contact`;
 }

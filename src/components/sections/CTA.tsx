@@ -48,18 +48,14 @@ export default function CTA() {
       </section>
 
       {/* Big CTA block */}
-      <section
-        className="section"
-        style={{ background: "var(--ink)" }}
-      >
-        <div className="max-w-[1400px] mx-auto text-center">
+      <section className="bg-blush/45 px-6 py-24 md:px-10 md:py-32">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-sm uppercase tracking-widest mb-6"
-            style={{ color: "rgba(250,248,244,0.35)" }}
+            className="text-xs uppercase tracking-widest mb-6 text-flux"
           >
             Final step
           </motion.p>
@@ -70,8 +66,8 @@ export default function CTA() {
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display font-semibold text-cream"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 6.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
+              className="font-display font-semibold text-ink"
+              style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)", letterSpacing: "0", lineHeight: 1 }}
             >
               Your WordPress website should be earning leads
             </motion.h2>
@@ -85,8 +81,8 @@ export default function CTA() {
               className="font-display font-semibold"
               style={{
                 fontSize: "clamp(2.5rem, 7vw, 6.5rem)",
-                letterSpacing: "-0.04em",
-                lineHeight: 0.92,
+                letterSpacing: "0",
+                lineHeight: 1,
                 color: "var(--flux)",
                 fontStyle: "italic",
               }}
@@ -100,8 +96,7 @@ export default function CTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="text-base max-w-md mx-auto mb-10 leading-relaxed"
-            style={{ color: "rgba(250,248,244,0.45)" }}
+            className="text-base max-w-md mx-auto mb-10 leading-relaxed text-ink/50"
           >
             Send us your project goals. No pitch, just an honest conversation about what you need and the fastest way to get there. Most clients have a live site within 14 days of signing.
           </motion.p>
@@ -132,8 +127,7 @@ export default function CTA() {
               href={`https://wa.me/${SITE.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium border transition-all duration-300 hover:border-cream/40"
-              style={{ color: "rgba(250,248,244,0.6)", borderColor: "rgba(250,248,244,0.15)" }}
+              className="flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium border border-ink/15 text-ink/60 transition-all duration-300 hover:border-ink/40 hover:text-ink"
             >
               WhatsApp us
             </a>
@@ -144,8 +138,7 @@ export default function CTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
-            className="mt-8 text-xs"
-            style={{ color: "rgba(250,248,244,0.2)" }}
+            className="mt-8 text-xs text-ink/30"
           >
             Serving healthcare clinics, home service businesses, and real estate professionals across the United States, Canada, and the United Kingdom.
           </motion.p>

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getBookedTimes, isSlotBooked, saveBooking, updateBookingEmailStatus } from "@/lib/bookings";
+import { SITE } from "@/lib/constants";
 
 const OWNER_EMAIL = process.env.BOOKING_OWNER_EMAIL || "contact@fluxmediacreations.com";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Flux Media Creations <noreply@fluxmediacreations.com>";
@@ -173,7 +174,7 @@ export async function POST(req: NextRequest) {
             </td></tr>
           </table>
           <p style="color:#9a958d;font-size:14px;line-height:1.7;margin:0 0 22px;">
-            Need to add context before the call? <a href="https://wa.me/17789836113" style="color:#f0ede6;">WhatsApp us directly</a>.
+            Need to add context before the call? <a href="https://wa.me/${SITE.whatsapp}" style="color:#f0ede6;">WhatsApp us directly</a>.
           </p>
           <p style="color:#6f6a63;font-size:13px;line-height:1.6;margin:0;">
             Flux Media Creations Team

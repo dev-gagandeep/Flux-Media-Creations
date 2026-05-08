@@ -89,16 +89,21 @@ export function generateMeta({
     creator: SITE.founder,
     publisher: SITE.name,
     keywords: [
-      "WordPress website development",
-      "GoHighLevel automation",
-      "healthcare website design",
+    "WordPress website development",
+    "GoHighLevel automation",
+    "conversion focused website design",
+    "lead generation website design",
+    "website automation agency",
+    "organic SEO website development",
+    "AI search optimization",
+    "healthcare website design",
       "GHL setup NJ",
       "home service website automation",
       "medical clinic website",
       "pain management website",
       "CRM automation",
       "Airtable setup",
-      "web developer India US clients",
+      "web developer India",
       "Flux Media Creations",
       "GHL CRM integration",
       "WordPress GHL",
@@ -124,7 +129,7 @@ export const schemaHomePage = {
   name: `${SITE.name} Home`,
   url: SITE.url,
   description:
-    "Conversion-focused WordPress websites and GoHighLevel CRM automations for US businesses, built by Flux Media Creations.",
+    "Conversion-focused WordPress websites, organic SEO foundations, and GoHighLevel CRM automations for service businesses, built by Flux Media Creations.",
   isPartOf: {
     "@type": "WebSite",
     name: SITE.name,
@@ -180,13 +185,6 @@ export const schemaHomeAgency = {
     addressCountry: "IN",
   },
   contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: SITE.phone,
-      contactType: "customer support",
-      availableLanguage: "English",
-      areaServed: ["US", "GB", "CA", "IN"],
-    },
     {
       "@type": "ContactPoint",
       telephone: SITE.phoneIndia,
@@ -270,7 +268,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, `https://wa.me/${SITE.whatsappIndia}`, SITE.portfolioUrl, SITE.instagramUrl],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, SITE.portfolioUrl, SITE.instagramUrl],
 };
 
 export const schemaHomeFaq = {

@@ -4,6 +4,7 @@ import { TOOLS } from "@/lib/constants";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import Services from "@/components/sections/Services";
+import Pricing from "@/components/sections/Pricing";
 import WhyFlux from "@/components/sections/WhyFlux";
 import Work from "@/components/sections/Work";
 import Industries from "@/components/sections/Industries";
@@ -14,9 +15,9 @@ import CTA from "@/components/sections/CTA";
 import Marquee from "@/components/ui/Marquee";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "GoHighLevel Automation & Web Design | Flux Media Creations",
+  absoluteTitle: "Conversion-Focused WordPress Websites, SEO & GoHighLevel Automation | Flux Media Creations",
   description:
-    "Automate your business with GoHighLevel. Capture leads, follow up automatically, and scale faster with our complete digital solutions.",
+    "Get a conversion-focused WordPress website with organic SEO foundations and GoHighLevel automations that capture leads, reply fast, and turn more visitors into booked calls.",
   path: "/",
 });
 
@@ -43,8 +44,9 @@ export default function HomePage() {
       <TrustBar />
       <Marquee items={TOOLS} />
       <Services />
-      <WhyFlux />
+      <Pricing />
       <Work />
+      <WhyFlux />
       <Industries />
       <Numbers />
       <Process />

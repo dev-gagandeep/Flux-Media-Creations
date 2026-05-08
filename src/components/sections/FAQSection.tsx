@@ -27,20 +27,22 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="section max-w-[1400px] mx-auto">
+    <section className="bg-white px-6 py-24 md:px-10">
+      <div className="max-w-[1400px] mx-auto">
       <div className="mb-12">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-4">Common questions</p>
-        <h2 className="font-display font-semibold text-3xl md:text-5xl max-w-3xl leading-tight" style={{ letterSpacing: "-0.03em" }}>
+        <p className="text-xs uppercase tracking-widest text-flux mb-4">Common questions</p>
+        <h2 className="font-display font-semibold text-4xl md:text-6xl max-w-3xl leading-none" style={{ letterSpacing: "0" }}>
           Frequently asked questions before we build.
         </h2>
       </div>
       <div className="grid md:grid-cols-2 gap-5">
         {faqs.map((faq) => (
-          <div key={faq.q} className="rounded-3xl border border-ink/8 bg-white p-6">
+          <div key={faq.q} className="rounded-xl border border-ink/8 bg-blush/35 p-6">
             <p className="font-medium text-base mb-3">{faq.q}</p>
             <p className="text-sm text-ink/55 leading-7">{faq.a}</p>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );
