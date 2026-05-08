@@ -60,7 +60,7 @@ function renderMd(text: string): string {
       /(\+91\s?6284957892)/g,
       (match) => `<a class="flux-chat-text-link" href="tel:${match.replace(/\s+/g, "")}">${match}</a>`
     )
-    .replace(/^### (.+)$/gm, '<p style="font-weight:700;margin:8px 0 3px;font-family:Clash Display,sans-serif">$1</p>')
+    .replace(/^### (.+)$/gm, '<p style="font-weight:700;margin:8px 0 3px;font-family:Cabinet Grotesk,sans-serif">$1</p>')
     .replace(/^- (.+)$/gm, "<li>$1</li>")
     .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, (match) => `<ul style="margin:6px 0 6px 16px;display:flex;flex-direction:column;gap:3px">${match}</ul>`)
     .replace(/\n\n/g, '<div style="height:8px"></div>')
@@ -91,7 +91,7 @@ function Bubble({ msg }: { msg: Message }) {
             fontSize: 12,
             color: "white",
             flexShrink: 0,
-            fontFamily: "Clash Display, sans-serif",
+            fontFamily: "Cabinet Grotesk, sans-serif",
             marginBottom: 2,
           }}
         >
@@ -465,7 +465,7 @@ export default function FluxChat() {
                       fontWeight: 700,
                       fontSize: 14,
                       color: "white",
-                      fontFamily: "Clash Display, sans-serif",
+                      fontFamily: "Cabinet Grotesk, sans-serif",
                     }}
                   >
                     F
@@ -490,7 +490,7 @@ export default function FluxChat() {
                       fontSize: 14,
                       fontWeight: 600,
                       color: "#FAF8F4",
-                      fontFamily: "Clash Display, sans-serif",
+                      fontFamily: "Cabinet Grotesk, sans-serif",
                       letterSpacing: "-0.02em",
                     }}
                   >

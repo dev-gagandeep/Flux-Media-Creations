@@ -20,7 +20,7 @@ const config: Config = {
         sage: "#E8F5EC",
       },
       fontFamily: {
-        display: ["Clash Display", "sans-serif"],
+        display: ["Cabinet Grotesk", "sans-serif"],
         body: ["Satoshi", "sans-serif"],
       },
       fontSize: {

@@ -38,65 +38,78 @@ export default function IndustriesPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(industryPageSchema) }} />
 
-      <section className="section pt-32 md:pt-40 max-w-[1320px] mx-auto">
-        <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Home → Industries</p>
-        <p className="text-sm uppercase tracking-widest text-flux mb-4">Industries We Serve</p>
-        <h1 className="font-display font-semibold text-4xl md:text-6xl max-w-5xl mb-6" style={{ letterSpacing: "-0.03em" }}>
-          We Don&apos;t Build Generic Websites. We Build for Your Industry Because Every One Is Different.
-        </h1>
-        <p className="text-base md:text-lg text-ink/62 max-w-4xl leading-8">
-          A pain management clinic, a roofing company, and a real estate agent all need websites and automation systems,
-          but they need completely different things. Different compliance requirements. Different customer journeys. Different lead sources.
-          Different follow-up logic. At Flux Media Creations, we build WordPress websites and GoHighLevel systems around how each industry actually wins trust and converts demand.
-        </p>
-        <div className="flex flex-wrap gap-3 mt-10">
-          {INDUSTRIES.map((industry) => (
-            <a
-              key={industry.slug}
-              href={`#${industry.slug}`}
-              className="rounded-lg border border-ink/12 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-ink/30"
-            >
-              {industry.label}
-            </a>
-          ))}
+      <section className="bg-blush/45 px-6 pb-24 pt-32 md:px-10 md:pb-28 md:pt-40">
+        <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-flux">Industries we serve</p>
+            <h1 className="font-display text-5xl font-semibold leading-[0.96] md:text-7xl" style={{ letterSpacing: "0" }}>
+              We do not build generic websites for specific businesses.
+            </h1>
+            <p className="mt-7 max-w-4xl text-base leading-8 text-ink/62 md:text-lg">
+              A pain management clinic, a roofing company, and a real estate agent all need websites and automation systems, but they need completely different journeys, trust signals, lead sources, and follow-up logic.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-ink/8 bg-white p-6 shadow-[0_24px_70px_rgba(13,13,13,0.08)]">
+            <p className="mb-5 text-xs uppercase tracking-widest text-ink/35">Jump to industry</p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {INDUSTRIES.map((industry) => (
+                <a
+                  key={industry.slug}
+                  href={`#${industry.slug}`}
+                  className="rounded-xl border border-ink/8 bg-blush/35 px-4 py-3 text-sm font-medium text-ink/68 transition-colors hover:border-flux/30 hover:text-flux"
+                >
+                  {industry.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {INDUSTRY_DETAILS.map((industry, index) => (
-        <section key={industry.slug} id={industry.slug} className="section max-w-[1320px] mx-auto border-t border-ink/8 scroll-mt-28">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-            <div className="lg:sticky lg:top-28">
-              <p className="text-xs uppercase tracking-widest mb-4" style={{ color: ACCENTS[index] }}>
-                {industry.preHeadline}
-              </p>
-              <h2 className="font-display text-3xl md:text-5xl font-semibold mb-5" style={{ letterSpacing: "-0.03em" }}>
-                {industry.label}
-              </h2>
-              <h3 className="font-display text-2xl md:text-3xl font-semibold mb-6 text-ink" style={{ letterSpacing: "-0.02em" }}>
-                {industry.sectionTitle}
-              </h3>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors"
-                style={{ background: ACCENTS[index] }}
-              >
-                {industry.ctaLabel}
-              </Link>
+        <section key={industry.slug} id={industry.slug} className={`${index % 2 === 0 ? "bg-white" : "bg-blush/45"} scroll-mt-28 px-6 py-24 md:px-10 md:py-32`}>
+          <div className="mx-auto max-w-[1400px]">
+            <div className="mb-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+              <div>
+                <p className="mb-4 text-xs uppercase tracking-widest" style={{ color: ACCENTS[index] }}>
+                  {industry.preHeadline}
+                </p>
+                <h2 className="font-display text-4xl font-semibold leading-none md:text-6xl" style={{ letterSpacing: "0" }}>
+                  {industry.label}
+                </h2>
+              </div>
+              <div>
+                <h3 className="font-display text-2xl font-semibold leading-tight md:text-4xl" style={{ letterSpacing: "0" }}>
+                  {industry.sectionTitle}
+                </h3>
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-flex items-center gap-3 rounded-full px-5 py-3 text-sm font-medium text-white transition-colors"
+                  style={{ background: ACCENTS[index] }}
+                >
+                  {industry.ctaLabel}
+                </Link>
+              </div>
             </div>
 
-            <div className="space-y-8">
-              <div className="space-y-5 text-base leading-8 text-ink/68">
+            <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="rounded-xl border border-ink/8 bg-white p-7 md:p-8">
+                <p className="mb-5 text-xs uppercase tracking-widest text-ink/35">Market context</p>
+                <div className="space-y-5 text-base leading-8 text-ink/68">
                 {industry.body.map((paragraph, paragraphIndex) => (
                   <p key={`${industry.slug}-body-${paragraphIndex}`}>{paragraph}</p>
                 ))}
+                </div>
               </div>
 
-              <div className="rounded-lg border border-ink/10 bg-white p-6">
-                <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">What We Build for {industry.label}</p>
-                <ul className="grid gap-3 md:grid-cols-2">
+              <div className="space-y-5">
+              <div className="rounded-xl border border-ink/8 bg-white p-6">
+                <p className="text-xs uppercase tracking-widest text-ink/35 mb-5">What we build for {industry.label}</p>
+                <ul className="grid gap-3">
                   {industry.whatWeBuild.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-7 text-ink/68">
-                      <span className="text-flux mt-1">●</span>
+                      <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[0.65rem] text-white" style={{ background: ACCENTS[index] }}>✓</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -104,11 +117,11 @@ export default function IndustriesPage() {
               </div>
 
               {industry.specialties?.length ? (
-                <div className="rounded-lg border border-ink/10 bg-white p-6">
-                  <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Specialties We&apos;ve Worked With</p>
+                <div className="rounded-xl border border-ink/8 bg-white p-6">
+                  <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Specialties we&apos;ve worked with</p>
                   <div className="flex flex-wrap gap-2">
                     {industry.specialties.map((item) => (
-                      <span key={item} className="rounded-md bg-ink/5 px-3 py-1.5 text-xs text-ink/65">
+                      <span key={item} className="rounded-full bg-blush px-3 py-1.5 text-xs text-ink/65">
                         {item}
                       </span>
                     ))}
@@ -117,7 +130,7 @@ export default function IndustriesPage() {
               ) : null}
 
               {industry.caseStudies?.length ? (
-                <div className="rounded-lg border border-ink/10 bg-white p-6">
+                <div className="rounded-xl border border-ink/8 bg-white p-6">
                   <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Case Studies</p>
                   <div className="space-y-3">
                     {industry.caseStudies.map((study) => (
@@ -128,16 +141,24 @@ export default function IndustriesPage() {
                   </div>
                 </div>
               ) : null}
+              </div>
             </div>
           </div>
         </section>
       ))}
 
-      <section className="section max-w-[1320px] mx-auto border-t border-ink/8">
+      <section className="bg-white px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1400px]">
+        <div className="mb-12">
+          <p className="mb-4 text-xs uppercase tracking-widest text-flux">More verticals</p>
+          <h2 className="font-display text-4xl font-semibold leading-none md:text-6xl" style={{ letterSpacing: "0" }}>
+            Other service businesses we can support.
+          </h2>
+        </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-10">
           {SECONDARY_INDUSTRIES.map((industry) => (
-            <article key={industry.slug} className="rounded-lg border border-ink/10 bg-white p-5">
-              <h3 className="font-display text-xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>
+            <article key={industry.slug} className="rounded-xl border border-ink/8 bg-blush/35 p-6">
+              <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "0" }}>
                 {industry.label}
               </h3>
               <p className="text-sm leading-7 text-ink/65 mb-4">{industry.summary}</p>
@@ -152,8 +173,8 @@ export default function IndustriesPage() {
           ))}
         </div>
 
-        <div className="rounded-lg bg-ink p-8 md:p-10 text-cream">
-          <h2 className="font-display text-3xl md:text-5xl font-semibold mb-4" style={{ letterSpacing: "-0.03em" }}>
+        <div className="rounded-xl bg-ink p-8 md:p-10 text-cream">
+          <h2 className="font-display text-3xl md:text-5xl font-semibold mb-4" style={{ letterSpacing: "0" }}>
             Don&apos;t see your industry listed?
           </h2>
           <p className="text-sm md:text-base text-cream/72 leading-7 max-w-3xl mb-6">
@@ -163,11 +184,12 @@ export default function IndustriesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
+            className="inline-flex items-center gap-3 rounded-full px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]"
             style={{ background: "var(--flux)" }}
           >
             Start a conversation →
           </Link>
+        </div>
         </div>
       </section>
     </>
