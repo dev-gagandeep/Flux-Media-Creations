@@ -498,7 +498,11 @@ export default function HealthcareWebsiteCrmPage() {
               <Link href="/services/search-visibility-engine" className="text-flux hover:underline">
                 local search visibility
               </Link>
-              . It is ideal for pain management clinics, orthopedic clinics, physiotherapy clinics, med spas, wellness providers, chiropractic offices, and specialty healthcare practices that want a cleaner way to capture and manage new patient leads.
+              . It is ideal for pain management clinics, orthopedic clinics, physiotherapy clinics, med spas, wellness providers, chiropractic offices, and specialty healthcare practices that want a cleaner way to capture and manage new patient leads. For the strategy behind the page structure, read our{" "}
+              <Link href="/blog/healthcare-website-design-clinic-conversions" className="text-flux hover:underline">
+                healthcare website design guide
+              </Link>
+              .
             </p>
           </div>
         </section>

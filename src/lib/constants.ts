@@ -70,7 +70,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       "Most businesses do not have a traffic problem. They have a response-time problem, a message-clarity problem, and a follow-up consistency problem.",
       "You can spend money on ads, SEO, referrals, and social content, but if your website does not direct users toward one clean next step and your CRM does not respond instantly, that demand leaks out of the system.",
-      "This guide explains how to build one connected growth engine with WordPress on the front end and GoHighLevel on the backend. It is the same structure we use for service brands that need predictable lead flow and reliable conversion operations.",
+      "This guide explains how to build one connected growth engine with [WordPress Website Build] on the front end and [GoHighLevel Automation] on the backend. It is the same structure we use for service brands that need predictable lead flow and reliable conversion operations.",
       "If you are starting from scratch, read in order. If you already have a website but weak follow-up, jump to the automation chapters and then come back to conversion architecture.",
       "You can also open these internal pages while reading for context: [Services], [Work], [Industries], [Process], and [Contact].",
       "Part 1: Strategy before design. Every high-converting build begins with clear targeting. One audience, one primary offer, one primary CTA. Your website should not feel like a menu of unrelated ideas.",
@@ -99,7 +99,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Define stages that match your real sales process: new lead, contacted, qualified, proposal, closed won, closed lost. Avoid vanity stages no one uses.",
       "Assign clear ownership. Every stage should have one responsible role and one target action. This prevents pipeline stagnation.",
       "Part 9: Content and SEO alignment. Search traffic converts best when page intent and query intent match.",
-      "Build landing pages around service + audience combinations, not broad generic topics. For example, website systems for clinics, CRM automations for local services, or integrated website + GHL stacks.",
+      "Build landing pages around service + audience combinations, not broad generic topics. For example, [Healthcare Website & CRM Solutions], CRM automations for local services, or integrated website + GHL stacks.",
       "Strengthen internal linking. Link service pages to case studies, process pages, and conversion-focused blog content. Good internal architecture improves crawl clarity and user flow.",
       "Part 10: GEO and AI visibility. Traditional SEO still matters, but answer completeness and structure now influence AI-driven discovery too.",
       "Use clear section headings, direct answers, schema markup, and credibility signals across core pages. If your page is easier to parse, it is easier to surface.",
@@ -115,7 +115,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "This pace keeps momentum high and avoids endless revisions that never reach launch quality.",
       "Part 14: What to do next. If your current website generates traffic but weak conversions, start by fixing message clarity and CTA flow.",
       "If your team is losing leads after form fills or missed calls, prioritize GoHighLevel response systems immediately.",
-      "If both layers are weak, implement one connected build so your website and automation stack work as a single revenue system.",
+      "If both layers are weak, implement one connected [Full Growth System] so your website and automation stack work as a single revenue system.",
       "For implementation support, review [Services], explore project outcomes in [Work], and send your current setup through [Contact]. We can map the exact bottlenecks and suggest the highest-leverage first build.",
     ],
     faq: [
@@ -160,10 +160,10 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Gagan Deep",
     cover: "/images/blog/go-high-level.webp",
     content: [
-      "GoHighLevel missed call text-back is an automated SMS workflow that fires within 30 seconds of any unanswered inbound call. When a lead calls your business and nobody answers, they receive an immediate text message so the conversation stays alive before they call your competitor. It is one of the highest-ROI automations in GoHighLevel for any service business that relies on inbound calls.",
+      "GoHighLevel missed call text-back is an automated SMS workflow that fires within 30 seconds of any unanswered inbound call. When a lead calls your business and nobody answers, they receive an immediate text message so the conversation stays alive before they call your competitor. It is one of the highest-ROI workflows inside a broader [GoHighLevel Automation] setup for any service business that relies on inbound calls.",
       "This guide covers the full setup process, from creating the workflow to configuring business-hours logic to testing it with a real missed call.",
       "## Why Missed Call Text-Back Is the Most Important GHL Automation",
-      "Before getting into setup, it helps to understand why this matters so much. In service industries like healthcare, HVAC, plumbing, and real estate, a caller who hits voicemail usually moves on fast. The business that responds first often wins the lead.",
+      "Before getting into setup, it helps to understand why this matters so much. In service industries like healthcare, HVAC, plumbing, and real estate, a caller who hits voicemail usually moves on fast. For clinics, this is one reason our [Healthcare Website & CRM Solutions] connect missed-call recovery directly to the website and booking flow.",
       "Without automation, a missed call usually becomes a voicemail notification that nobody sees in time. With missed call text-back, the caller receives a reply within seconds, the conversation starts, and the lead enters your pipeline before attention disappears.",
       "We have set up this automation for pain management clinics, HVAC companies, real estate agents, and local service businesses. In every case, it recovers leads that would otherwise have been lost entirely.",
       "## Before You Start — What You Need",
@@ -202,7 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "The fourth mistake is advertising your personal number instead of your GoHighLevel number. The trigger only fires for calls to the number connected to GHL.",
       "The fifth mistake is skipping real-world testing. A workflow can look perfect in the builder and still fail because of a small trigger setting, merge tag issue, or deliverability problem.",
       "## What Comes After Missed Call Text-Back?",
-      "Missed call text-back is usually the first GoHighLevel automation worth setting up, but it is only one part of a real lead management system. Once it works, the next layer is form-to-SMS follow-up, nurture sequences, booking confirmations and reminders, no-show recovery, and post-appointment review requests.",
+      "Missed call text-back is usually the first GoHighLevel automation worth setting up, but it is only one part of a real lead management system. Once it works, the next layer is form-to-SMS follow-up, nurture sequences, booking confirmations and reminders, no-show recovery, and post-appointment review requests. If the website also needs rebuilding, a connected [Full Growth System] is usually cleaner than patching tools together later.",
       "If you want that entire system built and tested for your business rather than piecing it together one workflow at a time, that is exactly what we do.",
     ],
     faq: [

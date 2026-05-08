@@ -38,6 +38,11 @@ const INTERNAL_PAGE_LINKS: Record<string, string> = {
   Process: "/process",
   Contact: "/contact",
   Blog: "/blog",
+  "Healthcare Website & CRM Solutions": "/healthcare-website-crm",
+  "WordPress Website Build": "/services/wordpress-website-build",
+  "GoHighLevel Automation": "/services/gohighlevel-automation",
+  "Full Growth System": "/services/full-growth-system",
+  "Search Visibility Engine": "/services/search-visibility-engine",
 };
 
 const BLOG_INLINE_IMAGES: Record<

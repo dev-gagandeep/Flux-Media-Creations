@@ -247,7 +247,7 @@ export default function HealthcareClinicBlogClient() {
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-ink/58">
-              Most clinic websites are not patient-acquisition tools. They are digital placeholders. Here is everything a real converting healthcare website needs, from design structure to full CRM automation.
+              Most clinic websites are not patient-acquisition tools. They are digital placeholders. Here is everything a real converting healthcare website needs, from design structure to <Link href="/services/gohighlevel-automation" className="font-medium text-flux hover:underline">full CRM automation</Link>.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -299,7 +299,7 @@ export default function HealthcareClinicBlogClient() {
                 ))}
               </div>
               <p>
-                A well-structured clinic website takes a concerned patient from “I found this clinic” to “I am booking an appointment” without your front desk lifting a finger. That is the level we should be designing to.
+                A well-structured clinic website takes a concerned patient from “I found this clinic” to “I am booking an appointment” without your front desk lifting a finger. That is the level we build toward in our <Link href="/healthcare-website-crm" className="font-medium text-flux hover:underline">Healthcare Website &amp; CRM Solutions</Link>.
               </p>
             </section>
 
@@ -330,7 +330,7 @@ export default function HealthcareClinicBlogClient() {
               <h2 className="mb-5 font-display text-3xl font-semibold leading-tight tracking-[-0.025em] text-ink md:text-5xl">
                 What a Real Patient-Converting Clinic Website Needs
               </h2>
-              <p>Here is what separates a website that generates booked appointments from one that just exists online.</p>
+              <p>Here is what separates a website that generates booked appointments from one that just exists online. The foundation is still clean <Link href="/services/wordpress-website-build" className="font-medium text-flux hover:underline">WordPress website development</Link>, but the structure has to serve patient decisions, not just page design.</p>
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 {FEATURES.map((feature) => (
                   <div key={feature.num} className={`rounded-lg border border-ink/10 bg-white p-6 ${feature.wide ? "md:col-span-2" : ""}`}>
@@ -380,7 +380,7 @@ export default function HealthcareClinicBlogClient() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6">If you recognise any of these, the problem is not just a design problem. The entire patient acquisition system is broken, and fixing it starts with understanding the website is step one, not the entire solution.</p>
+              <p className="mt-6">If you recognise any of these, the problem is not just a design problem. The entire patient acquisition system is broken, and fixing it starts with understanding the website is step one, not the entire solution. For clinics that need the site and backend connected together, the next step is usually a <Link href="/services/full-growth-system" className="font-medium text-flux hover:underline">Full Growth System</Link>.</p>
             </section>
 
             <section id="automation" className="scroll-mt-28 border-t border-ink/10 pt-16">
@@ -467,7 +467,7 @@ export default function HealthcareClinicBlogClient() {
               <h2 className="mb-5 font-display text-3xl font-semibold leading-tight tracking-[-0.025em] text-ink md:text-5xl">
                 How to Know If Your Website Is Actually Working
               </h2>
-              <p>Most clinics are guessing. These are the metrics that tell you definitively whether your site is performing or quietly losing patients.</p>
+              <p>Most clinics are guessing. These are the metrics that tell you definitively whether your site is performing or quietly losing patients. They also make your <Link href="/services/search-visibility-engine" className="font-medium text-flux hover:underline">search visibility strategy</Link> easier to improve because you can see which pages and channels actually create action.</p>
               <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-3">
                 {METRICS.map((metric) => (
                   <div key={metric.title} className="bg-white p-5">
@@ -499,7 +499,7 @@ export default function HealthcareClinicBlogClient() {
             <section className="rounded-lg bg-ink p-8 text-white md:p-10">
               <h2 className="mb-3 font-display text-3xl font-semibold tracking-[-0.025em] md:text-4xl">Ready to Turn Your Website Into a Patient Acquisition Engine?</h2>
               <p className="mb-6 max-w-3xl text-white/68">
-                Flux Media Creations builds high-conversion WordPress healthcare websites with GoHighLevel CRM automation. We help clinics capture every enquiry, recover missed calls, automate follow-up, and create a frictionless path from visitor to booked appointment.
+                Flux Media Creations builds high-conversion WordPress healthcare websites with GoHighLevel CRM automation. We help clinics capture every enquiry, recover missed calls, automate follow-up, and create a frictionless path from visitor to booked appointment. You can also review relevant clinic builds in our <Link href="/work" className="font-medium text-flux hover:underline">healthcare website portfolio</Link>.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/healthcare-website-crm" className="rounded-lg bg-flux px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-flux-dark">
