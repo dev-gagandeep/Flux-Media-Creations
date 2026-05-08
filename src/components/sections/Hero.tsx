@@ -28,7 +28,7 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-xs font-semibold uppercase tracking-widest text-flux mb-5"
           >
-            WordPress GoHighLevel agency for service businesses
+            Healthcare Website Design + GoHighLevel Automation
           </motion.p>
 
           <motion.h1
@@ -42,7 +42,7 @@ export default function Hero() {
                 animate={{ y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                More leads from your site.
+                Build a Clinic Website
               </motion.span>
             </span>
             <span className="block overflow-hidden text-flux">
@@ -52,7 +52,7 @@ export default function Hero() {
                 animate={{ y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                Quicker follow-up from your CRM.
+                That Captures Leads and Follows Up Automatically
               </motion.span>
             </span>
           </motion.h1>
@@ -63,7 +63,7 @@ export default function Hero() {
             className="mt-6"
           >
             <p className="text-base md:text-lg text-ink/55 leading-relaxed max-w-2xl">
-              Flux Media Creations is a WordPress GoHighLevel agency for service businesses that can&apos;t afford to lose leads. We build fast, premium WordPress websites that integrate with GoHighLevel CRM automation so every form fill, call, chat, and booking request is captured, followed up, and driven toward an appointment.
+              Flux Media Creations builds conversion-focused WordPress websites and GoHighLevel CRM systems for healthcare clinics, so every form, call, missed call, and booking request is captured, followed up, and moved toward an appointment.
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-ink/45">
               Built for healthcare clinics, home service companies, real estate professionals, and local service brands that need a website and CRM to work together.
