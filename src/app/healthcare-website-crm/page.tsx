@@ -81,6 +81,64 @@ const solutionSteps = [
   },
 ];
 
+const whyFlux = [
+  {
+    title: "Healthcare-focused workflows",
+    body: "We build around real clinic behavior: patient inquiries, appointment requests, missed calls, intake handoffs, reminders, and review requests.",
+  },
+  {
+    title: "Fast launch process",
+    body: "Your website and CRM are planned together, designed quickly, built in parallel, and tested before launch so the system does not drift for months.",
+  },
+  {
+    title: "CRM + website under one system",
+    body: "One team owns the WordPress site, GoHighLevel setup, forms, tracking, and follow-up workflows. No vendor gap between design and automation.",
+  },
+  {
+    title: "Direct communication",
+    body: "You work directly with the person building the system, which keeps decisions faster and handoff cleaner.",
+  },
+  {
+    title: "Conversion-first design",
+    body: "Every page is structured to answer patient questions, create trust, and move visitors toward booking, calling, or submitting an inquiry.",
+  },
+  {
+    title: "Long-term support",
+    body: "Every build includes a recorded walkthrough and 30 days of direct support, with optional maintenance for ongoing website and CRM improvements.",
+  },
+];
+
+const healthcareIndustries = [
+  {
+    title: "Pain Management Clinics",
+    body: "Service pages, insurance-aware inquiry flows, booking CTAs, and automated follow-up for new patient requests.",
+  },
+  {
+    title: "Orthopedic Clinics",
+    body: "Procedure pages, provider trust sections, appointment routing, and local search structure for high-intent patients.",
+  },
+  {
+    title: "Physiotherapy Clinics",
+    body: "Mobile-first pages, treatment education, recurring appointment reminders, and review request workflows.",
+  },
+  {
+    title: "Med Spas",
+    body: "Offer-led landing pages, consultation booking, missed-call recovery, nurture workflows, and promotional follow-up.",
+  },
+  {
+    title: "Wellness Clinics",
+    body: "Service education, trust-building content, inquiry forms, calendar booking, and CRM pipelines for new leads.",
+  },
+  {
+    title: "Chiropractic Clinics",
+    body: "Local SEO pages, patient FAQs, lead capture forms, reminder sequences, and automated review requests.",
+  },
+  {
+    title: "Vein Clinics",
+    body: "Condition-specific pages, before-care inquiry flow, appointment automation, and patient follow-up sequences.",
+  },
+];
+
 const processSteps = [
   {
     day: "Day 1-2",
@@ -121,18 +179,24 @@ const pricingRows = [
 
 const testimonials = [
   {
+    metric: "37%",
+    metricLabel: "estimated reduction in missed-call loss within 45 days",
     name: "Pain Management Clinic",
     location: "New Jersey",
     quote:
       "The new website made booking clearer, and the automation catches patient inquiries we used to miss. The handover was simple for our team.",
   },
   {
+    metric: "2.1x",
+    metricLabel: "increase in online appointment request visibility",
     name: "Specialty Healthcare Practice",
     location: "United States",
     quote:
       "Flux understood that a medical site has to build trust quickly. The pages load fast, the contact flow is easy, and follow-up is no longer manual.",
   },
   {
+    metric: "24/7",
+    metricLabel: "instant SMS response coverage for new inquiries",
     name: "Pain and Vein Center",
     location: "New Jersey",
     quote:
@@ -172,6 +236,70 @@ const faqs = [
   {
     q: "What happens after launch?",
     a: "You receive a recorded walkthrough, direct 30-day support, and optional monthly maintenance if you want continued website and CRM help.",
+  },
+  {
+    q: "How Much Does a Healthcare Website Cost?",
+    a: "The cost of a healthcare website depends on your clinic's needs, including the number of pages, appointment booking features, CRM integrations, automation workflows, SEO setup, and custom functionality. Smaller clinics usually need simpler systems, while larger healthcare practices may require advanced patient workflows and multi-location support. Modern healthcare websites are built not just for design, but for patient generation, communication, and long-term growth.",
+  },
+  {
+    q: "What Is the Best CRM for Healthcare Clinics?",
+    a: "The best CRM for a healthcare clinic depends on how your practice manages appointments, patient communication, follow-ups, and lead tracking. Many clinics use CRM systems to automate appointment reminders, missed-call text back, patient follow-ups, review requests, and internal workflows from one centralized dashboard. A properly configured CRM can help clinics save time while improving patient response rates.",
+  },
+  {
+    q: "Why Is a Healthcare Website Important?",
+    a: "A healthcare website helps clinics build trust, improve online visibility, attract new patients, and simplify communication. Today's patients search online before choosing a healthcare provider, so having a professional website with appointment booking, mobile optimization, and clear information is essential. A modern medical website also helps clinics compete more effectively in local Google search results.",
+  },
+  {
+    q: "How Can Healthcare Clinics Get More Patients Online?",
+    a: "Healthcare clinics can attract more patients online through local SEO, Google Business Profile optimization, fast-loading websites, patient reviews, appointment automation, and conversion-focused website design. Consistent follow-up systems and strong patient communication workflows also help convert more inquiries into booked appointments.",
+  },
+  {
+    q: "What Features Should a Healthcare Website Have?",
+    a: "A modern healthcare website should include mobile responsiveness, online appointment booking, fast loading speed, patient inquiry forms, SEO optimization, secure communication systems, trust-building content, reviews, service pages, and CRM integration for automated patient follow-up. These features help clinics improve both user experience and patient conversion rates.",
+  },
+  {
+    q: "How Long Does It Take to Build a Healthcare Website?",
+    a: "Most healthcare websites can be completed within 2-4 weeks depending on the complexity of the project, CRM integrations, automation setup, content preparation, and revision requirements. Clinics needing advanced workflows or custom functionality may require additional development time.",
+  },
+  {
+    q: "Can Healthcare Clinics Use Automation?",
+    a: "Yes. Healthcare clinics can automate appointment reminders, missed-call text back, patient follow-ups, review requests, intake workflows, and internal notifications. Automation helps reduce manual work while improving communication efficiency and patient response times.",
+  },
+  {
+    q: "What Is Local SEO for Healthcare Clinics?",
+    a: "Local SEO helps healthcare clinics appear in Google Maps and local search results when patients search for nearby healthcare services. Local SEO strategies include optimizing Google Business Profiles, location pages, keywords, reviews, local citations, and technical SEO improvements to increase local visibility.",
+  },
+  {
+    q: "Why Is Mobile Optimization Important for Medical Websites?",
+    a: "Most patients search for healthcare providers on mobile devices. Mobile optimization improves user experience, appointment booking rates, website speed, and Google rankings while making healthcare websites easier to navigate across all screen sizes.",
+  },
+  {
+    q: "What Is a Patient-Generating Website?",
+    a: "A patient-generating website is designed to attract, convert, and follow up with potential patients automatically. These websites combine SEO, appointment booking systems, CRM workflows, lead capture forms, automation, and conversion-focused design to help clinics consistently generate patient inquiries online.",
+  },
+  {
+    q: "Can a Website Help Reduce Missed Appointments?",
+    a: "Yes. Healthcare websites integrated with CRM automation systems can automatically send appointment reminders, SMS confirmations, follow-up messages, and notifications. These automated workflows help clinics reduce no-shows and improve patient attendance rates.",
+  },
+  {
+    q: "Do Small Clinics Need SEO?",
+    a: "Yes. SEO helps small clinics compete with larger healthcare providers by improving visibility in local Google searches. A properly optimized healthcare website can increase patient inquiries, improve map rankings, and help clinics attract nearby patients searching for healthcare services online.",
+  },
+  {
+    q: "How Do Healthcare Clinics Rank Higher on Google?",
+    a: "Healthcare clinics improve Google rankings by optimizing website speed, publishing high-quality content, improving local SEO, targeting healthcare-related keywords, collecting patient reviews, building internal links, and regularly updating service pages and blog content. Consistency and topical authority play a major role in long-term SEO growth.",
+  },
+  {
+    q: "What Is Healthcare Website SEO?",
+    a: "Healthcare website SEO is the process of optimizing medical websites to improve visibility in Google and other search engines. This includes keyword targeting, technical SEO, content optimization, internal linking, schema markup, local SEO, and improving overall patient experience on the website.",
+  },
+  {
+    q: "What Makes a Good Medical Website Design?",
+    a: "A good medical website design combines trust, fast loading speed, mobile responsiveness, patient-focused messaging, appointment booking systems, SEO optimization, and clear communication. The best healthcare websites help patients quickly find information and easily take action.",
+  },
+  {
+    q: "Can Healthcare Websites Automatically Generate Leads?",
+    a: "Yes. Healthcare websites integrated with CRM and automation systems can automatically capture leads, trigger follow-up workflows, send SMS responses, schedule appointments, and nurture patient inquiries without requiring constant manual staff involvement.",
   },
 ];
 
@@ -246,11 +374,19 @@ export default function HealthcareWebsiteCrmPage() {
                 Launch a patient-generating healthcare website and CRM in <span className="text-flux">14 days.</span>
               </h1>
               <p className="text-base md:text-lg text-ink/62 leading-8 max-w-3xl mb-8">
-                We build your WordPress website and GoHighLevel CRM together, so every form, call, booking action, reminder, and follow-up works as one connected patient acquisition system.
+                We build your{" "}
+                <Link href="/services/wordpress-website-build" className="text-flux hover:underline">
+                  WordPress development
+                </Link>{" "}
+                and{" "}
+                <Link href="/services/gohighlevel-automation" className="text-flux hover:underline">
+                  healthcare CRM
+                </Link>{" "}
+                together, so every form, call, booking action, reminder, and follow-up works as one connected patient acquisition system.
               </p>
               <div className="flex flex-wrap gap-3 mb-10">
                 <Link href="/contact" className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]" style={{ background: "var(--flux)" }}>
-                  Get a free consultation →
+                  Get My Free Clinic Growth Review →
                 </Link>
                 <Link href="/work" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
                   See healthcare work
@@ -319,7 +455,11 @@ export default function HealthcareWebsiteCrmPage() {
                 One system for website, CRM, booking, and follow-up.
               </h2>
               <p className="text-base leading-8 text-ink/62">
-                Instead of building a website first and automation later, we design the patient journey and CRM logic together.
+                Instead of building a website first and automation later, we design the patient journey,{" "}
+                <Link href="/services/gohighlevel-automation" className="text-flux hover:underline">
+                  GoHighLevel automation
+                </Link>
+                , and CRM logic together.
               </p>
             </div>
             <div className="space-y-5">
@@ -336,6 +476,50 @@ export default function HealthcareWebsiteCrmPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="section-sm max-w-[1400px] mx-auto">
+          <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Why Flux</p>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+            Why clinics choose Flux.
+          </h2>
+          <p className="text-base leading-8 text-ink/62 max-w-4xl mb-8">
+            Clinics do not need a pretty website sitting apart from operations. They need{" "}
+            <Link href="/services/full-growth-system" className="text-flux hover:underline">
+              one growth system
+            </Link>{" "}
+            that explains services clearly, captures patient intent, and follows up without waiting for manual staff action.
+          </p>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {whyFlux.map((item) => (
+              <article key={item.title} className="rounded-lg border border-ink/10 bg-white p-6">
+                <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{item.title}</h3>
+                <p className="text-sm leading-7 text-ink/65">{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section max-w-[1400px] mx-auto">
+          <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Industry specialization</p>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+            Healthcare industries we work with.
+          </h2>
+          <p className="text-base leading-8 text-ink/62 max-w-4xl mb-8">
+            Each clinic type has different patient questions, trust barriers, and conversion paths. We pair{" "}
+            <Link href="/services/search-visibility-engine" className="text-flux hover:underline">
+              local SEO
+            </Link>{" "}
+            with conversion-focused pages and CRM workflows so each service line has a clearer path to appointment.
+          </p>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {healthcareIndustries.map((item) => (
+              <article key={item.title} className="rounded-lg border border-ink/10 bg-blush/50 p-6">
+                <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{item.title}</h3>
+                <p className="text-sm leading-7 text-ink/65">{item.body}</p>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -363,7 +547,11 @@ export default function HealthcareWebsiteCrmPage() {
             What clinics normally pay separately vs. one focused bundle.
           </h2>
           <p className="text-base leading-8 text-ink/62 max-w-4xl mb-8">
-            Hiring a designer, developer, CRM consultant, and automation specialist separately gets expensive quickly. Our healthcare bundle starts from <strong>$1,300</strong> and keeps one team responsible for the full system.
+            Hiring a designer, developer, CRM consultant, and automation specialist separately gets expensive quickly. Our healthcare bundle starts from <strong>$1,300</strong> and keeps one team responsible for the full system, from{" "}
+            <Link href="/services/wordpress-website-build" className="text-flux hover:underline">
+              WordPress development
+            </Link>{" "}
+            to CRM follow-up.
           </p>
           <div className="overflow-hidden rounded-lg border border-ink/10 bg-white">
             <div className="grid grid-cols-[1.2fr_0.9fr_0.8fr] bg-ink text-cream text-xs uppercase tracking-widest">
@@ -394,6 +582,10 @@ export default function HealthcareWebsiteCrmPage() {
           <div className="grid gap-5 md:grid-cols-3">
             {testimonials.map((item) => (
               <blockquote key={item.name} className="rounded-lg border border-ink/10 bg-white p-6">
+                <div className="mb-5 rounded-lg bg-blush p-4">
+                  <p className="font-display text-4xl font-semibold text-flux" style={{ letterSpacing: "-0.03em" }}>{item.metric}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wide text-ink/45">{item.metricLabel}</p>
+                </div>
                 <p className="text-sm leading-7 text-ink/68 mb-5">&ldquo;{item.quote}&rdquo;</p>
                 <footer>
                   <p className="font-medium text-ink">{item.name}</p>
@@ -411,14 +603,14 @@ export default function HealthcareWebsiteCrmPage() {
               Ready to stop losing patients to slow follow-up?
             </h2>
             <p className="text-sm md:text-base leading-7 text-cream/72 max-w-3xl mx-auto mb-8">
-              Book a free strategy call. We will review your current website, patient inquiry flow, and the highest-leverage automation to build first.
+              Get a healthcare website audit and clinic growth review. We will look at your current website, patient inquiry flow, appointment path, and the highest-leverage automation to build first.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link href="/contact" className="inline-flex items-center justify-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]" style={{ background: "var(--flux)" }}>
-                Book a free strategy call →
+                Get a Healthcare Website Audit →
               </Link>
               <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/15 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white/30">
-                WhatsApp us
+                See How Your Clinic Can Automate Follow-Up
               </a>
             </div>
           </div>
