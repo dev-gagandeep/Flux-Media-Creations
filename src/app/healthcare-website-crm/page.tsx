@@ -304,19 +304,55 @@ const faqs = [
 ];
 
 export default function HealthcareWebsiteCrmPage() {
+  const pageUrl = `${SITE.url}/healthcare-website-crm`;
+  const organizationId = `${SITE.url}/#organization`;
+  const serviceId = `${pageUrl}#service`;
+  const faqId = `${pageUrl}#faq`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": organizationId,
+    name: SITE.name,
+    url: SITE.url,
+    logo: `${SITE.url}/og-image.svg`,
+    description:
+      "Flux Media Creations builds conversion-focused WordPress websites, GoHighLevel CRM systems, automation workflows, and SEO foundations for healthcare clinics and service businesses.",
+    email: SITE.email,
+    telephone: SITE.phone,
+    founder: {
+      "@type": "Person",
+      name: SITE.founder,
+      jobTitle: SITE.founderTitle,
+      url: `${SITE.url}/about`,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: SITE.phone,
+      email: SITE.email,
+      contactType: "customer service",
+      availableLanguage: ["English", "Hindi", "Punjabi"],
+    },
+    sameAs: [SITE.instagramUrl, SITE.portfolioUrl],
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": serviceId,
     name: "Healthcare Website & CRM Solutions",
     description:
       "Healthcare website design and GoHighLevel CRM setup for clinics, telehealth providers, pain management centers, and specialty practices.",
     provider: {
       "@type": "Organization",
+      "@id": organizationId,
       name: SITE.name,
       url: SITE.url,
       email: SITE.email,
       telephone: SITE.phone,
     },
+    url: pageUrl,
     serviceType: "Healthcare Website and CRM Solution",
     areaServed: [
       { "@type": "Country", name: "United States" },
@@ -325,6 +361,7 @@ export default function HealthcareWebsiteCrmPage() {
     ],
     offers: {
       "@type": "Offer",
+      url: pageUrl,
       price: "1300",
       priceCurrency: "USD",
       description: "Healthcare website, GoHighLevel CRM setup, and automation bundle",
@@ -334,6 +371,8 @@ export default function HealthcareWebsiteCrmPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": faqId,
+    url: pageUrl,
     mainEntity: faqs.map((item) => ({
       "@type": "Question",
       name: item.q,
@@ -347,15 +386,17 @@ export default function HealthcareWebsiteCrmPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": breadcrumbId,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
       { "@type": "ListItem", position: 2, name: "Services", item: `${SITE.url}/services` },
-      { "@type": "ListItem", position: 3, name: "Healthcare Website & CRM Solutions", item: `${SITE.url}/healthcare-website-crm` },
+      { "@type": "ListItem", position: 3, name: "Healthcare Website & CRM Solutions", item: pageUrl },
     ],
   };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
