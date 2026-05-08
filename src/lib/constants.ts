@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Flux Media Creations",
-  tagline: "Websites & Automation That Work While You Sleep",
+  tagline: "WordPress websites, GoHighLevel automation, SEO, and lead generation systems for clinics and service businesses.",
   description:
-    "WordPress websites and GoHighLevel automation for healthcare, home services, and real estate teams across the US.",
+    "WordPress websites, GoHighLevel automation, SEO, and lead generation systems for clinics and service businesses.",
   url: "https://www.fluxmediacreations.com",
   email: "contact@fluxmediacreations.com",
   phone: "+91 6284957892",

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/constants";
+import { SITE, WORK_PROJECTS } from "@/lib/constants";
 import HealthcareFaq from "./HealthcareFaq";
 
 export const metadata: Metadata = {
-  title: "Healthcare Website & CRM Solutions | Launch in 14 Days | Flux Media Creations",
+  title: "Healthcare Website Design & GoHighLevel CRM Automation | Flux",
   description:
     "Patient-generating healthcare websites and GoHighLevel CRM systems for clinics. Launch in 14 days with appointment reminders, missed-call recovery, and HIPAA-aware intake flow.",
   alternates: {
@@ -28,12 +29,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Healthcare Website & CRM Solutions | Flux Media Creations",
+    title: "Healthcare Website Design & GoHighLevel CRM Automation | Flux",
     description:
       "Launch a patient-generating healthcare website and GoHighLevel CRM in 14 days.",
     images: [`${SITE.url}/images/work/mvm-health.jpg`],
   },
 };
+
+function toSlug(input: string) {
+  return input
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
 
 const painPoints = [
   {
@@ -203,6 +212,8 @@ const testimonials = [
       "We had a site that looked acceptable but did not move patients forward. Connecting the website to GoHighLevel changed the way our leads are handled.",
   },
 ];
+
+const healthcareWork = WORK_PROJECTS.filter((project) => project.industry === "healthcare").slice(0, 3);
 
 const faqs = [
   {
@@ -412,18 +423,21 @@ export default function HealthcareWebsiteCrmPage() {
             <div>
               <p className="text-xs uppercase tracking-widest text-flux mb-4">Healthcare Website &amp; CRM Solutions</p>
               <h1 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] mb-6" style={{ letterSpacing: "-0.03em" }}>
-                Launch a patient-generating healthcare website and CRM in <span className="text-flux">14 days.</span>
+                Healthcare Website Design + GoHighLevel CRM Automation for Clinics
               </h1>
+              <p className="font-display text-2xl md:text-4xl font-semibold text-flux leading-tight max-w-3xl mb-5" style={{ letterSpacing: "-0.02em" }}>
+                Launch a patient-generating healthcare website and CRM system in 14 days.
+              </p>
               <p className="text-base md:text-lg text-ink/62 leading-8 max-w-3xl mb-8">
-                We build your{" "}
+                We build conversion-focused{" "}
                 <Link href="/services/wordpress-website-build" className="text-flux hover:underline">
-                  WordPress development
+                  WordPress healthcare websites
                 </Link>{" "}
                 and{" "}
                 <Link href="/services/gohighlevel-automation" className="text-flux hover:underline">
-                  healthcare CRM
+                  GoHighLevel CRM automation
                 </Link>{" "}
-                together, so every form, call, booking action, reminder, and follow-up works as one connected patient acquisition system.
+                together, so every form, call, missed call, booking action, reminder, and follow-up works as one connected patient acquisition system.
               </p>
               <div className="flex flex-wrap gap-3 mb-10">
                 <Link href="/contact" className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]" style={{ background: "var(--flux)" }}>
@@ -474,6 +488,22 @@ export default function HealthcareWebsiteCrmPage() {
         </section>
 
         <section className="section-sm max-w-[1400px] mx-auto">
+          <div className="rounded-lg border border-ink/10 bg-white p-8 md:p-10">
+            <p className="text-xs uppercase tracking-widest text-flux mb-4">Built for clinics</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+              Built for clinics that need more than a website.
+            </h2>
+            <p className="text-base leading-8 text-ink/62 max-w-5xl">
+              This healthcare website and CRM system is built for clinics that rely on patient inquiries, appointment requests, phone calls, follow-ups, and{" "}
+              <Link href="/services/search-visibility-engine" className="text-flux hover:underline">
+                local search visibility
+              </Link>
+              . It is ideal for pain management clinics, orthopedic clinics, physiotherapy clinics, med spas, wellness providers, chiropractic offices, and specialty healthcare practices that want a cleaner way to capture and manage new patient leads.
+            </p>
+          </div>
+        </section>
+
+        <section className="section-sm max-w-[1400px] mx-auto">
           <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">The real problem</p>
           <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-8" style={{ letterSpacing: "-0.03em" }}>
             Your clinic is not just losing traffic. It is losing follow-up moments.
@@ -485,6 +515,25 @@ export default function HealthcareWebsiteCrmPage() {
                 <p className="text-sm leading-7 text-ink/65">{item.body}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section-sm max-w-[1400px] mx-auto">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Disconnected systems lose patients</p>
+              <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-4xl mb-5" style={{ letterSpacing: "-0.03em" }}>
+                Your clinic does not need another disconnected website.
+              </h2>
+            </div>
+            <div className="space-y-5 text-base leading-8 text-ink/62">
+              <p>
+                Most clinic websites look fine but still lose patients. A visitor lands on the site, reads about a treatment, submits a form, calls once, or tries to book. Then the inquiry gets stuck in an inbox, missed by the front desk, or followed up too late.
+              </p>
+              <p>
+                We build the website and CRM together, so every patient action has a next step. Forms enter the pipeline. Missed calls receive a fast text-back. Booking requests trigger reminders. Staff get notified. Follow-up becomes visible instead of scattered.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -517,6 +566,47 @@ export default function HealthcareWebsiteCrmPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="section max-w-[1400px] mx-auto">
+          <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Our healthcare work</p>
+              <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-4xl" style={{ letterSpacing: "-0.03em" }}>
+                Healthcare websites built for real clinics.
+              </h2>
+            </div>
+            <Link href="/work" className="inline-flex self-start rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30 md:self-end">
+              View all work →
+            </Link>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {healthcareWork.map((project) => (
+              <Link key={project.title} href={`/work/${toSlug(project.title)}`} className="group overflow-hidden rounded-lg border border-ink/10 bg-white transition-transform duration-300 hover:-translate-y-1">
+                <div className="relative h-48 overflow-hidden bg-blush">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} healthcare website preview`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  ) : null}
+                </div>
+                <div className="p-5">
+                  <p className="text-xs uppercase tracking-widest text-flux mb-3">{project.category}</p>
+                  <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{project.title}</h3>
+                  <p className="text-sm leading-7 text-ink/60">{project.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="rounded-full bg-blush px-3 py-1 text-xs text-ink/55">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 
