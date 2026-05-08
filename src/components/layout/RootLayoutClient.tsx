@@ -5,6 +5,7 @@ import Cursor from "@/components/layout/Cursor";
 import PageTransition from "@/components/ui/PageTransition";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import StickyCTA from "@/components/layout/StickyCTA";
 
 export default function RootLayoutClient({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<any>(null);
@@ -42,6 +43,7 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
         <main>{children}</main>
       </PageTransition>
       <Footer />
+      <StickyCTA />
     </div>
   );
 }
