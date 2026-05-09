@@ -19,6 +19,12 @@ const STATIC_LOCATION_LANDING_SCHEMAS: Record<string, { name: string; area: stri
   },
 };
 
+const LOCATION_INDEX_ITEMS = [
+  { label: "New York", href: "/web-development-ai-automation-new-york" },
+  { label: "New Jersey", href: "/web-development-automation-new-jersey" },
+  ...LOCATION_PAGES.map((location) => ({ label: location.label, href: `/locations/${location.slug}` })),
+];
+
 const ROUTES_WITH_PAGE_SERVICE_SCHEMA = new Set([
   "/services/wordpress-website-build",
   "/services/gohighlevel-automation",
@@ -269,11 +275,11 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
       url: toAbsolute(pathname),
       mainEntity: {
         "@type": "ItemList",
-        itemListElement: LOCATION_PAGES.map((location, index) => ({
+        itemListElement: LOCATION_INDEX_ITEMS.map((location, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: location.label,
-          url: toAbsolute(`/locations/${location.slug}`),
+          url: toAbsolute(location.href),
         })),
       },
     });
