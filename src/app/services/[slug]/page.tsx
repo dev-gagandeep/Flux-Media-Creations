@@ -12,6 +12,8 @@ type ServicePageProps = {
   };
 };
 
+const DEDICATED_SERVICE_ROUTES = new Set(["wordpress-website-build", "gohighlevel-automation"]);
+
 function getService(slug: string) {
   return SERVICE_PAGES.find((service) => service.slug === slug);
 }
@@ -21,7 +23,9 @@ function getPricing(slug: string) {
 }
 
 export function generateStaticParams() {
-  return SERVICE_PAGES.map((service) => ({ slug: service.slug }));
+  return SERVICE_PAGES
+    .filter((service) => !DEDICATED_SERVICE_ROUTES.has(service.slug))
+    .map((service) => ({ slug: service.slug }));
 }
 
 export function generateMetadata({ params }: ServicePageProps): Metadata {
