@@ -846,19 +846,19 @@ export const LOCATION_PAGES = [
     slug: "canada",
     label: "Canada",
     short: "CA",
-    headline: "Reliable websites and automation for Canadian businesses.",
+    headline: "WordPress websites and GoHighLevel automation for Canadian service businesses.",
     summary:
-      "We design high-clarity websites and connected follow-up workflows so Canadian service brands can respond faster and close better.",
-    focus: ["Clarity-focused UX", "Automation handoff", "Map-ready page structure", "Long-term content growth"],
+      "WordPress websites, GoHighLevel automation, SEO structure, and CRM workflows for Canadian clinics, home services, real estate, and service brands.",
+    focus: ["WordPress design", "GoHighLevel automation", "Local SEO", "CRM workflows"],
   },
   {
     slug: "india",
     label: "India",
     short: "IN",
-    headline: "Performance-first digital systems for Indian businesses.",
+    headline: "WordPress websites and GoHighLevel automation for Indian service businesses.",
     summary:
-      "For Indian companies scaling online, we build modern websites, process automation, and better conversion journeys that reduce manual operations.",
-    focus: ["Speed optimization", "Modern UI architecture", "CRM-ready forms", "Automation workflow setup"],
+      "WordPress websites, GoHighLevel automation, SEO structure, and workflow systems for Indian clinics, service businesses, agencies, and local brands.",
+    focus: ["Mobile-first websites", "GoHighLevel workflows", "Local SEO", "WhatsApp-ready lead capture"],
   },
 ];
 

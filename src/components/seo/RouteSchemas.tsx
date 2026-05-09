@@ -27,6 +27,8 @@ const ROUTES_WITH_PAGE_SERVICE_SCHEMA = new Set([
   "/services/monthly-maintenance",
   "/services/search-visibility-engine",
   "/services/healthcare-seo-structure",
+  "/web-development-ai-automation-new-york",
+  "/web-development-automation-new-jersey",
 ]);
 
 function toAbsolute(path: string): string {
@@ -316,18 +318,20 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
         url: SITE.url,
       },
     });
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: `Web Development and Automation in ${locationLanding.area}`,
-      provider: {
-        "@type": "Organization",
-        name: SITE.name,
-        url: SITE.url,
-      },
-      areaServed: locationLanding.area,
-      url: toAbsolute(locationLanding.path),
-    });
+    if (!ROUTES_WITH_PAGE_SERVICE_SCHEMA.has(pathname)) {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: `Web Development and Automation in ${locationLanding.area}`,
+        provider: {
+          "@type": "Organization",
+          name: SITE.name,
+          url: SITE.url,
+        },
+        areaServed: locationLanding.area,
+        url: toAbsolute(locationLanding.path),
+      });
+    }
   }
 
   return schemas;
