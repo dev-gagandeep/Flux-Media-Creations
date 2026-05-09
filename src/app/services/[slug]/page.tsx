@@ -12,7 +12,12 @@ type ServicePageProps = {
   };
 };
 
-const DEDICATED_SERVICE_ROUTES = new Set(["wordpress-website-build", "gohighlevel-automation"]);
+const DEDICATED_SERVICE_ROUTES = new Set([
+  "wordpress-website-build",
+  "gohighlevel-automation",
+  "search-visibility-engine",
+  "healthcare-seo-structure",
+]);
 
 function getService(slug: string) {
   return SERVICE_PAGES.find((service) => service.slug === slug);

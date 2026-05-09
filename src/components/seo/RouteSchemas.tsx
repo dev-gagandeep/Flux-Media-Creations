@@ -19,6 +19,13 @@ const STATIC_LOCATION_LANDING_SCHEMAS: Record<string, { name: string; area: stri
   },
 };
 
+const ROUTES_WITH_PAGE_SERVICE_SCHEMA = new Set([
+  "/services/wordpress-website-build",
+  "/services/gohighlevel-automation",
+  "/services/search-visibility-engine",
+  "/services/healthcare-seo-structure",
+]);
+
 function toAbsolute(path: string): string {
   if (!path || path === "/") return SITE.url;
   return `${SITE.url}${path}`;
@@ -145,7 +152,7 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
     });
   }
 
-  if (pathname.startsWith("/services/") && pathname.split("/").length === 3) {
+  if (pathname.startsWith("/services/") && pathname.split("/").length === 3 && !ROUTES_WITH_PAGE_SERVICE_SCHEMA.has(pathname)) {
     const slug = pathname.split("/")[2];
     const service = SERVICE_PAGES.find((item) => item.slug === slug);
 

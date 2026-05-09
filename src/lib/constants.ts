@@ -313,12 +313,22 @@ export const SERVICES = [
   {
     number: "07",
     slug: "search-visibility-engine",
-    title: "Search Visibility Engine",
+    title: "SEO Search Visibility Engine",
     description:
-      "A complete discovery system built for search engines, Google Maps, and AI-driven results. We help the right businesses find you faster — across Google, ChatGPT, Perplexity, and local map searches.",
-    tags: ["Discovery", "Maps", "AI Search", "Visibility"],
-    from: "$400",
+      "SEO service for Google, Maps, and AI search visibility. We build service pages, local SEO structure, schema, internal links, and answer-ready content for service businesses.",
+    tags: ["SEO", "Maps", "AEO", "GEO"],
+    from: "$500",
     href: "/services/search-visibility-engine",
+  },
+  {
+    number: "08",
+    slug: "healthcare-seo-structure",
+    title: "Healthcare SEO Structure",
+    description:
+      "Healthcare SEO service for clinics and medical practices. We build service pages, local SEO, provider trust signals, schema, and patient-focused content to drive appointments.",
+    tags: ["Healthcare SEO", "Clinic SEO", "Local SEO", "Schema"],
+    from: "$700",
+    href: "/services/healthcare-seo-structure",
   },
 ];
 
@@ -637,14 +647,14 @@ export const SERVICE_PAGES = [
   },
   {
     slug: "search-visibility-engine",
-    title: "Search Visibility Engine",
+    title: "SEO Search Visibility Engine",
     category: "Discovery and Visibility",
-    audience: "Businesses that want stronger visibility in local results, map listings, and AI-assisted discovery.",
+    audience: "Service businesses that want stronger visibility across Google Search, Google Maps, and AI-assisted discovery.",
     intro:
-      "We build a visibility system that helps your business show up when people search in the places that matter most: organic results, map packs, and AI-powered answer engines.",
+      "We build SEO visibility systems that help your business show up where customers search: organic results, map packs, and AI-powered answer engines.",
     outcome:
-      "A sharper discovery footprint that makes your brand easier to find, easier to trust, and easier to choose.",
-    credibility: ["Local discovery focus", "Map-ready structure", "AI-friendly content cues", "Trust-building content"],
+      "A stronger search foundation that makes your services easier to find, understand, trust, and choose.",
+    credibility: ["Local SEO focus", "Map-ready structure", "AEO and GEO content", "Technical SEO cleanup"],
     deliverables: [
       "Visibility audit across pages, listings, and content structure",
       "Service and location page architecture",
@@ -685,7 +695,59 @@ export const SERVICE_PAGES = [
       },
     ],
     cta: "Make your business easier to discover in the places people actually search.",
-    serviceType: "Search Visibility and Discovery Strategy",
+    serviceType: "SEO, Local SEO, AEO and GEO Service",
+  },
+  {
+    slug: "healthcare-seo-structure",
+    title: "Healthcare SEO Structure",
+    category: "Healthcare SEO",
+    audience: "Clinics and medical practices that need better Google, Maps, and AI search visibility.",
+    intro:
+      "We build healthcare SEO structures around how patients search: treatments, conditions, providers, locations, trust signals, and appointment next steps.",
+    outcome:
+      "A patient-focused SEO framework that helps your clinic become easier to find, easier to trust, and easier to contact.",
+    credibility: ["Clinic SEO structure", "Local healthcare visibility", "Provider trust signals", "Appointment conversion focus"],
+    deliverables: [
+      "Healthcare SEO audit and page architecture",
+      "Treatment, condition, provider, and location page strategy",
+      "Local SEO and Google Business Profile recommendations",
+      "Healthcare E-E-A-T and trust signal improvements",
+      "Schema, FAQ, and internal linking recommendations",
+      "Appointment-focused conversion path review",
+    ],
+    process: [
+      {
+        title: "Audit clinic visibility",
+        description:
+          "We review service pages, local presence, provider trust, technical SEO, and patient conversion paths.",
+      },
+      {
+        title: "Map patient intent",
+        description:
+          "We identify the treatments, conditions, providers, locations, and questions patients search before booking.",
+      },
+      {
+        title: "Build the SEO framework",
+        description:
+          "We improve page structure, content depth, internal links, schema opportunities, and appointment CTAs.",
+      },
+    ],
+    faq: [
+      {
+        q: "What is healthcare SEO?",
+        a: "Healthcare SEO is the process of optimizing a clinic website so patients can find it through Google Search, Google Maps, and other search platforms.",
+      },
+      {
+        q: "Do clinics need location pages?",
+        a: "Yes. Clinics that serve specific cities or have multiple locations should create unique location pages with services, providers, address details, hours, and appointment CTAs.",
+      },
+      {
+        q: "Can SEO help my clinic get more appointment requests?",
+        a: "Yes. SEO can help more patients discover your clinic, while strong CTAs, forms, phone links, and follow-up systems help convert that traffic into appointments.",
+      },
+    ],
+    cta: "Build a clinic SEO structure that supports visibility, trust, and appointment requests.",
+    serviceType: "Healthcare SEO and Clinic SEO Structure",
   },
 ];
 

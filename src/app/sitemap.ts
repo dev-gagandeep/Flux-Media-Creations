@@ -12,7 +12,7 @@ function toSlug(input: string) {
 
 const DEFAULT_LAST_MODIFIED = new Date("2026-05-07");
 const BLOG_LAST_MODIFIED = new Date("2026-05-08");
-const SERVICE_LAST_MODIFIED = new Date("2026-05-07");
+const SERVICE_LAST_MODIFIED = new Date("2026-05-09");
 const LOCATION_LAST_MODIFIED = new Date("2026-05-07");
 
 export default function sitemap(): MetadataRoute.Sitemap {
