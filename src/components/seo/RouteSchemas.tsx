@@ -22,6 +22,9 @@ const STATIC_LOCATION_LANDING_SCHEMAS: Record<string, { name: string; area: stri
 const ROUTES_WITH_PAGE_SERVICE_SCHEMA = new Set([
   "/services/wordpress-website-build",
   "/services/gohighlevel-automation",
+  "/services/airtable-business-hub",
+  "/services/make-zapier-automation",
+  "/services/monthly-maintenance",
   "/services/search-visibility-engine",
   "/services/healthcare-seo-structure",
 ]);

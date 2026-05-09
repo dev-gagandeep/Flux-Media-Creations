@@ -285,9 +285,9 @@ export const SERVICES = [
     slug: "airtable-business-hub",
     title: "Airtable CRM & Business Hub",
     description:
-      "Custom Airtable CRM, project tracker, and client portal built around how your business actually works. Automated email triggers, visual dashboards, and reporting — without the complexity of enterprise software.",
-    tags: ["Airtable", "CRM", "Automation", "Dashboards"],
-    from: "$200",
+      "Custom Airtable CRM and business hub for service businesses to manage leads, clients, projects, tasks, operations, workflows, dashboards, and reporting in one organized system.",
+    tags: ["Airtable", "CRM", "Operations", "Dashboards"],
+    from: "$500",
     href: "/services/airtable-business-hub",
   },
   {
@@ -295,9 +295,9 @@ export const SERVICES = [
     slug: "make-zapier-automation",
     title: "Make & Zapier Automation",
     description:
-      "Connect your tools and eliminate manual data entry. Facebook Lead Ads → GoHighLevel → Airtable → Calendar. We build multi-platform lead routing and automation workflows that save your team hours every week.",
-    tags: ["Make", "Zapier", "Webhooks", "Integrations"],
-    from: "$150",
+      "Make and Zapier automation workflows for leads, forms, CRM updates, notifications, reporting, task creation, and no-code app integrations.",
+    tags: ["Make", "Zapier", "Workflows", "Integrations"],
+    from: "$300",
     href: "/services/make-zapier-automation",
   },
   {
@@ -305,7 +305,7 @@ export const SERVICES = [
     slug: "monthly-maintenance",
     title: "WordPress & GHL Monthly Maintenance",
     description:
-      "WordPress core updates, security scans, daily backups, GoHighLevel workflow monitoring, speed optimization, and content updates. Direct access to us — not a support ticket queue.",
+      "Monthly WordPress and GoHighLevel maintenance with updates, backups, security checks, form testing, workflow checks, CRM support, and small content edits.",
     tags: ["Support", "Maintenance", "Security", "GHL"],
     from: "$150/mo",
     href: "/services/monthly-maintenance",

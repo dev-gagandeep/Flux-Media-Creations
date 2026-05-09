@@ -15,6 +15,9 @@ type ServicePageProps = {
 const DEDICATED_SERVICE_ROUTES = new Set([
   "wordpress-website-build",
   "gohighlevel-automation",
+  "airtable-business-hub",
+  "make-zapier-automation",
+  "monthly-maintenance",
   "search-visibility-engine",
   "healthcare-seo-structure",
 ]);
