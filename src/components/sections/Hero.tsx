@@ -20,8 +20,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[86vh] px-6 md:px-10 pt-28 md:pt-32 pb-20 bg-blush/45">
-      <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.12fr_0.88fr] gap-12 xl:gap-20 items-center">
+    <section className="min-h-[78vh] px-6 md:px-10 pt-24 md:pt-28 pb-16 bg-blush/45">
+      <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.12fr_0.88fr] gap-12 xl:gap-20 items-start">
         <div>
           <motion.p
             variants={fadeUp} initial="initial" animate="animate"
