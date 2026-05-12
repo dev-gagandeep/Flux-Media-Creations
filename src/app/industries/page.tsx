@@ -129,18 +129,6 @@ export default function IndustriesPage() {
                 </div>
               ) : null}
 
-              {industry.caseStudies?.length ? (
-                <div className="rounded-xl border border-ink/8 bg-white p-6">
-                  <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Case Studies</p>
-                  <div className="space-y-3">
-                    {industry.caseStudies.map((study) => (
-                      <Link key={study.href} href={study.href} className="block text-sm leading-7 text-ink/70 transition-colors hover:text-flux">
-                        {study.title} — {study.label} →
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
               </div>
             </div>
           </div>

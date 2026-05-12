@@ -745,12 +745,7 @@ GHL automation starts from **$300**. The full connected website + GHL system sta
   if (q.match(/healthcare|medical|clinic|doctor|pain|ortho|dental|physio|health/)) {
     return `Healthcare is one of our main focus areas.
 
-We've built systems for pain management clinics, vein centers, orthopedic practices, and multi-specialty medical platforms.
-
-Examples:
-- **mvmhealth.com**
-- **vascurapainandvein.com**
-- **ecboneandjoint.com**
+We've built systems for pain management clinics, vein centers, orthopedic practices, and multi-specialty medical platforms. We keep client details private, but can discuss relevant patterns during a discovery call.
 
 To discuss your clinic, email **contact@fluxmediacreations.com**.`;
   }
@@ -766,17 +761,16 @@ You can reach us here:
 We usually reply within a few hours.`;
   }
 
-  if (q.match(/work|portfolio|project|example|site|built|made/)) {
-    return `Here are some live examples of our work:
+  if (q.match(/project|example|site|built|made/)) {
+    return `We keep client names and live project links private.
 
-- **mvmhealth.com**
-- **vascurapainandvein.com**
-- **ecboneandjoint.com**
-- **medwaynj.com**
-- **phonerepairdecatur.com**
-- **farhanyousufirealtor.com**
+What we can share is the type of systems we build:
+- WordPress websites for clinics and service businesses
+- GoHighLevel CRM pipelines and missed-call text-back
+- Appointment booking, reminders, review requests, and lead tracking
+- SEO-ready service and location page structures
 
-You can also view more at **fluxmediacreations.com/work**.`;
+For a private walkthrough, email **contact@fluxmediacreations.com**.`;
   }
 
   if (q.match(/seo|rank|google|search|ai search|aeo|geo/)) {
@@ -798,7 +792,7 @@ You can learn more at **fluxmediacreations.com/about**.`;
   if (q.match(/hi|hello|hey|start|help/)) {
     return `Hi there.
 
-I can help with pricing, services, portfolio examples, timelines, and contacting the team. What would you like to know?`;
+I can help with pricing, services, timelines, private project-fit questions, and contacting the team. What would you like to know?`;
   }
 
   return `The best next step is to contact us directly so we can give you a precise answer for your project.

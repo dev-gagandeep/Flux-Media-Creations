@@ -68,8 +68,8 @@ export default function ContactForm() {
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blush text-2xl text-flux">OK</div>
         <h2 className="font-display text-2xl font-semibold mb-3">Message received.</h2>
         <p className="text-sm text-ink/55 leading-7 mb-6">We will review the details and reply with the clearest next step.</p>
-        <Link href="/work" className="text-sm font-semibold text-flux">
-          See our work -&gt;
+        <Link href="/services" className="text-sm font-semibold text-flux">
+          Explore services -&gt;
         </Link>
       </div>
     );

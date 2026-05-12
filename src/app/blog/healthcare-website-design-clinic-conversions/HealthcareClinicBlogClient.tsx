@@ -499,7 +499,7 @@ export default function HealthcareClinicBlogClient() {
             <section className="rounded-lg bg-ink p-8 text-white md:p-10">
               <h2 className="mb-3 font-display text-3xl font-semibold tracking-[-0.025em] md:text-4xl">Ready to Turn Your Website Into a Patient Acquisition Engine?</h2>
               <p className="mb-6 max-w-3xl text-white/68">
-                Flux Media Creations builds high-conversion WordPress healthcare websites with GoHighLevel CRM automation. We help clinics capture every enquiry, recover missed calls, automate follow-up, and create a frictionless path from visitor to booked appointment. You can also review relevant clinic builds in our <Link href="/work" className="font-medium text-flux hover:underline">healthcare website portfolio</Link>.
+                Flux Media Creations builds high-conversion WordPress healthcare websites with GoHighLevel CRM automation. We help clinics capture every enquiry, recover missed calls, automate follow-up, and create a frictionless path from visitor to booked appointment. You can also explore our <Link href="/healthcare-website-crm" className="font-medium text-flux hover:underline">healthcare website and CRM solution</Link>.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/healthcare-website-crm" className="rounded-lg bg-flux px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-flux-dark">

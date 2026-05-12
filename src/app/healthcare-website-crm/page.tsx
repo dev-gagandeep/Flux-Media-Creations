@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { SITE, WORK_PROJECTS } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import HealthcareFaq from "./HealthcareFaq";
 
 export const metadata: Metadata = {
@@ -18,31 +17,16 @@ export const metadata: Metadata = {
     url: `${SITE.url}/healthcare-website-crm`,
     siteName: SITE.name,
     type: "website",
-    images: [
-      {
-        url: `${SITE.url}/images/work/mvm-health.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Healthcare website and CRM solution by Flux Media Creations",
-      },
-    ],
+    images: [{ url: `${SITE.url}/og-image.svg`, width: 1200, height: 630, alt: "Healthcare website and CRM solution by Flux Media Creations" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Healthcare Website Design & GoHighLevel CRM Automation | Flux",
     description:
       "Launch a patient-generating healthcare website and GoHighLevel CRM in 14 days.",
-    images: [`${SITE.url}/images/work/mvm-health.jpg`],
+    images: [`${SITE.url}/og-image.svg`],
   },
 };
-
-function toSlug(input: string) {
-  return input
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
-}
 
 const painPoints = [
   {
@@ -213,8 +197,6 @@ const testimonials = [
   },
 ];
 
-const healthcareWork = WORK_PROJECTS.filter((project) => project.industry === "healthcare").slice(0, 3);
-
 const faqs = [
   {
     q: "Do Healthcare Clinics Need HIPAA-Compliant Forms?",
@@ -345,7 +327,7 @@ export default function HealthcareWebsiteCrmPage() {
       contactType: "customer service",
       availableLanguage: ["English", "Hindi", "Punjabi"],
     },
-    sameAs: [SITE.instagramUrl, SITE.portfolioUrl],
+    sameAs: [SITE.instagramUrl],
   };
 
   const serviceSchema = {
@@ -443,8 +425,8 @@ export default function HealthcareWebsiteCrmPage() {
                 <Link href="/contact" className="inline-flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]" style={{ background: "var(--flux)" }}>
                   Get My Free Clinic Growth Review →
                 </Link>
-                <Link href="/work" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
-                  See healthcare work
+                <Link href="/services/healthcare-seo-structure" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
+                  Explore healthcare SEO
                 </Link>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -570,47 +552,6 @@ export default function HealthcareWebsiteCrmPage() {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="section max-w-[1400px] mx-auto">
-          <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Our healthcare work</p>
-              <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-4xl" style={{ letterSpacing: "-0.03em" }}>
-                Healthcare websites built for real clinics.
-              </h2>
-            </div>
-            <Link href="/work" className="inline-flex self-start rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30 md:self-end">
-              View all work →
-            </Link>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {healthcareWork.map((project) => (
-              <Link key={project.title} href={`/work/${toSlug(project.title)}`} className="group overflow-hidden rounded-lg border border-ink/10 bg-white transition-transform duration-300 hover:-translate-y-1">
-                <div className="relative h-48 overflow-hidden bg-blush">
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} healthcare website preview`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  ) : null}
-                </div>
-                <div className="p-5">
-                  <p className="text-xs uppercase tracking-widest text-flux mb-3">{project.category}</p>
-                  <h3 className="font-display text-2xl font-semibold mb-3" style={{ letterSpacing: "-0.02em" }}>{project.title}</h3>
-                  <p className="text-sm leading-7 text-ink/60">{project.description}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="rounded-full bg-blush px-3 py-1 text-xs text-ink/55">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
           </div>
         </section>
 

@@ -79,10 +79,10 @@ export default function Hero() {
                 </Link>
               </MagneticButton>
               <Link
-                href="/work"
+                href="/services"
                 className="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink/70 transition-colors hover:border-ink/35 hover:text-ink"
               >
-                See our work
+                Explore services
               </Link>
             </div>
           </motion.div>

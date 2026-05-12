@@ -46,7 +46,7 @@ const commonLinks = [
   { label: "Airtable CRM & Business Hub", href: "/services/airtable-business-hub" },
   { label: "Make & Zapier Automation", href: "/services/make-zapier-automation" },
   { label: "WordPress & GHL Monthly Maintenance", href: "/services/monthly-maintenance" },
-  { label: "Work / Case Studies", href: "/work" },
+  { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -138,7 +138,7 @@ export const locationContent: Record<string, LocationRouteContent> = {
       "New Jersey is a highly competitive service market. Patients compare clinics. Homeowners compare contractors. Real estate buyers and sellers compare agents. Local customers want clear information, fast response, and a simple way to take action.",
       "Your website should not only explain your services. It should support your full lead journey with service pages, local relevance, trust sections, easy contact options, mobile-friendly design, strong CTAs, CRM-connected forms, and automated follow-up.",
     ],
-    introBullets: ["Clear service pages", "Local relevance", "Trust sections", "Testimonials or case studies", "Easy contact options", "Automated follow-up"],
+    introBullets: ["Clear service pages", "Local relevance", "Trust sections", "Testimonials", "Easy contact options", "Automated follow-up"],
     services: commonServices("New Jersey"),
     industries: [
       { title: "Healthcare Clinics in New Jersey", body: "Websites and automation systems for clinics focused on patient trust, service clarity, appointment CTAs, missed-call recovery, provider credibility, and local SEO.", bullets: ["Pain management", "Vein treatment", "Orthopedic", "Physical therapy", "Chiropractic", "Wellness"] },
@@ -243,7 +243,7 @@ export const canadaContent: LocationRouteContent = {
   finalBody: "Flux Media Creations helps Canadian businesses create websites and automation systems that capture leads, support follow-up, and improve search visibility.",
   finalPrimaryCta: "Get a Canada Growth Review",
   finalSecondaryCta: "Start a Project",
-  internalLinks: [...commonLinks, { label: "Real Estate Case Study", href: "/work/farhan-yousuf-realtor" }],
+  internalLinks: commonLinks,
 };
 
 export const indiaContent: LocationRouteContent = {

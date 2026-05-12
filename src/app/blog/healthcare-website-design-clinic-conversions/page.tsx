@@ -47,7 +47,7 @@ export const metadata: Metadata = generateMeta({
   absoluteTitle: "Healthcare Website Design for Clinics | Flux Media Creations",
   description,
   path: `/blog/${slug}`,
-  image: "/images/mvmhealth.png",
+  image: "/og-image.svg",
 });
 
 const blogSchema = {
@@ -55,7 +55,7 @@ const blogSchema = {
   "@type": "BlogPosting",
   headline: title,
   description,
-  image: `${SITE.url}/images/mvmhealth.png`,
+  image: `${SITE.url}/og-image.svg`,
   datePublished: "2026-05-08",
   dateModified: "2026-05-08",
   author: {

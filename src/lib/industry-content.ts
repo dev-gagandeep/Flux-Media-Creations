@@ -6,11 +6,6 @@ export type IndustryDetail = {
   body: string[];
   whatWeBuild: string[];
   specialties?: string[];
-  caseStudies?: Array<{
-    title: string;
-    href: string;
-    label: string;
-  }>;
   ctaLabel: string;
 };
 
@@ -44,12 +39,6 @@ export const INDUSTRY_DETAILS: IndustryDetail[] = [
       "A2P SMS registration and compliance setup",
     ],
     specialties: ["Pain management", "Vein and vascular", "Orthopedics", "Telehealth", "Multi-specialty", "Physical therapy", "Medical weight loss"],
-    caseStudies: [
-      { title: "MVM Health", href: "/work/mvm-health", label: "Multi-specialty pain management platform, New Jersey" },
-      { title: "Vascura Pain & Vein", href: "/work/vascura-pain-vein", label: "Specialty clinic, New Jersey" },
-      { title: "EC Bone & Joint", href: "/work/ec-bone-joint", label: "Orthopedic practice" },
-      { title: "Med Way NJ", href: "/work/med-way-nj", label: "Multi-specialty medical services" },
-    ],
     ctaLabel: "Build my healthcare website →",
   },
   {
@@ -78,9 +67,6 @@ export const INDUSTRY_DETAILS: IndustryDetail[] = [
       "A2P SMS registration",
     ],
     specialties: ["HVAC", "Plumbing", "Roofing", "Electrical", "Cleaning", "Landscaping", "General contracting", "Phone repair"],
-    caseStudies: [
-      { title: "Phone Repair Decatur", href: "/work/phone-repair-decatur", label: "Local service business, Atlanta GA" },
-    ],
     ctaLabel: "Build my home service website →",
   },
   {
@@ -107,9 +93,6 @@ export const INDUSTRY_DETAILS: IndustryDetail[] = [
       "Long-term drip campaigns",
       "Appointment booking with reminders",
       "Past client reactivation for referrals",
-    ],
-    caseStudies: [
-      { title: "Farhan Yousuf — Realtor", href: "/work/farhan-yousuf-realtor", label: "Real estate agent website, US" },
     ],
     ctaLabel: "Build my real estate website →",
   },

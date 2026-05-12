@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
-import { BLOG_POSTS, LOCATION_PAGES, PROCESS_STEPS, SERVICES, SERVICE_PAGES, SITE, WORK_PROJECTS } from "@/lib/constants";
+import { BLOG_POSTS, LOCATION_PAGES, PROCESS_STEPS, SERVICES, SERVICE_PAGES, SITE } from "@/lib/constants";
 
 type JsonLd = Record<string, unknown>;
 
@@ -47,14 +47,6 @@ function toTitle(segment: string): string {
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-}
-
-function toWorkSlug(input: string): string {
-  return input
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
 }
 
 function getWebPageSchema(pathname: string): JsonLd {
@@ -220,40 +212,6 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
         },
         image: toAbsolute(post.cover),
         mainEntityOfPage: toAbsolute(pathname),
-      });
-    }
-  }
-
-  if (pathname === "/work") {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: "Work Portfolio",
-      url: toAbsolute(pathname),
-      mainEntity: {
-        "@type": "ItemList",
-        itemListElement: WORK_PROJECTS.map((project, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: project.title,
-          url: toAbsolute(`/work/${toWorkSlug(project.title)}`),
-        })),
-      },
-    });
-  }
-
-  if (pathname.startsWith("/work/") && pathname.split("/").length === 3) {
-    const slug = pathname.split("/")[2];
-    const project = WORK_PROJECTS.find((item) => toWorkSlug(item.title) === slug);
-
-    if (project) {
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "CreativeWork",
-        name: `${project.title} Case Study`,
-        description: project.description,
-        url: toAbsolute(pathname),
-        about: project.tags,
       });
     }
   }

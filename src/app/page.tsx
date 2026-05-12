@@ -6,7 +6,6 @@ import TrustBar from "@/components/sections/TrustBar";
 import Services from "@/components/sections/Services";
 import Pricing from "@/components/sections/Pricing";
 import WhyFlux from "@/components/sections/WhyFlux";
-import Work from "@/components/sections/Work";
 import Industries from "@/components/sections/Industries";
 import Numbers from "@/components/sections/Numbers";
 import Process from "@/components/sections/Process";
@@ -45,7 +44,6 @@ export default function HomePage() {
       <Marquee items={TOOLS} />
       <Services />
       <Pricing />
-      <Work />
       <WhyFlux />
       <Industries />
       <Numbers />

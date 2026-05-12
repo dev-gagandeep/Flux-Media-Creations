@@ -174,8 +174,8 @@ export default function LocationsPage() {
             <Link href="/contact" className="inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white">
               Get a Growth Review <span aria-hidden="true">-&gt;</span>
             </Link>
-            <Link href="/work" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink">
-              View Our Work
+            <Link href="/services/full-growth-system" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink">
+              Explore Full Growth System
             </Link>
           </div>
         </div>

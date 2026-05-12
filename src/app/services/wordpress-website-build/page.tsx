@@ -60,7 +60,7 @@ const constructItems = [
   "Contact page",
   "About page",
   "Blog creation",
-  "Portfolio or case study pages",
+  "Trust and proof sections",
   "Landing pages",
   "Appointment booking sections",
   "Lead capture forms",
@@ -293,7 +293,7 @@ const faqs = [
   },
   {
     q: "How many pages do I need?",
-    a: "Most service businesses need at least a homepage, about page, services page, individual service pages, contact page, and privacy page. For stronger SEO, you may also need industry pages, location pages, blog posts, and case studies.",
+    a: "Most service businesses need at least a homepage, about page, services page, individual service pages, contact page, and privacy page. For stronger SEO, you may also need industry pages, location pages, blog posts, and trust sections.",
   },
   {
     q: "Will my website work on mobile?",
@@ -318,7 +318,7 @@ const internalLinks = [
   { label: "Full Growth System", href: "/services/full-growth-system" },
   { label: "Search Visibility Engine", href: "/services/search-visibility-engine" },
   { label: "Monthly Maintenance", href: "/services/monthly-maintenance" },
-  { label: "Work / Portfolio", href: "/work" },
+  { label: "Industries", href: "/industries" },
   { label: "Industries", href: "/industries" },
   { label: "Healthcare Website Design", href: "/healthcare-website-crm" },
   { label: "Contact", href: "/contact" },
@@ -536,7 +536,7 @@ export default function WordPressWebsiteBuildPage() {
               Why WordPress is our favorite pick for service business websites.
             </h2>
             <p className="mb-8 max-w-5xl text-sm leading-7 text-cream/68">
-              WordPress is flexible and scalable, making it a strong choice for businesses that want control over their online presence in the long run. Unlike many closed website builders, WordPress gives your business room to grow from a simple service website into landing pages, blog posts, case studies, advanced forms, automations, memberships, or ecommerce.
+              WordPress is flexible and scalable, making it a strong choice for businesses that want control over their online presence in the long run. Unlike many closed website builders, WordPress gives your business room to grow from a simple service website into landing pages, blog posts, trust sections, advanced forms, automations, memberships, or ecommerce.
             </p>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
               {wordpressBenefits.map((item) => (
@@ -809,8 +809,8 @@ export default function WordPressWebsiteBuildPage() {
               <Link href="/contact" className="inline-flex justify-center rounded-full bg-flux px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-flux-dark">
                 Start Your WordPress Website →
               </Link>
-              <Link href="/work" className="inline-flex justify-center rounded-full border border-cream/25 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-white/10">
-                View Our Work
+              <Link href="/services/full-growth-system" className="inline-flex justify-center rounded-full border border-cream/25 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-white/10">
+                Explore Full Growth System
               </Link>
             </div>
           </div>

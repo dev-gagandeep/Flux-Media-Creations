@@ -206,9 +206,6 @@ const internalLinks = [
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
   ["Full Growth System", "/services/full-growth-system"],
   ["Healthcare Website Design Blog", "/blog/healthcare-website-design-clinic-conversions"],
-  ["MVM Health Case Study", "/work/mvm-health"],
-  ["Vascura Pain & Vein Case Study", "/work/vascura-pain-vein"],
-  ["EC Bone & Joint Case Study", "/work/ec-bone-joint"],
   ["Contact", "/contact"],
 ];
 

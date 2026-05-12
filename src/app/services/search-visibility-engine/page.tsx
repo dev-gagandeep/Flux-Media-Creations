@@ -73,7 +73,7 @@ const covered = [
   ["Google Business Profile Optimization", "For local businesses, we review categories, services, descriptions, photos, appointment links, review strategy, posts, and local consistency."],
   ["Schema Markup Suggestions", "We recommend structured data that helps search engines understand services, locations, FAQs, organization details, and page purpose."],
   ["Content Planning", "We develop a roadmap that connects blogs, service pages, industry pages, and location pages into one clear SEO system."],
-  ["Internal Linking System", "We connect related pages, blogs, case studies, and location content to your most important service pages."],
+  ["Internal Linking System", "We connect related pages, blogs, industry pages, and location content to your most important service pages."],
   ["Reporting and Review", "We explain what is working, what needs more content, and where your next SEO opportunities are."],
 ];
 
@@ -104,7 +104,7 @@ const contentArchitecture = [
   ["Industry Pages", "Niche pages for searches like healthcare SEO, clinic website design, home services web design, and real estate website design."],
   ["Location Pages", "Pages focused on cities, states, countries, or service areas where customers search locally."],
   ["Blog Articles", "Educational pages that answer questions and internally link to commercial pages."],
-  ["Case Studies", "Proof pages that show real experience and help users understand the work you do."],
+  ["Proof and Trust Content", "Trust sections, testimonials, FAQs, and service examples that help users understand what you do."],
   ["FAQ Sections", "Answer blocks that reduce objections and improve answer-engine clarity."],
 ];
 
@@ -144,7 +144,7 @@ const technicalItems = [
 const processSteps = [
   ["Check Visibility", "We audit your website, main pages, search visibility, page structure, metadata, content depth, technical setup, and local SEO foundation."],
   ["Keyword and Intent Research", "We find the keywords your ideal customers use when they are ready to compare, call, book, or request a quote."],
-  ["SEO Structure Plan", "We determine the services, industries, locations, blogs, FAQs, and case studies your website needs."],
+  ["SEO Structure Plan", "We determine the services, industries, locations, blogs, FAQs, and trust content your website needs."],
   ["On Page Optimization", "We improve titles, descriptions, headings, body copy, CTAs, internal links, image alt text, and schema opportunities."],
   ["Content Creation or Rework", "We rewrite thin pages, create SEO landing pages, and produce supporting blog content around real search intent."],
   ["Local SEO Setup", "We strengthen Google Business Profile signals, local content, service areas, and location pages for local businesses."],
@@ -175,7 +175,7 @@ const faqs = [
   ["What is AEO?", "AEO stands for Answer Engine Optimization. It means structuring content so it clearly answers user questions and can be understood by search engines, featured snippets, voice assistants, and AI-powered search tools."],
   ["What is GEO?", "GEO stands for Generative Engine Optimization. It focuses on making your business, services, expertise, and content easier for AI-powered systems to understand, summarize, and potentially reference."],
   ["Do you optimize Google Business Profile?", "Yes. For local businesses, we can review and improve Google Business Profile categories, services, descriptions, photos, appointment links, posts, review strategy, and local consistency."],
-  ["Do you write SEO content?", "Yes. We can write or rewrite service pages, industry pages, location pages, blogs, FAQs, and case studies using keyword research and search intent."],
+  ["Do you write SEO content?", "Yes. We can write or rewrite service pages, industry pages, location pages, blogs, FAQs, and trust sections using keyword research and search intent."],
   ["Can you fix technical SEO issues?", "Yes. We can review technical SEO issues such as crawlability, indexation, redirects, metadata, broken links, page speed signals, mobile usability, sitemap issues, and schema opportunities."],
   ["Is schema markup included?", "We can recommend and implement schema depending on your website setup. This may include Organization, LocalBusiness, Service, FAQPage, BreadcrumbList, Article, and WebPage schema."],
   ["Is this service good for clinics and healthcare businesses?", "Yes. Healthcare clinics need clear service pages, local SEO, patient-focused content, provider trust signals, appointment CTAs, and structured medical service information. We can create a healthcare-specific SEO structure for clinics and specialty practices."],
@@ -187,7 +187,7 @@ const internalLinks = [
   ["Full Growth System", "/services/full-growth-system"],
   ["Healthcare SEO Structure", "/services/healthcare-seo-structure"],
   ["Healthcare Website Design Blog", "/blog/healthcare-website-design-clinic-conversions"],
-  ["Work", "/work"],
+  ["Industries", "/industries"],
   ["Contact", "/contact"],
 ];
 
@@ -271,8 +271,8 @@ export default function SearchVisibilityEnginePage() {
                 <Link href="/contact" className="inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,88,51,0.22)] transition hover:-translate-y-0.5">
                   Get Started on Your SEO Visibility Audit <span aria-hidden="true">-&gt;</span>
                 </Link>
-                <Link href="/work" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-flux hover:text-flux">
-                  See Our Work
+                <Link href="/services/full-growth-system" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-flux hover:text-flux">
+                  Explore Full Growth System
                 </Link>
               </div>
             </div>

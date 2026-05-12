@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SITE, TESTIMONIALS, WORK_PROJECTS } from "@/lib/constants";
+import { SITE, TESTIMONIALS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
@@ -86,7 +86,7 @@ export default function AboutPage() {
       url: SITE.url,
     },
     url: `${SITE.url}/about`,
-    sameAs: [SITE.instagramUrl, SITE.portfolioUrl],
+    sameAs: [SITE.instagramUrl],
   };
 
   return (
@@ -110,11 +110,8 @@ export default function AboutPage() {
               >
                 Start a project
               </Link>
-              <Link
-                href="/work"
-                className="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink/65 transition-colors hover:border-ink/35 hover:text-ink"
-              >
-                See the work
+              <Link href="/services" className="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink/65 transition-colors hover:border-ink/35 hover:text-ink">
+                Explore services
               </Link>
             </div>
           </div>
@@ -206,34 +203,6 @@ export default function AboutPage() {
                     <p className="mt-2 text-sm leading-7 text-cream/50">{item.body}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="mb-4 text-xs uppercase tracking-widest text-flux">Selected work</p>
-              <h2 className="font-display text-4xl font-semibold leading-none md:text-6xl" style={{ letterSpacing: "0" }}>
-                Proof from real service-business builds.
-              </h2>
-            </div>
-            <Link href="/work" className="self-start rounded-full border border-ink/15 px-5 py-3 text-sm font-medium text-ink/65 transition-colors hover:border-ink/35 hover:text-ink md:self-end">
-              View all work
-            </Link>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {WORK_PROJECTS.slice(0, 6).map((project) => (
-              <div key={project.title} className="rounded-xl border border-ink/8 bg-blush/35 p-6">
-                <p className="mb-3 text-xs uppercase tracking-widest text-ink/35">{project.category}</p>
-                <h3 className="font-display text-2xl font-semibold leading-tight" style={{ letterSpacing: "0" }}>
-                  {project.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-ink/58">{project.description}</p>
               </div>
             ))}
           </div>

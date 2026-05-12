@@ -232,13 +232,6 @@ const internalLinks = [
   { label: "Contact Flux", href: "/contact" },
 ];
 
-const caseStudyLinks = [
-  { label: "MVM Health", href: "/work/mvm-health" },
-  { label: "Vascura Pain & Vein", href: "/work/vascura-pain-vein" },
-  { label: "Med Way NJ", href: "/work/med-way-nj" },
-  { label: "Phone Repair Decatur", href: "/work/phone-repair-decatur" },
-];
-
 export default function GoHighLevelAutomationPage() {
   const pageUrl = `${SITE.url}/services/gohighlevel-automation`;
 
@@ -574,26 +567,14 @@ export default function GoHighLevelAutomationPage() {
 
         <section className="section max-w-[1400px] mx-auto">
           <p className="mb-4 text-xs uppercase tracking-widest text-ink/35">Internal links and proof</p>
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-lg border border-ink/10 bg-white p-8">
-              <h2 className="mb-5 font-display text-3xl font-semibold" style={{ letterSpacing: "-0.03em" }}>Related services.</h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {internalLinks.map((item) => (
-                  <Link key={item.href} href={item.href} className="rounded-md bg-cream px-4 py-3 text-sm text-ink/65 transition-colors hover:text-flux">
-                    {item.label} →
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-lg border border-ink/10 bg-white p-8">
-              <h2 className="mb-5 font-display text-3xl font-semibold" style={{ letterSpacing: "-0.03em" }}>Relevant work.</h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {caseStudyLinks.map((item) => (
-                  <Link key={item.href} href={item.href} className="rounded-md bg-cream px-4 py-3 text-sm text-ink/65 transition-colors hover:text-flux">
-                    {item.label} →
-                  </Link>
-                ))}
-              </div>
+          <div className="rounded-lg border border-ink/10 bg-white p-8">
+            <h2 className="mb-5 font-display text-3xl font-semibold" style={{ letterSpacing: "-0.03em" }}>Related services.</h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {internalLinks.map((item) => (
+                <Link key={item.href} href={item.href} className="rounded-md bg-cream px-4 py-3 text-sm text-ink/65 transition-colors hover:text-flux">
+                  {item.label} →
+                </Link>
+              ))}
             </div>
           </div>
         </section>

@@ -118,7 +118,7 @@ export const schemaWebsite = {
   url: SITE.url,
   potentialAction: {
     "@type": "SearchAction",
-    target: `${SITE.url}/work?q={search_term_string}`,
+    target: `${SITE.url}/blog?q={search_term_string}`,
     "query-input": "required name=search_term_string",
   },
 };
@@ -268,7 +268,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, SITE.portfolioUrl, SITE.instagramUrl],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, SITE.instagramUrl],
 };
 
 export const schemaHomeFaq = {

@@ -60,14 +60,6 @@ export default function Footer() {
             >
               Instagram
             </a>
-            <a
-              href={SITE.portfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-cream/40 hover:text-flux transition-colors"
-            >
-              Portfolio
-            </a>
           </div>
         </div>
 

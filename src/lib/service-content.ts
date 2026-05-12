@@ -741,7 +741,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
             { title: "Google Business Profile optimization", body: "Services, categories, Q&A, descriptions, posts, and profile completeness are improved to support map visibility." },
             { title: "Review generation and citation cleanup", body: "Review requests and consistent NAP across directories strengthen local trust and map ranking potential." },
             { title: "Answer Engine Optimization", body: "FAQ strategy, featured snippet formatting, and direct-answer content help pages surface in AI Overviews and answer boxes." },
-            { title: "Generative engine visibility", body: "Profiles, directory presence, case studies, and authority content improve the chance of being cited by ChatGPT, Perplexity, Gemini, and similar tools." },
+            { title: "Generative engine visibility", body: "Profiles, directory presence, proof content, and authority content improve the chance of being cited by ChatGPT, Perplexity, Gemini, and similar tools." },
           ],
         },
       ],

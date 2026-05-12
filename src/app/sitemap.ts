@@ -1,14 +1,5 @@
 import { MetadataRoute } from "next";
-import { BLOG_POSTS, LOCATION_PAGES, SERVICE_PAGES, SITE, WORK_PROJECTS } from "@/lib/constants";
-import { WORK_CASE_STUDIES } from "@/lib/work-content";
-
-function toSlug(input: string) {
-  return input
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
-}
+import { BLOG_POSTS, LOCATION_PAGES, SERVICE_PAGES, SITE } from "@/lib/constants";
 
 const DEFAULT_LAST_MODIFIED = new Date("2026-05-07");
 const BLOG_LAST_MODIFIED = new Date("2026-05-08");
@@ -22,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/services`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/healthcare-website-crm`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/locations`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: LOCATION_LAST_MODIFIED },
-    { url: `${SITE.url}/work`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/industries`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/process`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/blog`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: BLOG_LAST_MODIFIED },
@@ -43,21 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       changeFrequency: "monthly" as const,
       lastModified: SERVICE_LAST_MODIFIED,
-    })),
-    ...WORK_PROJECTS.map((project) => {
-      const slug = toSlug(project.title);
-      return {
-        url: `${SITE.url}/work/${slug}`,
-        priority: 0.7,
-        changeFrequency: "monthly" as const,
-        lastModified: new Date(WORK_CASE_STUDIES[slug]?.modified || DEFAULT_LAST_MODIFIED),
-      };
-    }),
-    ...Object.values(WORK_CASE_STUDIES).map((caseStudy) => ({
-      url: `${SITE.url}/work/${caseStudy.slug}`,
-      priority: 0.7,
-      changeFrequency: "monthly" as const,
-      lastModified: new Date(caseStudy.modified),
     })),
     ...LOCATION_PAGES.map((location) => ({
       url: `${SITE.url}/locations/${location.slug}`,

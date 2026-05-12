@@ -33,7 +33,6 @@ type ParsedBlock =
 
 const INTERNAL_PAGE_LINKS: Record<string, string> = {
   Services: "/services",
-  Work: "/work",
   Industries: "/industries",
   Process: "/process",
   Contact: "/contact",
