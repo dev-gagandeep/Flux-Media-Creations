@@ -488,7 +488,11 @@ export default function HealthcareWebsiteCrmPage() {
               <Link href="/blog/gohighlevel-for-clinics-patient-leads" className="text-flux hover:underline">
                 GoHighLevel for clinics
               </Link>
-              .
+              , or the dedicated{" "}
+              <Link href="/services/clinic-appointment-booking-automation" className="text-flux hover:underline">
+                clinic appointment booking automation
+              </Link>
+              {" "}service if scheduling and no-show follow-up are the main gaps.
             </p>
           </div>
         </section>

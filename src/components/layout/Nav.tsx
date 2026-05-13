@@ -39,6 +39,7 @@ export default function Nav() {
       body: "CRM, follow-up, integrations, and operational systems.",
       items: [
         { name: "GoHighLevel Setup & Automation", href: "/services/gohighlevel-automation", note: "Pipelines, SMS, booking, reminders" },
+        { name: "Clinic Appointment Booking Automation", href: "/services/clinic-appointment-booking-automation", note: "Clinic forms, reminders, missed-call recovery" },
         { name: "Airtable CRM & Business Hub", href: "/services/airtable-business-hub", note: "Dashboards and internal operations" },
         { name: "Make & Zapier Automation", href: "/services/make-zapier-automation", note: "Tool connections and lead routing" },
         { name: "WordPress & GHL Monthly Maintenance", href: "/services/monthly-maintenance", note: "Ongoing website and workflow support" },

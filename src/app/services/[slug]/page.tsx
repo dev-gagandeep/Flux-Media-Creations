@@ -318,9 +318,15 @@ export default function ServicePage({ params }: ServicePageProps) {
               >
                 {detail.finalCta.primaryLabel}
               </Link>
-              <a href="#process" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
-                See how it works
-              </a>
+              {params.slug === "clinic-appointment-booking-automation" ? (
+                <Link href="/contact" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
+                  {detail.finalCta.secondaryLabel}
+                </Link>
+              ) : (
+                <a href="#process" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
+                  See how it works
+                </a>
+              )}
             </div>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {detail.heroStats.map((item) => (
@@ -402,6 +408,46 @@ export default function ServicePage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
+
+      {params.slug === "clinic-appointment-booking-automation" ? (
+        <section className="section-sm max-w-[1400px] mx-auto">
+          <div className="rounded-lg border border-flux/15 bg-blush p-8 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.7fr)] lg:items-start">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-flux mb-4">Related clinic growth resources</p>
+                <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style={{ letterSpacing: "-0.03em" }}>
+                  Booking automation works best when the website and CRM are planned together.
+                </h2>
+                <p className="text-sm md:text-base leading-7 text-ink/68 max-w-3xl">
+                  Read the supporting guide on{" "}
+                  <Link href="/blog/appointment-booking-automation-for-clinics" className="text-flux hover:underline">
+                    appointment booking automation for clinics
+                  </Link>
+                  , then connect it with the broader{" "}
+                  <Link href="/healthcare-website-crm" className="text-flux hover:underline">
+                    healthcare website and CRM automation system
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div className="rounded-lg bg-white p-5">
+                <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Internal links</p>
+                <div className="space-y-3 text-sm">
+                  <Link href="/blog/healthcare-website-design-clinic-conversions" className="block text-ink/70 hover:text-flux">
+                    Healthcare website design for clinic conversions →
+                  </Link>
+                  <Link href="/blog/how-to-set-up-gohighlevel-missed-call-text-back" className="block text-ink/70 hover:text-flux">
+                    Missed-call text back workflow →
+                  </Link>
+                  <Link href="/blog/gohighlevel-for-clinics-patient-leads" className="block text-ink/70 hover:text-flux">
+                    GoHighLevel for clinics →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section-sm max-w-[1400px] mx-auto">
         <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">{detail.audienceSection.label}</p>

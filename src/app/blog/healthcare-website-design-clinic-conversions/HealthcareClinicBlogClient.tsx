@@ -396,6 +396,9 @@ export default function HealthcareClinicBlogClient() {
                 <p>
                   For the clinic-specific CRM workflow, read our guide to <Link href="/blog/gohighlevel-for-clinics-patient-leads" className="font-medium text-flux hover:underline">GoHighLevel for clinics</Link>, which covers lead capture, missed-call recovery, appointment reminders, and patient follow-up.
                 </p>
+                <p>
+                  If the main bottleneck is scheduling, our <Link href="/services/clinic-appointment-booking-automation" className="font-medium text-flux hover:underline">clinic appointment booking automation system</Link> focuses specifically on forms, reminders, missed-call recovery, and no-show follow-up.
+                </p>
               </div>
               <div className="mt-8 grid overflow-hidden rounded-lg border border-ink/10 bg-white md:grid-cols-2">
                 {AUTO_FEATURES.map((feature) => (

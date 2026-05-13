@@ -81,6 +81,155 @@ export type ServiceDetailContent = {
 };
 
 export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
+  "clinic-appointment-booking-automation": {
+    slug: "clinic-appointment-booking-automation",
+    metaTitle: "Clinic Appointment Booking Automation for Healthcare",
+    metaDescription:
+      "Flux builds clinic appointment booking automation with GoHighLevel CRM, website forms, missed-call recovery, SMS reminders, and patient follow-up workflows.",
+    image: {
+      src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80",
+      alt: "Healthcare team reviewing appointment booking and patient scheduling workflow on a laptop.",
+    },
+    breadcrumb: ["Services", "Clinic Appointment Booking Automation"],
+    preHeadline: "Healthcare booking automation",
+    heroTitle: "Clinic Appointment Booking Automation That Turns Patient Inquiries Into Scheduled Visits.",
+    heroBody:
+      "Most clinics do not lose patients because they do not care. They lose patients because the booking process is too slow, too manual, or too easy to forget during a busy day. We connect your website, forms, calls, calendar, SMS reminders, missed-call recovery, and GoHighLevel CRM workflows into one smoother patient booking process.",
+    heroStats: [
+      { value: "24/7", label: "Appointment request capture" },
+      { value: "GHL", label: "CRM and pipeline tracking" },
+      { value: "SMS", label: "Confirmations and reminders" },
+      { value: "1 Flow", label: "Website, calls, and follow-up connected" },
+    ],
+    problemSection: {
+      label: "The booking leak",
+      title: "Your clinic may not need more leads first. It may need a better booking system.",
+      cards: [
+        {
+          title: "Patient inquiries disappear into inboxes",
+          body: "Website forms, after-hours requests, and appointment questions often depend on someone noticing an email at the right time. A CRM-connected workflow gives every inquiry a clearer owner and next step.",
+        },
+        {
+          title: "Missed calls become lost appointments",
+          body: "When the front desk is busy, a high-intent caller can move on quickly. Missed-call text back gives patients a way back into the booking conversation.",
+        },
+        {
+          title: "Manual reminders create schedule gaps",
+          body: "If reminders and no-show follow-up depend entirely on staff memory, visits are easier to miss. Automated reminders help protect booked appointments and reduce repetitive admin work.",
+        },
+      ],
+    },
+    includedSection: {
+      label: "What we build",
+      title: "A clinic booking system that connects the website, CRM, calendar, and follow-up.",
+      body:
+        "Flux Media Creations builds appointment booking automation around the way your clinic actually works, with simple workflows your team can understand and use every day.",
+      groups: [
+        {
+          title: "Patient Inquiry Capture",
+          items: [
+            { title: "Website appointment forms", body: "We create or connect appointment request forms on service pages, location pages, landing pages, and contact pages so patients can take action easily on mobile." },
+            { title: "Lead source tracking", body: "Appointment requests can be tagged by source, such as organic search, Google Ads, service pages, location pages, or missed calls." },
+            { title: "GoHighLevel CRM setup", body: "New patient inquiries enter a clean pipeline so your team can see who is new, contacted, booked, not responding, or needing follow-up." },
+          ],
+        },
+        {
+          title: "Booking Follow-Up",
+          items: [
+            { title: "Appointment confirmation messages", body: "Patients can receive an instant SMS or email confirmation after requesting or booking an appointment, reducing uncertainty." },
+            { title: "Internal staff notifications", body: "Your team can receive alerts when a new request arrives, when a lead replies, or when a follow-up is needed." },
+            { title: "Follow-up tasks and pipeline movement", body: "We build simple stages and tasks so staff can see what happened and what needs to happen next." },
+          ],
+        },
+        {
+          title: "Reminder and Recovery Workflows",
+          items: [
+            { title: "Appointment reminder automation", body: "Reminder timing can be customized, such as 24 hours before, a few hours before, or the morning of the visit." },
+            { title: "Missed-call text back", body: "If a patient calls and your clinic misses the call, an automatic text can be sent right away to keep the conversation alive." },
+            { title: "No-show and review follow-up", body: "No-show prompts can help patients reschedule, while post-visit review requests support local trust when used properly." },
+          ],
+        },
+      ],
+    },
+    audienceSection: {
+      label: "Who this is for",
+      title: "Built for healthcare clinics that rely on patient inquiries, phone calls, and local visibility.",
+      blocks: [
+        { title: "Pain management and orthopedic clinics", body: "Useful when appointment requests, provider matching, and service-specific inquiries need fast follow-up and clear tracking." },
+        { title: "Physical therapy, chiropractic, and vein clinics", body: "Helps teams manage repeat appointments, new patient requests, reminders, no-show recovery, and review workflows." },
+        { title: "Med spas, dental clinics, and wellness clinics", body: "A strong fit for consultation requests, service interest forms, missed-call recovery, and after-hours appointment inquiries." },
+        { title: "Multi-location healthcare practices", body: "Lead source tracking and pipeline stages help managers see which locations, pages, and campaigns are producing booking opportunities." },
+      ],
+    },
+    processSection: {
+      label: "Setup process",
+      title: "We map the booking flow first, then build the automation around it.",
+      steps: [
+        {
+          title: "Review your current booking flow",
+          body: "We look at how patients currently contact your clinic, where leads come from, what happens after a form submission, and where follow-up breaks down.",
+        },
+        {
+          title: "Map the patient journey",
+          body: "We identify the main steps from website visitor to appointment request, confirmation, reminder, no-show recovery, and post-visit review request.",
+        },
+        {
+          title: "Build, test, and hand off",
+          body: "We connect forms, CRM stages, SMS/email messages, staff notifications, missed-call workflows, reminders, and pipeline movement, then test the system before launch.",
+        },
+      ],
+    },
+    pricingSection: {
+      label: "Investment",
+      title: "Clinic appointment booking automation pricing.",
+      plans: [
+        {
+          name: "Clinic Booking Automation",
+          price: "from $500",
+          timeline: "7-14 days",
+          bestFor: "Clinics that already have a website or want booking workflows added to a healthcare website build.",
+          note: "GoHighLevel subscription, SMS carrier costs, compliance modules, and third-party tools are purchased directly by the clinic when required.",
+          items: [
+            "Booking flow review",
+            "Appointment request form strategy",
+            "GoHighLevel pipeline setup",
+            "Website form to CRM connection",
+            "Missed-call text back workflow",
+            "SMS and email confirmation messages",
+            "Appointment reminder workflow",
+            "Internal staff notifications",
+            "No-show follow-up workflow",
+            "Review request workflow",
+            "Lead source tracking",
+            "Testing and handoff notes",
+          ],
+        },
+      ],
+    },
+    faqSection: {
+      label: "Questions about clinic booking automation",
+      title: "What clinics ask before automating appointment booking.",
+      items: [
+        { q: "What is clinic appointment booking automation?", a: "Clinic appointment booking automation connects your website, forms, calls, calendar, CRM, reminders, and follow-up messages so patient inquiries can be captured, tracked, confirmed, and followed up more efficiently." },
+        { q: "Can GoHighLevel be used for clinic appointment booking?", a: "Yes. GoHighLevel can support clinic appointment booking through forms, calendars, CRM pipelines, SMS follow-up, missed-call text back, appointment reminders, internal notifications, and lead tracking. Healthcare workflows should be configured carefully with privacy and compliance in mind." },
+        { q: "Do clinics need online appointment booking?", a: "Many clinics benefit from online appointment booking or appointment request forms because patients often search after hours, compare providers online, and want a simple way to take the next step without calling immediately." },
+        { q: "How can appointment reminders help clinics?", a: "Appointment reminders can reduce manual follow-up and lower the chance of patients forgetting their scheduled visit. They can be sent by SMS or email before the appointment with basic confirmation or rescheduling instructions." },
+        { q: "What happens after a patient submits an appointment request?", a: "The appointment request can enter the CRM, trigger a confirmation message to the patient, notify the clinic team, create a follow-up task, and move the lead into the correct pipeline stage." },
+        { q: "Can appointment booking automation connect with a WordPress website?", a: "Yes. A WordPress clinic website can be connected with GoHighLevel forms, calendars, tracking, and automation workflows so patient inquiries from the website move directly into the CRM." },
+        { q: "Is appointment booking automation only for large clinics?", a: "No. Small clinics can benefit from appointment booking automation because it helps reduce missed inquiries, manual follow-up, and front desk pressure. A simple setup is often enough to make a noticeable improvement." },
+        { q: "Can Flux set up the website and booking automation together?", a: "Yes. Flux Media Creations can build or improve your WordPress healthcare website and connect it with GoHighLevel CRM automation, appointment booking workflows, missed-call recovery, reminders, and follow-up systems." },
+      ],
+    },
+    finalCta: {
+      title: "Build a booking system your clinic can actually use.",
+      body:
+        "If your clinic is getting patient inquiries but losing too many before they become appointments, appointment booking automation can help close the gap.",
+      primaryLabel: "Automate My Clinic Booking Flow",
+      secondaryLabel: "Get a Free Clinic Growth Review",
+      trust:
+        "Built for healthcare clinics that need website forms, GoHighLevel CRM automation, missed-call recovery, reminders, and patient follow-up workflows connected together.",
+    },
+  },
   "full-growth-system": {
     slug: "full-growth-system",
     metaTitle: "WordPress GoHighLevel Growth System | Flux Media Creations",

@@ -39,9 +39,13 @@ const INTERNAL_PAGE_LINKS: Record<string, string> = {
   Blog: "/blog",
   "Healthcare Website & CRM Solutions": "/healthcare-website-crm",
   "healthcare website and CRM system": "/healthcare-website-crm",
+  "healthcare website and CRM automation system": "/healthcare-website-crm",
   "healthcare website design guide": "/blog/healthcare-website-design-clinic-conversions",
+  "healthcare website design for clinic conversions": "/blog/healthcare-website-design-clinic-conversions",
   "GoHighLevel for clinics": "/blog/gohighlevel-for-clinics-patient-leads",
   "GoHighLevel missed call text-back guide": "/blog/how-to-set-up-gohighlevel-missed-call-text-back",
+  "missed-call text back workflow": "/blog/how-to-set-up-gohighlevel-missed-call-text-back",
+  "clinic appointment booking automation system": "/services/clinic-appointment-booking-automation",
   "WordPress Website Build": "/services/wordpress-website-build",
   "GoHighLevel Automation": "/services/gohighlevel-automation",
   "Full Growth System": "/services/full-growth-system",
@@ -77,6 +81,7 @@ const BLOG_INLINE_IMAGES: Record<
 };
 
 const HEALTHCARE_CTA_POSTS = new Set([
+  "appointment-booking-automation-for-clinics",
   "gohighlevel-for-clinics-patient-leads",
   "wordpress-ghl-growth-system-us-businesses",
   "how-to-set-up-gohighlevel-missed-call-text-back",
