@@ -393,6 +393,9 @@ export default function HealthcareClinicBlogClient() {
                 <p>
                   Integrate your website with <Link href="/services/gohighlevel-automation" className="font-medium text-flux hover:underline">GoHighLevel automation</Link> and every form submission, missed call, booking request, and message feeds into a structured CRM pipeline, triggering the right response automatically.
                 </p>
+                <p>
+                  For the clinic-specific CRM workflow, read our guide to <Link href="/blog/gohighlevel-for-clinics-patient-leads" className="font-medium text-flux hover:underline">GoHighLevel for clinics</Link>, which covers lead capture, missed-call recovery, appointment reminders, and patient follow-up.
+                </p>
               </div>
               <div className="mt-8 grid overflow-hidden rounded-lg border border-ink/10 bg-white md:grid-cols-2">
                 {AUTO_FEATURES.map((feature) => (

@@ -484,6 +484,10 @@ export default function HealthcareWebsiteCrmPage() {
               <Link href="/blog/healthcare-website-design-clinic-conversions" className="text-flux hover:underline">
                 healthcare website design guide
               </Link>
+              . For the CRM workflow itself, read our guide to{" "}
+              <Link href="/blog/gohighlevel-for-clinics-patient-leads" className="text-flux hover:underline">
+                GoHighLevel for clinics
+              </Link>
               .
             </p>
           </div>
