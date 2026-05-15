@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Cursor from "@/components/layout/Cursor";
 import PageTransition from "@/components/ui/PageTransition";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -37,7 +36,6 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
 
   return (
     <div>
-      <Cursor />
       <Nav />
       <PageTransition>
         <main>{children}</main>

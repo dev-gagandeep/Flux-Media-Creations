@@ -41,7 +41,6 @@ export default function MagneticButton({
       onMouseLeave={onMouseLeave}
       onClick={onClick}
       className={`magnetic-btn inline-block ${className}`}
-      data-cursor="hover"
     >
       {children}
     </div>

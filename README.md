@@ -133,7 +133,7 @@ Then drag the `.next` folder into Netlify's deploy interface — or connect your
 ```
 src/
 ├── app/                    ← Next.js pages (App Router)
-│   ├── layout.tsx          ← Root layout (nav, footer, cursor, smooth scroll)
+│   ├── layout.tsx          ← Root layout (nav, footer, smooth scroll)
 │   ├── page.tsx            ← Homepage
 │   ├── globals.css         ← Global styles
 │   ├── services/page.tsx
@@ -148,8 +148,7 @@ src/
 ├── components/
 │   ├── layout/
 │   │   ├── Nav.tsx         ← Scroll-hide navigation + mobile drawer
-│   │   ├── Footer.tsx      ← Dark footer with marquee strip
-│   │   └── Cursor.tsx      ← Custom dual-layer cursor
+│   │   └── Footer.tsx      ← Dark footer with marquee strip
 │   ├── ui/
 │   │   ├── MagneticButton.tsx  ← Mouse-tracking magnetic effect
 │   │   ├── TextReveal.tsx      ← Word-by-word scroll animation

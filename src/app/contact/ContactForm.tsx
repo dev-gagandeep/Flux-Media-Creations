@@ -15,7 +15,7 @@ const SERVICES_OPTIONS = [
 
 const BUDGETS = ["Under $300", "$300-$600", "$600-$1,200", "$1,200+", "Let's discuss"];
 
-const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/xbdqqvjy";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbdqqvjy";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

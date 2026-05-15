@@ -66,14 +66,6 @@ h1, h2, h3, h4, h5 {
   overscroll-behavior: contain;
 }
 
-/* Hide default cursor on desktop */
-@media (pointer: fine) and (hover: hover) {
-  html.has-custom-cursor,
-  html.has-custom-cursor * {
-    cursor: none !important;
-  }
-}
-
 /* Nav link underline animation */
 .nav-link {
   position: relative;
