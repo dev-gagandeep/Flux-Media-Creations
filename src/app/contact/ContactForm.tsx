@@ -37,6 +37,10 @@ export default function ContactForm() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    if (!form.service || !form.budget) {
+      setError("Please select a service and budget range.");
+      return;
+    }
     setLoading(true);
     setError("");
 
@@ -83,8 +87,8 @@ export default function ContactForm() {
           <input required className="flux-input" placeholder="Your name" value={form.name} onChange={(event) => set("name", event.target.value)} />
         </div>
         <div>
-          <label className="text-xs text-ink/40 block mb-1.5">Business name</label>
-          <input className="flux-input" placeholder="Business or clinic name" value={form.business} onChange={(event) => set("business", event.target.value)} />
+          <label className="text-xs text-ink/40 block mb-1.5">Business name *</label>
+          <input required className="flux-input" placeholder="Business or clinic name" value={form.business} onChange={(event) => set("business", event.target.value)} />
         </div>
       </div>
 
@@ -94,14 +98,14 @@ export default function ContactForm() {
           <input required type="email" className="flux-input" placeholder="you@business.com" value={form.email} onChange={(event) => set("email", event.target.value)} />
         </div>
         <div>
-          <label className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp</label>
-          <input className="flux-input" placeholder="+1 555 000 0000" value={form.phone} onChange={(event) => set("phone", event.target.value)} />
+          <label className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp *</label>
+          <input required className="flux-input" placeholder="+1 555 000 0000" value={form.phone} onChange={(event) => set("phone", event.target.value)} />
         </div>
       </div>
 
       <div>
-        <label className="text-xs text-ink/40 block mb-1.5">Industry</label>
-        <select className="flux-input" value={form.industry} onChange={(event) => set("industry", event.target.value)}>
+        <label className="text-xs text-ink/40 block mb-1.5">Industry *</label>
+        <select required className="flux-input" value={form.industry} onChange={(event) => set("industry", event.target.value)}>
           <option value="">Select your industry</option>
           <option>Healthcare clinic</option>
           <option>Home services</option>
@@ -113,7 +117,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="text-xs text-ink/40 block mb-2">What do you need?</label>
+        <label className="text-xs text-ink/40 block mb-2">What do you need? *</label>
         <div className="flex flex-wrap gap-2">
           {SERVICES_OPTIONS.map((service) => (
             <button
@@ -134,7 +138,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="text-xs text-ink/40 block mb-2">Budget range</label>
+        <label className="text-xs text-ink/40 block mb-2">Budget range *</label>
         <div className="flex flex-wrap gap-2">
           {BUDGETS.map((budget) => (
             <button
@@ -155,8 +159,9 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="text-xs text-ink/40 block mb-1.5">Tell us about your project</label>
+        <label className="text-xs text-ink/40 block mb-1.5">Tell us about your project *</label>
         <textarea
+          required
           className="flux-input resize-none"
           rows={4}
           placeholder="Send your website link, business type, services, and the problem you want to fix."
