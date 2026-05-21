@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE } from "./constants";
+import { SITE, SOCIAL_LINKS } from "./constants";
 
 interface SeoProps {
   title?: string;
@@ -268,7 +268,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, SITE.instagramUrl],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href)],
 };
 
 export const schemaHomeFaq = {

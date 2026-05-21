@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LOCATION_PAGES, SITE, NAV_LINKS, SERVICES, TOOLS } from "@/lib/constants";
+import { LOCATION_PAGES, SITE, NAV_LINKS, SERVICES, SOCIAL_LINKS, TOOLS } from "@/lib/constants";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -40,7 +40,7 @@ export default function Footer() {
           <p className="mt-4 text-sm text-cream/50 leading-relaxed max-w-[220px]">
             Websites and automation systems for businesses that can't afford to lose a single lead.
           </p>
-          <div className="mt-6 flex gap-4">
+          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
             <a href={`mailto:${SITE.email}`} className="text-xs text-cream/40 hover:text-flux transition-colors">
               Email
             </a>
@@ -52,14 +52,17 @@ export default function Footer() {
             >
               WhatsApp
             </a>
-            <a
-              href={SITE.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-cream/40 hover:text-flux transition-colors"
-            >
-              Instagram
-            </a>
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-cream/40 hover:text-flux transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE } from "@/lib/constants";
+import { SITE, SOCIAL_LINKS } from "@/lib/constants";
 import HealthcareFaq from "./HealthcareFaq";
 
 export const metadata: Metadata = {
@@ -327,7 +327,7 @@ export default function HealthcareWebsiteCrmPage() {
       contactType: "customer service",
       availableLanguage: ["English", "Hindi", "Punjabi"],
     },
-    sameAs: [SITE.instagramUrl],
+    sameAs: SOCIAL_LINKS.map((link) => link.href),
   };
 
   const serviceSchema = {

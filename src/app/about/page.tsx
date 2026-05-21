@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SITE, TESTIMONIALS } from "@/lib/constants";
+import { SITE, SOCIAL_LINKS, TESTIMONIALS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
@@ -86,7 +86,7 @@ export default function AboutPage() {
       url: SITE.url,
     },
     url: `${SITE.url}/about`,
-    sameAs: [SITE.instagramUrl],
+    sameAs: SOCIAL_LINKS.map((link) => link.href),
   };
 
   return (

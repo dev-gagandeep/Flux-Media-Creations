@@ -13,8 +13,14 @@ export const SITE = {
   location: "India — Serving US clients remotely",
   founder: "Gagan Deep",
   founderTitle: "Founder & Lead Developer",
-  instagramUrl: "https://www.instagram.com/fluxmediacreations",
 };
+
+export const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://linkedin.com/company/flux-media-creations" },
+  { label: "Facebook", href: "https://www.facebook.com/fluxmediacreations/" },
+  { label: "Instagram", href: "https://www.instagram.com/fluxmediacreations/" },
+  { label: "X", href: "https://x.com/fluxmediacrt_" },
+];
 
 export const NAV_LINKS = [
   { label: "About", href: "/about" },
