@@ -3,7 +3,7 @@ import { SITE } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 const WHATSAPP_LINK = `https://wa.me/${SITE.whatsappIndia}`;
-const ORDER_FORM_LINK = "#order-soon";
+const ORDER_FORM_LINK = "https://forms.gle/fyfz3YE89Gu8rMQGA";
 
 export const metadata: Metadata = generateMeta({
   absoluteTitle: "Student Portfolio Website at Rs. 199",
@@ -46,7 +46,7 @@ const benefits = [
   },
   {
     title: "Make Projects Easier to Understand",
-    body: "Present project goals, tools used, screenshots, GitHub links, and live demos in one structured place.",
+    body: "Present project goals, tools used, screenshots, GitHub links, and outcomes in one structured place.",
   },
   {
     title: "Upgrade Your LinkedIn Presence",
@@ -141,21 +141,6 @@ const addOns = [
   ["Premium animated design", "Rs. 299"],
 ];
 
-const demoTypes = [
-  {
-    title: "Developer Portfolio",
-    body: "For B.Tech, BCA, MCA, and self-taught students who want to present projects, tech stack, GitHub, and resume links clearly.",
-  },
-  {
-    title: "Designer Portfolio",
-    body: "For design students who need a polished page for case studies, Behance, Figma, visual projects, and creative experience.",
-  },
-  {
-    title: "Business Student Portfolio",
-    body: "For BBA, MBA, commerce, and non-tech students who want to show internships, achievements, leadership, and career goals.",
-  },
-];
-
 const faqItems = [
   {
     question: "What is included in the Rs. 199 plan?",
@@ -183,9 +168,9 @@ const faqItems = [
       "Yes. Content writing can be added for Rs. 99 if you want your details turned into clean student-friendly copy.",
   },
   {
-    question: "When will the order form be available?",
+    question: "How do I place an order?",
     answer:
-      "The order CTAs are ready for the form link. Once the final form URL is added, every order button on this page can point directly to it.",
+      "Click any Order Now Rs 199 button, fill the form, and share the details requested there. We will use that information to start your student portfolio.",
   },
 ];
 
@@ -193,6 +178,8 @@ function PrimaryCTA({ children, className = "" }: { children: React.ReactNode; c
   return (
     <a
       href={ORDER_FORM_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`inline-flex min-h-12 items-center justify-center rounded-full bg-flux px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(255,92,53,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-flux-dark ${className}`}
     >
       {children}
@@ -237,67 +224,29 @@ function CheckList({ items }: { items: string[] }) {
 export default function StudentPortfolioPage() {
   return (
     <div className="bg-cream text-ink">
-      <section className="relative overflow-hidden px-6 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
-        <div className="absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_78%_18%,rgba(255,92,53,0.18),transparent_34%),linear-gradient(180deg,#fff7f1_0%,rgba(250,248,244,0)_78%)]" />
-        <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
-            <div className="mb-6 inline-flex rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink/55">
-              Limited-time student offer
-            </div>
-            <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.9] tracking-[-0.04em]">
-              Student portfolio website at <span className="text-flux">Rs. 199</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/65 md:text-xl md:leading-9">
-              A polished personal website for internships, placements, LinkedIn, GitHub, and freelance opportunities. Built and deployed for you, so you can focus on your work instead of setup.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryCTA>Order link coming soon</PrimaryCTA>
-              <SecondaryCTA href={WHATSAPP_LINK}>Ask on WhatsApp</SecondaryCTA>
-            </div>
-            <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {trustItems.map((item) => (
-                <div key={item} className="flex items-center gap-3 text-sm font-medium text-ink/60">
-                  <span className="h-2 w-2 rounded-full bg-flux" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+      <section className="relative overflow-hidden px-6 pb-16 pt-32 text-center md:px-10 md:pb-24 md:pt-40">
+        <div className="absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_50%_8%,rgba(255,92,53,0.18),transparent_34%),linear-gradient(180deg,#fff7f1_0%,rgba(250,248,244,0)_78%)]" />
+        <div className="relative mx-auto max-w-4xl">
+          <div className="mb-6 inline-flex rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink/55">
+            Limited-time student offer
           </div>
-
-          <div className="rounded-[28px] border border-ink/10 bg-white p-5 shadow-[0_30px_80px_rgba(13,13,13,0.12)]">
-            <div className="rounded-2xl bg-ink p-5 text-white">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.22em] text-white/35">Portfolio preview</p>
-                  <p className="mt-2 font-display text-3xl font-semibold">Aarav Sharma</p>
-                </div>
-                <div className="rounded-full bg-flux px-3 py-1 text-xs font-semibold">Live</div>
+          <h1 className="font-display text-[clamp(2.8rem,7vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">
+            Portfolio website for students at <span className="text-flux">Rs. 199</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-ink/65 md:text-xl md:leading-9">
+            A clean personal website for internships, placements, LinkedIn, GitHub, and freelance opportunities. Built and deployed for you in 24 to 48 hours.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <PrimaryCTA>Order Now Rs 199</PrimaryCTA>
+            <SecondaryCTA href={WHATSAPP_LINK}>Ask on WhatsApp</SecondaryCTA>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-3xl gap-3 text-left sm:grid-cols-2">
+            {trustItems.map((item) => (
+              <div key={item} className="flex items-center gap-3 text-sm font-medium text-ink/60">
+                <span className="h-2 w-2 rounded-full bg-flux" />
+                <span>{item}</span>
               </div>
-              <div className="grid gap-3 py-5">
-                {["About", "Skills", "Projects", "Education", "Resume", "Contact"].map((item, index) => (
-                  <div key={item} className="flex items-center gap-3 rounded-xl bg-white/[0.07] px-4 py-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white/70">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-sm font-medium text-white/78">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="rounded-2xl bg-white p-5 text-ink">
-                <p className="text-xs uppercase tracking-[0.2em] text-ink/35">Student plan</p>
-                <div className="mt-2 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="font-display text-5xl font-semibold text-flux">Rs. 199</p>
-                    <p className="mt-1 text-sm text-ink/50">One-time starting plan</p>
-                  </div>
-                  <div className="text-right text-xs font-semibold uppercase tracking-[0.14em] text-ink/35">
-                    24 to 48 hr
-                    <br />
-                    delivery
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -331,16 +280,16 @@ export default function StudentPortfolioPage() {
               The Rs. 199 plan is intentionally simple: a clean, template-based portfolio that gives students a professional online identity without a high website budget.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryCTA>Order once the form is live</PrimaryCTA>
+              <PrimaryCTA>Order Now Rs 199</PrimaryCTA>
               <SecondaryCTA href={WHATSAPP_LINK}>Message us first</SecondaryCTA>
             </div>
           </div>
           <div className="rounded-2xl border border-ink/10 bg-cream p-6 md:p-8">
             <CheckList items={includedItems} />
-            <div id="order-soon" className="mt-8 rounded-xl border border-flux/20 bg-white p-5">
-              <p className="text-sm font-semibold text-ink">Order form status</p>
+            <div className="mt-8 rounded-xl border border-flux/20 bg-white p-5">
+              <p className="text-sm font-semibold text-ink">Ready to order</p>
               <p className="mt-2 text-sm leading-6 text-ink/60">
-                The order buttons are prepared for your form link. Send the final URL later and the CTAs can be updated across the page.
+                Fill the order form with your student details, portfolio content, and social links. We will review it and start your portfolio build.
               </p>
             </div>
           </div>
@@ -414,7 +363,7 @@ export default function StudentPortfolioPage() {
                   <CheckList items={plan.features} />
                 </div>
                 {plan.featured ? (
-                  <PrimaryCTA className="mt-8 w-full">Order link coming soon</PrimaryCTA>
+                  <PrimaryCTA className="mt-8 w-full">Order Now Rs 199</PrimaryCTA>
                 ) : (
                   <SecondaryCTA href={WHATSAPP_LINK} className="mt-8 w-full">Discuss this plan</SecondaryCTA>
                 )}
@@ -431,38 +380,6 @@ export default function StudentPortfolioPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-6 py-20 md:px-10">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="mx-auto max-w-2xl text-center">
-            <SectionLabel>Portfolio styles</SectionLabel>
-            <h2 className="font-display text-headline font-semibold">Student-friendly examples without the generic feel.</h2>
-          </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {demoTypes.map((demo) => (
-              <div key={demo.title} className="overflow-hidden rounded-2xl border border-ink/10 bg-cream">
-                <div className="h-44 border-b border-ink/10 bg-[linear-gradient(135deg,#0D0D0D_0%,#252525_52%,#FF5C35_100%)] p-5">
-                  <div className="h-full rounded-xl border border-white/15 bg-white/10 p-4">
-                    <div className="h-3 w-24 rounded-full bg-white/40" />
-                    <div className="mt-8 h-5 w-36 rounded-full bg-white/75" />
-                    <div className="mt-3 h-3 w-52 max-w-full rounded-full bg-white/30" />
-                    <div className="mt-6 grid grid-cols-3 gap-2">
-                      <div className="h-12 rounded-lg bg-white/20" />
-                      <div className="h-12 rounded-lg bg-white/20" />
-                      <div className="h-12 rounded-lg bg-white/20" />
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-2xl font-semibold">{demo.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-ink/62">{demo.body}</p>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-flux">Demo links can be added later</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -497,7 +414,7 @@ export default function StudentPortfolioPage() {
             Get a clean portfolio page at Rs. 199, share your work professionally, and add one stronger asset to every application.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <PrimaryCTA>Order link coming soon</PrimaryCTA>
+            <PrimaryCTA>Order Now Rs 199</PrimaryCTA>
             <SecondaryCTA href={WHATSAPP_LINK}>Chat on WhatsApp</SecondaryCTA>
           </div>
           <p className="mt-5 text-xs uppercase tracking-[0.16em] text-white/30">No coding needed. Free Vercel link. 24 to 48 hour delivery.</p>
