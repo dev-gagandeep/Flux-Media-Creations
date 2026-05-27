@@ -12,13 +12,6 @@ export const metadata: Metadata = generateMeta({
   path: "/student-portfolio",
 });
 
-const trustItems = [
-  "Built for college students, freshers, and interns",
-  "Delivered in 24 to 48 hours",
-  "Free Vercel hosted link included",
-  "No coding or hosting setup needed",
-];
-
 const painPoints = [
   "Your resume cannot show the quality of your actual projects.",
   "Recruiters see the same PDF format from every student.",
@@ -239,14 +232,6 @@ export default function StudentPortfolioPage() {
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <PrimaryCTA>Order Now Rs 199</PrimaryCTA>
             <SecondaryCTA href={WHATSAPP_LINK}>Ask on WhatsApp</SecondaryCTA>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-3 text-left sm:grid-cols-2">
-            {trustItems.map((item) => (
-              <div key={item} className="flex items-center gap-3 text-sm font-medium text-ink/60">
-                <span className="h-2 w-2 rounded-full bg-flux" />
-                <span>{item}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
