@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export default function StickyCTA() {
   const pathname = usePathname();
 
-  if (pathname === "/contact" || pathname === "/book-a-call") {
+  if (pathname === "/contact" || pathname === "/book-a-call" || pathname === "/student-portfolio") {
     return null;
   }
 
