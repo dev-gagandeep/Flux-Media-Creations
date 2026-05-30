@@ -15,8 +15,6 @@ const SERVICES_OPTIONS = [
 
 const BUDGETS = ["Under $300", "$300-$600", "$600-$1,200", "$1,200+", "Let's discuss"];
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbdqqvjy";
-
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -45,13 +43,10 @@ export default function ContactForm() {
     setError("");
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          ...form,
-          _subject: `New project enquiry from ${form.name} - ${form.business}`,
-        }),
+        body: JSON.stringify(form),
       });
 
       if (res.ok) {
@@ -83,29 +78,29 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="rounded-3xl border border-ink/10 bg-white p-6 md:p-8 flex flex-col gap-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="text-xs text-ink/40 block mb-1.5">Your name *</label>
-          <input required className="flux-input" placeholder="Your name" value={form.name} onChange={(event) => set("name", event.target.value)} />
+          <label htmlFor="contact-name" className="text-xs text-ink/40 block mb-1.5">Your name *</label>
+          <input id="contact-name" name="name" required className="flux-input" placeholder="Your name" value={form.name} onChange={(event) => set("name", event.target.value)} />
         </div>
         <div>
-          <label className="text-xs text-ink/40 block mb-1.5">Business name *</label>
-          <input required className="flux-input" placeholder="Business or clinic name" value={form.business} onChange={(event) => set("business", event.target.value)} />
+          <label htmlFor="contact-business" className="text-xs text-ink/40 block mb-1.5">Business name *</label>
+          <input id="contact-business" name="business" required className="flux-input" placeholder="Business or clinic name" value={form.business} onChange={(event) => set("business", event.target.value)} />
         </div>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="text-xs text-ink/40 block mb-1.5">Email *</label>
-          <input required type="email" className="flux-input" placeholder="you@business.com" value={form.email} onChange={(event) => set("email", event.target.value)} />
+          <label htmlFor="contact-email" className="text-xs text-ink/40 block mb-1.5">Email *</label>
+          <input id="contact-email" name="email" required type="email" className="flux-input" placeholder="you@business.com" value={form.email} onChange={(event) => set("email", event.target.value)} />
         </div>
         <div>
-          <label className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp *</label>
-          <input required className="flux-input" placeholder="+1 555 000 0000" value={form.phone} onChange={(event) => set("phone", event.target.value)} />
+          <label htmlFor="contact-phone" className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp *</label>
+          <input id="contact-phone" name="phone" required className="flux-input" placeholder="+1 555 000 0000" value={form.phone} onChange={(event) => set("phone", event.target.value)} />
         </div>
       </div>
 
       <div>
-        <label className="text-xs text-ink/40 block mb-1.5">Industry *</label>
-        <select required className="flux-input" value={form.industry} onChange={(event) => set("industry", event.target.value)}>
+        <label htmlFor="contact-industry" className="text-xs text-ink/40 block mb-1.5">Industry *</label>
+        <select id="contact-industry" name="industry" required className="flux-input" value={form.industry} onChange={(event) => set("industry", event.target.value)}>
           <option value="">Select your industry</option>
           <option>Healthcare clinic</option>
           <option>Home services</option>
@@ -119,6 +114,7 @@ export default function ContactForm() {
       <div>
         <label className="text-xs text-ink/40 block mb-2">What do you need? *</label>
         <div className="flex flex-wrap gap-2">
+          <input type="hidden" id="contact-service" name="service" value={form.service} />
           {SERVICES_OPTIONS.map((service) => (
             <button
               key={service}
@@ -140,6 +136,7 @@ export default function ContactForm() {
       <div>
         <label className="text-xs text-ink/40 block mb-2">Budget range *</label>
         <div className="flex flex-wrap gap-2">
+          <input type="hidden" id="contact-budget" name="budget" value={form.budget} />
           {BUDGETS.map((budget) => (
             <button
               key={budget}
@@ -159,9 +156,11 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="text-xs text-ink/40 block mb-1.5">Tell us about your project *</label>
+        <label htmlFor="contact-message" className="text-xs text-ink/40 block mb-1.5">Tell us about your project *</label>
         <textarea
           required
+          id="contact-message"
+          name="message"
           className="flux-input resize-none"
           rows={4}
           placeholder="Send your website link, business type, services, and the problem you want to fix."
@@ -171,7 +170,7 @@ export default function ContactForm() {
       </div>
 
       <label className="flex items-start gap-3 text-xs text-ink/50 leading-5">
-        <input required type="checkbox" checked={form.consent} onChange={(event) => set("consent", event.target.checked)} className="mt-0.5" />
+        <input id="contact-consent" name="consent" required type="checkbox" checked={form.consent} onChange={(event) => set("consent", event.target.checked)} className="mt-0.5" />
         <span>
           I agree to be contacted about my inquiry and accept the
           <Link href="/privacy" className="mx-1 text-flux hover:underline">Privacy Policy</Link>
