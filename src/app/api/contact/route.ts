@@ -52,7 +52,13 @@ export async function POST(req: NextRequest) {
       }),
     ]);
 
-    if (!formspreeResponse.ok || !makeWebhookResponse.ok) {
+    if (!makeWebhookResponse.ok) {
+      console.error("contact form Make webhook delivery failed:", {
+        makeWebhookStatus: makeWebhookResponse.status,
+      });
+    }
+
+    if (!formspreeResponse.ok) {
       console.error("contact form delivery failed:", {
         formspreeStatus: formspreeResponse.status,
         makeWebhookStatus: makeWebhookResponse.status,
@@ -60,7 +66,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Delivery failed" }, { status: 502 });
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, makeWebhookSent: makeWebhookResponse.ok });
   } catch (error) {
     console.error("contact form API error:", error);
     return NextResponse.json({ error: "Delivery failed" }, { status: 502 });
