@@ -177,7 +177,11 @@ export const locationContent: Record<string, LocationRouteContent> = {
     finalBody: "If your website is not generating enough leads or your follow-up process is too manual, Flux Media Creations can help you build a better system.",
     finalPrimaryCta: "Get a New Jersey Growth Review",
     finalSecondaryCta: "Start a Project",
-    internalLinks: [...commonLinks, { label: "New York", href: "/web-development-ai-automation-new-york" }],
+    internalLinks: [
+      ...commonLinks,
+      { label: "Local SEO New Jersey", href: "/local-seo-new-jersey" },
+      { label: "New York", href: "/web-development-ai-automation-new-york" },
+    ],
   },
 };
 

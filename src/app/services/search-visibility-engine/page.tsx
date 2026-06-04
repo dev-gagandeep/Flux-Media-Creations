@@ -184,6 +184,7 @@ const faqs = [
 const internalLinks = [
   ["WordPress Website Design", "/services/wordpress-website-build"],
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
+  ["Local SEO New Jersey", "/local-seo-new-jersey"],
   ["Full Growth System", "/services/full-growth-system"],
   ["Healthcare SEO Structure", "/services/healthcare-seo-structure"],
   ["Healthcare Website Design Blog", "/blog/healthcare-website-design-clinic-conversions"],

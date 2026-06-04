@@ -31,6 +31,7 @@ export default function Nav() {
       body: "Organic discovery across Google, Maps, and AI search.",
       items: [
         { name: "Search Visibility Engine", href: "/services/search-visibility-engine", note: "SEO, Maps, and AI search visibility" },
+        { name: "Local SEO New Jersey", href: "/local-seo-new-jersey", note: "Google Maps, GBP, reviews, and AI search for NJ" },
         { name: "Healthcare SEO Structure", href: "/healthcare-website-crm", note: "Clinic service pages and trust-led SEO" },
       ],
     },
