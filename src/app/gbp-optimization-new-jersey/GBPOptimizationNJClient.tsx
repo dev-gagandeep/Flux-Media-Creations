@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 const T = {
@@ -288,6 +289,13 @@ export default function GBPOptimizationNJClient() {
               <p style={{ color: T.muted, lineHeight: 1.8 }}>
                 A fully optimized Google Business Profile is what determines whether you&apos;re in those three spots. Most NJ businesses have a profile. Very few have an optimized one.
               </p>
+              <p style={{ color: T.muted, lineHeight: 1.8, marginTop: "1rem" }}>
+                If you do not have a profile yet, start with our{" "}
+                <Link href="/google-business-profile-setup-new-jersey" style={{ color: T.accent, fontWeight: 500, textDecoration: "none" }}>
+                  Google Business Profile setup for New Jersey
+                </Link>{" "}
+                so the listing is claimed, verified, and ready for ongoing optimization.
+              </p>
             </div>
             <div className="gbp-stat-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
               {RESULTS.map((r, i) => (
@@ -454,6 +462,38 @@ export default function GBPOptimizationNJClient() {
               </div>
             </div>
           </Fade>
+        </div>
+      </section>
+
+      <section style={{ padding: "3.5rem 2rem", background: T.bg, borderTop: `1px solid ${T.border}` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
+          <span className="gbp-sl">Related local SEO services</span>
+          <div style={{ display: "flex", gap: ".75rem", justifyContent: "center", flexWrap: "wrap", marginTop: "1rem" }}>
+            {[
+              ["Google Business Profile Setup NJ", "/google-business-profile-setup-new-jersey"],
+              ["Local SEO Services NJ", "/local-seo-new-jersey"],
+              ["Search Visibility Engine", "/services/search-visibility-engine"],
+              ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],
+              ["GoHighLevel Automation", "/services/gohighlevel-automation"],
+            ].map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                style={{
+                  background: T.card,
+                  border: `1px solid ${T.border}`,
+                  borderRadius: 999,
+                  padding: ".6rem 1rem",
+                  fontSize: ".85rem",
+                  color: T.text,
+                  textDecoration: "none",
+                  transition: "border-color .2s, color .2s",
+                }}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </main>
