@@ -63,7 +63,7 @@ const cities = [
 
 const relatedLinks = [
   ["Local SEO Services New Jersey", "/local-seo-new-jersey"],
-  ["Google Business Profile Optimization NJ", "/gbp-optimization-new-jersey"],
+  ["Google Business Profile Optimization NJ", "/local-seo-new-jersey/gbp-optimization-new-jersey"],
   ["Search Visibility Engine", "/services/search-visibility-engine"],
   ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
@@ -91,7 +91,7 @@ export default function GBPSetupNJClient() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          source: "google-business-profile-setup-new-jersey",
+          source: "local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey",
           submittedAt: new Date().toISOString(),
           name: form.name,
           business: form.business,
@@ -140,7 +140,7 @@ export default function GBPSetupNJClient() {
               <Link href="#gbp-setup-form" className="inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,88,51,0.22)] transition hover:-translate-y-0.5">
                 Set Up My GBP Listing <span aria-hidden="true">-&gt;</span>
               </Link>
-              <Link href="/gbp-optimization-new-jersey" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-flux hover:text-flux">
+              <Link href="/local-seo-new-jersey/gbp-optimization-new-jersey" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-flux hover:text-flux">
                 Need GBP Optimization?
               </Link>
             </div>
@@ -196,7 +196,7 @@ export default function GBPSetupNJClient() {
               </p>
               <p>
                 If you already have a profile but it is incomplete or inactive, our{" "}
-                <Link href="/gbp-optimization-new-jersey" className="font-medium text-flux hover:underline">
+                <Link href="/local-seo-new-jersey/gbp-optimization-new-jersey" className="font-medium text-flux hover:underline">
                   Google Business Profile optimization service
                 </Link>{" "}
                 is the next step after setup.

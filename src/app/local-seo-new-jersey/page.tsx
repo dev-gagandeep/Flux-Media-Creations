@@ -158,8 +158,8 @@ const faqs = [
 ];
 
 const internalLinks = [
-  ["Google Business Profile Setup NJ", "/google-business-profile-setup-new-jersey"],
-  ["Google Business Profile Optimization NJ", "/gbp-optimization-new-jersey"],
+  ["Google Business Profile Setup NJ", "/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey"],
+  ["Google Business Profile Optimization NJ", "/local-seo-new-jersey/gbp-optimization-new-jersey"],
   ["Search Visibility Engine", "/services/search-visibility-engine"],
   ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
@@ -315,14 +315,14 @@ export default function LocalSeoNewJerseyPage() {
               </p>
               <p>
                 A stronger local SEO system connects your{" "}
-                <Link href="/gbp-optimization-new-jersey" className="font-medium text-flux hover:underline">
+                <Link href="/local-seo-new-jersey/gbp-optimization-new-jersey" className="font-medium text-flux hover:underline">
                   Google Business Profile optimization
                 </Link>
                 , website service pages, location relevance, review strategy, citations, internal links, and follow-up path into one clear customer journey.
               </p>
               <p>
                 If your business is starting from scratch, begin with our{" "}
-                <Link href="/google-business-profile-setup-new-jersey" className="font-medium text-flux hover:underline">
+                <Link href="/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey" className="font-medium text-flux hover:underline">
                   Google Business Profile setup for New Jersey
                 </Link>{" "}
                 before moving into monthly optimization and review growth.

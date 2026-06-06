@@ -181,7 +181,7 @@ export default function GBPOptimizationNJClient() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          source: "gbp-optimization-new-jersey",
+          source: "local-seo-new-jersey/gbp-optimization-new-jersey",
           submittedAt: new Date().toISOString(),
           name: form.name,
           business: form.business,
@@ -291,7 +291,7 @@ export default function GBPOptimizationNJClient() {
               </p>
               <p style={{ color: T.muted, lineHeight: 1.8, marginTop: "1rem" }}>
                 If you do not have a profile yet, start with our{" "}
-                <Link href="/google-business-profile-setup-new-jersey" style={{ color: T.accent, fontWeight: 500, textDecoration: "none" }}>
+                <Link href="/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey" style={{ color: T.accent, fontWeight: 500, textDecoration: "none" }}>
                   Google Business Profile setup for New Jersey
                 </Link>{" "}
                 so the listing is claimed, verified, and ready for ongoing optimization.
@@ -470,7 +470,7 @@ export default function GBPOptimizationNJClient() {
           <span className="gbp-sl">Related local SEO services</span>
           <div style={{ display: "flex", gap: ".75rem", justifyContent: "center", flexWrap: "wrap", marginTop: "1rem" }}>
             {[
-              ["Google Business Profile Setup NJ", "/google-business-profile-setup-new-jersey"],
+              ["Google Business Profile Setup NJ", "/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey"],
               ["Local SEO Services NJ", "/local-seo-new-jersey"],
               ["Search Visibility Engine", "/services/search-visibility-engine"],
               ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],

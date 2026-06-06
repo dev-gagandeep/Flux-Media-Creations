@@ -7,7 +7,7 @@ export const metadata: Metadata = generateMeta({
   absoluteTitle: "Google Business Profile Optimization New Jersey",
   description:
     "Google Business Profile optimization for New Jersey businesses that need better Google Maps rankings, Map Pack visibility, weekly posts, photos, Q&A management, and AI search visibility.",
-  path: "/gbp-optimization-new-jersey",
+  path: "/local-seo-new-jersey/gbp-optimization-new-jersey",
 });
 
 const faqs = [
@@ -53,7 +53,7 @@ const serviceSchema = {
   },
   description:
     "Flux Media Creations provides Google Business Profile optimization for New Jersey businesses, including category setup, descriptions, posts, photos, Q&A management, service area signals, website links, and AI search visibility.",
-  url: `${SITE.url}/gbp-optimization-new-jersey`,
+  url: `${SITE.url}/local-seo-new-jersey/gbp-optimization-new-jersey`,
 };
 
 const faqSchema = {
@@ -89,7 +89,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 3,
       name: "Google Business Profile Optimization New Jersey",
-      item: `${SITE.url}/gbp-optimization-new-jersey`,
+      item: `${SITE.url}/local-seo-new-jersey/gbp-optimization-new-jersey`,
     },
   ],
 };
