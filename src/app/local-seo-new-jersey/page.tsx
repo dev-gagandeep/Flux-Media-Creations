@@ -158,6 +158,7 @@ const faqs = [
 ];
 
 const internalLinks = [
+  ["Google Business Profile Optimization NJ", "/gbp-optimization-new-jersey"],
   ["Search Visibility Engine", "/services/search-visibility-engine"],
   ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
