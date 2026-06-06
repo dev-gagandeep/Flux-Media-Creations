@@ -161,13 +161,13 @@ function FAQ({ q, a }: { q: string; a: string }) {
 export { FAQS };
 
 export default function GBPOptimizationNJClient() {
-  const [form, setForm] = useState({ name: "", business: "", city: "", phone: "" });
+  const [form, setForm] = useState({ name: "", business: "", city: "", email: "", phone: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const submitAuditRequest = async () => {
-    if (!form.name || !form.business || !form.city || !form.phone) {
+    if (!form.name || !form.business || !form.city || !form.email || !form.phone) {
       setError("Please fill out all fields.");
       return;
     }
@@ -185,6 +185,7 @@ export default function GBPOptimizationNJClient() {
           name: form.name,
           business: form.business,
           city: form.city,
+          email: form.email,
           phone: form.phone,
           _subject: `New GBP audit request from ${form.name} - ${form.business}`,
         }),
@@ -440,6 +441,7 @@ export default function GBPOptimizationNJClient() {
                       <input className="gbp-input" placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                       <input className="gbp-input" placeholder="Business type (e.g. HVAC, Dentist)" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} />
                       <input className="gbp-input" placeholder="City in New Jersey" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
+                      <input className="gbp-input" placeholder="Email address" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                       <input className="gbp-input" placeholder="Phone number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                       {error && <p style={{ color: "#CC3333", fontSize: ".85rem" }}>{error}</p>}
                       <button type="button" className="gbp-btn-primary" onClick={submitAuditRequest} disabled={loading} style={{ width: "100%", justifyContent: "center", padding: ".95rem", fontSize: "1rem", marginTop: ".25rem", opacity: loading ? 0.7 : 1 }}>
