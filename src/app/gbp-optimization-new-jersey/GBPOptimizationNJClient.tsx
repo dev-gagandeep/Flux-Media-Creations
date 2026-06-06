@@ -111,6 +111,8 @@ const CITIES = [
   "New Brunswick", "Bergen County", "Essex County", "Morris County",
 ];
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mojzjnyp";
+
 function useFadeIn(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
   const [v, setV] = useState(false);
@@ -161,6 +163,44 @@ export { FAQS };
 export default function GBPOptimizationNJClient() {
   const [form, setForm] = useState({ name: "", business: "", city: "", phone: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const submitAuditRequest = async () => {
+    if (!form.name || !form.business || !form.city || !form.phone) {
+      setError("Please fill out all fields.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          source: "gbp-optimization-new-jersey",
+          submittedAt: new Date().toISOString(),
+          name: form.name,
+          business: form.business,
+          city: form.city,
+          phone: form.phone,
+          _subject: `New GBP audit request from ${form.name} - ${form.business}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main style={{ fontFamily: "'DM Sans','Helvetica Neue',sans-serif", background: T.bg, color: T.text, minHeight: "100vh" }}>
@@ -401,8 +441,9 @@ export default function GBPOptimizationNJClient() {
                       <input className="gbp-input" placeholder="Business type (e.g. HVAC, Dentist)" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} />
                       <input className="gbp-input" placeholder="City in New Jersey" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
                       <input className="gbp-input" placeholder="Phone number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-                      <button type="button" className="gbp-btn-primary" onClick={() => setSent(true)} style={{ width: "100%", justifyContent: "center", padding: ".95rem", fontSize: "1rem", marginTop: ".25rem" }}>
-                        Get My Free GBP Audit →
+                      {error && <p style={{ color: "#CC3333", fontSize: ".85rem" }}>{error}</p>}
+                      <button type="button" className="gbp-btn-primary" onClick={submitAuditRequest} disabled={loading} style={{ width: "100%", justifyContent: "center", padding: ".95rem", fontSize: "1rem", marginTop: ".25rem", opacity: loading ? 0.7 : 1 }}>
+                        {loading ? "Sending..." : "Get My Free GBP Audit →"}
                       </button>
                     </div>
                     <p style={{ fontSize: ".775rem", color: T.muted, textAlign: "center", marginTop: ".75rem" }}>No spam. Just your free audit results.</p>
