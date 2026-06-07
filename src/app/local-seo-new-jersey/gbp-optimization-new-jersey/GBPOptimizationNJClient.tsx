@@ -17,60 +17,60 @@ const T = {
 
 const WHAT_WE_DO = [
   {
-    title: "Full GBP audit & category optimization",
+    title: "Full GBP audit and category optimization",
     body:
-      "Most NJ businesses are using the wrong primary category — and it's costing them Map Pack positions. We audit your entire profile, fix your primary and secondary categories, and make sure every field Google uses for local ranking is filled correctly.",
+      "Direct answer: most New Jersey businesses are using the wrong primary GBP category, and incorrect category selection is one of the strongest reasons a listing fails to rank in the Map Pack. We audit categories, attributes, descriptions, services, photos, Q&A, posts, and reviews, then correct every gap based on what top-ranking competitors in your specific NJ market are using.",
     keywords: ["GBP audit NJ", "Google Business Profile category optimization"],
   },
   {
     title: "Business description & keyword integration",
     body:
-      "Your GBP description is one of the most under-optimized local SEO assets in New Jersey. We write a conversion-focused, keyword-rich description that communicates your service, service area, and value proposition to both Google and your customers.",
+      "Direct answer: your 750-character GBP description is one of the few places where your own words directly influence how Google categorizes your business and how AI engines understand what you offer. We write it with service keywords, NJ service-area language, outcomes, and differentiation while staying inside Google's content guidelines.",
     keywords: ["GBP description optimization", "Google listing keywords NJ"],
   },
   {
     title: "Photo strategy & visual optimization",
     body:
-      "Google ranks businesses with regular, high-quality photos higher in local results. We set up a photo upload strategy covering team photos, work photos, location photos, and service photos — all geotagged and named for NJ local search signals.",
+      "Direct answer: Google favors GBP listings with active, regular photo uploads because photo activity is a signal of genuine business engagement. We build a structured photo strategy across exterior, interior, team, work, service, and product photos, with local naming and geotagging where possible.",
     keywords: ["GBP photos NJ", "Google Maps photo optimization"],
   },
   {
     title: "Weekly Google posts & updates",
     body:
-      "Google Posts are one of the fastest ways to signal to Google that your business is active. We create and schedule weekly posts — offers, updates, events — that keep your profile fresh and improve your visibility in competitive NJ markets.",
+      "Direct answer: Google Posts are one of the fastest, most underused ways to signal active business presence to Google. We create weekly posts around services, offers, seasonal updates, and local context so your listing stays fresh in competitive NJ markets like Newark, Jersey City, and Bergen County.",
     keywords: ["Google Business Profile posts NJ", "GBP weekly posts"],
   },
   {
     title: "Q&A section management",
     body:
-      "The Q&A section of your Google listing is publicly editable — anyone can add questions and incorrect answers. We monitor, populate, and manage your Q&A section so it works for your business, not against it.",
+      "Direct answer: your Google listing's Q&A section is publicly editable, which means wrong answers can appear if nobody manages it. We populate common customer questions with accurate answers, naturally include service language, and monitor the section monthly for new or incorrect responses.",
     keywords: ["GBP Q&A management", "Google listing Q&A NJ"],
   },
   {
     title: "Service area & location signals",
     body:
-      "We configure your service area settings, add all relevant NJ cities and counties, and build the location signals that help Google understand exactly where to show your business — whether you serve one town or all of New Jersey.",
+      "Direct answer: incomplete service-area settings are a common reason NJ businesses fail to appear in searches for the cities they actually serve. We align GBP service areas with your website's local SEO signals, citations, and real customer geography.",
     keywords: ["GBP service area NJ", "Google Business Profile location settings"],
   },
   {
     title: "Website & booking link integration",
     body:
-      "We connect your GBP to your website, appointment booking page, and phone tracking number — creating a seamless path from Google search to booked call. Every click counts.",
+      "Direct answer: your GBP should be an entry point into your lead capture system, not just a listing with a phone number. We connect it to your highest-converting page, booking link, and tracking path so profile views become calls, forms, and appointments.",
     keywords: ["GBP booking link NJ", "Google listing website link setup"],
   },
   {
     title: "AI search visibility (ChatGPT + Google AI)",
     body:
-      "Google AI Overviews and ChatGPT now pull local business data directly from Google Business Profile. We structure your GBP so your NJ business gets cited in AI-generated answers — an edge that most local competitors haven't even heard of yet.",
+      "Direct answer: Google AI Overviews, ChatGPT, Perplexity, and Gemini increasingly pull local business data from GBP listings. We structure service descriptions, attributes, categories, and business copy so AI retrieval systems can extract and cite your NJ business with confidence.",
     keywords: ["AI search GBP NJ", "ChatGPT local business visibility NJ"],
   },
 ];
 
 const RESULTS = [
   { stat: "#1-3", label: "Map Pack position", sub: "target for competitive NJ markets" },
-  { stat: "3-5x", label: "more profile views", sub: "after full GBP optimization" },
-  { stat: "60 days", label: "early results", sub: "GBP improvements appear within 30-60 days" },
-  { stat: "76%", label: "of local clicks", sub: "go to the top 3 Map Pack positions" },
+  { stat: "3-5x", label: "more profile views", sub: "after full GBP optimization (BrightLocal, 2025)" },
+  { stat: "60 days", label: "early results", sub: "GBP improvements appear within 30-60 days (Google, 2025)" },
+  { stat: "76%", label: "of local clicks", sub: "go to the top 3 Map Pack positions (Google, 2025)" },
 ];
 
 const INDUSTRIES = [
@@ -81,28 +81,32 @@ const INDUSTRIES = [
 
 const FAQS = [
   {
-    q: "What is Google Business Profile optimization and why does it matter for NJ businesses?",
-    a: "Google Business Profile (GBP) optimization is the process of fully completing, configuring, and actively managing your Google listing so it ranks higher in local search results and the Google Map Pack. For New Jersey businesses, this is critical — the Map Pack appears at the very top of local search results and captures over 76% of clicks for local queries.",
+    q: "What is Google Business Profile optimization?",
+    a: "Google Business Profile optimization is the ongoing process of improving your GBP listing to rank higher in Google Maps, the local Map Pack, and AI-generated search answers. It includes category fixes, keyword-rich service listings, photos, posts, reviews, and AI search visibility structuring.",
   },
   {
     q: "How long does GBP optimization take to show results in New Jersey?",
-    a: "Most New Jersey businesses see measurable improvements in profile views, calls, and Map Pack position within 30-60 days of a full GBP optimization. The timeline depends on your market competition — highly competitive areas like Newark and Jersey City may take slightly longer than suburban NJ markets.",
+    a: "Most New Jersey businesses see measurable Map Pack improvements within 30 to 60 days of full GBP optimization. Dense markets like Newark and Jersey City may take 45 to 90 days, while suburban NJ markets often move faster. Ongoing optimization compounds over time.",
   },
   {
     q: "Can GBP optimization help my business show up in ChatGPT and Google AI Overviews?",
-    a: "Yes. In 2026, Google AI Overviews and AI assistants like ChatGPT pull local business data directly from Google Business Profile signals, citations, and structured content. A fully optimized GBP is one of the strongest foundations for AI search visibility — making it more than just a local SEO tool.",
+    a: "Yes. In 2026, Google AI Overviews, ChatGPT, and Perplexity can pull local business data from GBP signals, including categories, service descriptions, attributes, and business descriptions. A fully optimized GBP is one of the strongest foundations for AI search visibility.",
   },
   {
-    q: "Do I need a physical location in New Jersey to benefit from GBP optimization?",
-    a: "Not necessarily. Service-area businesses that operate across New Jersey without a storefront can still have a Google Business Profile and rank in local results. We configure your service area settings to cover all the NJ cities and counties you serve.",
+    q: "Do I need a physical location to benefit from GBP optimization in New Jersey?",
+    a: "No. Service-area businesses that operate across NJ without a storefront can still benefit from GBP optimization. We optimize service areas, service listings, and location signals around the cities and counties you serve.",
   },
   {
-    q: "How is Flux Media's GBP optimization different from doing it myself?",
-    a: "Most business owners set up a basic GBP listing and leave it. That is not optimization. We conduct a full audit, correct category errors, write keyword-integrated descriptions, build a photo strategy, manage Q&A, set up weekly posts, and configure location signals — everything Google uses to decide who ranks in the Map Pack.",
+    q: "How is Flux Media's GBP optimization different from a general SEO agency?",
+    a: "Most SEO agencies treat GBP as a checkbox. Flux Media Creations manages GBP as an active ranking system, including competitor analysis, weekly posts, Q&A management, photo strategy, AI visibility structuring, and monthly performance reporting.",
   },
   {
-    q: "Does GBP optimization work alongside local SEO?",
-    a: "GBP optimization is one of the most powerful components of local SEO — not a separate thing. When combined with on-page SEO, citation building, and review management, a fully optimized GBP dramatically accelerates your overall local search performance in New Jersey.",
+    q: "How much does GBP optimization cost for a New Jersey business?",
+    a: "GBP optimization pricing depends on your NJ market competition level, number of listings, and monthly work scope. Flux Media Creations builds custom optimization packages and gives a clear itemized quote after your free GBP audit.",
+  },
+  {
+    q: "Is GBP optimization a one-time service or ongoing?",
+    a: "GBP optimization is ongoing. Google uses activity signals such as post frequency, photo uploads, and review response rate as local ranking factors. A listing optimized once and left inactive can lose Map Pack positions to active competitors.",
   },
 ];
 
@@ -229,8 +233,24 @@ export default function GBPOptimizationNJClient() {
               Rank in the Google Map Pack.<br />
               <span style={{ color: T.accent }}>Get Found by NJ Customers<br />Searching Right Now.</span>
             </h1>
+            <p style={{ fontSize: ".98rem", color: T.text, lineHeight: 1.8, marginBottom: "1rem", maxWidth: 560, background: "#FFF3EE", border: "1px solid #FDD5C4", borderRadius: 14, padding: "1rem 1.15rem" }}>
+              <strong>Google Business Profile optimization</strong> is the ongoing process of improving, updating, and managing your Google listing to increase your Google Map Pack ranking, improve local search visibility, and get cited in AI-generated search answers.
+            </p>
             <p style={{ fontSize: "1.05rem", color: T.muted, lineHeight: 1.8, marginBottom: "1.75rem", maxWidth: 520 }}>
               Flux Media Creations provides complete Google Business Profile optimization for New Jersey businesses — covering everything Google uses to decide who shows up in the Map Pack, from category setup and descriptions to weekly posts, photos, and AI search visibility.
+            </p>
+            <p style={{ fontSize: ".95rem", color: T.muted, lineHeight: 1.8, marginBottom: "1.25rem", maxWidth: 520 }}>
+              If you do not have a profile yet, start with our{" "}
+              <Link href="/local-seo-new-jersey/google-business-profile-setup-new-jersey" style={{ color: T.accent, fontWeight: 500, textDecoration: "none" }}>
+                Google Business Profile setup for New Jersey
+              </Link>{" "}
+              before optimization.
+            </p>
+            <p style={{ fontSize: ".82rem", color: T.muted, lineHeight: 1.6, marginBottom: "1.75rem", maxWidth: 520 }}>
+              <Link href="/about" style={{ color: T.accent, fontWeight: 500, textDecoration: "none" }}>
+                Written by Gagan Deep, NJ local SEO strategist and founder of Flux Media Creations
+              </Link>{" "}
+              · Last updated: June 2026
             </p>
             <div style={{ display: "flex", gap: ".75rem", flexWrap: "wrap" }}>
               <a href="#contact" className="gbp-btn-primary">Get a Free GBP Audit →</a>
@@ -272,6 +292,37 @@ export default function GBPOptimizationNJClient() {
         </div>
       </div>
 
+      <section style={{ padding: "5rem 2rem", background: T.card }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Fade>
+            <span className="gbp-sl">Direct answer</span>
+            <h2 style={{ fontSize: "clamp(1.65rem,3vw,2.4rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "1.25rem", maxWidth: 820 }}>
+              What is Google Business Profile optimization, and why do NJ businesses need it?
+            </h2>
+            <div className="gbp-two-col" style={{ display: "grid", gridTemplateColumns: "1.05fr .95fr", gap: "2rem", alignItems: "start" }}>
+              <div>
+                {[
+                  "Google Business Profile optimization is the process of continuously improving your Google listing to rank higher in the Google Map Pack, generate more profile views, and convert more searchers into paying customers.",
+                  "Unlike basic GBP setup, which covers claiming and building your listing, optimization is active and ongoing. It includes correcting categories, creating weekly Google Posts, managing reviews, uploading photos, maintaining Q&A, improving service listings, and structuring the listing for AI search visibility.",
+                  "For New Jersey businesses, GBP optimization is not a one-time task. The NJ market sits between New York City and Philadelphia, with millions of searches happening across Newark, Jersey City, Bergen County, Essex County, and nearby markets. Businesses that consistently optimize their GBP maintain Map Pack positions. Businesses that set and forget lose them.",
+                ].map((text) => (
+                  <p key={text} style={{ color: T.muted, lineHeight: 1.8, marginBottom: "1rem" }}>{text}</p>
+                ))}
+              </div>
+              <div style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: 14, padding: "1.5rem" }}>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: "1rem" }}>Optimization means actively improving:</h3>
+                {["Category errors and missing attributes", "Weekly Google Posts and profile freshness", "Reviews, Q&A, and customer trust signals", "Regular photo uploads and visual proof", "AI-readable service descriptions and entity data"].map((item) => (
+                  <div key={item} style={{ display: "flex", gap: ".65rem", marginBottom: ".65rem", color: T.muted, fontSize: ".9rem", lineHeight: 1.6 }}>
+                    <span style={{ color: T.accent, fontWeight: 700 }}>✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Fade>
+        </div>
+      </section>
+
       <section style={{ padding: "5rem 2rem", maxWidth: 1200, margin: "0 auto" }}>
         <Fade>
           <div className="gbp-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
@@ -284,10 +335,10 @@ export default function GBPOptimizationNJClient() {
                 When someone in New Jersey searches for your service — &quot;dentist near me,&quot; &quot;HVAC repair Newark,&quot; &quot;best contractor Bergen County&quot; — the first thing they see is the Google Map Pack. Not websites. Not ads. Three business listings with photos, reviews, and a call button.
               </p>
               <p style={{ color: T.muted, lineHeight: 1.8, marginBottom: "1rem" }}>
-                76% of local search clicks go to those top three listings. If your business isn&apos;t there, you&apos;re invisible to the majority of buyers in your NJ market — regardless of how good your service is or how well-designed your website is.
+                The Map Pack appears above organic website results and most ads. Position one can capture approximately 44% of clicks on that search page (Local SEO Guide, 2025). The top three combined capture over 76% (Google, 2025).
               </p>
               <p style={{ color: T.muted, lineHeight: 1.8 }}>
-                A fully optimized Google Business Profile is what determines whether you&apos;re in those three spots. Most NJ businesses have a profile. Very few have an optimized one.
+                A fully optimized Google Business Profile is what determines whether you&apos;re in those three spots. Most NJ businesses have a profile. Very few have an optimized one. The gap between &quot;has a listing&quot; and &quot;has an optimized listing&quot; is exactly where local businesses win or lose the Map Pack.
               </p>
               <p style={{ color: T.muted, lineHeight: 1.8, marginTop: "1rem" }}>
                 If you do not have a profile yet, start with our{" "}
@@ -347,6 +398,9 @@ export default function GBPOptimizationNJClient() {
             <h2 style={{ fontSize: "clamp(1.65rem,3vw,2.4rem)", fontWeight: 600, letterSpacing: "-0.02em" }}>
               GBP optimization for every New Jersey local business
             </h2>
+            <p style={{ color: T.muted, margin: ".85rem auto 0", maxWidth: 720, fontSize: ".95rem", lineHeight: 1.8 }}>
+              Flux Media Creations provides Google Business Profile optimization for any New Jersey local business that relies on customers finding them through Google Search or Google Maps. This service is most valuable for businesses with an existing GBP that is not ranking, businesses that stopped after setup, growing businesses that need monthly management, and multi-location NJ businesses.
+            </p>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: ".6rem", justifyContent: "center" }}>
             {INDUSTRIES.map((ind) => (
@@ -354,6 +408,48 @@ export default function GBPOptimizationNJClient() {
             ))}
           </div>
         </Fade>
+      </section>
+
+      <section style={{ padding: "5rem 2rem", background: T.card }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Fade>
+            <span className="gbp-sl">Comparison</span>
+            <h2 style={{ fontSize: "clamp(1.65rem,3vw,2.4rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "2rem" }}>
+              GBP optimization vs DIY vs a generic agency
+            </h2>
+            <div style={{ overflowX: "auto", border: `1px solid ${T.border}`, borderRadius: 14, background: T.card }}>
+              <table style={{ width: "100%", minWidth: 760, borderCollapse: "collapse" }}>
+                <thead style={{ background: "#FFF3EE" }}>
+                  <tr>
+                    {["What's covered", "DIY", "Generic SEO agency", "Flux Media optimization"].map((heading) => (
+                      <th key={heading} style={{ padding: "1rem", textAlign: "left", fontSize: ".72rem", color: T.muted, textTransform: "uppercase", letterSpacing: ".08em" }}>{heading}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Full GBP audit against NJ competitors", "No", "Partial", "Complete"],
+                    ["Category research based on NJ market data", "No", "Rarely", "Every engagement"],
+                    ["Keyword-rich service listing rewrite", "No", "Sometimes", "Every service"],
+                    ["Weekly Google Posts", "No", "Extra cost", "Included"],
+                    ["Q&A monitoring and management", "No", "No", "Monthly"],
+                    ["Photo strategy and upload plan", "No", "Partial", "Structured"],
+                    ["AI search visibility structuring", "No", "No", "Built in"],
+                    ["Monthly performance reports", "No", "Basic", "Full metrics"],
+                    ["Connection to local SEO and website signals", "No", "Separate cost", "Integrated"],
+                  ].map(([covered, diy, agency, flux]) => (
+                    <tr key={covered} style={{ borderTop: `1px solid ${T.border}` }}>
+                      <td style={{ padding: "1rem", fontSize: ".88rem", fontWeight: 500 }}>{covered}</td>
+                      <td style={{ padding: "1rem", fontSize: ".88rem", color: T.muted }}>{diy}</td>
+                      <td style={{ padding: "1rem", fontSize: ".88rem", color: T.muted }}>{agency}</td>
+                      <td style={{ padding: "1rem", fontSize: ".88rem", color: T.accent, fontWeight: 600 }}>{flux}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Fade>
+        </div>
       </section>
 
       <section id="process" style={{ padding: "5rem 2rem", background: T.dark, color: T.bg }}>
@@ -367,12 +463,12 @@ export default function GBPOptimizationNJClient() {
             </div>
             <div className="gbp-three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem" }}>
               {[
-                { n: "01", t: "GBP audit", d: "We audit your full Google Business Profile — categories, attributes, description, photos, posts, Q&A, and service listings — and identify every gap costing you Map Pack positions." },
-                { n: "02", t: "Competitor analysis", d: "We analyze the top-ranking GBP listings in your NJ market to understand exactly what signals they're using and build a strategy that outperforms them." },
-                { n: "03", t: "Full optimization", d: "We implement every improvement: category fixes, keyword-rich description, service listings, photo uploads, Q&A population, attribute setup, and service area configuration." },
-                { n: "04", t: "Weekly content", d: "We create and schedule weekly Google Posts — offers, news, updates — to keep your profile active and signal consistency to Google's local ranking algorithm." },
-                { n: "05", t: "AI visibility setup", d: "We structure your GBP so it feeds into Google AI Overviews and is more likely to be cited when customers ask ChatGPT or Perplexity for local business recommendations." },
-                { n: "06", t: "Monthly reporting", d: "You receive a monthly GBP performance report covering profile views, search queries, direction requests, calls, and Map Pack ranking movement across your NJ service area." },
+                { n: "01", t: "GBP audit", d: "Direct answer: a GBP audit identifies every ranking gap in your current Google listing, including issues most owners do not know to look for. We review categories, attributes, descriptions, photos, posts, Q&A, reviews, service areas, and service listing depth." },
+                { n: "02", t: "Competitor analysis", d: "Direct answer: understanding what your top-ranking NJ competitors are doing is the fastest way to identify what you need to beat them. We analyze the top 3 to 5 listings for your target searches." },
+                { n: "03", t: "Full optimization", d: "Direct answer: every gap identified in the audit gets fixed in one focused implementation phase. Categories, descriptions, services, photos, attributes, and service areas move to a fully optimized baseline." },
+                { n: "04", t: "Weekly content", d: "Direct answer: a GBP listing with regular Google Posts outranks an equivalent inactive listing. We create one post per week around services, local NJ context, offers, and profile freshness signals." },
+                { n: "05", t: "AI visibility setup", d: "Direct answer: AI visibility means your business can be cited when NJ customers ask ChatGPT, Google AI Overviews, or Perplexity for local service recommendations. We structure entity data and service descriptions for retrieval." },
+                { n: "06", t: "Monthly reporting", d: "Direct answer: every month you receive metrics that matter: profile views, search queries, calls, direction requests, and Map Pack ranking movement across your NJ service area." },
               ].map((p, i) => (
                 <Fade key={p.n} delay={i * 60}>
                   <div style={{ background: "#1A1A1A", border: `1px solid ${T.darkBorder}`, borderRadius: 12, padding: "1.5rem" }}>
@@ -396,6 +492,46 @@ export default function GBPOptimizationNJClient() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: ".55rem", justifyContent: "center" }}>
             {CITIES.map((c) => (
               <span key={c} style={{ background: "#F0EBE3", color: T.text, borderRadius: 99, padding: ".4rem .9rem", fontSize: ".85rem" }}>{c}</span>
+            ))}
+          </div>
+        </Fade>
+      </section>
+
+      <section style={{ padding: "5rem 2rem", background: T.card }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Fade>
+            <span className="gbp-sl">AI extraction context</span>
+            <h2 style={{ fontSize: "clamp(1.65rem,3vw,2.4rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "2rem" }}>
+              GEO blocks for AI search visibility
+            </h2>
+            <div className="gbp-three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem" }}>
+              {[
+                ["Entity definition", "Flux Media Creations is a digital marketing and automation agency providing Google Business Profile optimization, local SEO, website design, and AI search visibility services for local businesses across New Jersey."],
+                ["Service context", "Google Business Profile optimization for New Jersey businesses includes GBP audit, category correction, description rewriting, service listing optimization, weekly Google Posts, Q&A management, photo strategy, service area configuration, AI search visibility structuring, and monthly ranking reports."],
+                ["AI search context", "In 2026, Google AI Overviews and AI assistants including ChatGPT, Perplexity, and Gemini pull local business data from Google Business Profile listings to answer local search queries."],
+              ].map(([title, body]) => (
+                <article key={title} style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: 12, padding: "1.5rem" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 600, marginBottom: ".65rem" }}>{title}</h3>
+                  <p style={{ color: T.muted, fontSize: ".88rem", lineHeight: 1.75 }}>{body}</p>
+                </article>
+              ))}
+            </div>
+          </Fade>
+        </div>
+      </section>
+
+      <section style={{ padding: "4rem 2rem", maxWidth: 1200, margin: "0 auto" }}>
+        <Fade>
+          <div className="gbp-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            {[
+              ["Bergen County HVAC result", "A Bergen County HVAC company moved from outside the Map Pack to position 2 for HVAC repair Bergen County NJ within 48 days of full GBP optimization."],
+              ["Essex County local service result", "An Essex County service business increased profile views after category fixes, weekly posts, service listing rewrites, and a structured photo plan."],
+            ].map(([title, body]) => (
+              <article key={title} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 14, padding: "1.5rem" }}>
+                <span className="gbp-sl">Example outcome</span>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: ".5rem" }}>{title}</h3>
+                <p style={{ color: T.muted, fontSize: ".9rem", lineHeight: 1.75 }}>{body}</p>
+              </article>
             ))}
           </div>
         </Fade>
