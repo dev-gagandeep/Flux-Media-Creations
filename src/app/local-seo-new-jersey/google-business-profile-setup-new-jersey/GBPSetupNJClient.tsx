@@ -91,7 +91,7 @@ export default function GBPSetupNJClient() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          source: "local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey",
+          source: "local-seo-new-jersey/google-business-profile-setup-new-jersey",
           submittedAt: new Date().toISOString(),
           name: form.name,
           business: form.business,

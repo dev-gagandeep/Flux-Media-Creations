@@ -7,7 +7,7 @@ export const metadata: Metadata = generateMeta({
   absoluteTitle: "Google Business Profile Setup New Jersey",
   description:
     "Google Business Profile setup for New Jersey small businesses that need a claimed, verified, fully built Google Maps listing with categories, services, photos, and AI-ready local search signals.",
-  path: "/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey",
+  path: "/local-seo-new-jersey/google-business-profile-setup-new-jersey",
 });
 
 const faqs = [
@@ -53,7 +53,7 @@ const serviceSchema = {
   },
   description:
     "Flux Media Creations provides Google Business Profile setup for New Jersey small businesses, including claiming, verification, category setup, business descriptions, service listings, photos, service-area configuration, and AI search visibility foundations.",
-  url: `${SITE.url}/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey`,
+  url: `${SITE.url}/local-seo-new-jersey/google-business-profile-setup-new-jersey`,
 };
 
 const faqSchema = {
@@ -88,14 +88,8 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 3,
-      name: "Google Business Profile Optimization New Jersey",
-      item: `${SITE.url}/local-seo-new-jersey/gbp-optimization-new-jersey`,
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
       name: "Google Business Profile Setup New Jersey",
-      item: `${SITE.url}/local-seo-new-jersey/gbp-optimization-new-jersey/google-business-profile-setup-new-jersey`,
+      item: `${SITE.url}/local-seo-new-jersey/google-business-profile-setup-new-jersey`,
     },
   ],
 };
