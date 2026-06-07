@@ -50,6 +50,11 @@ const INTERNAL_PAGE_LINKS: Record<string, string> = {
   "GoHighLevel Automation": "/services/gohighlevel-automation",
   "Full Growth System": "/services/full-growth-system",
   "Search Visibility Engine": "/services/search-visibility-engine",
+  "New Jersey local SEO": "/local-seo-new-jersey",
+  "Google Business Profile optimization": "/local-seo-new-jersey/gbp-optimization-new-jersey",
+  "Google Business Profile setup": "/local-seo-new-jersey/google-business-profile-setup-new-jersey",
+  "Google Business Profile setup for New Jersey": "/local-seo-new-jersey/google-business-profile-setup-new-jersey",
+  "GoHighLevel automation": "/services/gohighlevel-automation",
 };
 
 const BLOG_INLINE_IMAGES: Record<
