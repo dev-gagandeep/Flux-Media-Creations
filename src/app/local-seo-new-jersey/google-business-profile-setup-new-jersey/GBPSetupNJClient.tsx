@@ -64,6 +64,8 @@ const cities = [
 const relatedLinks = [
   ["Local SEO Services New Jersey", "/local-seo-new-jersey"],
   ["Google Business Profile Optimization NJ", "/local-seo-new-jersey/gbp-optimization-new-jersey"],
+  ["Local SEO for Dentists NJ", "/local-seo-new-jersey/local-seo-dentists-new-jersey"],
+  ["Local SEO for HVAC Companies NJ", "/local-seo-new-jersey/local-seo-hvac-new-jersey"],
   ["Search Visibility Engine", "/services/search-visibility-engine"],
   ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],

@@ -23,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/local-seo-new-jersey`, priority: 0.85, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/local-seo-new-jersey/gbp-optimization-new-jersey`, priority: 0.82, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/local-seo-new-jersey/google-business-profile-setup-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
+    { url: `${SITE.url}/local-seo-new-jersey/local-seo-dentists-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
+    { url: `${SITE.url}/local-seo-new-jersey/local-seo-hvac-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/privacy`, priority: 0.4, changeFrequency: "yearly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/terms`, priority: 0.4, changeFrequency: "yearly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     ...BLOG_POSTS.map((post) => ({
