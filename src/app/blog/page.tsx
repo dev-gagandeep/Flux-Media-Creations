@@ -20,7 +20,7 @@ const FEATURED_POST = {
   readTime: "12 min read",
   category: "Healthcare Growth Systems",
   author: "Gagan Deep",
-  cover: "/images/blog/wordpress-dashboard.png",
+  cover: "/images/blog/healthcare-website-design-clinic-conversions.png",
 };
 
 const posts = [FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

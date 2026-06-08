@@ -4,6 +4,7 @@ import { SITE } from "@/lib/constants";
 import HealthcareClinicBlogClient from "./HealthcareClinicBlogClient";
 
 const slug = "healthcare-website-design-clinic-conversions";
+const featureImage = "/images/blog/healthcare-website-design-clinic-conversions.png";
 const title = "Healthcare Website Design: What Every Clinic Needs to Convert Visitors Into Appointments";
 const description =
   "A practical healthcare website design guide for clinics that want more appointment requests, better trust signals, stronger local SEO, and GoHighLevel CRM automation.";
@@ -47,7 +48,7 @@ export const metadata: Metadata = generateMeta({
   absoluteTitle: "Healthcare Website Design for Clinics | Flux Media Creations",
   description,
   path: `/blog/${slug}`,
-  image: "/og-image.svg",
+  image: featureImage,
 });
 
 const blogSchema = {
@@ -55,7 +56,7 @@ const blogSchema = {
   "@type": "BlogPosting",
   headline: title,
   description,
-  image: `${SITE.url}/og-image.svg`,
+  image: `${SITE.url}${featureImage}`,
   datePublished: "2026-05-08",
   dateModified: "2026-05-08",
   author: {
