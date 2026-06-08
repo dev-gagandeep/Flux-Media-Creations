@@ -3,15 +3,15 @@
 import ContactForm from "@/app/contact/ContactForm";
 
 /**
- * GROUP 2 — PAGE 2
+ * GROUP 2, PAGE 2
  * Title:   Local SEO for HVAC Companies in New Jersey
  * Slug:    /local-seo-new-jersey/local-seo-hvac-new-jersey
- * Type:    Industry service page (Bottom-funnel — buy)
+ * Type:    Industry service page (Bottom-funnel, buy)
  *
  * CONTENT STRATEGY: seo-aeo-geo-content-writer skill
  * SEO title:  Local SEO for HVAC Companies in New Jersey | Flux Media Creations
  * Meta desc:  Flux Media Creations provides local SEO for HVAC companies in New
- *             Jersey — Google Maps ranking, GBP setup, seasonal search visibility,
+ *             Jersey, Google Maps ranking, GBP setup, seasonal search visibility,
  *             review automation, and AI search optimization for NJ HVAC contractors.
  *
  * Target scores: SEO 97 · AEO 96 · GEO 95 · AI Zero-Click 96 · EEAT 94 · Schema 100
@@ -24,18 +24,18 @@ import ContactForm from "@/app/contact/ContactForm";
  *                    HVAC AI search visibility New Jersey
  *
  * HVAC specific angles:
- * — Seasonal demand (summer AC, winter furnace) = seasonal GBP strategy
- * — Emergency searches = high intent "near me" optimization
- * — Service area business structure (no storefront)
- * — Multiple NJ county service area configuration
+ *, Seasonal demand (summer AC, winter furnace) = seasonal GBP strategy
+ *, Emergency searches = high intent "near me" optimization
+ *, Service area business structure (no storefront)
+ *, Multiple NJ county service area configuration
  *
  * Sources:
- * — 92% of searchers pick from first page (Marketing Magnitude, 2026)
- * — Primary category = up to 50% of ranking eligibility (Marketing Magnitude, 2026)
- * — 93% of local searches display Map Pack results (NOVA Advertising, 2026)
- * — Local SEO reduces paid ad budgets 10 to 20% (Search Geek Solutions, 2025)
- * — Whitespark Local Search Ranking Factors 2026
- * — BrightLocal Consumer Review Survey 2026
+ *, 92% of searchers pick from first page (Marketing Magnitude, 2026)
+ *, Primary category = up to 50% of ranking eligibility (Marketing Magnitude, 2026)
+ *, 93% of local searches display Map Pack results (NOVA Advertising, 2026)
+ *, Local SEO reduces paid ad budgets 10 to 20% (Search Geek Solutions, 2025)
+ *, Whitespark Local Search Ranking Factors 2026
+ *, BrightLocal Consumer Review Survey 2026
  *
  * Schema: LocalBusiness · Service · FAQPage · HowTo · BreadcrumbList
  */
@@ -59,22 +59,22 @@ const STATS = [
 
 const SEASONAL = [
   {
-    season:"Summer — peak AC season",
+    season:"Summer, peak AC season",
     icon:"sun",
     searches:["AC repair near me NJ","air conditioning not working NJ","emergency AC repair Bergen County","AC replacement cost NJ","central air installation NJ"],
-    tip:"June to August is the highest volume HVAC search period in NJ. We configure your GBP and service pages to maximize visibility during this peak window — seasonal Google Posts, service specific landing pages, and emergency search optimization.",
+    tip:"June to August is the highest volume HVAC search period in NJ. We configure your GBP and service pages to maximize visibility during this peak window, seasonal Google Posts, service specific landing pages, and emergency search optimization.",
   },
   {
-    season:"Winter — peak furnace season",
+    season:"Winter, peak furnace season",
     icon:"snow",
     searches:["furnace repair NJ","heating system not working NJ","emergency furnace repair Essex County","boiler repair NJ","heat pump installation NJ"],
-    tip:"December to February drives the second major HVAC search spike. Furnace failure searches happen at night and on weekends — mobile first, high urgency, one tap to call behavior. Your GBP must be fully optimized before winter season begins.",
+    tip:"December to February drives the second major HVAC search spike. Furnace failure searches happen at night and on weekends, mobile first, high urgency, one tap to call behavior. Your GBP must be fully optimized before winter season begins.",
   },
   {
-    season:"Year round — maintenance and installation",
+    season:"Year round, maintenance and installation",
     icon:"wrench",
     searches:["HVAC maintenance NJ","annual AC tune up NJ","HVAC installation NJ","smart thermostat installation NJ","mini split installation NJ"],
-    tip:"Maintenance and installation searches are lower urgency but higher average ticket value. We create dedicated service pages for each installation type targeting NJ county level keywords — the searches competitors are ignoring.",
+    tip:"Maintenance and installation searches are lower urgency but higher average ticket value. We create dedicated service pages for each installation type targeting NJ county level keywords, the searches competitors are ignoring.",
   },
 ];
 
@@ -82,37 +82,37 @@ const SERVICES = [
   {
     icon:"mapPin",
     title:"Google Business Profile optimization for HVAC contractors",
-    body:"Your primary GBP category must be 'HVAC contractor' — not 'Home Services' or 'Air conditioning repair service.' The primary category alone accounts for up to 50% of your ranking eligibility for your most valuable searches (Marketing Magnitude, 2026). We set your primary category correctly, add secondary categories for each service type (AC repair, furnace repair, heat pump, installation), write a keyword rich business description, and build out service listings for every HVAC service you offer across NJ.",
+    body:"Your primary GBP category must be 'HVAC contractor', not 'Home Services' or 'Air conditioning repair service.' The primary category alone accounts for up to 50% of your ranking eligibility for your most valuable searches (Marketing Magnitude, 2026). We set your primary category correctly, add secondary categories for each service type (AC repair, furnace repair, heat pump, installation), write a keyword rich business description, and build out service listings for every HVAC service you offer across NJ.",
     kw:["GBP optimization HVAC NJ","HVAC contractor GBP category NJ"],
   },
   {
     icon:"map",
     title:"Service area configuration across NJ counties",
-    body:"Most HVAC companies in New Jersey are service area businesses — they go to the customer, not the other way around. We configure your GBP as a service area business covering every NJ county and city you serve, ensuring Google shows your listing to homeowners searching from those areas. We also create county specific landing pages (HVAC repair Bergen County, furnace repair Essex County) that significantly improve your ranking for geo modified emergency searches.",
+    body:"Most HVAC companies in New Jersey are service area businesses, they go to the customer, not the other way around. We configure your GBP as a service area business covering every NJ county and city you serve, ensuring Google shows your listing to homeowners searching from those areas. We also create county specific landing pages (HVAC repair Bergen County, furnace repair Essex County) that significantly improve your ranking for geo modified emergency searches.",
     kw:["HVAC service area NJ","HVAC Google Maps service area"],
   },
   {
     icon:"alert",
     title:"Emergency search optimization",
-    body:"'AC not working near me' and 'furnace repair emergency NJ' are the highest value search queries in HVAC local search — they come from homeowners who need service now and will call whoever answers. We optimize your GBP and website specifically for emergency intent searches: click to call prominence, emergency service attributes, after hours availability configuration, and mobile page load speed under 2.5 seconds.",
+    body:"'AC not working near me' and 'furnace repair emergency NJ' are the highest value search queries in HVAC local search, they come from homeowners who need service now and will call whoever answers. We optimize your GBP and website specifically for emergency intent searches: click to call prominence, emergency service attributes, after hours availability configuration, and mobile page load speed under 2.5 seconds.",
     kw:["emergency HVAC SEO NJ","AC repair near me NJ optimization"],
   },
   {
     icon:"star",
     title:"HVAC review automation",
-    body:"Review signals account for 20% of Google Maps local pack ranking weight (Whitespark, 2026). Companies that automate review requests see a 30% increase in published reviews within 90 days (BrightLocal, 2024). We set up a GoHighLevel SMS and email review request sequence that fires automatically when a job is marked complete — so every satisfied NJ homeowner becomes a new Google review without your dispatcher having to remember to ask.",
+    body:"Review signals account for 20% of Google Maps local pack ranking weight (Whitespark, 2026). Companies that automate review requests see a 30% increase in published reviews within 90 days (BrightLocal, 2024). We set up a GoHighLevel SMS and email review request sequence that fires automatically when a job is marked complete, so every satisfied NJ homeowner becomes a new Google review without your dispatcher having to remember to ask.",
     kw:["HVAC review automation NJ","Google reviews HVAC company NJ"],
   },
   {
     icon:"file",
     title:"HVAC service and location pages",
-    body:"A single homepage cannot rank for 'AC repair Newark NJ,' 'furnace installation Bergen County,' and 'HVAC maintenance Hudson County' simultaneously. We build dedicated service + location pages for your highest value service and area combinations — each targeting a specific search query NJ homeowners are using and none of your competitors have a dedicated page for.",
+    body:"A single homepage cannot rank for 'AC repair Newark NJ,' 'furnace installation Bergen County,' and 'HVAC maintenance Hudson County' simultaneously. We build dedicated service + location pages for your highest value service and area combinations, each targeting a specific search query NJ homeowners are using and none of your competitors have a dedicated page for.",
     kw:["HVAC service pages NJ","HVAC location pages New Jersey"],
   },
   {
     icon:"spark",
     title:"AI search visibility for HVAC companies",
-    body:"When a homeowner asks ChatGPT 'best HVAC company in Bergen County NJ' or searches Google and sees an AI Overview answer, your company needs to be cited. We structure your GBP content, website FAQ sections, and schema markup so AI engines can extract and present your company information in AI generated local HVAC answers — a layer of visibility almost no NJ HVAC contractor is optimizing for.",
+    body:"When a homeowner asks ChatGPT 'best HVAC company in Bergen County NJ' or searches Google and sees an AI Overview answer, your company needs to be cited. We structure your GBP content, website FAQ sections, and schema markup so AI engines can extract and present your company information in AI generated local HVAC answers, a layer of visibility almost no NJ HVAC contractor is optimizing for.",
     kw:["HVAC AI search NJ","ChatGPT HVAC visibility NJ"],
   },
 ];
@@ -120,28 +120,28 @@ const SERVICES = [
 const PROCESS = [
   { n:"01", t:"HVAC local SEO audit", d:"We audit your GBP listing, service area configuration, citation consistency across home service directories, current Map Pack positions for your highest value NJ search terms, review count and velocity, and competitor analysis across each county you serve." },
   { n:"02", t:"Keyword and seasonal strategy", d:"We map your target keywords by service type (AC, furnace, heat pump, maintenance) and by NJ location (county, city, major suburb), then build a seasonal content calendar that prepares your GBP and service pages for peak HVAC search windows before they happen." },
-  { n:"03", t:"GBP optimization and service listings", d:"We implement every GBP improvement — correct primary and secondary categories, keyword rich description, full service listings for every HVAC service you offer, emergency service attributes, seasonal photo uploads, and weekly Google Posts." },
+  { n:"03", t:"GBP optimization and service listings", d:"We implement every GBP improvement, correct primary and secondary categories, keyword rich description, full service listings for every HVAC service you offer, emergency service attributes, seasonal photo uploads, and weekly Google Posts." },
   { n:"04", t:"Service area and location pages", d:"We configure your GBP service area to cover every NJ county you serve and create or optimize dedicated location + service landing pages that target geo modified search queries where competition is lower but intent is high." },
-  { n:"05", t:"Review automation setup", d:"We configure your GoHighLevel, Zapier, or Jobber integration to automatically send SMS and email review requests after every completed HVAC job — building consistent review velocity that compounds into stronger Map Pack positions over time." },
+  { n:"05", t:"Review automation setup", d:"We configure your GoHighLevel, Zapier, or Jobber integration to automatically send SMS and email review requests after every completed HVAC job, building consistent review velocity that compounds into stronger Map Pack positions over time." },
   { n:"06", t:"AI visibility and monthly reporting", d:"We structure your content for AI search citation and deliver monthly performance reports covering Map Pack rankings, profile views, calls from Google, review count changes, and seasonal visibility trends across your NJ service area." },
 ];
 
 const FAQS = [
   {
     q:"What is local SEO for HVAC companies in New Jersey?",
-    a:"Local SEO for HVAC companies in New Jersey is the process of optimizing an HVAC contractor's online presence — Google Business Profile, website, citations, and AI search structure — so NJ homeowners find your business when searching for heating and cooling services. It covers GBP optimization with the correct HVAC contractor category, service area configuration across NJ counties, emergency search optimization, review automation, seasonal content strategy, and AI search visibility for Google Overviews and ChatGPT.",
+    a:"Local SEO for HVAC companies in New Jersey is the process of optimizing an HVAC contractor's online presence, Google Business Profile, website, citations, and AI search structure, so NJ homeowners find your business when searching for heating and cooling services. It covers GBP optimization with the correct HVAC contractor category, service area configuration across NJ counties, emergency search optimization, review automation, seasonal content strategy, and AI search visibility for Google Overviews and ChatGPT.",
   },
   {
     q:"How does local SEO help an HVAC company get more calls in New Jersey?",
-    a:"Local SEO places your HVAC business in the Google Map Pack — the three listings that appear at the top of every local search result. 92% of homeowners searching for HVAC services in NJ pick a business from the first page of results (Marketing Magnitude, 2026), and 93% of local searches display Map Pack results at the top (NOVA Advertising, 2026). Appearing in those three spots means your phone number is the first one a homeowner with a broken AC or failed furnace calls.",
+    a:"Local SEO places your HVAC business in the Google Map Pack, the three listings that appear at the top of every local search result. 92% of homeowners searching for HVAC services in NJ pick a business from the first page of results (Marketing Magnitude, 2026), and 93% of local searches display Map Pack results at the top (NOVA Advertising, 2026). Appearing in those three spots means your phone number is the first one a homeowner with a broken AC or failed furnace calls.",
   },
   {
     q:"What Google Business Profile category should an HVAC company use in New Jersey?",
-    a:"The primary GBP category for an HVAC company must be 'HVAC contractor.' The primary category alone accounts for up to 50% of your ranking eligibility for your most valuable HVAC searches (Marketing Magnitude, 2026). Secondary categories should include 'Air conditioning repair service,' 'Furnace repair service,' 'Heat pump supplier,' and 'Air conditioning contractor' — only adding categories that match services you actually provide.",
+    a:"The primary GBP category for an HVAC company must be 'HVAC contractor.' The primary category alone accounts for up to 50% of your ranking eligibility for your most valuable HVAC searches (Marketing Magnitude, 2026). Secondary categories should include 'Air conditioning repair service,' 'Furnace repair service,' 'Heat pump supplier,' and 'Air conditioning contractor', only adding categories that match services you actually provide.",
   },
   {
     q:"How long does HVAC local SEO take to show results in New Jersey?",
-    a:"Most NJ HVAC contractors see initial Google Maps improvements within 60 to 90 days of a full local SEO implementation. Reaching consistent top 3 Map Pack positions in competitive NJ markets like Bergen County or Essex County typically takes 3 to 5 months. The most effective approach is to begin optimization before your peak season — so results are compounding when homeowners are searching most actively.",
+    a:"Most NJ HVAC contractors see initial Google Maps improvements within 60 to 90 days of a full local SEO implementation. Reaching consistent top 3 Map Pack positions in competitive NJ markets like Bergen County or Essex County typically takes 3 to 5 months. The most effective approach is to begin optimization before your peak season, so results are compounding when homeowners are searching most actively.",
   },
   {
     q:"Do HVAC service area businesses rank differently on Google Maps in NJ?",
@@ -149,11 +149,11 @@ const FAQS = [
   },
   {
     q:"Can local SEO replace paid ads for my NJ HVAC company?",
-    a:"Strong local SEO typically reduces — not eliminates — reliance on paid ads. NJ HVAC companies with strong organic local rankings see a 10 to 20% reduction in paid ad budgets as organic traffic and Map Pack calls increase (Search Geek Solutions, 2025). For most HVAC businesses, a combination of strong local SEO for consistent visibility and targeted paid ads during peak seasonal windows (June to August, December to February) produces the best overall lead volume.",
+    a:"Strong local SEO typically reduces, not eliminates, reliance on paid ads. NJ HVAC companies with strong organic local rankings see a 10 to 20% reduction in paid ad budgets as organic traffic and Map Pack calls increase (Search Geek Solutions, 2025). For most HVAC businesses, a combination of strong local SEO for consistent visibility and targeted paid ads during peak seasonal windows (June to August, December to February) produces the best overall lead volume.",
   },
   {
     q:"Does Flux Media provide HVAC SEO across all New Jersey counties?",
-    a:"Yes. Flux Media Creations provides local SEO for HVAC companies across all of New Jersey — including Bergen County, Essex County, Hudson County, Passaic County, Union County, Morris County, Somerset County, Middlesex County, Monmouth County, Ocean County, and all surrounding areas. We build county specific service pages and configure GBP service areas to cover your full NJ service territory.",
+    a:"Yes. Flux Media Creations provides local SEO for HVAC companies across all of New Jersey, including Bergen County, Essex County, Hudson County, Passaic County, Union County, Morris County, Somerset County, Middlesex County, Monmouth County, Ocean County, and all surrounding areas. We build county specific service pages and configure GBP service areas to cover your full NJ service territory.",
   },
 ];
 
@@ -249,7 +249,7 @@ export default function LocalSEOHVACNJ(){
       <section style={{padding:"3.5rem 2rem 4rem",maxWidth:1200,margin:"0 auto"}}>
         <div className="two-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"4rem",alignItems:"center"}}>
           <div>
-            <span className="sl">Local SEO for HVAC Companies — New Jersey</span>
+            <span className="sl">Local SEO for HVAC Companies, New Jersey</span>
             <h1 style={{fontSize:"clamp(2.2rem,4.5vw,3.5rem)",fontWeight:700,lineHeight:1.08,letterSpacing:"-0.03em",marginBottom:"1.25rem"}}>
               Get Your NJ HVAC Company<br/>
               <span style={{color:C.accent}}>at the Top of Google<br/>When Homeowners Need You.</span>
@@ -259,7 +259,7 @@ export default function LocalSEOHVACNJ(){
             <div className="answer-box" style={{marginBottom:"1.5rem"}}>
               <p className="answer-label">What this page is about</p>
               <p style={{fontSize:".95rem",color:C.text,lineHeight:1.7,margin:0}}>
-                Local SEO for HVAC companies in New Jersey is the process of optimizing a heating and cooling contractor's online presence so NJ homeowners find your business when searching for AC repair, furnace service, heat pump installation, and emergency HVAC help. Flux Media Creations provides complete local SEO for HVAC contractors across New Jersey — from GBP category setup and service area configuration to seasonal search strategy, review automation, and AI search visibility.
+                Local SEO for HVAC companies in New Jersey is the process of optimizing a heating and cooling contractor's online presence so NJ homeowners find your business when searching for AC repair, furnace service, heat pump installation, and emergency HVAC help. Flux Media Creations provides complete local SEO for HVAC contractors across New Jersey, from GBP category setup and service area configuration to seasonal search strategy, review automation, and AI search visibility.
               </p>
             </div>
 
@@ -277,17 +277,17 @@ export default function LocalSEOHVACNJ(){
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"1.5rem"}}>
               <div>
                 <p style={{fontSize:".7rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.muted,marginBottom:4}}>High intent NJ HVAC searches</p>
-                <p style={{fontSize:"1.1rem",fontWeight:600}}>What homeowners search — and who they call</p>
+                <p style={{fontSize:"1.1rem",fontWeight:600}}>What homeowners search, and who they call</p>
               </div>
               <span style={{background:C.gBg,color:C.green,fontSize:".75rem",fontWeight:500,padding:"4px 10px",borderRadius:6,border:`1px solid ${C.gBorder}`}}>Live NJ searches</span>
             </div>
             {[
-              {query:"AC not working near me NJ",intent:"Emergency — calls immediately",value:"High"},
-              {query:"furnace repair Bergen County",intent:"Urgent — evening/weekend",value:"High"},
-              {query:"HVAC company near me",intent:"Comparison — same day",value:"High"},
-              {query:"AC installation cost NJ",intent:"Research — plans purchase",value:"Medium"},
-              {query:"HVAC maintenance Essex County",intent:"Scheduled — books ahead",value:"Medium"},
-              {query:"heat pump installation NJ",intent:"Installation — high ticket",value:"High"},
+              {query:"AC not working near me NJ",intent:"Emergency, calls immediately",value:"High"},
+              {query:"furnace repair Bergen County",intent:"Urgent, evening/weekend",value:"High"},
+              {query:"HVAC company near me",intent:"Comparison, same day",value:"High"},
+              {query:"AC installation cost NJ",intent:"Research, plans purchase",value:"Medium"},
+              {query:"HVAC maintenance Essex County",intent:"Scheduled, books ahead",value:"Medium"},
+              {query:"heat pump installation NJ",intent:"Installation, high ticket",value:"High"},
             ].map((s,i)=>(
               <div key={i} style={{display:"grid",gridTemplateColumns:"1fr auto",gap:".75rem",alignItems:"center",padding:".6rem .75rem",borderRadius:8,background:i%2===0?C.bg:"transparent",marginBottom:".35rem"}}>
                 <div>
@@ -331,14 +331,14 @@ export default function LocalSEOHVACNJ(){
         </Fade>
       </section>
 
-      {/* SEASONAL STRATEGY — unique HVAC angle */}
+      {/* SEASONAL STRATEGY, unique HVAC angle */}
       <section style={{padding:"5rem 2rem",background:C.card}}>
         <div style={{maxWidth:1200,margin:"0 auto"}}>
           <Fade>
             <div style={{textAlign:"center",marginBottom:"2.5rem"}}>
               <span className="sl">HVAC specific strategy</span>
               <h2 style={{fontSize:"clamp(1.65rem,3vw,2.4rem)",fontWeight:600,letterSpacing:"-0.02em",lineHeight:1.2}}>
-                HVAC local SEO requires a seasonal strategy —<br/>not a generic one
+                HVAC local SEO requires a seasonal strategy<br/>not a generic one
               </h2>
               <p style={{color:C.muted,marginTop:".75rem",maxWidth:580,margin:".75rem auto 0",fontSize:".95rem",lineHeight:1.7}}>
                 NJ HVAC search volume spikes dramatically in summer and winter. A local SEO strategy that treats every month the same misses the two most profitable windows. We build seasonal optimization into your GBP and content from day one.
@@ -366,7 +366,7 @@ export default function LocalSEOHVACNJ(){
                 <p style={{fontSize:".9rem",color:C.muted,lineHeight:1.8}}>{SEASONAL[activeTab].tip}</p>
                 <div style={{marginTop:"1.25rem",padding:"1rem",background:C.aLight,borderRadius:8,border:`1px solid ${C.aBorder}`}}>
                   <p style={{fontSize:".82rem",fontWeight:600,color:C.accent,marginBottom:".35rem"}}>Key optimization for {SEASONAL[activeTab].season}</p>
-                  <p style={{fontSize:".82rem",color:C.text,lineHeight:1.65}}>Seasonal Google Posts, service specific GBP updates, and dedicated landing pages prepared 4 to 6 weeks before peak season begins — so your rankings are established before the search volume spikes.</p>
+                  <p style={{fontSize:".82rem",color:C.text,lineHeight:1.65}}>Seasonal Google Posts, service specific GBP updates, and dedicated landing pages prepared 4 to 6 weeks before peak season begins, so your rankings are established before the search volume spikes.</p>
                 </div>
               </div>
             </div>
@@ -468,7 +468,7 @@ export default function LocalSEOHVACNJ(){
         </Fade>
       </section>
 
-      {/* AI VISIBILITY — dark section */}
+      {/* AI VISIBILITY, dark section */}
       <section style={{padding:"5rem 2rem",background:C.dark,color:"#FAF7F2"}}>
         <div style={{maxWidth:1200,margin:"0 auto"}}>
           <Fade>
@@ -476,13 +476,13 @@ export default function LocalSEOHVACNJ(){
               <div>
                 <span style={{fontSize:".72rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.accent,display:"block",marginBottom:".7rem"}}>AI Search in 2026</span>
                 <h2 style={{fontSize:"clamp(1.65rem,3vw,2.4rem)",fontWeight:600,letterSpacing:"-0.02em",lineHeight:1.2,marginBottom:"1.25rem"}}>
-                  When a homeowner asks ChatGPT for an HVAC company in NJ — is yours in the answer?
+                  When a homeowner asks ChatGPT for an HVAC company in NJ, is yours in the answer?
                 </h2>
                 <p style={{color:C.dMuted,lineHeight:1.8,fontSize:".95rem",marginBottom:"1rem"}}>
-                  AI search tools including Google AI Overviews, ChatGPT, and Perplexity are now generating direct answers for local HVAC searches — pulling company names, service descriptions, and location data from Google Business Profile listings and structured website content.
+                  AI search tools including Google AI Overviews, ChatGPT, and Perplexity are now generating direct answers for local HVAC searches, pulling company names, service descriptions, and location data from Google Business Profile listings and structured website content.
                 </p>
                 <p style={{color:C.dMuted,lineHeight:1.8,fontSize:".95rem",marginBottom:"1.75rem"}}>
-                  Most NJ HVAC companies are not optimizing for AI citation. We structure your GBP descriptions, service listings, website FAQ content, and schema markup so AI engines can extract and present your company information when homeowners ask for HVAC recommendations in your NJ service area. This is an early-mover advantage in your local market.
+                  Most NJ HVAC companies are not optimizing for AI citation. We structure your GBP descriptions, service listings, website FAQ content, and schema markup so AI engines can extract and present your company information when homeowners ask for HVAC recommendations in your NJ service area. This is an early mover advantage in your local market.
                 </p>
                 <a href="#contact" className="btn-p">Get AI Visible HVAC SEO →</a>
               </div>
@@ -527,7 +527,7 @@ export default function LocalSEOHVACNJ(){
             <div style={{textAlign:"center",marginBottom:"3rem"}}>
               <span className="sl">Common questions</span>
               <h2 style={{fontSize:"clamp(1.65rem,3vw,2.4rem)",fontWeight:600,letterSpacing:"-0.02em",lineHeight:1.2}}>
-                FAQ — local SEO for HVAC companies<br/>in New Jersey
+                FAQ, local SEO for HVAC companies<br/>in New Jersey
               </h2>
             </div>
             {FAQS.map((f,i)=><FAQ key={i} q={f.q} a={f.a}/>)}
@@ -547,7 +547,7 @@ export default function LocalSEOHVACNJ(){
                   <span style={{color:C.accent}}>need you most.</span>
                 </h2>
                 <p style={{color:C.dMuted,lineHeight:1.8,marginBottom:"1.75rem"}}>
-                  Book a free HVAC local SEO strategy call. We'll review your current Google Maps presence, identify what's preventing your company from appearing in the top 3 listings in your NJ service area, and give you a clear action plan — no fluff, no long term contracts required.
+                  Book a free HVAC local SEO strategy call. We'll review your current Google Maps presence, identify what's preventing your company from appearing in the top 3 listings in your NJ service area, and give you a clear action plan, no fluff, no long term contracts required.
                 </p>
                 {["Full GBP audit for your HVAC company","NJ competitor ranking analysis by county","Seasonal SEO strategy included","Emergency search optimization assessment","AI visibility gap review"].map(item=>(
                   <div key={item} style={{display:"flex",alignItems:"center",gap:".75rem",marginBottom:".55rem"}}>
