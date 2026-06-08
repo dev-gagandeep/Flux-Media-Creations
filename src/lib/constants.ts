@@ -73,7 +73,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "16 min read",
     category: "Local SEO and Search Visibility",
     author: "Gagan Deep",
-    cover: "/og-image.svg",
+    cover: "/images/blog/how-to-rank-google-maps-new-jersey.png",
     content: [
       "Ranking higher on Google Maps in New Jersey requires more than having a Google Business Profile. In competitive markets like Newark, Jersey City, Bergen County, Essex County, and Middlesex County, Google needs clear proof that your business is relevant, trusted, nearby, active, and easy for customers to contact.",
       "The practical path is to optimize both systems that now shape local discovery: the traditional Google Map Pack and AI-generated local answers. The Map Pack still drives calls and direction requests. AI Overviews, ChatGPT, Perplexity, and Gemini increasingly summarize local recommendations before a customer clicks anything.",
@@ -177,7 +177,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "15 min read",
     category: "Local SEO and Search Visibility",
     author: "Gagan Deep",
-    cover: "/images/blog/go-high-level.webp",
+    cover: "/images/blog/review-automation-new-jersey.png",
     content: [
       "Review automation for New Jersey businesses is a system that automatically sends Google review requests to customers through SMS or email after a completed service, appointment, job, or purchase.",
       "For local businesses, reviews are not only social proof. They are local SEO signals. Review volume, recency, velocity, rating, and response rate all influence how customers and search engines evaluate your business.",
@@ -285,7 +285,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "12 min read",
     category: "Healthcare Growth Systems",
     author: "Gagan Deep",
-    cover: "/images/blog/go-high-level.webp",
+    cover: "/images/blog/appointment-booking-automation-for-clinics.png",
     content: [
       "A clinic can have a great website, strong reviews, and steady patient interest, but still lose appointments because the booking process is too manual.",
       "That usually happens in small ways. A patient calls while the front desk is busy. Someone submits a form after office hours. A new lead waits too long for a reply. A patient forgets their appointment. A follow-up task depends on someone remembering it. A no-show is never contacted again.",
@@ -429,7 +429,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "13 min read",
     category: "Healthcare Growth Systems",
     author: "Gagan Deep",
-    cover: "/images/blog/go-high-level.webp",
+    cover: "/images/blog/gohighlevel-for-clinics-patient-leads.png",
     content: [
       "Most clinics do not have a lead problem only. They have a follow-up problem.",
       "A patient fills out a form and waits. Someone calls the clinic, but the front desk is busy. A missed call goes unanswered. A new inquiry lands in an inbox with no clear owner. A patient books a consultation but forgets the appointment. Someone visits the website after hours, wants help, and leaves because there is no simple next step.",
@@ -578,7 +578,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "18 min read",
     category: "Growth Systems",
     author: "Gagan Deep",
-    cover: "/og-image.svg",
+    cover: "/images/blog/wordpress-ghl-growth-system-us-businesses.png",
     content: [
       "Most businesses do not have a traffic problem. They have a response-time problem, a message-clarity problem, and a follow-up consistency problem.",
       "You can spend money on ads, SEO, referrals, and social content, but if your website does not direct users toward one clean next step and your CRM does not respond instantly, that demand leaks out of the system.",
@@ -670,7 +670,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "9 min read",
     category: "GoHighLevel Automation",
     author: "Gagan Deep",
-    cover: "/images/blog/go-high-level.webp",
+    cover: "/images/blog/how-to-set-up-gohighlevel-missed-call-text-back.png",
     content: [
       "GoHighLevel missed call text-back is an automated SMS workflow that fires within 30 seconds of any unanswered inbound call. When a lead calls your business and nobody answers, they receive an immediate text message so the conversation stays alive before they call your competitor. It is one of the highest-ROI workflows inside a broader [GoHighLevel Automation] setup for any service business that relies on inbound calls.",
       "This guide covers the full setup process, from creating the workflow to configuring business-hours logic to testing it with a real missed call.",
