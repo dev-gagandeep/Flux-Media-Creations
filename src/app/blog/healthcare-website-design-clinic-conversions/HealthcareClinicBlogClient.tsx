@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
+
+const FEATURE_IMAGE = "/images/blog/healthcare-website-design-clinic-conversions.png";
 
 const TOC = [
   { id: "why-matters", label: "Why It Matters" },
@@ -272,6 +275,21 @@ export default function HealthcareClinicBlogClient() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="section-sm max-w-[1320px] mx-auto pt-0">
+        <figure className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-[0_24px_80px_rgba(13,13,13,0.06)]">
+          <div className="relative aspect-[16/9] bg-cream">
+            <Image
+              src={FEATURE_IMAGE}
+              alt="Healthcare website design that drives clinic conversions"
+              fill
+              priority
+              sizes="(min-width: 1320px) 1320px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
       </section>
 
       <section className="section max-w-[1320px] mx-auto pb-24">

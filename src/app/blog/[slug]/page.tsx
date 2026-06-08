@@ -287,6 +287,19 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
 
+        <figure className="mb-12 overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-soft">
+          <div className="relative aspect-[16/9] bg-cream">
+            <Image
+              src={post.cover}
+              alt={`${post.title} feature image`}
+              fill
+              priority
+              sizes="(min-width: 1320px) 1320px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="order-2 lg:order-1 space-y-6 text-base leading-8 text-ink/75">
             {blocks.map((block, index) => (
