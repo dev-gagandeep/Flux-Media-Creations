@@ -6,9 +6,9 @@ import { SITE } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "Local SEO Services New Jersey | Google Maps & AI Search",
+  absoluteTitle: "Local SEO Services New Jersey | Flux Media Creations",
   description:
-    "Local SEO services for New Jersey businesses that need stronger Google Maps rankings, Google Business Profile optimization, reviews, citations, AEO, GEO, and AI search visibility.",
+    "NJ businesses losing local customers to competitors? We build local SEO systems that put you in front of ready-to-buy clients Google Maps, AI search, and organic. Free website audit.",
   path: "/local-seo-new-jersey",
 });
 
@@ -167,7 +167,7 @@ const internalLinks = [
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
   ["WordPress Website Build", "/services/wordpress-website-build"],
   ["Industries We Serve", "/industries"],
-  ["Book a Strategy Call", "/contact"],
+  ["Get your free NJ website audit", "/contact"],
 ];
 
 const serviceSchema = {
@@ -252,7 +252,7 @@ export default function LocalSeoNewJerseyPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="#local-seo-form" className="inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,88,51,0.22)] transition hover:-translate-y-0.5">
-                  Book a Free Local SEO Call <span aria-hidden="true">-&gt;</span>
+                  Get your free NJ website audit <span aria-hidden="true">-&gt;</span>
                 </Link>
                 <Link href="/services/search-visibility-engine" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-flux hover:text-flux">
                   See Full SEO Service
@@ -361,7 +361,7 @@ export default function LocalSeoNewJerseyPage() {
                 A local customer does not care about your ranking report. They care whether you look credible, serve their area, answer their question, and make it easy to call or book. That is why this page is built around visibility and conversion together.
               </p>
               <Link href="#local-seo-form" className="mt-7 inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white">
-                Audit My Local SEO <span aria-hidden="true">-&gt;</span>
+                Get your free NJ website audit <span aria-hidden="true">-&gt;</span>
               </Link>
             </div>
           </div>
@@ -619,7 +619,7 @@ export default function LocalSeoNewJerseyPage() {
               </div>
             </div>
             <div>
-              <ContactForm />
+              <ContactForm submitLabel="Get your free NJ website audit" />
             </div>
           </div>
         </section>

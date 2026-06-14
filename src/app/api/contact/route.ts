@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbdqqvjy";
-const MAKE_WEBHOOK_ENDPOINT = "https://hook.eu1.make.com/tpcc3poufwdk3myrf1daoddoixxw5muc";
+const MAKE_WEBHOOK_ENDPOINT =
+  process.env.CONTACT_WEBHOOK_URL || "https://hook.eu1.make.com/tpcc3poufwdk3myrf1daoddoixxw5muc";
 
 function asString(value: unknown) {
   return String(value ?? "").trim();
@@ -53,12 +54,6 @@ export async function POST(req: NextRequest) {
     ]);
 
     if (!makeWebhookResponse.ok) {
-      console.error("contact form Make webhook delivery failed:", {
-        makeWebhookStatus: makeWebhookResponse.status,
-      });
-    }
-
-    if (!formspreeResponse.ok) {
       console.error("contact form delivery failed:", {
         formspreeStatus: formspreeResponse.status,
         makeWebhookStatus: makeWebhookResponse.status,
@@ -66,7 +61,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Delivery failed" }, { status: 502 });
     }
 
-    return NextResponse.json({ success: true, makeWebhookSent: makeWebhookResponse.ok });
+    if (!formspreeResponse.ok) {
+      console.error("contact form Formspree backup delivery failed:", {
+        formspreeStatus: formspreeResponse.status,
+        makeWebhookStatus: makeWebhookResponse.status,
+      });
+    }
+
+    return NextResponse.json({ success: true, makeWebhookSent: true, formspreeSent: formspreeResponse.ok });
   } catch (error) {
     console.error("contact form API error:", error);
     return NextResponse.json({ error: "Delivery failed" }, { status: 502 });

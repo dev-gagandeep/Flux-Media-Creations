@@ -1,5 +1,6 @@
 "use client";
 
+import ContactForm from "@/app/contact/ContactForm";
 import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
@@ -116,8 +117,6 @@ const CITIES = [
   "New Brunswick", "Bergen County", "Essex County", "Morris County",
 ];
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mojzjnyp";
-
 function useFadeIn(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
   const [v, setV] = useState(false);
@@ -166,48 +165,6 @@ function FAQ({ q, a }: { q: string; a: string }) {
 export { FAQS };
 
 export default function GBPOptimizationNJClient() {
-  const [form, setForm] = useState({ name: "", business: "", city: "", email: "", phone: "" });
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const submitAuditRequest = async () => {
-    if (!form.name || !form.business || !form.city || !form.email || !form.phone) {
-      setError("Please fill out all fields.");
-      return;
-    }
-
-    setLoading(true);
-    setError("");
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          source: "local-seo-new-jersey/gbp-optimization-new-jersey",
-          submittedAt: new Date().toISOString(),
-          name: form.name,
-          business: form.business,
-          city: form.city,
-          email: form.email,
-          phone: form.phone,
-          _subject: `New GBP audit request from ${form.name} - ${form.business}`,
-        }),
-      });
-
-      if (response.ok) {
-        setSent(true);
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
-    } catch {
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <main style={{ fontFamily: "'DM Sans','Helvetica Neue',sans-serif", background: T.bg, color: T.text, minHeight: "100vh" }}>
       <style>{`
@@ -253,7 +210,7 @@ export default function GBPOptimizationNJClient() {
               · Last updated: June 2026
             </p>
             <div style={{ display: "flex", gap: ".75rem", flexWrap: "wrap" }}>
-              <a href="#contact" className="gbp-btn-primary">Get a Free GBP Audit →</a>
+              <a href="#contact" className="gbp-btn-primary">Get your free NJ website audit →</a>
               <a href="#services" className="gbp-btn-outline">See What&apos;s Included</a>
             </div>
           </div>
@@ -571,30 +528,8 @@ export default function GBPOptimizationNJClient() {
                   </div>
                 ))}
               </div>
-              <div style={{ background: T.bg, borderRadius: 16, padding: "2rem", color: T.text }}>
-                {sent ? (
-                  <div style={{ textAlign: "center", padding: "2.5rem 0" }}>
-                    <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>✓</div>
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: 600, marginBottom: ".5rem" }}>Got it — we&apos;ll be in touch!</h3>
-                    <p style={{ color: T.muted, fontSize: ".9rem" }}>Expect a reply within 1 business day with your free GBP audit.</p>
-                  </div>
-                ) : (
-                  <>
-                    <h3 style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: "1.5rem" }}>Request your free GBP audit</h3>
-                    <div style={{ display: "flex", flexDirection: "column", gap: ".75rem" }}>
-                      <input className="gbp-input" placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-                      <input className="gbp-input" placeholder="Business type (e.g. HVAC, Dentist)" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} />
-                      <input className="gbp-input" placeholder="City in New Jersey" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
-                      <input className="gbp-input" placeholder="Email address" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-                      <input className="gbp-input" placeholder="Phone number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-                      {error && <p style={{ color: "#CC3333", fontSize: ".85rem" }}>{error}</p>}
-                      <button type="button" className="gbp-btn-primary" onClick={submitAuditRequest} disabled={loading} style={{ width: "100%", justifyContent: "center", padding: ".95rem", fontSize: "1rem", marginTop: ".25rem", opacity: loading ? 0.7 : 1 }}>
-                        {loading ? "Sending..." : "Get My Free GBP Audit →"}
-                      </button>
-                    </div>
-                    <p style={{ fontSize: ".775rem", color: T.muted, textAlign: "center", marginTop: ".75rem" }}>No spam. Just your free audit results.</p>
-                  </>
-                )}
+              <div style={{ color: T.text }}>
+                <ContactForm submitLabel="Get your free NJ website audit" />
               </div>
             </div>
           </Fade>

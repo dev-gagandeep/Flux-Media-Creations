@@ -131,7 +131,7 @@ export const locationContent: Record<string, LocationRouteContent> = {
       "Flux Media Creations builds WordPress websites, GoHighLevel automation, SEO structures, and business workflow systems for New Jersey clinics, home service companies, real estate professionals, consultants, and local service brands.",
       "We help you turn website visitors into inquiries, inquiries into organized CRM opportunities, and opportunities into booked calls, appointments, or consultations.",
     ],
-    primaryCta: "Get a New Jersey Growth Review",
+    primaryCta: "Get your free NJ website audit",
     secondaryCta: "Build My Website and CRM",
     introTitle: "A Stronger Digital Foundation for New Jersey Businesses",
     introBody: [
@@ -175,7 +175,7 @@ export const locationContent: Record<string, LocationRouteContent> = {
     ],
     finalTitle: "Ready to Build a Stronger Website and CRM System in New Jersey?",
     finalBody: "If your website is not generating enough leads or your follow-up process is too manual, Flux Media Creations can help you build a better system.",
-    finalPrimaryCta: "Get a New Jersey Growth Review",
+    finalPrimaryCta: "Get your free NJ website audit",
     finalSecondaryCta: "Start a Project",
     internalLinks: [
       ...commonLinks,

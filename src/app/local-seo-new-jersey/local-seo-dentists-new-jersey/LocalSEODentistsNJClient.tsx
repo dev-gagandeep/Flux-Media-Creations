@@ -255,7 +255,7 @@ export default function LocalSEODentistsNJ(){
               90% of patients search online before booking a dental appointment.<span className="src">NOVA Advertising, 2025</span> If your practice isn't in the top 3 Google Maps listings when they search, they call your competitor. Flux Media Creations fixes that, for dental practices across New Jersey.
             </p>
             <div style={{display:"flex",gap:".75rem",flexWrap:"wrap"}}>
-              <a href="#contact" className="btn-p">Get a Free Dental SEO Audit →</a>
+              <a href="#contact" className="btn-p">Get your free NJ website audit →</a>
               <a href="#services" className="btn-o">See What's Included</a>
             </div>
           </div>
@@ -456,7 +456,7 @@ export default function LocalSEODentistsNJ(){
                 <p style={{color:C.dMuted,lineHeight:1.8,fontSize:".95rem",marginBottom:"1.75rem"}}>
                   We structure your practice's online presence for AI citation, not just Google Maps ranking. That means FAQ structured service pages, schema markup (Dentist + LocalBusiness + FAQPage), entity clear business descriptions, and content that AI engines can extract and present to patients asking for dental recommendations in your NJ area.
                 </p>
-                <a href="#contact" className="btn-p">Get AI Ready Dental SEO →</a>
+                <a href="#contact" className="btn-p">Get your free NJ website audit →</a>
               </div>
               <div style={{display:"flex",flexDirection:"column",gap:".85rem"}}>
                 {[
@@ -528,7 +528,7 @@ export default function LocalSEODentistsNJ(){
                   </div>
                 ))}
               </div>
-              <ContactForm />
+              <ContactForm submitLabel="Get your free NJ website audit" />
             </div>
           </Fade>
         </div>

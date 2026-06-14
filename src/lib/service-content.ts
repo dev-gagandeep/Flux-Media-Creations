@@ -83,9 +83,9 @@ export type ServiceDetailContent = {
 export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
   "clinic-appointment-booking-automation": {
     slug: "clinic-appointment-booking-automation",
-    metaTitle: "Clinic Appointment Booking Automation for Healthcare",
+    metaTitle: "Clinic Appointment Booking Automation NJ | Flux Media",
     metaDescription:
-      "Flux builds clinic appointment booking automation with GoHighLevel CRM, website forms, missed-call recovery, SMS reminders, and patient follow-up workflows.",
+      "Stop losing NJ clinic appointments to no-shows and missed calls. We build GoHighLevel booking automation online scheduling, auto-reminders, cancellation recovery, and follow-up. Free audit.",
     image: {
       src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80",
       alt: "Healthcare team reviewing appointment booking and patient scheduling workflow on a laptop.",

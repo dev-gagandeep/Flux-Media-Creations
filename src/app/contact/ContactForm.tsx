@@ -15,7 +15,11 @@ const SERVICES_OPTIONS = [
 
 const BUDGETS = ["Under $300", "$300-$600", "$600-$1,200", "$1,200+", "Let's discuss"];
 
-export default function ContactForm() {
+type ContactFormProps = {
+  submitLabel?: string;
+};
+
+export default function ContactForm({ submitLabel = "Send your project details ->" }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -182,7 +186,7 @@ export default function ContactForm() {
       {error && <p className="text-sm text-red-500">{error}</p>}
 
       <button type="submit" disabled={loading} className="rounded-full bg-flux py-4 text-sm font-semibold uppercase tracking-wide text-white transition disabled:opacity-70">
-        {loading ? "Sending..." : "Send your project details ->"}
+        {loading ? "Sending..." : submitLabel}
       </button>
     </form>
   );

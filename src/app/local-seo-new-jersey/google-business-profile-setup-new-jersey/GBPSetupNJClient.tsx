@@ -1,9 +1,8 @@
 "use client";
 
+import ContactForm from "@/app/contact/ContactForm";
 import Link from "next/link";
 import { useState } from "react";
-
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mbdedvgb";
 
 const setupSteps = [
   ["01", "Business claim and verification", "Direct answer: business claim and verification is the first and most critical step of Google Business Profile setup. We claim your listing through the right method for your business type, then complete phone, video, postcard, or instant verification so the profile is live, protected, and under your control."],
@@ -69,7 +68,7 @@ const relatedLinks = [
   ["Search Visibility Engine", "/services/search-visibility-engine"],
   ["New Jersey Web Development and Automation", "/web-development-automation-new-jersey"],
   ["GoHighLevel Automation", "/services/gohighlevel-automation"],
-  ["Book a Strategy Call", "/contact"],
+  ["Get your free NJ website audit", "/contact"],
 ];
 
 const setupFaqs = [
@@ -83,48 +82,7 @@ const setupFaqs = [
 ];
 
 export default function GBPSetupNJClient() {
-  const [form, setForm] = useState({ name: "", business: "", city: "", phone: "", email: "" });
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const [activeStep, setActiveStep] = useState(0);
-
-  const submitSetupRequest = async () => {
-    if (!form.name || !form.business || !form.city || !form.phone || !form.email) {
-      setError("Please fill out all fields.");
-      return;
-    }
-
-    setLoading(true);
-    setError("");
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          source: "local-seo-new-jersey/google-business-profile-setup-new-jersey",
-          submittedAt: new Date().toISOString(),
-          name: form.name,
-          business: form.business,
-          city: form.city,
-          phone: form.phone,
-          email: form.email,
-          _subject: `New GBP setup request from ${form.name} - ${form.business}`,
-        }),
-      });
-
-      if (response.ok) {
-        setSent(true);
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
-    } catch {
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <main>
@@ -159,7 +117,7 @@ export default function GBPSetupNJClient() {
             </div>
             <div className="flex flex-wrap gap-4">
               <Link href="#gbp-setup-form" className="inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,88,51,0.22)] transition hover:-translate-y-0.5">
-                Set Up My GBP Listing <span aria-hidden="true">-&gt;</span>
+                Get your free NJ website audit <span aria-hidden="true">-&gt;</span>
               </Link>
               <Link href="/local-seo-new-jersey/gbp-optimization-new-jersey" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-flux hover:text-flux">
                 Need GBP Optimization?
@@ -532,34 +490,7 @@ export default function GBPSetupNJClient() {
               ))}
             </div>
           </div>
-          <div className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft">
-            {sent ? (
-              <div className="py-12 text-center">
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-green-50 text-2xl font-bold text-green-700">✓</div>
-                <h3 className="font-display text-2xl font-semibold">We&apos;ll be in touch.</h3>
-                <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-ink/60">
-                  Expect a reply within 1 business day with the next steps for your Google Business Profile setup.
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-display text-2xl font-semibold">Set up my Google Business Profile</h3>
-                  <p className="mt-2 text-sm leading-7 text-ink/55">All fields are required.</p>
-                </div>
-                <input required className="w-full rounded-2xl border border-ink/10 bg-cream px-4 py-4 text-sm outline-none transition focus:border-flux" placeholder="Your full name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-                <input required className="w-full rounded-2xl border border-ink/10 bg-cream px-4 py-4 text-sm outline-none transition focus:border-flux" placeholder="Business type (e.g. plumber, med spa)" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} />
-                <input required className="w-full rounded-2xl border border-ink/10 bg-cream px-4 py-4 text-sm outline-none transition focus:border-flux" placeholder="City or county in New Jersey" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
-                <input required className="w-full rounded-2xl border border-ink/10 bg-cream px-4 py-4 text-sm outline-none transition focus:border-flux" placeholder="Best phone number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-                <input required type="email" className="w-full rounded-2xl border border-ink/10 bg-cream px-4 py-4 text-sm outline-none transition focus:border-flux" placeholder="Email address" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-                {error && <p className="text-sm font-medium text-red-600">{error}</p>}
-                <button type="button" onClick={submitSetupRequest} disabled={loading} className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
-                  {loading ? "Sending..." : "Set Up My Google Listing"}
-                </button>
-                <p className="text-center text-xs leading-6 text-ink/45">No spam. Just the next step for your GBP setup.</p>
-              </div>
-            )}
-          </div>
+          <ContactForm submitLabel="Get your free NJ website audit" />
         </div>
       </section>
     </main>

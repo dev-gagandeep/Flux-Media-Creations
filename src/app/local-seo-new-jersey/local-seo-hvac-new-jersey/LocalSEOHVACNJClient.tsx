@@ -267,7 +267,7 @@ export default function LocalSEOHVACNJ(){
               92% of NJ homeowners searching for HVAC services pick a company from the first page of results.<span className="src">Marketing Magnitude, 2026</span> If your company isn't in the top 3 Google Maps listings when a furnace fails at midnight or an AC breaks during a July heatwave, you're invisible at the moment that matters most.
             </p>
             <div style={{display:"flex",gap:".75rem",flexWrap:"wrap"}}>
-              <a href="#contact" className="btn-p">Get a Free HVAC SEO Audit →</a>
+              <a href="#contact" className="btn-p">Get your free NJ website audit →</a>
               <a href="#services" className="btn-o">See What's Included</a>
             </div>
           </div>
@@ -484,7 +484,7 @@ export default function LocalSEOHVACNJ(){
                 <p style={{color:C.dMuted,lineHeight:1.8,fontSize:".95rem",marginBottom:"1.75rem"}}>
                   Most NJ HVAC companies are not optimizing for AI citation. We structure your GBP descriptions, service listings, website FAQ content, and schema markup so AI engines can extract and present your company information when homeowners ask for HVAC recommendations in your NJ service area. This is an early mover advantage in your local market.
                 </p>
-                <a href="#contact" className="btn-p">Get AI Visible HVAC SEO →</a>
+                <a href="#contact" className="btn-p">Get your free NJ website audit →</a>
               </div>
               <div style={{display:"flex",flexDirection:"column",gap:".85rem"}}>
                 {[
@@ -556,7 +556,7 @@ export default function LocalSEOHVACNJ(){
                   </div>
                 ))}
               </div>
-              <ContactForm />
+              <ContactForm submitLabel="Get your free NJ website audit" />
             </div>
           </Fade>
         </div>

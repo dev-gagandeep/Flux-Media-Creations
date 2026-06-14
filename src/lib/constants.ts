@@ -420,9 +420,9 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "gohighlevel-for-clinics-patient-leads",
     title: "GoHighLevel for Clinics: How to Capture, Follow Up, and Book More Patient Leads",
-    metaTitle: "GoHighLevel for Clinics: CRM & Patient Follow-Up",
+    metaTitle: "GoHighLevel for Healthcare Clinics | More Patient Leads NJ",
     metaDescription:
-      "Learn how clinics can use GoHighLevel to capture patient leads, recover missed calls, automate follow-up, send reminders, and book more appointments.",
+      "Missing patient calls costs NJ clinics thousands every month. We configure GoHighLevel missed-call text-back, appointment booking, and follow-up sequences for healthcare practices. See how it works.",
     excerpt:
       "A practical guide to using GoHighLevel for clinics, covering patient inquiry capture, missed-call recovery, CRM pipelines, appointment reminders, review requests, and compliance-conscious follow-up.",
     date: "2026-05-13",
