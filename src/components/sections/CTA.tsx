@@ -57,7 +57,7 @@ export default function CTA() {
             transition={{ duration: 0.5 }}
             className="text-xs uppercase tracking-widest mb-6 text-flux"
           >
-            Let&apos;s create something extraordinary.
+            Connect the whole operating system.
           </motion.p>
 
           <div className="overflow-hidden mb-6">
@@ -69,7 +69,7 @@ export default function CTA() {
               className="font-display font-semibold text-ink"
               style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)", letterSpacing: "0", lineHeight: 1 }}
             >
-              Your WordPress website should be generating leads
+              Your business should understand
             </motion.h2>
           </div>
           <div className="overflow-hidden mb-10">
@@ -87,7 +87,7 @@ export default function CTA() {
                 fontStyle: "italic",
               }}
             >
-                while you sleep.
+                how growth happens.
             </motion.h2>
           </div>
 
@@ -98,7 +98,7 @@ export default function CTA() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-base max-w-md mx-auto mb-10 leading-relaxed text-ink/50"
           >
-            Your website should not just appear professional. It must attract the right visitors, make your offer instantly clear, capture every inquiry, and trigger follow-up automatically. Looking for a WordPress GoHighLevel agency to build your website, CRM, automation, and lead flow all in one? Flux Media Creations can set you up with a system built for real business growth.
+            Flux connects discovery, opportunity capture, customer progression, workflows, and revenue signals so your team can see what is working and improve what happens next.
           </motion.p>
 
           <motion.div
@@ -110,7 +110,7 @@ export default function CTA() {
           >
             <MagneticButton>
               <Link
-                href="/contact"
+                href="/business-intelligence-audit"
                 className="flex items-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-all duration-300 hover:scale-105"
                 style={{
                   background: "var(--flux)",
@@ -118,7 +118,7 @@ export default function CTA() {
                   boxShadow: "0 4px 30px rgba(255,92,53,0.4)",
                 }}
               >
-                Start a project
+                Measure your intelligence score
                 <span className="text-lg">→</span>
               </Link>
             </MagneticButton>
@@ -140,7 +140,7 @@ export default function CTA() {
             transition={{ delay: 0.7 }}
             className="mt-8 text-xs text-ink/30"
           >
-            Serving healthcare clinics, home service businesses, and real estate professionals across the United States, Canada, and the United Kingdom.
+            Built first for healthcare clinics and appointment-based service businesses.
           </motion.p>
         </div>
       </section>

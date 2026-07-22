@@ -1,8 +1,10 @@
 export const SITE = {
   name: "Flux Media Creations",
-  tagline: "WordPress websites, GoHighLevel automation, SEO, and lead generation systems for clinics and service businesses.",
+  shortName: "Flux",
+  category: "Operating Intelligence Company",
+  tagline: "Connected operating intelligence systems for service businesses.",
   description:
-    "WordPress websites, GoHighLevel automation, SEO, and lead generation systems for clinics and service businesses.",
+    "Flux builds connected operating intelligence systems that help service businesses discover customers, capture opportunities, progress demand, automate workflows, and improve.",
   url: "https://www.fluxmediacreations.com",
   email: "contact@fluxmediacreations.com",
   phone: "+91 6284957892",
@@ -23,12 +25,12 @@ export const SOCIAL_LINKS = [
 ];
 
 export const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Why Flux", href: "/operating-intelligence" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/industries" },
-  { label: "Process", href: "/process" },
-  { label: "Articles", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Assessment", href: "/business-intelligence-audit" },
+  { label: "Insights", href: "/blog" },
+  { label: "Company", href: "/about" },
 ];
 
 export type BlogPost = {

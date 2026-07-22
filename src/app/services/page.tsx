@@ -6,9 +6,9 @@ import CTA from "@/components/sections/CTA";
 import TextReveal from "@/components/ui/TextReveal";
 
 export const metadata: Metadata = generateMeta({
-  title: "Services",
+  title: "Implementation Services",
   description:
-    "WordPress websites, GoHighLevel automation, Airtable systems, SEO visibility, and Make/Zapier integrations for US service businesses.",
+    "Supporting website, GoHighLevel, SEO, Airtable, Make, Zapier, and maintenance implementation for Flux operating intelligence systems.",
   path: "/services",
 });
 
@@ -67,7 +67,7 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="section pt-40 md:pt-48 pb-20 max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">Services</p>
+        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">Implementation services</p>
         <TextReveal
           text="Everything your business needs one team, fully delivered."
           className="font-display font-semibold text-4xl md:text-6xl max-w-3xl mb-6"

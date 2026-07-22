@@ -83,7 +83,7 @@ function Bubble({ msg }: { msg: Message }) {
             width: 30,
             height: 30,
             borderRadius: "50%",
-            background: "#FF5C35",
+            background: "#CF3723",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -106,8 +106,8 @@ function Bubble({ msg }: { msg: Message }) {
           borderRadius: isUser ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
           fontSize: 13.5,
           lineHeight: 1.6,
-          background: isUser ? "#0D0D0D" : "white",
-          color: isUser ? "#FAF8F4" : "#0D0D0D",
+          background: isUser ? "#06070A" : "white",
+          color: isUser ? "#F3F4F1" : "#06070A",
           border: isUser ? "none" : "1px solid rgba(13,13,13,0.08)",
           boxShadow: isUser ? "none" : "0 1px 8px rgba(0,0,0,0.07)",
         }}
@@ -121,7 +121,7 @@ function Bubble({ msg }: { msg: Message }) {
                   width: 7,
                   height: 7,
                   borderRadius: "50%",
-                  background: "#FF5C35",
+                  background: "#CF3723",
                   display: "block",
                   animation: `fluxDot 1.2s ease-in-out ${i * 0.18}s infinite`,
                 }}
@@ -137,7 +137,7 @@ function Bubble({ msg }: { msg: Message }) {
                   display: "inline-block",
                   width: 2,
                   height: 14,
-                  background: "#FF5C35",
+                  background: "#CF3723",
                   marginLeft: 2,
                   verticalAlign: "middle",
                   animation: "fluxCursor 0.8s ease-in-out infinite",
@@ -270,8 +270,8 @@ export default function FluxChat() {
           50% { opacity:0; }
         }
         @keyframes fluxPulse {
-          0%,100% { box-shadow:0 4px 20px rgba(255,92,53,0.45); }
-          50% { box-shadow:0 4px 20px rgba(255,92,53,0.45),0 0 0 10px rgba(255,92,53,0.08); }
+          0%,100% { box-shadow:0 4px 20px rgba(207,55,35,0.38); }
+          50% { box-shadow:0 4px 20px rgba(207,55,35,0.38),0 0 0 10px rgba(207,55,35,0.08); }
         }
         .flux-scroll::-webkit-scrollbar { width:3px; }
         .flux-scroll::-webkit-scrollbar-thumb { background:rgba(13,13,13,0.1); border-radius:2px; }
@@ -284,13 +284,13 @@ export default function FluxChat() {
           border-radius:100px;
           border:1px solid rgba(13,13,13,0.11);
           background:white;
-          color:#0D0D0D;
+          color:#06070A;
           cursor:pointer;
           font-family:Satoshi,Inter,sans-serif;
           transition:all 0.15s;
           white-space:nowrap;
         }
-        .flux-qbtn:hover { border-color:#FF5C35; color:#FF5C35; transform:translateY(-1px); }
+        .flux-qbtn:hover { border-color:#CF3723; color:#CF3723; transform:translateY(-1px); }
         .flux-hbtn {
           width:30px;
           height:30px;
@@ -317,7 +317,7 @@ export default function FluxChat() {
           margin:4px 4px 2px 0;
           padding:5px 9px;
           border-radius:8px;
-          background:#FF5C35;
+          background:#CF3723;
           color:white !important;
           font-size:12px;
           font-weight:600;
@@ -325,7 +325,7 @@ export default function FluxChat() {
           text-transform:capitalize;
         }
         .flux-chat-text-link {
-          color:#FF5C35 !important;
+          color:#CF3723 !important;
           font-weight:700;
           text-decoration:underline;
           text-underline-offset:2px;
@@ -341,8 +341,8 @@ export default function FluxChat() {
               exit={{ opacity: 0, y: 8, scale: 0.9 }}
               transition={{ delay: 1.8, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                background: "#0D0D0D",
-                color: "#FAF8F4",
+                background: "#06070A",
+                color: "#F3F4F1",
                 fontSize: 12.5,
                 fontWeight: 500,
                 padding: "8px 14px",
@@ -366,7 +366,7 @@ export default function FluxChat() {
             width: 56,
             height: 56,
             borderRadius: "50%",
-            background: "#FF5C35",
+            background: "#CF3723",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -375,7 +375,7 @@ export default function FluxChat() {
             position: "relative",
             animation: "fluxPulse 2.5s ease-in-out infinite",
             transition: "transform 0.2s cubic-bezier(0.16,1,0.3,1)",
-            boxShadow: "0 4px 20px rgba(255,92,53,0.45)",
+            boxShadow: "0 4px 20px rgba(207,55,35,0.38)",
           }}
         >
           <AnimatePresence mode="wait">
@@ -452,7 +452,7 @@ export default function FluxChat() {
               right: 16,
               width: chatWidth,
               height: chatHeight,
-              background: "#FAF8F4",
+              background: "#F3F4F1",
               borderRadius: "20px",
               boxShadow: "0 24px 80px rgba(0,0,0,0.18), 0 4px 20px rgba(0,0,0,0.1)",
               border: "1px solid rgba(13,13,13,0.08)",
@@ -463,7 +463,7 @@ export default function FluxChat() {
               transition: "width 0.35s cubic-bezier(0.16,1,0.3,1), height 0.35s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
-            <div style={{ background: "#0D0D0D", padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
+            <div style={{ background: "#06070A", padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <div style={{ position: "relative" }}>
                   <div
@@ -471,7 +471,7 @@ export default function FluxChat() {
                       width: 36,
                       height: 36,
                       borderRadius: "50%",
-                      background: "#FF5C35",
+                      background: "#CF3723",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -492,7 +492,7 @@ export default function FluxChat() {
                       height: 11,
                       borderRadius: "50%",
                       background: "#22C55E",
-                      border: "2px solid #0D0D0D",
+                      border: "2px solid #06070A",
                     }}
                   />
                 </div>
@@ -502,7 +502,7 @@ export default function FluxChat() {
                     style={{
                       fontSize: 14,
                       fontWeight: 600,
-                      color: "#FAF8F4",
+                      color: "#F3F4F1",
                       fontFamily: "Cabinet Grotesk, sans-serif",
                       letterSpacing: "-0.02em",
                     }}
@@ -605,7 +605,7 @@ export default function FluxChat() {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div style={{ padding: "10px 14px", borderTop: "1px solid rgba(13,13,13,0.06)", display: "flex", flexWrap: "wrap", gap: 7, background: "#FAF8F4" }}>
+                  <div style={{ padding: "10px 14px", borderTop: "1px solid rgba(6,7,10,0.06)", display: "flex", flexWrap: "wrap", gap: 7, background: "#F3F4F1" }}>
                     {QUICK_PROMPTS.map((prompt) => (
                       <button
                         key={prompt.text}
@@ -621,7 +621,7 @@ export default function FluxChat() {
             </AnimatePresence>
 
             <div
-              style={{ padding: "10px 12px 10px", background: "#FAF8F4", borderTop: "1px solid rgba(13,13,13,0.07)", flexShrink: 0 }}
+              style={{ padding: "10px 12px 10px", background: "#F3F4F1", borderTop: "1px solid rgba(6,7,10,0.07)", flexShrink: 0 }}
             >
               <div
                 style={{
@@ -655,7 +655,7 @@ export default function FluxChat() {
                     background: "transparent",
                     fontSize: 13.5,
                     lineHeight: 1.5,
-                    color: "#0D0D0D",
+                    color: "#06070A",
                     fontFamily: "Satoshi, Inter, sans-serif",
                     maxHeight: 110,
                   }}
@@ -671,7 +671,7 @@ export default function FluxChat() {
                     borderRadius: 10,
                     border: "none",
                     cursor: loading || input.trim() ? "pointer" : "default",
-                    background: loading || input.trim() ? "#FF5C35" : "rgba(13,13,13,0.08)",
+                    background: loading || input.trim() ? "#CF3723" : "rgba(6,7,10,0.08)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -693,7 +693,7 @@ export default function FluxChat() {
                     href="https://fluxmediacreations.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "#FF5C35", fontWeight: 600, textDecoration: "none" }}
+                    style={{ color: "#CF3723", fontWeight: 600, textDecoration: "none" }}
                   >
                     Flux Media Creations
                   </a>

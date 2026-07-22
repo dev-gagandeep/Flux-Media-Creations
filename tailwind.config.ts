@@ -9,24 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#FAF8F4",
-        ink: "#0D0D0D",
-        "ink-muted": "#6B6B6B",
-        flux: "#FF5C35",
-        "flux-dark": "#E04420",
-        pulse: "#2563EB",
-        "pulse-light": "#DBEAFE",
-        blush: "#FFF0EB",
-        sage: "#E8F5EC",
+        cream: "#F3F4F1",
+        ink: "#06070A",
+        "ink-muted": "#666C7A",
+        flux: "#CF3723",
+        "flux-dark": "#A92A1B",
+        pulse: "#31356D",
+        "pulse-light": "#BACDFF",
+        blush: "#BACDFF",
+        sage: "#D9E6D3",
       },
       fontFamily: {
-        display: ["Cabinet Grotesk", "sans-serif"],
-        body: ["Satoshi", "sans-serif"],
+        display: ["Space Grotesk Variable", "Arial", "sans-serif"],
+        body: ["Manrope Variable", "Arial", "sans-serif"],
       },
       fontSize: {
-        "hero": ["clamp(3.5rem, 9vw, 8rem)", { lineHeight: "0.9", letterSpacing: "-0.04em" }],
-        "display": ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "1", letterSpacing: "-0.03em" }],
-        "headline": ["clamp(1.75rem, 3.5vw, 2.75rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "hero": ["clamp(4.5rem, 11vw, 10rem)", { lineHeight: "0.84", letterSpacing: "-0.075em" }],
+        "display": ["clamp(3rem, 7vw, 6.5rem)", { lineHeight: "0.92", letterSpacing: "-0.06em" }],
+        "headline": ["clamp(2rem, 4vw, 3.75rem)", { lineHeight: "1", letterSpacing: "-0.045em" }],
       },
       transitionTimingFunction: {
         "expo-out": "cubic-bezier(0.16, 1, 0.3, 1)",

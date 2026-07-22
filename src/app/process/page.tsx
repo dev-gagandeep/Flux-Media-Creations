@@ -6,9 +6,9 @@ import Process from "@/components/sections/Process";
 import CTA from "@/components/sections/CTA";
 
 export const metadata: Metadata = generateMeta({
-  title: "How We Work",
+  title: "Methodology",
   description:
-    "Clear process, no surprises. From first enquiry to launch day, see exactly how a Flux Media Creations project runs.",
+    "See how Flux maps, designs, connects, validates, and improves operating intelligence systems for service businesses.",
   path: "/process",
 });
 
@@ -44,7 +44,7 @@ export default function ProcessPage() {
       <section className="bg-blush/45 px-6 pb-24 pt-32 md:px-10 md:pb-28 md:pt-40">
         <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <div>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-flux">How we work</p>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-flux">Methodology</p>
             <h1 className="font-display text-5xl font-semibold leading-[0.96] md:text-7xl" style={{ letterSpacing: "0" }}>
               A clear operating system from brief to launch.
             </h1>
@@ -52,8 +52,8 @@ export default function ProcessPage() {
               We have removed the usual agency friction: vague scope, slow approvals, surprise handoffs, and unclear launch ownership. Every project follows a visible path with defined milestones and direct communication.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-flux px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,92,53,0.22)]">
-                Start a project
+              <Link href="/business-intelligence-audit" className="inline-flex items-center justify-center rounded-full bg-flux px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,92,53,0.22)]">
+                Measure your intelligence score
               </Link>
               <a href="#timelines" className="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink/65 transition-colors hover:border-ink/35 hover:text-ink">
                 View timelines

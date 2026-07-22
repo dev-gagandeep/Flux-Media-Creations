@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LOCATION_PAGES, SITE, NAV_LINKS, SERVICES, SOCIAL_LINKS, TOOLS } from "@/lib/constants";
+import { LOCATION_PAGES, SITE, NAV_LINKS, SOCIAL_LINKS, TOOLS } from "@/lib/constants";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -7,38 +7,38 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-cream" itemScope itemType="https://schema.org/WPFooter">
       {/* Big CTA row */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 border-b border-cream/10">
+      <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-36 border-b border-cream/10">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
           <div className="max-w-xl">
-            <p className="text-sm text-cream/50 mb-3 tracking-widest uppercase">Ready to grow?</p>
+            <p className="text-sm text-cream/50 mb-3 tracking-widest uppercase">Ready to see the whole system?</p>
             <h2
-              className="font-display text-4xl md:text-6xl font-semibold leading-none"
+              className="font-display text-5xl md:text-7xl font-medium leading-[.9]"
               style={{ letterSpacing: "-0.03em" }}
             >
-              Let's build something{" "}
-              <span style={{ color: "var(--flux)" }}>remarkable</span>.
+              Build the system your{" "}
+              <span style={{ color: "var(--flux)" }}>growth depends on</span>.
             </h2>
           </div>
           <Link
-            href="/contact"
+            href="/business-intelligence-audit"
             className="flex-shrink-0 flex items-center gap-3 px-8 py-4 rounded-full font-medium text-ink transition-all duration-300 hover:scale-105 hover:gap-5"
             style={{ background: "var(--flux)", color: "white" }}
           >
-            Start a project
+            Measure your score
             <span className="text-xl">→</span>
           </Link>
         </div>
       </div>
 
       {/* Main footer grid */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-20 grid grid-cols-2 md:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
           <span className="font-display text-2xl font-semibold" style={{ letterSpacing: "-0.03em" }}>
             Flux<span style={{ color: "var(--flux)" }}>.</span>
           </span>
           <p className="mt-4 text-sm text-cream/50 leading-relaxed max-w-[220px]">
-            Websites and automation systems for businesses that can't afford to lose a single lead.
+            Connected operating intelligence systems for service businesses.
           </p>
           <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
             <a href={`mailto:${SITE.email}`} className="text-xs text-cream/40 hover:text-flux transition-colors">
@@ -80,15 +80,20 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Solutions */}
         <div>
-          <p className="text-xs text-cream/30 uppercase tracking-widest mb-5">Services</p>
+          <p className="text-xs text-cream/30 uppercase tracking-widest mb-5">Solutions</p>
           <ul className="flex flex-col gap-3">
-            {SERVICES.map((service) => (
-              <li key={service.slug}>
-                <Link href={service.href} className="text-sm text-cream/60 hover:text-cream transition-colors">
-                  {service.title}
-                </Link>
+            {[
+              ["Patient Revenue System", "/patient-revenue-system"],
+              ["Patient Revenue System for Clinics", "/clinics"],
+              ["Revenue Intelligence", "/revenue-intelligence"],
+              ["Customer Progression", "/customer-progression"],
+              ["AI Discovery", "/ai-discovery"],
+              ["Implementation Services", "/services"],
+            ].map(([label, href]) => (
+              <li key={href}>
+                <Link href={href} className="text-sm text-cream/60 hover:text-cream transition-colors">{label}</Link>
               </li>
             ))}
           </ul>

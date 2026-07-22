@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { INDUSTRIES } from "@/lib/constants";
 import TextReveal from "@/components/ui/TextReveal";
 
-const ACCENT_COLORS = ["#FF5C35", "#2563EB", "#16A34A", "#9333EA"];
+const ACCENT_COLORS = ["#CF3723", "#31356D", "#5F7657", "#687DAE"];
 
 export default function Industries() {
   const [open, setOpen] = useState<string>("healthcare");

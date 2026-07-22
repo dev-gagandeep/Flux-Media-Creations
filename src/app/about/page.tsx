@@ -59,12 +59,12 @@ const industryBlocks = [
   {
     title: "Healthcare",
     body: "Patient trust, service clarity, compliant intake flow, and fast appointment handling.",
-    href: "/industries#healthcare",
+    href: "/industries/healthcare",
   },
   {
     title: "Home Services",
     body: "Mobile-first local pages, urgent call capture, quote flows, and missed-call recovery.",
-    href: "/industries#home-services",
+    href: "/industries/home-services",
   },
   {
     title: "Real Estate",

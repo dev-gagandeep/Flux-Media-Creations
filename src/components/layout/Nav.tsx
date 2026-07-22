@@ -14,41 +14,37 @@ export default function Nav() {
   const [hidden, setHidden] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const lastY = useRef(0);
-  const isServicesPath = pathname.startsWith("/services");
+  const isServicesPath = pathname === "/solutions" || ["/patient-revenue-system", "/clinics", "/revenue-intelligence", "/customer-progression", "/ai-discovery"].includes(pathname);
 
   const serviceCategories = [
     {
-      title: "Web Development",
-      body: "Premium websites and full website plus CRM builds.",
+      title: "Core systems",
+      body: "Connected operating systems for demand and revenue.",
       items: [
-        { name: "WordPress Website Build", href: "/services/wordpress-website-build", note: "Custom Figma to WordPress sites" },
-        { name: "Full Growth System", href: "/services/full-growth-system", note: "Website and CRM built together" },
-        { name: "Healthcare Website & CRM", href: "/healthcare-website-crm", note: "Clinic-focused patient acquisition system" },
+        { name: "Patient Revenue System", href: "/patient-revenue-system", note: "Patient discovery through booked appointment" },
+        { name: "Patient Revenue System for Clinics", href: "/clinics", note: "Recover enquiry and appointment leakage" },
+        { name: "Revenue Intelligence", href: "/revenue-intelligence", note: "Connect demand, pipeline, and outcomes" },
       ],
     },
     {
-      title: "SEO & Visibility",
-      body: "Organic discovery across Google, Maps, and AI search.",
+      title: "Discovery & progression",
+      body: "Help customers find, understand, and move forward.",
       items: [
-        { name: "Search Visibility Engine", href: "/services/search-visibility-engine", note: "SEO, Maps, and AI search visibility" },
-        { name: "Local SEO New Jersey", href: "/local-seo-new-jersey", note: "Google Maps, GBP, reviews, and AI search for NJ" },
-        { name: "Healthcare SEO Structure", href: "/healthcare-website-crm", note: "Clinic service pages and trust-led SEO" },
+        { name: "AI Discovery", href: "/ai-discovery", note: "Search, maps, and AI understanding" },
+        { name: "Customer Progression", href: "/customer-progression", note: "Connected journeys and workflows" },
       ],
     },
     {
-      title: "GoHighLevel & Automation",
-      body: "CRM, follow-up, integrations, and operational systems.",
+      title: "Implementation",
+      body: "Supporting website, CRM, SEO, and automation capabilities.",
       items: [
-        { name: "GoHighLevel Setup & Automation", href: "/services/gohighlevel-automation", note: "Pipelines, SMS, booking, reminders" },
-        { name: "Clinic Appointment Booking Automation", href: "/services/clinic-appointment-booking-automation", note: "Clinic forms, reminders, missed-call recovery" },
-        { name: "Airtable CRM & Business Hub", href: "/services/airtable-business-hub", note: "Dashboards and internal operations" },
-        { name: "Make & Zapier Automation", href: "/services/make-zapier-automation", note: "Tool connections and lead routing" },
-        { name: "WordPress & GHL Monthly Maintenance", href: "/services/monthly-maintenance", note: "Ongoing website and workflow support" },
+        { name: "Implementation Services", href: "/services", note: "Website, CRM, SEO, and automation delivery" },
+        { name: "Healthcare Website & CRM", href: "/healthcare-website-crm", note: "Existing clinic implementation system" },
       ],
     },
   ];
 
-  const primaryNavLinks = NAV_LINKS.filter((link) => link.href !== "/services");
+  const primaryNavLinks = NAV_LINKS.filter((link) => link.href !== "/solutions");
 
   useEffect(() => {
     const onScroll = () => {
@@ -74,16 +70,16 @@ export default function Nav() {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
         style={{
-          background: scrolled ? "rgba(250,248,244,0.9)" : "transparent",
+          background: scrolled ? "rgba(243,244,241,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled ? "1px solid rgba(13,13,13,0.08)" : "none",
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-[1500px] mx-auto px-5 md:px-9 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <span
-              className="font-display font-semibold text-xl tracking-tight"
+              className="font-display font-semibold text-2xl tracking-tight"
               style={{ letterSpacing: "-0.03em" }}
             >
               Flux
@@ -107,7 +103,7 @@ export default function Nav() {
                 aria-haspopup="menu"
                 aria-expanded={servicesOpen}
               >
-                Services
+                Solutions
                 <span className="text-xs">▾</span>
               </button>
 
@@ -118,21 +114,21 @@ export default function Nav() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 12 }}
                     transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-1/2 top-full mt-4 w-[min(920px,calc(100vw-48px))] -translate-x-1/2 rounded-2xl border border-ink/10 bg-cream shadow-[0_24px_60px_rgba(13,13,13,0.12)] p-5"
+                    className="absolute left-1/2 top-full mt-4 w-[min(920px,calc(100vw-48px))] -translate-x-1/2 rounded-[2rem] border border-ink/10 bg-pulse-light shadow-[0_30px_90px_rgba(6,7,10,0.16)] p-5"
                     role="menu"
                   >
                     <div className="mb-5 flex items-end justify-between gap-6 border-b border-ink/10 pb-4">
                       <div>
-                        <p className="text-xs uppercase tracking-widest text-ink/30 mb-1">Services</p>
-                        <p className="text-sm text-ink/55">Choose the build path that matches your growth problem.</p>
+                        <p className="text-xs uppercase tracking-widest text-ink/30 mb-1">Operating Intelligence Solutions</p>
+                        <p className="text-sm text-ink/55">Choose the connected system that matches the operating problem.</p>
                       </div>
                       <Link
-                        href="/services"
+                        href="/solutions"
                         onClick={() => setServicesOpen(false)}
                         className="shrink-0 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-flux"
                         role="menuitem"
                       >
-                        View all services
+                        View all solutions
                       </Link>
                     </div>
                     <div className="grid gap-4 lg:grid-cols-3">
@@ -147,7 +143,7 @@ export default function Nav() {
                               <Link
                                 key={item.href + item.name}
                                 href={item.href}
-                                className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-blush"
+                                className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-white"
                                 onClick={() => setServicesOpen(false)}
                                 role="menuitem"
                               >
@@ -180,15 +176,15 @@ export default function Nav() {
           {/* CTA */}
           <div className="flex items-center gap-4">
             <Link
-              href="/contact"
+              href="/business-intelligence-audit"
               className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:gap-3"
               style={{
-                background: "var(--flux)",
+                background: "var(--ink)",
                 color: "white",
-                boxShadow: "0 4px 20px rgba(255,92,53,0.3)",
+                boxShadow: "0 8px 30px rgba(6,7,10,0.16)",
               }}
             >
-              Start a project
+              Measure your score
               <span className="text-base">→</span>
             </Link>
 
@@ -233,7 +229,7 @@ export default function Nav() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.06 + 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  {link.href === "/services" ? (
+                  {link.href === "/solutions" ? (
                     <div>
                       <button
                         type="button"
@@ -257,8 +253,8 @@ export default function Nav() {
                             className="overflow-hidden"
                           >
                             <div className="mt-5 grid gap-4">
-                              <Link href="/services" className="text-base font-medium text-flux">
-                                All Services
+                              <Link href="/solutions" className="text-base font-medium text-flux">
+                                All Solutions
                               </Link>
                               {serviceCategories.map((category) => (
                                 <div key={category.title} className="border-l border-ink/10 pl-4">

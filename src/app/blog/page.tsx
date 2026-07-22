@@ -5,9 +5,9 @@ import { BLOG_POSTS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "Blog | WordPress, GoHighLevel & Lead Generation Playbooks for Service Businesses",
+  absoluteTitle: "Insights | AI Search, Business Intelligence & Healthcare Growth",
   description:
-    "Practical guides on WordPress website design, GoHighLevel automation, healthcare website SEO, missed-call recovery, appointment booking, and lead generation systems for service businesses.",
+    "Flux insights on AI search, operating and revenue intelligence, healthcare growth, customer progression, CRM automation, and connected service-business systems.",
   path: "/blog",
 });
 
@@ -80,7 +80,7 @@ export default function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="section mx-auto max-w-[1400px] pb-12 pt-36 md:pt-44">
-        <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-flux">Blog</p>
+        <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-flux">Insights</p>
         <h1 className="max-w-5xl font-display text-5xl font-semibold leading-[0.95] text-ink md:text-7xl" style={{ letterSpacing: "-0.055em" }}>
           Growth playbooks for websites, automation, and lead generation.
         </h1>
@@ -123,7 +123,7 @@ export default function BlogPage() {
             <div>
               <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-flux">More Articles</p>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-flux">More Insights</p>
                   <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl" style={{ letterSpacing: "-0.035em" }}>
                     Field notes for better growth systems.
                   </h2>

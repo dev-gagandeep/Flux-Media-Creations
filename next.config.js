@@ -22,6 +22,15 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/book-a-call",
+        destination: "/contact",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

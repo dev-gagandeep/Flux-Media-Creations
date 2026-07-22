@@ -31,7 +31,12 @@ const industryPageSchema = {
   },
 };
 
-const ACCENTS = ["#FF5C35", "#2563EB", "#16A34A", "#9333EA"];
+const ACCENTS = ["#CF3723", "#31356D", "#5F7657", "#687DAE"];
+const STRATEGIC_INDUSTRY_ROUTES: Record<string, string> = {
+  healthcare: "/industries/healthcare",
+  "home-services": "/industries/home-services",
+  "beauty-wellness": "/industries/wellness",
+};
 
 export default function IndustriesPage() {
   return (
@@ -54,14 +59,15 @@ export default function IndustriesPage() {
             <p className="mb-5 text-xs uppercase tracking-widest text-ink/35">Jump to industry</p>
             <div className="grid gap-2 sm:grid-cols-2">
               {INDUSTRIES.map((industry) => (
-                <a
+                <Link
                   key={industry.slug}
-                  href={`#${industry.slug}`}
+                  href={STRATEGIC_INDUSTRY_ROUTES[industry.slug] ?? `#${industry.slug}`}
                   className="rounded-xl border border-ink/8 bg-blush/35 px-4 py-3 text-sm font-medium text-ink/68 transition-colors hover:border-flux/30 hover:text-flux"
                 >
                   {industry.label}
-                </a>
+                </Link>
               ))}
+              <Link href="/industries/legal" className="rounded-xl border border-ink/8 bg-blush/35 px-4 py-3 text-sm font-medium text-ink/68 transition-colors hover:border-flux/30 hover:text-flux">Legal Services</Link>
             </div>
           </div>
         </div>

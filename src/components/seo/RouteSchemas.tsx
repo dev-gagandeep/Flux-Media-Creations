@@ -37,6 +37,23 @@ const ROUTES_WITH_PAGE_SERVICE_SCHEMA = new Set([
   "/web-development-automation-new-jersey",
 ]);
 
+const ROUTES_WITH_COMPLETE_PAGE_SCHEMAS = new Set([
+  "/operating-intelligence",
+  "/philosophy",
+  "/the-problem",
+  "/solutions",
+  "/patient-revenue-system",
+  "/clinics",
+  "/revenue-intelligence",
+  "/customer-progression",
+  "/ai-discovery",
+  "/business-intelligence-audit",
+  "/industries/healthcare",
+  "/industries/home-services",
+  "/industries/legal",
+  "/industries/wellness",
+]);
+
 function toAbsolute(path: string): string {
   if (!path || path === "/") return SITE.url;
   return `${SITE.url}${path}`;
@@ -306,6 +323,7 @@ export default function RouteSchemas() {
 
   const schemas = useMemo(() => {
     if (!pathname) return [];
+    if (ROUTES_WITH_COMPLETE_PAGE_SCHEMAS.has(pathname)) return [];
 
     const jsonLd: JsonLd[] = [getWebPageSchema(pathname), getBreadcrumbSchema(pathname), ...getRouteSpecificSchemas(pathname)];
 

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { SITE, SOCIAL_LINKS } from "./constants";
 
+// Temporary launch guard. Set to false only when the new site is approved for indexing.
+const TEMPORARY_SITE_NOINDEX = true;
+
 interface SeoProps {
   title?: string;
   absoluteTitle?: string;
@@ -8,6 +11,8 @@ interface SeoProps {
   path?: string;
   image?: string;
   noIndex?: boolean;
+  socialTitle?: string;
+  socialDescription?: string;
 }
 
 function normalizeTitle(title: string) {
@@ -25,13 +30,13 @@ function normalizeAbsoluteTitle(title: string) {
 }
 
 function normalizeDescription(description: string) {
-  if (description.length <= 160) {
+  if (description.length <= 165) {
     return description;
   }
 
-  const clipped = description.slice(0, 157);
+  const clipped = description.slice(0, 162);
   const lastSpace = clipped.lastIndexOf(" ");
-  return `${clipped.slice(0, lastSpace > 120 ? lastSpace : 157).trimEnd()}...`;
+  return `${clipped.slice(0, lastSpace > 120 ? lastSpace : 162).trimEnd()}...`;
 }
 
 export function generateMeta({
@@ -41,10 +46,15 @@ export function generateMeta({
   path = "",
   image = "/og-image.svg",
   noIndex = false,
+  socialTitle,
+  socialDescription,
 }: SeoProps = {}): Metadata {
   const fullTitle = absoluteTitle ? normalizeAbsoluteTitle(absoluteTitle) : title ? `${normalizeTitle(title)} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
   const metaDescription = normalizeDescription(description);
   const url = `${SITE.url}${path}`;
+  const shareTitle = socialTitle ?? fullTitle;
+  const shareDescription = normalizeDescription(socialDescription ?? description);
+  const shouldNoIndex = TEMPORARY_SITE_NOINDEX || noIndex;
 
   return {
     title: fullTitle,
@@ -53,8 +63,8 @@ export function generateMeta({
     manifest: "/manifest.webmanifest",
     alternates: { canonical: url },
     openGraph: {
-      title: fullTitle,
-      description: metaDescription,
+      title: shareTitle,
+      description: shareDescription,
       url,
       siteName: SITE.name,
       type: "website",
@@ -64,22 +74,24 @@ export function generateMeta({
           url: image,
           width: 1200,
           height: 630,
-          alt: fullTitle,
+          alt: shareTitle,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
-      description: metaDescription,
+      title: shareTitle,
+      description: shareDescription,
       images: [image],
     },
     robots: {
-      index: !noIndex,
-      follow: !noIndex,
+      index: !shouldNoIndex,
+      follow: !shouldNoIndex,
+      nocache: shouldNoIndex,
       googleBot: {
-        index: !noIndex,
-        follow: !noIndex,
+        index: !shouldNoIndex,
+        follow: !shouldNoIndex,
+        noimageindex: shouldNoIndex,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -88,57 +100,64 @@ export function generateMeta({
     authors: [{ name: SITE.founder }],
     creator: SITE.founder,
     publisher: SITE.name,
-    keywords: [
-    "WordPress website development",
-    "GoHighLevel automation",
-    "conversion focused website design",
-    "lead generation website design",
-    "website automation agency",
-    "organic SEO website development",
-    "AI search optimization",
-    "healthcare website design",
-      "GHL setup NJ",
-      "home service website automation",
-      "medical clinic website",
-      "pain management website",
-      "CRM automation",
-      "Airtable setup",
-      "web developer India",
-      "Flux Media Creations",
-      "GHL CRM integration",
-      "WordPress GHL",
-    ],
   };
 }
+
+export const schemaOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE.url}/#organization`,
+  name: "Flux",
+  alternateName: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/og-image.svg`,
+  description: "Flux is an Operating Intelligence Company that builds connected growth systems for service businesses.",
+  foundingLocation: {
+    "@type": "Country",
+    name: "United States",
+  },
+  slogan: "Operating Intelligence for Service Businesses",
+  foundingDate: "2022",
+  founder: {
+    "@type": "Person",
+    name: SITE.founder,
+    url: `${SITE.url}/about`,
+  },
+  email: SITE.email,
+  telephone: SITE.phone,
+  knowsAbout: ["Operating Intelligence", "Revenue Intelligence", "Customer Progression", "AI Discovery", "Patient Revenue Systems"],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href)],
+};
 
 export const schemaWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: SITE.name,
+  "@id": `${SITE.url}/#website`,
+  name: "Flux",
+  alternateName: SITE.name,
   url: SITE.url,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE.url}/blog?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
+  publisher: { "@id": `${SITE.url}/#organization` },
 };
 
 export const schemaHomePage = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: `${SITE.name} Home`,
+  "@id": `${SITE.url}/#webpage`,
+  name: "Flux | Operating Intelligence Company for Service Businesses",
   url: SITE.url,
-  description:
-    "Conversion-focused WordPress websites, organic SEO foundations, and GoHighLevel CRM automations for service businesses, built by Flux Media Creations.",
+  description: SITE.description,
   isPartOf: {
     "@type": "WebSite",
     name: SITE.name,
     url: SITE.url,
   },
   about: {
-    "@type": "ProfessionalService",
+    "@type": "Organization",
+    "@id": `${SITE.url}/#organization`,
     name: SITE.name,
-    serviceType: ["WordPress Website Development", "GoHighLevel CRM Automation", "Lead Follow-up Systems"],
+    alternateName: SITE.shortName,
+    description: SITE.description,
+    knowsAbout: ["Operating Intelligence", "Revenue Intelligence", "Customer Progression", "AI Discovery", "Patient Revenue Systems"],
     areaServed: ["United States", "Canada", "United Kingdom", "India"],
   },
   mainEntity: {
@@ -147,22 +166,27 @@ export const schemaHomePage = {
       {
         "@type": "Service",
         position: 1,
-        name: "WordPress Website Build",
+        name: "Market Presence Intelligence",
       },
       {
         "@type": "Service",
         position: 2,
-        name: "GoHighLevel Automation",
+        name: "Digital Headquarters",
       },
       {
         "@type": "Service",
         position: 3,
-        name: "Full Growth System",
+        name: "Revenue Intelligence",
       },
       {
         "@type": "Service",
         position: 4,
-        name: "Search Visibility Engine",
+        name: "Customer Progression",
+      },
+      {
+        "@type": "Service",
+        position: 5,
+        name: "AI Workforce Systems",
       },
     ],
   },
@@ -170,13 +194,14 @@ export const schemaHomePage = {
 
 export const schemaHomeAgency = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
+  "@id": `${SITE.url}/#organization`,
   name: SITE.name,
+  alternateName: SITE.shortName,
   url: SITE.url,
   logo: `${SITE.url}/og-image.svg`,
-  description:
-    "Flux Media Creations is a WordPress GoHighLevel agency building conversion-first websites, CRM automation, and integrated growth systems for service businesses.",
-  slogan: "Websites & Automation That Work While You Sleep",
+  description: SITE.description,
+  slogan: "Operating Intelligence for Service Businesses",
   foundingDate: "2022",
   email: SITE.email,
   telephone: SITE.phone,
@@ -277,42 +302,58 @@ export const schemaHomeFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Do you only work with US businesses?",
+      name: "What is Flux?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our main focus is US service businesses, but we also work with clients in Canada and the United Kingdom. All work is delivered in English and we communicate via email, WhatsApp, and video call.",
+        text: "Flux is an Operating Intelligence Company. It builds connected systems that link how a business is discovered, how its website performs, how customer inquiries are followed up on, and how automation and AI support the team, so these functions work as one coordinated system instead of separate disconnected tools.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does a project take?",
+      name: "Who does Flux help?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A WordPress-only site takes 7 to 10 business days. A full WordPress plus GoHighLevel growth system takes 14 to 21 days. We set clear milestones at the start of every project.",
+        text: "Flux works with appointment based service businesses, starting with healthcare clinics and practices, and extending to home services, legal, wellness, and other professional service businesses where fast, consistent follow up determines whether an inquiry becomes a customer.",
       },
     },
     {
       "@type": "Question",
-      name: "Do I need to buy my own GoHighLevel account?",
+      name: "What problem does Flux solve?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. GoHighLevel's Starter plan is $97 per month and you own the account directly. We set up everything inside your account and hand it over fully configured.",
+        text: "Flux solves fragmentation. Most businesses already have a website, a CRM, and marketing running, but these systems do not communicate, which means inquiries get delayed, follow up is inconsistent, and business owners have no clear view of where customers are being lost. Flux connects these systems into one intelligence layer.",
       },
     },
     {
       "@type": "Question",
-      name: "Can you work with my existing website?",
+      name: "How is Flux different from a marketing agency?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We can audit your current site, rebuild it while preserving your content and SEO history, or add specific components like booking systems or lead capture forms to what already exists.",
+        text: "A marketing agency typically delivers isolated services like a website, an ad campaign, or SEO work, without connecting them. Flux builds the connected system underneath these functions, measured by whether inquiries convert into customers, not by how many deliverables were completed.",
       },
     },
     {
       "@type": "Question",
-      name: "What makes you different from other WordPress agencies?",
+      name: "What is Operating Intelligence?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most agencies build a website and move on. We build the website, connect the CRM, configure the automations, and deliver a system that generates and follows up with leads automatically.",
+        text: "Operating Intelligence is the coordination of a business's discovery, website, revenue tracking, customer follow up, and automation into a single connected system that improves over time. It replaces fragmented tools with one working infrastructure.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why do businesses need connected systems instead of separate tools?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Separate tools create gaps: a website that does not feed the CRM, a CRM that is not followed up on, and data that never gets reviewed. Each gap is a point where a potential customer is lost. Connected systems close those gaps by moving information and follow up automatically between every part of the business.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is a Business Intelligence Assessment?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It is a review Flux conducts of how a business currently handles discovery, response time, follow up, and conversion, identifying where customers are being lost before any system is built or changed.",
       },
     },
   ],

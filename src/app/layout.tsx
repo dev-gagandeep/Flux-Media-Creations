@@ -1,10 +1,24 @@
 import "./globals.css";
-import { generateMeta, schemaWebsite } from "@/lib/seo";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/space-grotesk";
+import { generateMeta, schemaOrganization, schemaWebsite } from "@/lib/seo";
 import ChatbotWrapper from "@/components/chatbot/ChatbotWrapper";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import RouteSchemas from "@/components/seo/RouteSchemas";
 
-export const metadata = generateMeta();
+export const metadata = {
+  ...generateMeta(),
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,6 +38,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebsite) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }}
         />
       </head>
       <body className="bg-cream text-ink overflow-x-hidden">

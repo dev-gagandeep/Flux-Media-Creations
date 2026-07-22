@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import { generateMeta, schemaHomeAgency, schemaHomeFaq, schemaHomePage, schemaHomeReviews } from "@/lib/seo";
-import { TOOLS } from "@/lib/constants";
-import Hero from "@/components/sections/Hero";
-import TrustBar from "@/components/sections/TrustBar";
-import Services from "@/components/sections/Services";
-import Pricing from "@/components/sections/Pricing";
-import WhyFlux from "@/components/sections/WhyFlux";
-import Industries from "@/components/sections/Industries";
-import Numbers from "@/components/sections/Numbers";
-import Process from "@/components/sections/Process";
-import FAQSection from "@/components/sections/FAQSection";
-import CTA from "@/components/sections/CTA";
-import Marquee from "@/components/ui/Marquee";
+import { generateMeta, schemaHomeFaq, schemaHomePage } from "@/lib/seo";
+import HomeV2 from "@/components/home/HomeV2";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "WordPress GoHighLevel Agency for Service Businesses",
+  absoluteTitle: "Flux | Operating Intelligence Company for Service Businesses",
   description:
-    "Flux builds WordPress websites, GoHighLevel CRM automation, missed-call recovery, and booking systems for clinics and service businesses.",
+    "Flux builds operating intelligence systems that help service businesses get discovered, capture opportunities, automate customer journeys, and grow in the AI era.",
+  socialTitle: "Flux | Build a More Intelligent Business",
+  socialDescription: "Connected growth systems combining AI discovery, customer intelligence, automation, and revenue infrastructure for modern service businesses.",
   path: "/",
 });
 
@@ -29,27 +20,9 @@ export default function HomePage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomeAgency) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomeFaq) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomeReviews) }}
-      />
-      <Hero />
-      <TrustBar />
-      <Marquee items={TOOLS} />
-      <Services />
-      <Pricing />
-      <WhyFlux />
-      <Industries />
-      <Numbers />
-      <Process />
-      <FAQSection />
-      <CTA />
+      <HomeV2 />
     </>
   );
 }
