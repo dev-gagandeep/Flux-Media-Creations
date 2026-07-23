@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Check, MoveRight } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, BadgeCheck, Check, Globe2, Layers3, MoveRight, Workflow } from "lucide-react";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 import { RecognitionStrip } from "@/components/brand/AuthorityEcosystem";
 
@@ -61,6 +61,13 @@ const faqs = [
   ["What is a Business Intelligence Assessment?", "It is a review of how a business currently handles discovery, response time, follow up, and conversion, identifying where customers are being lost before any system is built or changed."],
 ];
 
+const stats = [
+  { label: "Serving Clients Worldwide", Icon: Globe2 },
+  { label: "50+ Digital Projects Delivered", Icon: Layers3 },
+  { label: "5-Star Client Satisfaction", Icon: BadgeCheck },
+  { label: "WordPress + Automation Specialists", Icon: Workflow },
+];
+
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return <m.div initial={{ opacity: 0, y: 38 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .18 }} transition={{ delay, duration: .72, ease: [0.16, 1, 0.3, 1] }} className={className}>{children}</m.div>;
 }
@@ -85,6 +92,26 @@ export default function HomeV2() {
             </m.div>
           </div>
           <Link href="#business-shift" className="group ml-auto flex w-fit items-center gap-3 py-4 text-xs font-bold uppercase tracking-[.12em] text-ink/45">Explore the shift <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-500 group-hover:translate-y-1 group-hover:bg-ink group-hover:text-white"><ArrowDownRight size={16} /></span></Link>
+        </div>
+      </section>
+
+      <section aria-label="Flux at a glance" className="border-y border-ink/10 bg-white">
+        <div className="flux-shell grid sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map(({ label, Icon }, index) => (
+            <m.div
+              key={label}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: .5 }}
+              transition={{ delay: index * .07, duration: .55 }}
+              className="flex min-h-32 items-center gap-4 border-b border-ink/10 py-6 sm:px-6 sm:first:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pulse-light text-flux">
+                <Icon size={21} strokeWidth={1.8} />
+              </span>
+              <p className="max-w-[15rem] font-display text-xl font-medium leading-tight">{label}</p>
+            </m.div>
+          ))}
         </div>
       </section>
 

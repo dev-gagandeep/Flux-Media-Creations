@@ -6,7 +6,6 @@ const recognition = [
   { name: "Clutch", src: "/images/ecosystem/clutch.png", href: "https://clutch.co/profile/flux-media-creations" },
   { name: "GoodFirms", src: "/images/ecosystem/goodfirms.jpeg", href: "https://www.goodfirms.co/company/flux-media-creations" },
   { name: "Trustpilot", src: "/images/ecosystem/trustpilot.webp", href: "https://www.trustpilot.com/review/fluxmediacreations.com", wide: true },
-  { name: "Awwwards", src: "/images/ecosystem/awwwards.svg", href: "https://www.awwwards.com/fluxmediacreations/", wide: true },
   { name: "99designs", src: "/images/ecosystem/99designs.png", href: "https://99designs.com/profiles/fluxmediacreations" },
 ];
 
@@ -43,9 +42,9 @@ export function RecognitionStrip() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View Flux on ${item.name}`}
-                className="flex h-16 w-[190px] shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream px-5 transition-transform hover:-translate-y-1"
+                className="flex h-20 w-[220px] shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream px-6 transition-transform hover:-translate-y-1"
               >
-                <Image src={item.src} alt={item.name} width={220} height={80} className={`max-h-9 object-contain ${item.wide ? "w-[132px]" : "w-16"}`} />
+                <Image src={item.src} alt={item.name} width={240} height={90} className={`max-h-12 object-contain ${item.wide ? "w-[160px]" : "w-20"}`} />
               </a>
               )),
             )}

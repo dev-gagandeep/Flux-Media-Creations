@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 import { BLOG_POSTS, LOCATION_PAGES, SERVICE_PAGES, SITE } from "@/lib/constants";
 import { getSanityPosts, mergePosts } from "@/lib/sanity";
 
-const DEFAULT_LAST_MODIFIED = new Date("2026-05-07");
-const FLUX2_LAST_MODIFIED = new Date("2026-07-22");
+const DEFAULT_LAST_MODIFIED = new Date("2026-07-23");
+const FLUX2_LAST_MODIFIED = new Date("2026-07-23");
 const BLOG_LAST_MODIFIED = new Date("2026-05-08");
 const SERVICE_LAST_MODIFIED = new Date("2026-05-09");
 const LOCATION_LAST_MODIFIED = new Date("2026-05-07");

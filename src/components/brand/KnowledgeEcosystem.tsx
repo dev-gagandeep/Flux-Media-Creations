@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 
 const channels = [
   { name: "Medium", src: "/images/ecosystem/medium.svg", href: "https://medium.com/@fluxmediacreations" },
-  { name: "Awwwards", src: "/images/ecosystem/awwwards.svg", href: "https://www.awwwards.com/fluxmediacreations/" },
   { name: "99designs", src: "/images/ecosystem/99designs.png", href: "https://99designs.com/profiles/fluxmediacreations" },
 ];
 

@@ -25,7 +25,7 @@ const logoSets = {
     logo("Claude", "/images/ecosystem/claude.png"),
     logo("Airtable", "/images/ecosystem/airtable.svg", true),
     logo("Microsoft Clarity", "/images/ecosystem/microsoft-clarity.webp", true),
-    logo("Google Search Console", "/images/ecosystem/google-search-console.webp", true),
+    logo("Google Analytics", "/images/ecosystem/google-analytics.png", true),
   ],
   industry: [
     logo("HighLevel", "/images/ecosystem/highlevel.png", true),
@@ -51,15 +51,15 @@ function LogoItem({ item }: { item: Logo }) {
   return (
     <div
       title={item.name}
-      className="group flex h-16 w-[176px] shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-white px-6 shadow-[0_8px_24px_rgba(6,7,10,.035)] transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-flux/35 hover:shadow-[0_14px_34px_rgba(6,7,10,.08)]"
+      className="group flex h-20 w-[205px] shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-white px-6 shadow-[0_8px_24px_rgba(6,7,10,.035)] transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-flux/35 hover:shadow-[0_14px_34px_rgba(6,7,10,.08)]"
     >
       <Image
         src={item.src}
         alt={item.name}
         width={220}
         height={80}
-        className={`max-h-9 object-contain transition-transform duration-300 group-hover:scale-105 ${item.wide ? "w-[132px]" : "w-10"}`}
-        sizes="132px"
+        className={`max-h-11 object-contain transition-transform duration-300 group-hover:scale-105 ${item.wide ? "w-[154px]" : "w-12"}`}
+        sizes="154px"
       />
     </div>
   );
