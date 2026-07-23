@@ -1,8 +1,10 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
+import { getSanityPosts, mergePosts } from "@/lib/sanity";
 
 export const metadata: Metadata = generateMeta({
   absoluteTitle: "Insights | AI Search, Business Intelligence & Healthcare Growth",
@@ -21,14 +23,15 @@ const FEATURED_POST = {
   category: "Healthcare Growth Systems",
   author: "Gagan Deep",
   cover: "/images/blog/healthcare-website-design-clinic-conversions.png",
+  content: [],
 };
 
-const allPosts = [FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const localPosts = [FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const INSIGHT_CATEGORIES = [
-  { slug: "ai-search", label: "AI Search", matches: ["Local SEO and Search Visibility", "Discovery and Visibility", "Website Development"] },
-  { slug: "business-intelligence", label: "Business Intelligence", matches: ["Growth Systems", "GoHighLevel Automation", "CRM and Automation", "Website + Automation", "Operations and CRM", "Automation Workflows", "Ongoing Support"] },
-  { slug: "healthcare-growth", label: "Healthcare Growth", matches: ["Healthcare Growth Systems", "Healthcare Automation", "Healthcare SEO"] },
+  { slug: "ai-search", label: "AI Search", matches: ["AI Search", "Local SEO and Search Visibility", "Discovery and Visibility", "Website Development"] },
+  { slug: "business-intelligence", label: "Business Intelligence", matches: ["Business Intelligence", "Growth Systems", "GoHighLevel Automation", "CRM and Automation", "Website + Automation", "Operations and CRM", "Automation Workflows", "Ongoing Support"] },
+  { slug: "healthcare-growth", label: "Healthcare Growth", matches: ["Healthcare Growth", "Healthcare Growth Systems", "Healthcare Automation", "Healthcare SEO"] },
 ];
 
 function insightCategory(category: string) {
@@ -44,13 +47,6 @@ const faqs = [
   ["How does missed-call text-back help service businesses?", "Missed-call text-back sends an automatic SMS when a business misses a call, giving the prospect a fast way to continue the conversation."],
 ];
 
-const categoryCounts = allPosts.reduce<Record<string, number>>((acc, post) => {
-  const label = insightCategory(post.category).label;
-  acc[label] = (acc[label] || 0) + 1;
-  return acc;
-}, {});
-
-const categories = Object.entries(categoryCounts).sort(([a], [b]) => a.localeCompare(b));
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -81,15 +77,23 @@ function PostMeta({ post }: { post: { category: string; date: string; readTime: 
   );
 }
 
-export default function BlogPage({ searchParams }: { searchParams?: { category?: string } }) {
-  const selected = INSIGHT_CATEGORIES.find(item => item.slug === searchParams?.category);
+export default async function BlogPage({ searchParams }: { searchParams?: Promise<{ category?: string }> }) {
+  const query = searchParams ? await searchParams : undefined;
+  const allPosts = mergePosts(await getSanityPosts(), localPosts);
+  const selected = INSIGHT_CATEGORIES.find(item => item.slug === query?.category);
   const posts = selected ? allPosts.filter(post => selected.matches.includes(post.category)) : allPosts;
   const latestPost = posts[0] ?? allPosts[0];
   const otherPosts = posts.slice(1);
   const sidebarPosts = posts.slice(0, 4);
+  const categoryCounts = allPosts.reduce<Record<string, number>>((acc, post) => {
+    const label = insightCategory(post.category).label;
+    acc[label] = (acc[label] || 0) + 1;
+    return acc;
+  }, {});
+  const categories = Object.entries(categoryCounts).sort(([a], [b]) => a.localeCompare(b));
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
 
       <section className="section mx-auto max-w-[1400px] pb-12 pt-36 md:pt-44">
         <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-flux">Insights</p>

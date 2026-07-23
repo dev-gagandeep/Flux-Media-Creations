@@ -90,7 +90,7 @@ export default function ServicesPage() {
             <div
               key={service.number}
               id={service.slug}
-              className={`relative p-7 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
+              className={`relative p-7 rounded-2xl border transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:-translate-y-1 ${
                 service.featured
                   ? "border-flux/30 bg-blush"
                   : "border-ink/8 bg-white hover:border-ink/20"
@@ -136,7 +136,7 @@ export default function ServicesPage() {
                 </div>
                 <Link
                   href={service.href}
-                  className="flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-full transition-all duration-300 hover:gap-3"
+                  className="flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-full transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:gap-3"
                   style={
                     service.featured
                       ? { background: "var(--flux)", color: "white" }
@@ -200,7 +200,7 @@ export default function ServicesPage() {
             </thead>
             <tbody>
               {COMPARISON.map((row, i) => (
-                <tr key={i} className="border-b border-ink/5 hover:bg-ink/2 transition-colors">
+                <tr key={row.feature} className="border-b border-ink/5 hover:bg-ink/2 transition-colors">
                   <td className="py-3.5 pr-6 text-sm text-ink/65">{row.feature}</td>
                   <td className="text-center py-3.5 px-4 text-sm">
                     {row.s1 ? <span style={{ color: "#16A34A" }}>✓</span> : <span className="text-ink/15">—</span>}
@@ -231,8 +231,8 @@ export default function ServicesPage() {
           Frequently asked
         </h2>
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
-          {FAQ.map((item, i) => (
-            <div key={i} className="border-t border-ink/10 pt-6">
+          {FAQ.map((item) => (
+            <div key={item.q} className="border-t border-ink/10 pt-6">
               <h3 className="font-medium text-base mb-3">{item.q}</h3>
               <p className="text-sm text-ink/55 leading-relaxed">{item.a}</p>
             </div>

@@ -403,7 +403,7 @@ export default function StudentPortfolioPage() {
             <PrimaryCTA>Order Now Rs 199</PrimaryCTA>
             <SecondaryCTA href={WHATSAPP_LINK}>Chat on WhatsApp</SecondaryCTA>
           </div>
-          <p className="mt-5 text-xs uppercase tracking-[0.16em] text-white/30">No coding needed. Free Vercel link. 24 to 48 hour delivery.</p>
+          <p className="mt-5 text-sm tracking-[0.04em] text-white/30">No coding needed. Free Vercel link. 24 to 48 hour delivery.</p>
         </div>
       </section>
     </div>

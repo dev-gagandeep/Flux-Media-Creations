@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
@@ -45,8 +46,8 @@ const faqSchema = {
 export default function AirtableBusinessHubPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
       <ServiceLandingPage
         eyebrow="Airtable CRM Setup"
         h1="Airtable CRM Setup and Business Hub for Service Businesses"

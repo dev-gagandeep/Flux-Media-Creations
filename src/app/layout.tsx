@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import "./globals.css";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/space-grotesk";
@@ -5,17 +6,19 @@ import { generateMeta, schemaOrganization, schemaWebsite } from "@/lib/seo";
 import ChatbotWrapper from "@/components/chatbot/ChatbotWrapper";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import RouteSchemas from "@/components/seo/RouteSchemas";
+import MotionProvider from "@/components/ui/MotionProvider";
 
 export const metadata = {
   ...generateMeta(),
   robots: {
-    index: false,
-    follow: false,
-    nocache: true,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
-      noimageindex: true,
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 };
@@ -37,25 +40,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebsite) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(schemaWebsite) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(schemaOrganization) }}
         />
       </head>
       <body className="bg-cream text-ink overflow-x-hidden">
         <noscript>
           <iframe
+            title="Google Tag Manager"
             src="https://www.googletagmanager.com/ns.html?id=GTM-NBQFBVX8"
+            sandbox=""
+            referrerPolicy="no-referrer"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <RouteSchemas />
-        <RootLayoutClient>{children}</RootLayoutClient>
-        <ChatbotWrapper />
+        <MotionProvider>
+          <RouteSchemas />
+          <RootLayoutClient>{children}</RootLayoutClient>
+          <ChatbotWrapper />
+        </MotionProvider>
       </body>
     </html>
   );

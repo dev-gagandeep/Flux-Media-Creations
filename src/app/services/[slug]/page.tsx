@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +8,9 @@ import { SERVICE_DETAIL_CONTENT } from "@/lib/service-content";
 import { generateMeta } from "@/lib/seo";
 
 type ServicePageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const DEDICATED_SERVICE_ROUTES = new Set([
@@ -36,9 +37,10 @@ export function generateStaticParams() {
     .map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: ServicePageProps): Metadata {
-  const service = getService(params.slug);
-  const detailed = SERVICE_DETAIL_CONTENT[params.slug];
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getService(slug);
+  const detailed = SERVICE_DETAIL_CONTENT[slug];
 
   if (!service) {
     return generateMeta({
@@ -63,9 +65,9 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
   });
 }
 
-function FallbackServicePage({ params }: ServicePageProps) {
-  const service = getService(params.slug);
-  const pricing = getPricing(params.slug);
+function FallbackServicePage({ slug }: { slug: string }) {
+  const service = getService(slug);
+  const pricing = getPricing(slug);
 
   if (!service) {
     notFound();
@@ -102,8 +104,8 @@ function FallbackServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
 
       <section className="section pt-40 md:pt-48 pb-20 max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
@@ -164,7 +166,7 @@ function FallbackServicePage({ params }: ServicePageProps) {
               </div>
               <Link
                 href="/contact"
-                className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:gap-4"
+                className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:gap-4"
                 style={{ background: "var(--flux)", color: "white" }}
               >
                 Start the conversation
@@ -242,7 +244,7 @@ function FallbackServicePage({ params }: ServicePageProps) {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:gap-4"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:gap-4"
             style={{ background: "var(--flux)", color: "white" }}
           >
             Start a project
@@ -254,17 +256,18 @@ function FallbackServicePage({ params }: ServicePageProps) {
   );
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = getService(params.slug);
-  const detail = SERVICE_DETAIL_CONTENT[params.slug];
-  const pricing = getPricing(params.slug);
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = getService(slug);
+  const detail = SERVICE_DETAIL_CONTENT[slug];
+  const pricing = getPricing(slug);
 
   if (!service) {
     notFound();
   }
 
   if (!detail) {
-    return <FallbackServicePage params={params} />;
+    return <FallbackServicePage slug={slug} />;
   }
 
   const serviceSchema = {
@@ -298,8 +301,8 @@ export default function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
 
       <section className="section pt-32 md:pt-40 max-w-[1400px] mx-auto">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_480px] lg:items-center">
@@ -318,7 +321,7 @@ export default function ServicePage({ params }: ServicePageProps) {
               >
                 {detail.finalCta.primaryLabel}
               </Link>
-              {params.slug === "clinic-appointment-booking-automation" ? (
+              {slug === "clinic-appointment-booking-automation" ? (
                 <Link href="/contact" className="inline-flex items-center gap-3 rounded-lg border border-ink/15 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30">
                   {detail.finalCta.secondaryLabel}
                 </Link>
@@ -409,7 +412,7 @@ export default function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {params.slug === "clinic-appointment-booking-automation" ? (
+      {slug === "clinic-appointment-booking-automation" ? (
         <section className="section-sm max-w-[1400px] mx-auto">
           <div className="rounded-lg border border-flux/15 bg-blush p-8 md:p-10">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.7fr)] lg:items-start">
@@ -466,7 +469,7 @@ export default function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {params.slug === "full-growth-system" ? (
+      {slug === "full-growth-system" ? (
         <section className="section-sm max-w-[1400px] mx-auto">
           <div className="rounded-lg border border-flux/15 bg-blush p-8 md:p-10">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">

@@ -3,6 +3,10 @@ import { LOCATION_PAGES, SITE, NAV_LINKS, SOCIAL_LINKS, TOOLS } from "@/lib/cons
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const marqueeTools = TOOLS.flatMap((tool) => [
+    { id: `first-${tool}`, label: tool },
+    { id: `second-${tool}`, label: tool },
+  ]);
 
   return (
     <footer className="bg-ink text-cream" itemScope itemType="https://schema.org/WPFooter">
@@ -21,7 +25,7 @@ export default function Footer() {
           </div>
           <Link
             href="/business-intelligence-audit"
-            className="flex-shrink-0 flex items-center gap-3 px-8 py-4 rounded-full font-medium text-ink transition-all duration-300 hover:scale-105 hover:gap-5"
+            className="flex-shrink-0 flex items-center gap-3 px-8 py-4 rounded-full font-medium text-ink transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:scale-105 hover:gap-5"
             style={{ background: "var(--flux)", color: "white" }}
           >
             Measure your score
@@ -152,9 +156,9 @@ export default function Footer() {
       {/* Tools marquee */}
       <div className="border-t border-cream/10 py-5 overflow-hidden">
         <div className="flex marquee-track whitespace-nowrap select-none">
-          {[...TOOLS, ...TOOLS].map((tool, i) => (
-            <span key={i} className="inline-flex items-center gap-6 text-xs text-cream/25 uppercase tracking-widest mr-8">
-              {tool}
+          {marqueeTools.map((tool) => (
+            <span key={tool.id} className="inline-flex items-center gap-6 text-xs text-cream/25 uppercase tracking-widest mr-8">
+              {tool.label}
               <span style={{ color: "var(--flux)" }}>✦</span>
             </span>
           ))}

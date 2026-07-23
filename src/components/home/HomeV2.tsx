@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, Check, MoveRight } from "lucide-react";
 
 const framework = [
@@ -60,7 +60,7 @@ const faqs = [
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  return <motion.div initial={{ opacity: 0, y: 38 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .18 }} transition={{ delay, duration: .72, ease: [0.16, 1, 0.3, 1] }} className={className}>{children}</motion.div>;
+  return <m.div initial={{ opacity: 0, y: 38 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .18 }} transition={{ delay, duration: .72, ease: [0.16, 1, 0.3, 1] }} className={className}>{children}</m.div>;
 }
 
 function SectionHead({ kicker, title }: { kicker: string; title: string }) {
@@ -74,15 +74,15 @@ export default function HomeV2() {
         <div className="flux-shell">
           <div className="flex items-center justify-between border-y border-ink/15 py-3"><p className="flux-kicker text-ink/55">Operating Intelligence Company</p><p className="hidden text-xs font-semibold text-ink/45 sm:block">Connected systems · Built to improve</p></div>
           <div className="grid gap-12 py-10 md:py-14 lg:grid-cols-[1.25fr_.75fr] lg:items-end lg:py-16">
-            <motion.div initial={{ opacity: 0, y: 44 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .85, ease: [0.16, 1, 0.3, 1] }}>
+            <m.div initial={{ opacity: 0, y: 44 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .85, ease: [0.16, 1, 0.3, 1] }}>
               <h1 className="max-w-6xl font-display text-[clamp(3.35rem,6.4vw,6.8rem)] font-medium leading-[.92] tracking-[-.07em]">Your business doesn&apos;t need more tools. <span className="text-flux">It needs them to talk.</span></h1>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .18, duration: .72 }} className="border-t border-ink/15 pt-6">
+            </m.div>
+            <m.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .18, duration: .72 }} className="border-t border-ink/15 pt-6">
               <p className="text-lg leading-8 text-ink/65">Most businesses are not short on technology. What they lack is a system where the website, CRM, booking, follow-up, AI, and business data work together. Flux builds that connective layer so every inquiry and next action moves automatically, in the right direction.</p>
               <div className="mt-8 flex flex-wrap gap-3"><Link href="/business-intelligence-audit" className="flux-button flux-button-red">Start your assessment <ArrowUpRight size={16} /></Link><Link href="/operating-intelligence" className="flux-button flux-button-line">How it works</Link></div>
-            </motion.div>
+            </m.div>
           </div>
-          <Link href="#business-shift" className="group ml-auto flex w-fit items-center gap-3 py-4 text-xs font-bold uppercase tracking-[.12em] text-ink/45">Explore the shift <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 transition-all duration-500 group-hover:translate-y-1 group-hover:bg-ink group-hover:text-white"><ArrowDownRight size={16} /></span></Link>
+          <Link href="#business-shift" className="group ml-auto flex w-fit items-center gap-3 py-4 text-xs font-bold uppercase tracking-[.12em] text-ink/45">Explore the shift <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-500 group-hover:translate-y-1 group-hover:bg-ink group-hover:text-white"><ArrowDownRight size={16} /></span></Link>
         </div>
       </section>
 
@@ -101,7 +101,7 @@ export default function HomeV2() {
       </div></section>
 
       <section className="bg-cream py-24 md:py-36"><div className="flux-shell"><SectionHead kicker="Operating Intelligence framework" title="Five systems. One connected business." />
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{framework.map((item, index) => <motion.div key={item.title} initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ delay: index * .07, duration: .65 }} className={`${index < 2 ? "lg:col-span-6" : index === 2 ? "lg:col-span-5" : index === 3 ? "lg:col-span-7" : "lg:col-span-12"}`}><Link href={item.href} className={`${item.tone} group flex min-h-[380px] flex-col justify-between rounded-[2rem] p-8 transition-[transform,border-radius,box-shadow] duration-500 hover:-translate-y-2 hover:rounded-[2.6rem] hover:shadow-[0_30px_80px_rgba(6,7,10,.15)] md:p-10`}><div className="flex justify-between"><span className="text-xs font-bold opacity-50">{item.number}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-[clamp(2.25rem,3.6vw,3.75rem)] font-medium leading-[1]">{item.title}</h3><p className="mt-5 max-w-2xl text-sm leading-7 opacity-65">{item.body}</p></div></Link></motion.div>)}</div>
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{framework.map((item, index) => <m.div key={item.title} initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ delay: index * .07, duration: .65 }} className={`${index < 2 ? "lg:col-span-6" : index === 2 ? "lg:col-span-5" : index === 3 ? "lg:col-span-7" : "lg:col-span-12"}`}><Link href={item.href} className={`${item.tone} group flex min-h-[380px] flex-col justify-between rounded-[2rem] p-8 transition-[transform,border-radius,box-shadow] duration-500 hover:-translate-y-2 hover:rounded-[2.6rem] hover:shadow-[0_30px_80px_rgba(6,7,10,.15)] md:p-10`}><div className="flex justify-between"><span className="text-xs font-bold opacity-50">{item.number}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-[clamp(2.25rem,3.6vw,3.75rem)] font-medium leading-[1]">{item.title}</h3><p className="mt-5 max-w-2xl text-sm leading-7 opacity-65">{item.body}</p></div></Link></m.div>)}</div>
       </div></section>
 
       <section className="bg-white py-24 md:py-36"><div className="flux-shell"><SectionHead kicker="Systems" title="From discovery to improvement, every handoff is designed as one journey." />

@@ -11,12 +11,15 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
 
   useEffect(() => {
     let lenis: any;
+    let frameId: number | undefined;
+    let disposed = false;
     async function initLenis() {
       const isMobile = window.matchMedia("(max-width: 768px)").matches;
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (isMobile || prefersReducedMotion) return;
 
       const { default: Lenis } = await import("@studio-freight/lenis");
+      if (disposed) return;
       lenis = new Lenis({
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -26,12 +29,16 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
 
       function raf(time: number) {
         lenis.raf(time);
-        requestAnimationFrame(raf);
+        frameId = requestAnimationFrame(raf);
       }
-      requestAnimationFrame(raf);
+      frameId = requestAnimationFrame(raf);
     }
     initLenis();
-    return () => { lenis?.destroy(); };
+    return () => {
+      disposed = true;
+      if (frameId !== undefined) cancelAnimationFrame(frameId);
+      lenis?.destroy();
+    };
   }, []);
 
   return (

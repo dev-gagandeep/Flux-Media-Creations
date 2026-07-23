@@ -1,5 +1,7 @@
 "use client";
 
+import { safeJsonLd } from "@/lib/json-ld";
+
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { BLOG_POSTS, LOCATION_PAGES, PROCESS_STEPS, SERVICES, SERVICE_PAGES, SITE } from "@/lib/constants";
@@ -332,11 +334,11 @@ export default function RouteSchemas() {
 
   return (
     <>
-      {schemas.map((schema, index) => (
+      {schemas.map((schema) => (
         <script
-          key={`${pathname ?? "route"}-schema-${index}`}
+          key={`${pathname ?? "route"}-${safeJsonLd(schema)}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
         />
       ))}
     </>

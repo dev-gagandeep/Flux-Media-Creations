@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,11 +6,12 @@ import { notFound } from "next/navigation";
 import { BLOG_POSTS, SERVICES, SITE, type BlogPost } from "@/lib/constants";
 import { BLOG_DETAILS } from "@/lib/blog-detail";
 import { generateMeta } from "@/lib/seo";
+import { getSanityPost, getSanityPosts, mergePosts } from "@/lib/sanity";
 
 type BlogPostPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 type TocItem = {
@@ -168,12 +170,14 @@ function renderParagraphWithLinks(paragraph: string, key: string) {
   );
 }
 
-export function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+export async function generateStaticParams() {
+  const posts = mergePosts(await getSanityPosts(), BLOG_POSTS);
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-export function generateMetadata({ params }: BlogPostPageProps): Metadata {
-  const post = BLOG_POSTS.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = (await getSanityPost(slug)) ?? BLOG_POSTS.find((item) => item.slug === slug);
 
   if (!post) {
     return generateMeta({
@@ -191,8 +195,10 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   });
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = BLOG_POSTS.find((item) => item.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const allPosts = mergePosts(await getSanityPosts(), BLOG_POSTS);
+  const post = allPosts.find((item) => item.slug === slug);
 
   if (!post) {
     notFound();
@@ -202,9 +208,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const detail = BLOG_DETAILS[post.slug];
   const inlineImages = BLOG_INLINE_IMAGES[post.slug] ?? [];
   const showHealthcareCta = HEALTHCARE_CTA_POSTS.has(post.slug);
-  const recentPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug).slice(0, 3);
-  const sidebarPosts = recentPosts.length > 0 ? recentPosts : BLOG_POSTS.slice(0, 3);
-  const categoryCounts = BLOG_POSTS.reduce<Record<string, number>>((acc, item) => {
+  const recentPosts = allPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const sidebarPosts = recentPosts.length > 0 ? recentPosts : allPosts.slice(0, 3);
+  const categoryCounts = allPosts.reduce<Record<string, number>>((acc, item) => {
     acc[item.category] = (acc[item.category] ?? 0) + 1;
     return acc;
   }, {});
@@ -264,8 +270,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
-      {howToSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} /> : null}
-      {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> : null}
+      {howToSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(howToSchema) }} /> : null}
+      {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} /> : null}
 
       <article className="section pt-32 max-w-[1320px] mx-auto">
         <Link href="/blog" className="text-sm text-ink/45 hover:text-flux transition-colors">
@@ -303,7 +309,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="order-2 lg:order-1 space-y-6 text-base leading-8 text-ink/75">
             {blocks.map((block, index) => (
-              <div key={`block-${index}`} className="space-y-6">
+              <div key={block.type === "section" ? block.id : `paragraph-${block.body.slice(0, 80)}`} className="space-y-6">
                 {block.type === "section" ? (
                   <section id={block.id} className="scroll-mt-32 space-y-5">
                     {block.level === 2 ? (
@@ -324,7 +330,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 {inlineImages
                   .filter((image) => image.insertAfter === index)
                   .map((image) => (
-                    <figure key={`${image.src}-${index}`} className="overflow-hidden rounded-lg border border-ink/10 bg-white">
+                    <figure key={`${image.src}-${image.insertAfter}`} className="overflow-hidden rounded-lg border border-ink/10 bg-white">
                       <Image
                         src={image.src}
                         alt={image.alt}

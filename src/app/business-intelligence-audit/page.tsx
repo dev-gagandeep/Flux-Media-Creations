@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import BusinessIntelligenceAuditPage from "@/components/business-intelligence-audit/BusinessIntelligenceAuditPage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -34,4 +35,4 @@ const schemas = [
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
   { "@context": "https://schema.org", "@type": "HowTo", name: "How the Business Intelligence Audit Works", step: steps.map(([name, text]) => ({ "@type": "HowToStep", name, text })) },
 ];
-export default function Page() { return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<BusinessIntelligenceAuditPage /></>; }
+export default function Page() { return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<BusinessIntelligenceAuditPage /></>; }

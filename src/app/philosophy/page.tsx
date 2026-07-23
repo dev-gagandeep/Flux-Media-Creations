@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import PhilosophyPage from "@/components/philosophy/PhilosophyPage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -16,4 +17,4 @@ const schemas = [
   { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE.url }, { "@type": "ListItem", position: 2, name: "Why Flux", item: `${SITE.url}/why-flux` }, { "@type": "ListItem", position: 3, name: "Our Philosophy", item: `${SITE.url}/philosophy` }] },
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
 ];
-export default function Page() { return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<PhilosophyPage /></>; }
+export default function Page() { return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<PhilosophyPage /></>; }

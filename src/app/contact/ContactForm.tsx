@@ -115,8 +115,8 @@ export default function ContactForm({ submitLabel = "Send your project details -
         </select>
       </div>
 
-      <div>
-        <label className="text-xs text-ink/40 block mb-2">What do you need? *</label>
+      <fieldset>
+        <legend className="text-xs text-ink/40 block mb-2">What do you need? *</legend>
         <div className="flex flex-wrap gap-2">
           <input type="hidden" id="contact-service" name="service" value={form.service} />
           {SERVICES_OPTIONS.map((service) => (
@@ -135,10 +135,10 @@ export default function ContactForm({ submitLabel = "Send your project details -
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
 
-      <div>
-        <label className="text-xs text-ink/40 block mb-2">Budget range *</label>
+      <fieldset>
+        <legend className="text-xs text-ink/40 block mb-2">Budget range *</legend>
         <div className="flex flex-wrap gap-2">
           <input type="hidden" id="contact-budget" name="budget" value={form.budget} />
           {BUDGETS.map((budget) => (
@@ -157,7 +157,7 @@ export default function ContactForm({ submitLabel = "Send your project details -
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div>
         <label htmlFor="contact-message" className="text-xs text-ink/40 block mb-1.5">Tell us about your project *</label>

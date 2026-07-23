@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import ClinicsPage from "@/components/clinics/ClinicsPage";
 import { generateMeta } from "@/lib/seo";
@@ -30,5 +31,5 @@ const schemas = [
 ];
 
 export default function Page() {
-  return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<ClinicsPage /></>;
+  return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<ClinicsPage /></>;
 }

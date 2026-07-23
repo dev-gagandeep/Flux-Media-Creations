@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { generateMeta, schemaHomeFaq, schemaHomePage } from "@/lib/seo";
 import HomeV2 from "@/components/home/HomeV2";
@@ -16,11 +17,11 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomePage) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(schemaHomePage) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHomeFaq) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(schemaHomeFaq) }}
       />
       <HomeV2 />
     </>

@@ -9,7 +9,7 @@ const T = {
   bg: "#FAF7F2",
   card: "#FFFFFF",
   text: "#0A0A0A",
-  muted: "#6B6560",
+  muted: "#59534F",
   border: "#E8E3DC",
   dark: "#0A0A0A",
   darkBorder: "#232323",
@@ -166,7 +166,7 @@ export { FAQS };
 
 export default function GBPOptimizationNJClient() {
   return (
-    <main style={{ fontFamily: "'DM Sans','Helvetica Neue',sans-serif", background: T.bg, color: T.text, minHeight: "100vh" }}>
+    <main style={{ fontFamily: "'DM Sans','Helvetica Neue',sans-serif", background: T.bg, color: T.text, minHeight: "100dvh" }}>
       <style>{`
         .gbp-btn-primary{display:inline-flex;align-items:center;gap:8px;background:${T.accent};color:#fff;border:none;padding:.85rem 1.75rem;border-radius:6px;font-size:.95rem;font-weight:500;cursor:pointer;font-family:inherit;transition:background .2s,transform .15s;text-decoration:none}
         .gbp-btn-primary:hover{background:#C93D09;transform:translateY(-1px)}
@@ -218,7 +218,7 @@ export default function GBPOptimizationNJClient() {
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 16, padding: "2rem", boxShadow: "0 4px 32px rgba(0,0,0,.06)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
               <div>
-                <p style={{ fontSize: ".7rem", fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: T.muted, marginBottom: 4 }}>GBP Health Check</p>
+                <p style={{ fontSize: ".75rem", fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: T.muted, marginBottom: 4 }}>GBP Health Check</p>
                 <p style={{ fontSize: "1.1rem", fontWeight: 600 }}>Before vs after Flux optimization</p>
               </div>
               <span style={{ background: "#EDFCF5", color: "#1A8C5B", fontSize: ".75rem", fontWeight: 500, padding: "4px 10px", borderRadius: 6, border: "1px solid #C0EDD8" }}>Live result</span>
@@ -338,7 +338,7 @@ export default function GBPOptimizationNJClient() {
                   <p style={{ fontSize: ".875rem", color: T.muted, lineHeight: 1.7, marginBottom: ".75rem" }}>{s.body}</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                     {s.keywords.map((k) => (
-                      <span key={k} style={{ fontSize: ".7rem", background: "#FFF3EE", color: T.accent, borderRadius: 4, padding: "2px 6px", border: "1px solid #FDD5C4" }}>{k}</span>
+                      <span key={k} style={{ fontSize: ".75rem", background: "#FFF3EE", color: T.accent, borderRadius: 4, padding: "2px 6px", border: "1px solid #FDD5C4" }}>{k}</span>
                     ))}
                   </div>
                 </div>
@@ -379,7 +379,7 @@ export default function GBPOptimizationNJClient() {
                 <thead style={{ background: "#FFF3EE" }}>
                   <tr>
                     {["What's covered", "DIY", "Generic SEO agency", "Flux Media optimization"].map((heading) => (
-                      <th key={heading} style={{ padding: "1rem", textAlign: "left", fontSize: ".72rem", color: T.muted, textTransform: "uppercase", letterSpacing: ".08em" }}>{heading}</th>
+                      <th key={heading} style={{ padding: "1rem", textAlign: "left", fontSize: ".75rem", color: T.muted, textTransform: "uppercase", letterSpacing: ".08em" }}>{heading}</th>
                     ))}
                   </tr>
                 </thead>
@@ -413,7 +413,7 @@ export default function GBPOptimizationNJClient() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Fade>
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <span style={{ fontSize: ".72rem", fontWeight: 600, letterSpacing: ".11em", textTransform: "uppercase", color: T.accent, display: "block", marginBottom: ".65rem" }}>Our process</span>
+              <span style={{ fontSize: ".75rem", fontWeight: 600, letterSpacing: ".11em", textTransform: "uppercase", color: T.accent, display: "block", marginBottom: ".65rem" }}>Our process</span>
               <h2 style={{ fontSize: "clamp(1.65rem,3vw,2.4rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
                 How we optimize your Google Business<br />Profile for New Jersey local search
               </h2>
@@ -513,7 +513,7 @@ export default function GBPOptimizationNJClient() {
           <Fade>
             <div className="gbp-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
               <div>
-                <span style={{ fontSize: ".72rem", fontWeight: 600, letterSpacing: ".11em", textTransform: "uppercase", color: T.accent, display: "block", marginBottom: ".65rem" }}>Free GBP audit</span>
+                <span style={{ fontSize: ".75rem", fontWeight: 600, letterSpacing: ".11em", textTransform: "uppercase", color: T.accent, display: "block", marginBottom: ".65rem" }}>Free GBP audit</span>
                 <h2 style={{ fontSize: "clamp(1.75rem,3vw,2.75rem)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: "1.25rem" }}>
                   Get your NJ business into<br />the Google Map Pack.<br />
                   <span style={{ color: T.accent }}>Start with a free audit.</span>

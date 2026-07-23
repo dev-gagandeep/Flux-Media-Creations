@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import CustomerProgressionPage from "@/components/customer-progression/CustomerProgressionPage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -29,4 +30,4 @@ const schemas = [
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
   { "@context": "https://schema.org", "@type": "ItemList", name: "The Flux Customer Progression Framework", itemListElement: ["Capture Intelligence", "Response Intelligence", "Journey Intelligence", "Progression Workflows", "Relationship Intelligence"].map((name, index) => ({ "@type": "ListItem", position: index + 1, name })) },
 ];
-export default function Page() { return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<CustomerProgressionPage /></>; }
+export default function Page() { return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<CustomerProgressionPage /></>; }

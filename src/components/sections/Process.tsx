@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { PROCESS_STEPS } from "@/lib/constants";
 import TextReveal from "@/components/ui/TextReveal";
@@ -25,7 +25,7 @@ export default function Process() {
           </p>
           <Link
             href="/process"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium border border-ink/15 hover:border-ink/40 hover:gap-3 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium border border-ink/15 hover:border-ink/40 hover:gap-3 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300"
           >
             See the full process →
           </Link>
@@ -42,7 +42,7 @@ export default function Process() {
         {/* Right steps */}
         <div className="flex flex-col gap-0 divide-y divide-ink/8">
           {PROCESS_STEPS.map((step, i) => (
-            <motion.div
+            <m.div
               key={step.number}
               className="process-step py-8 flex gap-6 group"
               initial={{ opacity: 0, x: 30 }}
@@ -50,7 +50,7 @@ export default function Process() {
               transition={{ delay: i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <div
-                className="process-num w-11 h-11 rounded-full flex items-center justify-center text-sm font-display font-semibold flex-shrink-0 transition-all duration-400"
+                className="process-num w-11 h-11 rounded-full flex items-center justify-center text-sm font-display font-semibold flex-shrink-0 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-400"
                 style={{
                   background: "#F3F1ED",
                   color: "var(--ink-muted)",
@@ -68,7 +68,7 @@ export default function Process() {
                 </h3>
                 <p className="text-sm text-ink/50 leading-relaxed">{step.description}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

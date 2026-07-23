@@ -6,14 +6,12 @@ interface MagneticButtonProps {
   children: React.ReactNode;
   className?: string;
   strength?: number;
-  onClick?: () => void;
 }
 
 export default function MagneticButton({
   children,
   className = "",
   strength = 0.3,
-  onClick,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -39,7 +37,6 @@ export default function MagneticButton({
       ref={ref}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      onClick={onClick}
       className={`magnetic-btn inline-block ${className}`}
     >
       {children}

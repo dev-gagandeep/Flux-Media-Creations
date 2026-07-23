@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import RevenueIntelligencePage from "@/components/revenue-intelligence/RevenueIntelligencePage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -31,5 +32,5 @@ const schemas = [
 ];
 
 export default function Page() {
-  return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<RevenueIntelligencePage /></>;
+  return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<RevenueIntelligencePage /></>;
 }

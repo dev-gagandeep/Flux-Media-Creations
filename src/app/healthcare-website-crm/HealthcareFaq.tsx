@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 type FaqItem = {
   q: string;
@@ -31,7 +31,7 @@ export default function HealthcareFaq({ items }: { items: FaqItem[] }) {
             >
               <span className="font-medium text-ink">{item.q}</span>
               <span
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-lg leading-none transition-all duration-300 ${
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-lg leading-none transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 ${
                   isOpen ? "rotate-45 border-flux bg-flux text-white" : "border-ink/10 text-ink/35"
                 }`}
                 aria-hidden="true"
@@ -41,17 +41,17 @@ export default function HealthcareFaq({ items }: { items: FaqItem[] }) {
             </button>
             <AnimatePresence initial={false}>
               {isOpen ? (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                <m.div
+                  initial={{ y: -8, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -8, opacity: 0 }}
                   transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
                   <p className="border-t border-ink/8 px-6 pb-6 pt-4 text-sm leading-7 text-ink/65">
                     {item.a}
                   </p>
-                </motion.div>
+                </m.div>
               ) : null}
             </AnimatePresence>
           </div>

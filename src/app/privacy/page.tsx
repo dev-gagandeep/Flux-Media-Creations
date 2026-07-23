@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
@@ -77,7 +78,7 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />
       <main className="bg-cream pb-20 pt-28 md:pb-28 md:pt-32">
         <div className="flux-shell">
           <header className="border-t border-ink/15 py-10 md:py-14">

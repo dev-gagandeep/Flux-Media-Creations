@@ -15,14 +15,14 @@ export default function NotFound() {
       <div className="flex gap-4">
         <Link
           href="/"
-          className="flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-300 hover:gap-3"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:gap-3"
           style={{ background: "var(--flux)", color: "white" }}
         >
           Back to home →
         </Link>
         <Link
           href="/contact"
-          className="flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium border border-ink/15 hover:border-ink/40 transition-all duration-300"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium border border-ink/15 hover:border-ink/40 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300"
         >
           Contact us
         </Link>

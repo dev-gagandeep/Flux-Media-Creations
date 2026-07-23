@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { TESTIMONIALS, SITE } from "@/lib/constants";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -18,8 +18,8 @@ export default function CTA() {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {TESTIMONIALS.map((t, i) => (
-            <motion.div
-              key={i}
+            <m.div
+              key={`${t.author}-${t.quote}`}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -42,7 +42,7 @@ export default function CTA() {
                   <p className="text-xs text-ink/40">{t.role}</p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function CTA() {
       {/* Big CTA block */}
       <section className="bg-blush/45 px-6 py-24 md:px-10 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -58,10 +58,10 @@ export default function CTA() {
             className="text-xs uppercase tracking-widest mb-6 text-flux"
           >
             Connect the whole operating system.
-          </motion.p>
+          </m.p>
 
           <div className="overflow-hidden mb-6">
-            <motion.h2
+            <m.h2
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
@@ -70,10 +70,10 @@ export default function CTA() {
               style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)", letterSpacing: "0", lineHeight: 1 }}
             >
               Your business should understand
-            </motion.h2>
+            </m.h2>
           </div>
           <div className="overflow-hidden mb-10">
-            <motion.h2
+            <m.h2
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
@@ -88,10 +88,10 @@ export default function CTA() {
               }}
             >
                 how growth happens.
-            </motion.h2>
+            </m.h2>
           </div>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -99,9 +99,9 @@ export default function CTA() {
             className="text-base max-w-md mx-auto mb-10 leading-relaxed text-ink/50"
           >
             Flux connects discovery, opportunity capture, customer progression, workflows, and revenue signals so your team can see what is working and improve what happens next.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -111,7 +111,7 @@ export default function CTA() {
             <MagneticButton>
               <Link
                 href="/business-intelligence-audit"
-                className="flex items-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-all duration-300 hover:scale-105"
+                className="flex items-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:scale-105"
                 style={{
                   background: "var(--flux)",
                   color: "white",
@@ -127,13 +127,13 @@ export default function CTA() {
               href={`https://wa.me/${SITE.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium border border-ink/15 text-ink/60 transition-all duration-300 hover:border-ink/40 hover:text-ink"
+              className="flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium border border-ink/15 text-ink/60 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-300 hover:border-ink/40 hover:text-ink"
             >
               WhatsApp us
             </a>
-          </motion.div>
+          </m.div>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -141,7 +141,7 @@ export default function CTA() {
             className="mt-8 text-xs text-ink/30"
           >
             Built first for healthcare clinics and appointment-based service businesses.
-          </motion.p>
+          </m.p>
         </div>
       </section>
     </>

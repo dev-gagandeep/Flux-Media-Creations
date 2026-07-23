@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import OperatingIntelligencePage from "@/components/operating-intelligence/OperatingIntelligencePage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -20,4 +21,4 @@ const schemas = [
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
   { "@context": "https://schema.org", "@type": "ItemList", name: "The Flux Operating Intelligence Framework", itemListElement: ["Discovery Intelligence", "Revenue Intelligence", "Customer Progression", "Automation Intelligence", "Decision Intelligence"].map((name, index) => ({ "@type": "ListItem", position: index + 1, name })) },
 ];
-export default function Page() { return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<OperatingIntelligencePage /></>; }
+export default function Page() { return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<OperatingIntelligencePage /></>; }

@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import AIDiscoveryPage from "@/components/ai-discovery/AIDiscoveryPage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -30,5 +31,5 @@ const schemas = [
 ];
 
 export default function Page() {
-  return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<AIDiscoveryPage /></>;
+  return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<AIDiscoveryPage /></>;
 }

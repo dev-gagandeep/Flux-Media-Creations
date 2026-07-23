@@ -1,6 +1,7 @@
 "use client";
 
 import ContactForm from "@/app/contact/ContactForm";
+import Link from "next/link";
 
 /**
  * GROUP 2, PAGE 2
@@ -43,7 +44,7 @@ import ContactForm from "@/app/contact/ContactForm";
 import { useState, useRef, useEffect } from "react";
 
 const C = {
-  bg:"#FAF7F2", card:"#FFFFFF", text:"#0A0A0A", muted:"#6B6560",
+  bg:"#FAF7F2", card:"#FFFFFF", text:"#0A0A0A", muted:"#59534F",
   border:"#E8E3DC", accent:"#E8470A", aLight:"#FFF3EE", aBorder:"#FDD5C4",
   dark:"#0A0A0A", dBorder:"#232323", dMuted:"#9B948D",
   green:"#1A8C5B", gBg:"#EDFCF5", gBorder:"#C0EDD8", tag:"#F0EBE3",
@@ -171,7 +172,7 @@ function useFade(t=0.1){
     const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){setV(true);o.disconnect();}},{threshold:t});
     if(ref.current)o.observe(ref.current);
     return()=>o.disconnect();
-  },[]);
+  },[t]);
   return{ref,v};
 }
 function Fade({children,delay=0,style={}}:any){
@@ -197,7 +198,7 @@ function FAQ({q,a}:{q:string;a:string}){
   const[open,setOpen]=useState(false);
   return(
     <div style={{borderBottom:`1px solid ${C.border}`}}>
-      <button onClick={()=>setOpen(!open)} style={{width:"100%",background:"none",border:"none",padding:"1.35rem 0",display:"flex",justifyContent:"space-between",alignItems:"center",gap:"1rem",cursor:"pointer",textAlign:"left",fontFamily:"inherit"}}>
+      <button type="button" onClick={()=>setOpen(!open)} style={{width:"100%",background:"none",border:"none",padding:"1.35rem 0",display:"flex",justifyContent:"space-between",alignItems:"center",gap:"1rem",cursor:"pointer",textAlign:"left",fontFamily:"inherit"}}>
         <span style={{fontSize:".975rem",fontWeight:500,color:C.text,lineHeight:1.5}}>{q}</span>
         <span style={{minWidth:28,height:28,borderRadius:"50%",background:open?C.accent:C.tag,color:open?"#fff":C.text,display:"flex",alignItems:"center",justifyContent:"center",fontSize:"1.1rem",transition:"all .25s",transform:open?"rotate(45deg)":"none",flexShrink:0}}>+</span>
       </button>
@@ -212,7 +213,7 @@ export default function LocalSEOHVACNJ(){
   const[activeTab,setActiveTab]=useState(0);
 
   return(
-    <div style={{fontFamily:"'DM Sans','Helvetica Neue',sans-serif",background:C.bg,color:C.text,minHeight:"100vh"}}>
+    <div style={{fontFamily:"'DM Sans','Helvetica Neue',sans-serif",background:C.bg,color:C.text,minHeight:"100dvh"}}>
 <style>{`
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
@@ -239,8 +240,8 @@ export default function LocalSEOHVACNJ(){
       {/* BREADCRUMB */}
       <div style={{padding:"7rem 2rem .75rem",maxWidth:1200,margin:"0 auto"}}>
         <p style={{fontSize:".8rem",color:C.muted}}>
-          <a href="/" style={{color:C.muted,textDecoration:"none"}}>Home</a>{" / "}
-          <a href="/local-seo-new-jersey" style={{color:C.muted,textDecoration:"none"}}>Local SEO NJ</a>{" / "}
+          <Link href="/" style={{color:C.muted,textDecoration:"none"}}>Home</Link>{" / "}
+          <Link href="/local-seo-new-jersey" style={{color:C.muted,textDecoration:"none"}}>Local SEO NJ</Link>{" / "}
           <span style={{color:C.text}}>Local SEO for HVAC Companies NJ</span>
         </p>
       </div>
@@ -276,7 +277,7 @@ export default function LocalSEOHVACNJ(){
           <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:16,padding:"2rem",boxShadow:"0 4px 36px rgba(0,0,0,.06)"}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"1.5rem"}}>
               <div>
-                <p style={{fontSize:".7rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.muted,marginBottom:4}}>High intent NJ HVAC searches</p>
+                <p style={{fontSize:".75rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.muted,marginBottom:4}}>High intent NJ HVAC searches</p>
                 <p style={{fontSize:"1.1rem",fontWeight:600}}>What homeowners search, and who they call</p>
               </div>
               <span style={{background:C.gBg,color:C.green,fontSize:".75rem",fontWeight:500,padding:"4px 10px",borderRadius:6,border:`1px solid ${C.gBorder}`}}>Live NJ searches</span>
@@ -289,12 +290,12 @@ export default function LocalSEOHVACNJ(){
               {query:"HVAC maintenance Essex County",intent:"Scheduled, books ahead",value:"Medium"},
               {query:"heat pump installation NJ",intent:"Installation, high ticket",value:"High"},
             ].map((s,i)=>(
-              <div key={i} style={{display:"grid",gridTemplateColumns:"1fr auto",gap:".75rem",alignItems:"center",padding:".6rem .75rem",borderRadius:8,background:i%2===0?C.bg:"transparent",marginBottom:".35rem"}}>
+              <div key={s.query} style={{display:"grid",gridTemplateColumns:"1fr auto",gap:".75rem",alignItems:"center",padding:".6rem .75rem",borderRadius:8,background:i%2===0?C.bg:"transparent",marginBottom:".35rem"}}>
                 <div>
                   <p style={{fontSize:".82rem",fontWeight:500,color:C.text,fontStyle:"italic"}}>"{s.query}"</p>
                   <p style={{fontSize:".75rem",color:C.muted}}>{s.intent}</p>
                 </div>
-                <span style={{fontSize:".72rem",fontWeight:600,background:s.value==="High"?C.aLight:"#F0EBE3",color:s.value==="High"?C.accent:C.muted,borderRadius:4,padding:"2px 8px",whiteSpace:"nowrap"}}>{s.value}</span>
+                <span style={{fontSize:".75rem",fontWeight:600,background:s.value==="High"?C.aLight:"#F0EBE3",color:s.value==="High"?C.accent:C.muted,borderRadius:4,padding:"2px 8px",whiteSpace:"nowrap"}}>{s.value}</span>
               </div>
             ))}
           </div>
@@ -319,11 +320,11 @@ export default function LocalSEOHVACNJ(){
           </div>
           <div className="four-col" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1rem"}}>
             {STATS.map((s,i)=>(
-              <Fade key={i} delay={i*70}>
+              <Fade key={s.n} delay={i*70}>
                 <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:12,padding:"1.5rem",textAlign:"center"}}>
                   <p style={{fontSize:"2rem",fontWeight:700,color:C.accent,letterSpacing:"-0.03em",lineHeight:1}}>{s.n}</p>
                   <p style={{fontSize:".85rem",fontWeight:500,margin:".4rem 0 .25rem",lineHeight:1.4}}>{s.l}</p>
-                  <p style={{fontSize:".72rem",color:C.muted}}>{s.s}</p>
+                  <p style={{fontSize:".75rem",color:C.muted}}>{s.s}</p>
                 </div>
               </Fade>
             ))}
@@ -346,7 +347,7 @@ export default function LocalSEOHVACNJ(){
             </div>
             <div style={{display:"flex",gap:".6rem",marginBottom:"1.5rem",justifyContent:"center",flexWrap:"wrap"}}>
               {SEASONAL.map((s,i)=>(
-                <button key={i} className={`season-tab${activeTab===i?" on":""}`} onClick={()=>setActiveTab(i)}>
+                <button type="button" key={s.season} className={`season-tab${activeTab===i?" on":""}`} onClick={()=>setActiveTab(i)}>
                   <Icon name={s.icon} size={18}/>{s.season}
                 </button>
               ))}
@@ -355,7 +356,7 @@ export default function LocalSEOHVACNJ(){
               <div>
                 <p style={{fontSize:".8rem",fontWeight:600,color:C.muted,letterSpacing:".06em",textTransform:"uppercase",marginBottom:"1rem"}}>NJ homeowners searching right now</p>
                 {SEASONAL[activeTab].searches.map((s,i)=>(
-                  <div key={i} style={{display:"flex",alignItems:"center",gap:".75rem",padding:".5rem .75rem",borderRadius:8,background:C.card,marginBottom:".5rem",border:`1px solid ${C.border}`}}>
+                  <div key={s} style={{display:"flex",alignItems:"center",gap:".75rem",padding:".5rem .75rem",borderRadius:8,background:C.card,marginBottom:".5rem",border:`1px solid ${C.border}`}}>
                     <span style={{display:"flex",flexShrink:0}}><Icon name="search" size={16}/></span>
                     <span style={{fontSize:".875rem",fontStyle:"italic",color:C.text}}>"{s}"</span>
                   </div>
@@ -385,7 +386,7 @@ export default function LocalSEOHVACNJ(){
           </div>
           <div className="three-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.25rem"}}>
             {SERVICES.map((s,i)=>(
-              <Fade key={i} delay={i*55}>
+              <Fade key={s.title} delay={i*55}>
                 <div className="card">
                   <div style={{marginBottom:".75rem"}}><Icon name={s.icon}/></div>
                   <h3 style={{fontSize:".975rem",fontWeight:600,marginBottom:".5rem",lineHeight:1.4}}>{s.title}</h3>
@@ -429,7 +430,7 @@ export default function LocalSEOHVACNJ(){
                     ["AI search visibility structuring","✗","✗","✓ Included"],
                     ["Reduces cost per lead over time","✗","✓","✓ Strongest ROI"],
                   ].map(([l,p,g,f],i)=>(
-                    <tr key={i}>
+                    <tr key={l}>
                       <td style={{padding:"11px 16px",color:C.text,borderBottom:`1px solid ${C.border}`}}>{l}</td>
                       <td style={{padding:"11px 16px",color:p.startsWith("✓")?C.green:"#CC3333",borderBottom:`1px solid ${C.border}`}}>{p}</td>
                       <td style={{padding:"11px 16px",color:g.startsWith("✓")?C.green:C.muted,borderBottom:`1px solid ${C.border}`}}>{g}</td>
@@ -454,7 +455,7 @@ export default function LocalSEOHVACNJ(){
           </div>
           <div className="three-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1rem"}}>
             {PROCESS.map((p,i)=>(
-              <Fade key={i} delay={i*60}>
+              <Fade key={p.n} delay={i*60}>
                 <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:12,padding:"1.5rem",display:"flex",gap:"1rem",alignItems:"flex-start"}}>
                   <div style={{minWidth:40,height:40,borderRadius:"50%",background:C.accent,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:".75rem",fontWeight:600,flexShrink:0}}>{p.n}</div>
                   <div>
@@ -474,7 +475,7 @@ export default function LocalSEOHVACNJ(){
           <Fade>
             <div className="two-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"4rem",alignItems:"center"}}>
               <div>
-                <span style={{fontSize:".72rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.accent,display:"block",marginBottom:".7rem"}}>AI Search in 2026</span>
+                <span style={{fontSize:".75rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.accent,display:"block",marginBottom:".75rem"}}>AI Search in 2026</span>
                 <h2 style={{fontSize:"clamp(1.65rem,3vw,2.4rem)",fontWeight:600,letterSpacing:"-0.02em",lineHeight:1.2,marginBottom:"1.25rem"}}>
                   When a homeowner asks ChatGPT for an HVAC company in NJ, is yours in the answer?
                 </h2>
@@ -493,9 +494,9 @@ export default function LocalSEOHVACNJ(){
                   {p:"Perplexity",q:"'Emergency AC repair near me NJ'",r:"GBP listing cited ✓"},
                   {p:"Google Maps",q:"'HVAC contractor near me'",r:"Top 3 Map Pack ✓"},
                 ].map((item,i)=>(
-                  <div key={i} style={{background:"#1A1A1A",border:`1px solid ${C.dBorder}`,borderRadius:10,padding:"1rem 1.25rem",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                  <div key={item.p} style={{background:"#1A1A1A",border:`1px solid ${C.dBorder}`,borderRadius:10,padding:"1rem 1.25rem",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                     <div>
-                      <p style={{fontSize:".72rem",color:C.dMuted,marginBottom:3,fontWeight:500}}>{item.p}</p>
+                      <p style={{fontSize:".75rem",color:C.dMuted,marginBottom:3,fontWeight:500}}>{item.p}</p>
                       <p style={{fontSize:".875rem",color:"#D8D4CE",fontStyle:"italic"}}>"{item.q}"</p>
                     </div>
                     <span style={{background:C.gBg,color:C.green,fontSize:".75rem",padding:"4px 10px",borderRadius:6,fontWeight:500,whiteSpace:"nowrap",marginLeft:"1rem"}}>{item.r}</span>
@@ -530,7 +531,7 @@ export default function LocalSEOHVACNJ(){
                 FAQ, local SEO for HVAC companies<br/>in New Jersey
               </h2>
             </div>
-            {FAQS.map((f,i)=><FAQ key={i} q={f.q} a={f.a}/>)}
+            {FAQS.map((f)=><FAQ key={f.q} q={f.q} a={f.a}/>)}
           </Fade>
         </div>
       </section>
@@ -541,7 +542,7 @@ export default function LocalSEOHVACNJ(){
           <Fade>
             <div className="two-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"4rem",alignItems:"start"}}>
               <div>
-                <span style={{fontSize:".72rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.accent,display:"block",marginBottom:".7rem"}}>Free HVAC SEO audit</span>
+                <span style={{fontSize:".75rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.accent,display:"block",marginBottom:".75rem"}}>Free HVAC SEO audit</span>
                 <h2 style={{fontSize:"clamp(1.75rem,3vw,2.75rem)",fontWeight:600,letterSpacing:"-0.03em",lineHeight:1.15,marginBottom:"1.25rem"}}>
                   Get your NJ HVAC company<br/>showing up when homeowners<br/>
                   <span style={{color:C.accent}}>need you most.</span>

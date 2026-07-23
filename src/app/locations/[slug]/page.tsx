@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE } from "@/lib/constants";
@@ -6,9 +7,9 @@ import LocationLandingPage from "../_components/LocationLandingPage";
 import { canadaContent, indiaContent, LocationRouteContent } from "../locationContent";
 
 type LocationPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const CONTENT: Record<string, LocationRouteContent> = {
@@ -20,8 +21,9 @@ export function generateStaticParams() {
   return Object.keys(CONTENT).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: LocationPageProps): Metadata {
-  const content = CONTENT[params.slug];
+export async function generateMetadata({ params }: LocationPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const content = CONTENT[slug];
 
   if (!content) {
     return generateMeta({ title: "Locations", path: "/locations" });
@@ -34,8 +36,9 @@ export function generateMetadata({ params }: LocationPageProps): Metadata {
   });
 }
 
-export default function LocationDetailPage({ params }: LocationPageProps) {
-  const content = CONTENT[params.slug];
+export default async function LocationDetailPage({ params }: LocationPageProps) {
+  const { slug } = await params;
+  const content = CONTENT[slug];
 
   if (!content) {
     notFound();
@@ -63,8 +66,8 @@ export default function LocationDetailPage({ params }: LocationPageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
       <LocationLandingPage content={content} />
     </>
   );

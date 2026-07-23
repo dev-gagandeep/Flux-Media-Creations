@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { BLOG_POSTS, LOCATION_PAGES, SERVICE_PAGES, SITE } from "@/lib/constants";
+import { getSanityPosts, mergePosts } from "@/lib/sanity";
 
 const DEFAULT_LAST_MODIFIED = new Date("2026-05-07");
 const FLUX2_LAST_MODIFIED = new Date("2026-07-22");
@@ -7,7 +8,8 @@ const BLOG_LAST_MODIFIED = new Date("2026-05-08");
 const SERVICE_LAST_MODIFIED = new Date("2026-05-09");
 const LOCATION_LAST_MODIFIED = new Date("2026-05-07");
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const blogPosts = mergePosts(await getSanityPosts(), BLOG_POSTS);
   const routes = [
     { url: SITE.url, priority: 1.0, changeFrequency: "weekly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/about`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
@@ -42,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/local-seo-new-jersey/local-seo-hvac-new-jersey`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/privacy`, priority: 0.4, changeFrequency: "yearly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/terms`, priority: 0.4, changeFrequency: "yearly" as const, lastModified: DEFAULT_LAST_MODIFIED },
-    ...BLOG_POSTS.map((post) => ({
+    ...blogPosts.map((post) => ({
       url: `${SITE.url}/blog/${post.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,

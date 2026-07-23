@@ -38,3 +38,9 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
+# Local agent diagnostics
+.claude/
+.windsurf/
+.react-doctor-report/
+studio-flux-media-creations/.sanity/

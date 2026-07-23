@@ -197,7 +197,11 @@ export default function HealthcareClinicBlogClient() {
   const [activeSection, setActiveSection] = useState("why-matters");
 
   useEffect(() => {
-    const sectionEls = TOC.map((item) => document.getElementById(item.id)).filter((el): el is HTMLElement => Boolean(el));
+    const sectionEls: HTMLElement[] = [];
+    for (const item of TOC) {
+      const element = document.getElementById(item.id);
+      if (element) sectionEls.push(element);
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -210,7 +214,10 @@ export default function HealthcareClinicBlogClient() {
     );
 
     sectionEls.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    return () => {
+      for (const element of sectionEls) observer.unobserve(element);
+      observer.disconnect();
+    };
   }, []);
 
   return (

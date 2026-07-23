@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
@@ -50,7 +51,7 @@ const faqSchema = {
 export default function ContactPage() {
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
       <section className="section pt-32 md:pt-36 pb-16 max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-start">
           <div>

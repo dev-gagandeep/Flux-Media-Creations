@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import PatientRevenueSystemPage from "@/components/patient-revenue/PatientRevenueSystemPage";
 import { generateMeta } from "@/lib/seo";
 import { SITE } from "@/lib/constants";
@@ -31,5 +32,5 @@ const schemas = [
 ];
 
 export default function Page() {
-  return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<PatientRevenueSystemPage /></>;
+  return <>{schemas.map((schema) => <script key={safeJsonLd(schema)} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }} />)}<PatientRevenueSystemPage /></>;
 }

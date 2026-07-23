@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 interface Message {
   id: string;
@@ -30,8 +30,17 @@ I can help you with:
 
 What would you like to know?`;
 
-function renderMd(text: string): string {
+function escapeHtml(text: string): string {
   return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderMd(text: string): string {
+  return escapeHtml(text)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .replace(
@@ -71,7 +80,7 @@ function Bubble({ msg }: { msg: Message }) {
   const isUser = msg.role === "user";
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -147,7 +156,7 @@ function Bubble({ msg }: { msg: Message }) {
           </>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -335,10 +344,11 @@ export default function FluxChat() {
       <div style={{ position: "fixed", bottom: launcherBottom, right: launcherRight, zIndex: 9998, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
         <AnimatePresence>
           {!open && (
-            <motion.div
-              initial={{ opacity: 0, y: 8, scale: 0.9 }}
+            <m.button
+              type="button"
+              initial={{ opacity: 0, y: 8, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.9 }}
+              exit={{ opacity: 0, y: 8, scale: 0.95 }}
               transition={{ delay: 1.8, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 background: "#06070A",
@@ -355,11 +365,13 @@ export default function FluxChat() {
               onClick={() => setOpen(true)}
             >
               💬 Chat with us
-            </motion.div>
+            </m.button>
           )}
         </AnimatePresence>
 
         <button
+          type="button"
+          aria-label={open ? "Close chat" : "Open chat"}
           onClick={() => setOpen((isOpen) => !isOpen)}
           className="flux-fab"
           style={{
@@ -380,7 +392,7 @@ export default function FluxChat() {
         >
           <AnimatePresence mode="wait">
             {open ? (
-              <motion.span
+              <m.span
                 key="x"
                 initial={{ rotate: -90, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
@@ -389,24 +401,24 @@ export default function FluxChat() {
                 style={{ fontSize: 18, color: "white", lineHeight: 1, fontWeight: 300 }}
               >
                 ✕
-              </motion.span>
+              </m.span>
             ) : (
-              <motion.span
+              <m.span
                 key="c"
-                initial={{ scale: 0, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
+                exit={{ scale: 0.95, opacity: 0 }}
                 transition={{ duration: 0.18 }}
                 style={{ fontSize: 24, lineHeight: 1 }}
               >
                 💬
-              </motion.span>
+              </m.span>
             )}
           </AnimatePresence>
 
           <AnimatePresence>
             {unread > 0 && !open && (
-              <motion.div
+              <m.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
@@ -425,14 +437,14 @@ export default function FluxChat() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: 10,
+                    fontSize: 12,
                     fontWeight: 700,
                     color: "white",
                   }}
                 >
                   {unread}
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
         </button>
@@ -440,7 +452,7 @@ export default function FluxChat() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             key="chat"
             initial={{ opacity: 0, scale: 0.9, y: 20, originX: 1, originY: 1 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -509,7 +521,7 @@ export default function FluxChat() {
                   >
                     Flux Assistant
                   </div>
-                  <div style={{ fontSize: 11.5, color: "rgba(250,248,244,0.42)", display: "flex", alignItems: "center", gap: 5 }}>
+                  <div style={{ fontSize: 12, color: "rgba(250,248,244,0.42)", display: "flex", alignItems: "center", gap: 5 }}>
                     {loading ? (
                       <>
                         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E", display: "inline-block", animation: "fluxDot 1.2s ease-in-out infinite" }} />
@@ -524,6 +536,8 @@ export default function FluxChat() {
 
               <div style={{ display: "flex", gap: 2, alignItems: "center" }}>
                 <button
+                  type="button"
+                  aria-label={expanded ? "Use compact chat window" : "Expand chat window"}
                   onClick={() => setExpanded((value) => !value)}
                   className="flux-hbtn"
                   title={expanded ? "Compact" : "Expand"}
@@ -550,6 +564,8 @@ export default function FluxChat() {
                 </button>
 
                 <button
+                  type="button"
+                  aria-label="Start a new chat"
                   onClick={clearChat}
                   className="flux-hbtn"
                   title="New chat"
@@ -579,6 +595,8 @@ export default function FluxChat() {
                 </button>
 
                 <button
+                  type="button"
+                  aria-label="Close chat"
                   onClick={() => setOpen(false)}
                   className="flux-hbtn"
                   title="Close"
@@ -599,15 +617,16 @@ export default function FluxChat() {
 
             <AnimatePresence>
               {showQuick && msgs.length <= 2 && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
+                <m.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <div style={{ padding: "10px 14px", borderTop: "1px solid rgba(6,7,10,0.06)", display: "flex", flexWrap: "wrap", gap: 7, background: "#F3F4F1" }}>
                     {QUICK_PROMPTS.map((prompt) => (
                       <button
+                        type="button"
                         key={prompt.text}
                         onClick={() => sendMessage(prompt.text)}
                         className="flux-qbtn"
@@ -616,7 +635,7 @@ export default function FluxChat() {
                       </button>
                     ))}
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
 
@@ -635,7 +654,9 @@ export default function FluxChat() {
                   boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
                 }}
               >
+                <label htmlFor="flux-chat-message" className="sr-only">Message Flux</label>
                 <textarea
+                  id="flux-chat-message"
                   ref={inputRef}
                   value={input}
                   onChange={(e) => {
@@ -650,7 +671,7 @@ export default function FluxChat() {
                   style={{
                     flex: 1,
                     resize: "none",
-                    outline: "none",
+                    outline: "2px solid transparent",
                     border: "none",
                     background: "transparent",
                     fontSize: 13.5,
@@ -662,6 +683,8 @@ export default function FluxChat() {
                 />
 
                 <button
+                  type="button"
+                  aria-label="Send message"
                   className="flux-send"
                   onClick={() => sendMessage(input)}
                   disabled={!loading && !input.trim()}
@@ -686,7 +709,7 @@ export default function FluxChat() {
                 </button>
               </div>
 
-              <div style={{ textAlign: "center", marginTop: 7, fontSize: 11, color: "rgba(13,13,13,0.28)", fontFamily: "Satoshi, Inter, sans-serif" }}>
+              <div style={{ textAlign: "center", marginTop: 7, fontSize: 12, color: "rgba(13,13,13,0.28)", fontFamily: "Satoshi, Inter, sans-serif" }}>
                 <span>
                   Powered by{" "}
                   <a
@@ -700,7 +723,7 @@ export default function FluxChat() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

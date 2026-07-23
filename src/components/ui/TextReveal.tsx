@@ -16,13 +16,16 @@ export default function TextReveal({
   delay = 0,
   as: Tag = "h2",
 }: TextRevealProps) {
-  const words = text.split(" ");
+  const words = Array.from(text.matchAll(/\S+/g), (match) => ({
+    id: `${match.index}-${match[0]}`,
+    value: match[0],
+  }));
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <Tag ref={ref} className={className} aria-label={text}>
       {words.map((word, i) => (
-        <span key={i} className="word-reveal">
+        <span key={word.id} className="word-reveal">
           <span
             className="word-inner"
             style={{
@@ -30,7 +33,7 @@ export default function TextReveal({
               transition: `transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * 0.05}s`,
             }}
           >
-            {word}
+            {word.value}
           </span>
           {i < words.length - 1 ? " " : ""}
         </span>

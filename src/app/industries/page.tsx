@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { INDUSTRIES, SECONDARY_INDUSTRIES, SITE } from "@/lib/constants";
@@ -41,7 +42,7 @@ const STRATEGIC_INDUSTRY_ROUTES: Record<string, string> = {
 export default function IndustriesPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(industryPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(industryPageSchema) }} />
 
       <section className="bg-blush/45 px-6 pb-24 pt-32 md:px-10 md:pb-28 md:pt-40">
         <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
