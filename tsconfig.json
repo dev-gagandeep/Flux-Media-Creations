@@ -30,13 +30,11 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "studio-flux-media-creations",
-    "studio-flux-media-creations/**/*"
+    "node_modules"
   ]
 }
