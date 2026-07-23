@@ -29,6 +29,21 @@ const nextConfig = {
         destination: "/contact",
         permanent: true,
       },
+      {
+        source: "/assessment",
+        destination: "/business-intelligence-audit",
+        permanent: true,
+      },
+      {
+        source: "/why-flux",
+        destination: "/philosophy",
+        permanent: true,
+      },
+      {
+        source: "/methodology",
+        destination: "/process",
+        permanent: true,
+      },
     ];
   },
 };

@@ -23,9 +23,17 @@ const FEATURED_POST = {
   cover: "/images/blog/healthcare-website-design-clinic-conversions.png",
 };
 
-const posts = [FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-const latestPost = posts[0];
-const otherPosts = posts.slice(1);
+const allPosts = [FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const INSIGHT_CATEGORIES = [
+  { slug: "ai-search", label: "AI Search", matches: ["Local SEO and Search Visibility", "Discovery and Visibility", "Website Development"] },
+  { slug: "business-intelligence", label: "Business Intelligence", matches: ["Growth Systems", "GoHighLevel Automation", "CRM and Automation", "Website + Automation", "Operations and CRM", "Automation Workflows", "Ongoing Support"] },
+  { slug: "healthcare-growth", label: "Healthcare Growth", matches: ["Healthcare Growth Systems", "Healthcare Automation", "Healthcare SEO"] },
+];
+
+function insightCategory(category: string) {
+  return INSIGHT_CATEGORIES.find(item => item.matches.includes(category)) ?? INSIGHT_CATEGORIES[1];
+}
 
 const fallbackImages = ["/images/blog/go-high-level.webp", "/images/blog/wordpress-dashboard.png", "/og-image.svg"];
 
@@ -36,14 +44,13 @@ const faqs = [
   ["How does missed-call text-back help service businesses?", "Missed-call text-back sends an automatic SMS when a business misses a call, giving the prospect a fast way to continue the conversation."],
 ];
 
-const categoryCounts = posts.reduce<Record<string, number>>((acc, post) => {
-  acc[post.category] = (acc[post.category] || 0) + 1;
+const categoryCounts = allPosts.reduce<Record<string, number>>((acc, post) => {
+  const label = insightCategory(post.category).label;
+  acc[label] = (acc[label] || 0) + 1;
   return acc;
 }, {});
 
 const categories = Object.entries(categoryCounts).sort(([a], [b]) => a.localeCompare(b));
-const sidebarPosts = posts.slice(0, 4);
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -65,7 +72,7 @@ function postImage(post: { cover?: string }, index = 0) {
 function PostMeta({ post }: { post: { category: string; date: string; readTime: string } }) {
   return (
     <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink/40">
-      <span>{post.category}</span>
+      <span>{insightCategory(post.category).label}</span>
       <span>/</span>
       <span>{formatDate(post.date)}</span>
       <span>/</span>
@@ -74,7 +81,12 @@ function PostMeta({ post }: { post: { category: string; date: string; readTime: 
   );
 }
 
-export default function BlogPage() {
+export default function BlogPage({ searchParams }: { searchParams?: { category?: string } }) {
+  const selected = INSIGHT_CATEGORIES.find(item => item.slug === searchParams?.category);
+  const posts = selected ? allPosts.filter(post => selected.matches.includes(post.category)) : allPosts;
+  const latestPost = posts[0] ?? allPosts[0];
+  const otherPosts = posts.slice(1);
+  const sidebarPosts = posts.slice(0, 4);
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -82,11 +94,15 @@ export default function BlogPage() {
       <section className="section mx-auto max-w-[1400px] pb-12 pt-36 md:pt-44">
         <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-flux">Insights</p>
         <h1 className="max-w-5xl font-display text-5xl font-semibold leading-[0.95] text-ink md:text-7xl" style={{ letterSpacing: "-0.055em" }}>
-          Growth playbooks for websites, automation, and lead generation.
+          {selected ? `${selected.label} insights for intelligent growth.` : "Insights for connected, intelligent growth."}
         </h1>
         <p className="mt-7 max-w-3xl text-lg leading-8 text-ink/60 md:text-xl md:leading-9">
-          Premium, practical guides for service businesses that want stronger websites, cleaner local SEO, faster follow-up, and CRM systems that turn more traffic into qualified inquiries.
+          Research and practical guidance across AI search, business intelligence, customer progression, automation, and healthcare growth systems.
         </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/blog" className={`flux-button ${!selected ? "flux-button-red" : "flux-button-line"}`}>All Insights</Link>
+          {INSIGHT_CATEGORIES.map(category => <Link key={category.slug} href={`/blog?category=${category.slug}`} className={`flux-button ${selected?.slug === category.slug ? "flux-button-red" : "flux-button-line"}`}>{category.label}</Link>)}
+        </div>
       </section>
 
       <section className="section-sm pt-0">
@@ -177,7 +193,7 @@ export default function BlogPage() {
               <div className="space-y-2">
                 {categories.map(([category, count]) => (
                   <div key={category} className="flex items-center justify-between rounded-2xl border border-ink/10 px-4 py-3">
-                    <span className="text-sm font-medium text-ink/70">{category}</span>
+                    <Link href={`/blog?category=${INSIGHT_CATEGORIES.find(item => item.label === category)?.slug ?? ""}`} className="text-sm font-medium text-ink/70 hover:text-flux">{category}</Link>
                     <span className="text-xs font-semibold text-ink/35">{count}</span>
                   </div>
                 ))}
@@ -189,7 +205,7 @@ export default function BlogPage() {
               <div className="space-y-4">
                 {sidebarPosts.map((post) => (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="block border-b border-ink/10 pb-4 last:border-b-0 last:pb-0">
-                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink/35">{post.category}</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink/35">{insightCategory(post.category).label}</span>
                     <span className="mt-2 block text-sm font-semibold leading-6 text-ink transition hover:text-flux">{post.title}</span>
                   </Link>
                 ))}

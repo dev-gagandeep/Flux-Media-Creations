@@ -1,6 +1,19 @@
-import StrategicPage from "@/components/strategic/StrategicPage";
-import { FLUX2_PAGES } from "@/lib/flux2";
+import TheProblemPage from "@/components/the-problem/TheProblemPage";
 import { generateMeta } from "@/lib/seo";
-const content = FLUX2_PAGES["/the-problem"];
-export const metadata = generateMeta({ absoluteTitle: "The Service Business Operating Intelligence Problem | Flux", description: content.description, path: content.path });
-export default function Page() { return <StrategicPage content={content} />; }
+import { SITE } from "@/lib/constants";
+export const metadata = generateMeta({ absoluteTitle: "The Problem | Why Businesses Need Operating Intelligence | Flux", description: "Businesses have more technology than ever, but disconnected systems create lost opportunities. Discover why companies need Operating Intelligence.", socialTitle: "Businesses Do Not Have a Technology Problem. They Have a Connection Problem.", socialDescription: "More tools were supposed to make growth easier. For most businesses, they've mostly made it more complicated. Here's why, and what's actually missing.", twitterTitle: "Why More Tools Haven't Made Growth Easier", twitterDescription: "It's not a lack of technology. It's that none of it talks to each other. Here's the hidden cost of a disconnected business.", path: "/the-problem" });
+const faqItems = [
+  ["What is the biggest challenge businesses face today?", "The biggest challenge is not access to technology. It is the inability to connect systems, customer information, and workflows into one intelligent operating foundation."],
+  ["Why are disconnected systems a problem?", "Because information becomes fragmented across tools that do not share it with each other, teams lose visibility into the full customer journey, and opportunities disappear without anyone noticing why."],
+  ["Why is more software not always better?", "Because adding a new tool without a plan to connect it to existing systems usually adds complexity faster than it adds value. Real advantage comes from connecting what a business already has, not accumulating more software."],
+  ["What is business fragmentation?", "Business fragmentation is the state of having customer and operational data spread across multiple disconnected systems, each holding a partial view of the customer, none of which share a complete picture with the others."],
+  ["How does AI change business operations?", "AI increases the ability of a business to understand customer behavior, prioritize opportunities, and act quickly, but only when connected to accurate, complete information."],
+  ["What is Operating Intelligence?", "Operating Intelligence is the ability of a business to connect its data, customer interactions, systems, workflows, and AI capabilities to make better decisions, operate more efficiently, and continuously improve growth."],
+];
+const schemas = [
+  { "@context": "https://schema.org", "@type": "Organization", name: "Flux Media Creations", url: SITE.url, description: "Flux is an Operating Intelligence Company that helps businesses connect disconnected systems, customer data, and AI capabilities into one intelligent operating foundation." },
+  { "@context": "https://schema.org", "@type": "WebPage", name: "The Problem", url: `${SITE.url}/the-problem`, description: "Businesses do not have a technology problem, they have a connection problem. This page explains why disconnected systems cause lost opportunities and revenue leakage, and why Operating Intelligence is the missing layer.", isPartOf: { "@type": "WebSite", url: SITE.url } },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE.url }, { "@type": "ListItem", position: 2, name: "Why Flux", item: `${SITE.url}/why-flux` }, { "@type": "ListItem", position: 3, name: "The Problem", item: `${SITE.url}/the-problem` }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
+];
+export default function Page() { return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<TheProblemPage /></>; }

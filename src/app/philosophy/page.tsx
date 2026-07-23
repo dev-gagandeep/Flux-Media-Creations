@@ -1,6 +1,19 @@
-import StrategicPage from "@/components/strategic/StrategicPage";
-import { FLUX2_PAGES } from "@/lib/flux2";
+import PhilosophyPage from "@/components/philosophy/PhilosophyPage";
 import { generateMeta } from "@/lib/seo";
-const content = FLUX2_PAGES["/philosophy"];
-export const metadata = generateMeta({ absoluteTitle: "The Flux Philosophy | Connected Systems for Service Businesses", description: content.description, path: content.path });
-export default function Page() { return <StrategicPage content={content} />; }
+import { SITE } from "@/lib/constants";
+export const metadata = generateMeta({ absoluteTitle: "Our Philosophy | Building Intelligent Businesses For The AI Era | Flux", description: "Discover the Flux philosophy behind Operating Intelligence. We believe future businesses will win by connecting systems, intelligence, customers, and AI capabilities.", socialTitle: "The Future Belongs to Intelligent Businesses", socialDescription: "More technology hasn't made growth easier for most businesses. Here's what Flux believes about connection, intelligence, and building systems that improve over time.", twitterTitle: "Why Flux Exists", twitterDescription: "We believe the businesses that win from here forward won't be the ones with the most tools. They'll be the ones whose systems actually understand their customers.", path: "/philosophy" });
+const faqItems = [
+  ["What is Flux?", "Flux is an Operating Intelligence Company. Flux builds connected systems that help service businesses discover customers, understand where revenue is won or lost, move customers forward through their journey, and use automation and AI where they genuinely help."],
+  ["Why is Flux different from a digital agency?", "Most agencies focus on individual activities, such as a website project, an ad campaign, or a CRM setup. Flux focuses on the operating system underneath all of it, the connections between those activities that determine whether they actually produce growth."],
+  ["What does Operating Intelligence mean?", "Operating Intelligence is the ability of a business to connect its data, customer interactions, systems, workflows, and AI capabilities to make better decisions, operate more efficiently, and continuously improve growth."],
+  ["Why do businesses need intelligent systems?", "Because most businesses already have enough tools. What they lack is the connection between those tools that would let them see clearly where opportunities are being won or lost."],
+  ["How does Flux help businesses evolve?", "By starting with understanding rather than automation, connecting the systems a business already has before adding anything new, and building visibility a team can act on immediately."],
+  ["What does Flux believe about AI?", "That AI is a capability, not a strategy on its own. It becomes genuinely useful once connected to real business knowledge and operational systems, handling well-defined tasks while people remain responsible for judgment calls."],
+];
+const schemas = [
+  { "@context": "https://schema.org", "@type": "Organization", name: "Flux Media Creations", url: SITE.url, description: "Flux is an Operating Intelligence Company built on the belief that businesses grow by connecting systems, customer intelligence, and AI capabilities rather than by adopting more disconnected tools." },
+  { "@context": "https://schema.org", "@type": "AboutPage", name: "Our Philosophy", url: `${SITE.url}/philosophy`, description: "The Flux philosophy: why the company believes businesses must connect their systems and intelligence to grow in the AI era, rather than simply adopting more technology.", isPartOf: { "@type": "WebSite", url: SITE.url } },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE.url }, { "@type": "ListItem", position: 2, name: "Why Flux", item: `${SITE.url}/why-flux` }, { "@type": "ListItem", position: 3, name: "Our Philosophy", item: `${SITE.url}/philosophy` }] },
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) },
+];
+export default function Page() { return <>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}<PhilosophyPage /></>; }

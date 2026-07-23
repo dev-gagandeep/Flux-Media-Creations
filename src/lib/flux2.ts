@@ -15,10 +15,10 @@ export type StrategicPageContent = {
 export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   "/operating-intelligence": {
     eyebrow: "Why Flux",
-    title: "Operating Intelligence for service businesses",
-    description: "Learn how Flux connects discovery, demand capture, conversion, workflows, and measurement into one operating intelligence system.",
+    title: "Operating Intelligence: The Future of How Businesses Grow",
+    description: "Connect customer discovery, revenue visibility, communication, automation, data, and decision-making into one intelligent business foundation.",
     path: "/operating-intelligence",
-    intro: "Operating Intelligence is the connected layer between how a business is discovered, how opportunities are captured, how customers progress, and how teams learn what to improve next.",
+    intro: "Make the technology your business already owns work as one continuously improving system instead of several disconnected tools.",
     cards: [
       { title: "Discover demand", body: "Make the business understandable across search, maps, and AI-assisted discovery.", href: "/ai-discovery" },
       { title: "Capture opportunity", body: "Turn calls, forms, chats, and booking requests into structured opportunities.", href: "/patient-revenue-system" },
@@ -33,11 +33,11 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/philosophy": {
     eyebrow: "Why Flux",
-    title: "Systems should improve the business, not add more tools",
-    description: "The Flux philosophy for building connected, measurable operating systems for service businesses.",
+    title: "The Future Belongs to Intelligent Businesses",
+    description: "The Flux philosophy for connecting systems, customer intelligence, automation, and AI capabilities into foundations that improve over time.",
     path: "/philosophy",
     parent: { label: "Operating Intelligence", href: "/operating-intelligence" },
-    intro: "Flux starts with the decisions, handoffs, and outcomes a business needs. Technology is useful only when it makes those relationships clearer, faster, and more measurable.",
+    intro: "The businesses that win will not own the most tools. Their systems will understand customers, connect to each other, and continuously improve.",
     cards: [
       { title: "Connect before adding", body: "Strengthen the flow between existing systems before introducing more software." },
       { title: "Measure the progression", body: "Track the movement from discovery to inquiry, response, booking, and revenue." },
@@ -51,11 +51,11 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/the-problem": {
     eyebrow: "Why Flux",
-    title: "Demand is often lost between disconnected systems",
-    description: "See how fragmented discovery, follow-up, workflow, and measurement create hidden revenue loss for service businesses.",
+    title: "Businesses Do Not Have a Technology Problem. They Have a Connection Problem.",
+    description: "Disconnected systems create fragmentation, lost opportunities, broken customer journeys, and invisible revenue leakage.",
     path: "/the-problem",
     parent: { label: "Operating Intelligence", href: "/operating-intelligence" },
-    intro: "Most service businesses do not have a single lead problem. They have a chain of small operating gaps that make demand difficult to see, respond to, progress, and learn from.",
+    intro: "Demand is often present. It disappears because websites, CRMs, communications, analytics, automation, and AI do not share what they know.",
     cards: [
       { title: "Discovery without clarity", body: "Customers find pages and profiles that do not clearly explain the business or next step." },
       { title: "Capture without context", body: "Calls and forms enter separate inboxes without source, urgency, or ownership." },
@@ -162,10 +162,10 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/business-intelligence-audit": {
     eyebrow: "Assessment",
-    title: "Measure your Business Intelligence Score",
-    description: "Assess how well your business connects discovery, opportunity capture, customer progression, workflows, and revenue measurement.",
+    title: "Discover Where Your Business Is Losing Opportunities",
+    description: "A structured assessment of discovery, customer journey, revenue, operations, and AI readiness, scored out of 100 with specific growth opportunities.",
     path: "/business-intelligence-audit",
-    intro: "The assessment creates a structured baseline across the five operating layers Flux uses to identify gaps, dependencies, and the highest-leverage next improvement.",
+    intro: "See where your current systems lose opportunity before spending more on traffic, tools, or disconnected fixes.",
     cards: [
       { title: "Discovery", body: "Can customers and AI systems clearly find and understand the business?" },
       { title: "Capture", body: "Do calls, forms, chats, and bookings enter a reliable system with context?" },
