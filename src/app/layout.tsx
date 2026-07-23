@@ -7,6 +7,7 @@ import ChatbotWrapper from "@/components/chatbot/ChatbotWrapper";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import RouteSchemas from "@/components/seo/RouteSchemas";
 import MotionProvider from "@/components/ui/MotionProvider";
+import Script from "next/script";
 
 export const metadata = {
   ...generateMeta(),
@@ -48,6 +49,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-cream text-ink overflow-x-hidden">
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "xqtb6kfps5");
+          `}
+        </Script>
         <noscript>
           <iframe
             title="Google Tag Manager"
