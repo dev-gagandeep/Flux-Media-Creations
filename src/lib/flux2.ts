@@ -87,11 +87,11 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/patient-revenue-system": {
     eyebrow: "Healthcare solution",
-    title: "Patient Revenue System",
-    description: "A connected patient acquisition and progression system for clinics, from discovery and inquiry to booking and revenue visibility.",
+    title: "The Patient Revenue System",
+    description: "A Patient Revenue System connects discovery, booking, and follow-up so clinics stop losing patients after the first call.",
     path: "/patient-revenue-system",
     parent: { label: "Solutions", href: "/solutions" },
-    intro: "The Patient Revenue System connects the patient-facing experience with the operational steps that help a clinic respond, book, follow up, and understand outcomes.",
+    intro: "Connect patient discovery, enquiry capture, communication, appointment conversion, and continuity into one visible healthcare growth system.",
     cards: [
       { title: "Patient discovery", body: "Structured clinic, service, location, and answer content across search and AI." },
       { title: "Opportunity capture", body: "Connected calls, forms, booking requests, and missed-call recovery." },
@@ -108,11 +108,11 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/revenue-intelligence": {
     eyebrow: "Solution",
-    title: "Revenue Intelligence",
-    description: "Connect demand sources, response, pipeline activity, appointments, and outcomes so service businesses can see what creates revenue.",
+    title: "Turn Disconnected Business Data Into Revenue Intelligence",
+    description: "Connect CRM, marketing, communication, and customer journey data so service businesses can see where opportunities originate, move, and disappear.",
     path: "/revenue-intelligence",
     parent: { label: "Solutions", href: "/solutions" },
-    intro: "Revenue Intelligence replaces isolated lead counts with a connected view of how opportunity enters the business, progresses, and produces an outcome.",
+    intro: "Revenue Intelligence turns scattered signals into a single understood view of what drives growth, what blocks it, and what to fix first.",
     cards: [
       { title: "Source intelligence", body: "Identify which channels, pages, calls, and campaigns create useful demand." },
       { title: "Response intelligence", body: "Measure speed, ownership, contact attempts, and recovery paths." },
@@ -126,11 +126,11 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/customer-progression": {
     eyebrow: "Solution",
-    title: "Customer Progression",
-    description: "Connected workflows that help service-business customers move from inquiry to the next appropriate action.",
+    title: "Getting Attention Was Never the Hard Part. Customer Progression Is.",
+    description: "Connect communication, workflows, and customer intelligence so interest keeps moving from enquiry through conversion and long-term relationship.",
     path: "/customer-progression",
     parent: { label: "Solutions", href: "/solutions" },
-    intro: "Customer Progression treats automation as a coordinated journey rather than a collection of messages and triggers.",
+    intro: "Customer Progression captures every enquiry, responds consistently, understands customer intent, and triggers the right next action without relying on memory.",
     cards: [
       { title: "Define stages", body: "Make each customer state, owner, next action, and exit condition explicit." },
       { title: "Connect workflows", body: "Coordinate CRM, calendars, notifications, forms, and operational tools." },
@@ -144,11 +144,11 @@ export const FLUX2_PAGES: Record<string, StrategicPageContent> = {
   },
   "/ai-discovery": {
     eyebrow: "Solution",
-    title: "AI Discovery",
-    description: "Help search engines and AI systems understand, trust, and surface a service business through clear entities, content, and evidence.",
+    title: "AI Discovery: Getting Found When Search Isn't Just Google Anymore",
+    description: "Become visible and recommendable across Google, AI Overviews, ChatGPT, Gemini, Perplexity, Maps, and emerging discovery platforms.",
     path: "/ai-discovery",
     parent: { label: "Solutions", href: "/solutions" },
-    intro: "AI Discovery connects technical search foundations, entity clarity, useful answers, local signals, and evidence so a business can be understood across traditional and AI-assisted discovery.",
+    intro: "AI Discovery helps search engines, AI assistants, and recommendation systems understand who your business is, what it does, and when to recommend it.",
     cards: [
       { title: "Entity clarity", body: "Define who the business serves, what it solves, where it operates, and why it is credible." },
       { title: "Answer architecture", body: "Structure pages and knowledge so important questions have clear, supportable answers." },

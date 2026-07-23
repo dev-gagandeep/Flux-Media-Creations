@@ -13,6 +13,8 @@ interface SeoProps {
   noIndex?: boolean;
   socialTitle?: string;
   socialDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
 }
 
 function normalizeTitle(title: string) {
@@ -48,6 +50,8 @@ export function generateMeta({
   noIndex = false,
   socialTitle,
   socialDescription,
+  twitterTitle,
+  twitterDescription,
 }: SeoProps = {}): Metadata {
   const fullTitle = absoluteTitle ? normalizeAbsoluteTitle(absoluteTitle) : title ? `${normalizeTitle(title)} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
   const metaDescription = normalizeDescription(description);
@@ -80,8 +84,8 @@ export function generateMeta({
     },
     twitter: {
       card: "summary_large_image",
-      title: shareTitle,
-      description: shareDescription,
+      title: twitterTitle ?? shareTitle,
+      description: normalizeDescription(twitterDescription ?? socialDescription ?? description),
       images: [image],
     },
     robots: {
