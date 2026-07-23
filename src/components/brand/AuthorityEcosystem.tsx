@@ -30,23 +30,25 @@ const profiles = [
 
 export function RecognitionStrip() {
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="flux-shell">
-        <div className="flex items-center justify-between gap-6 border-y border-ink/15 py-5">
-          <p className="flux-kicker shrink-0 text-ink/45">Find Flux on</p>
-          <div className="grid flex-1 grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-            {recognition.map((item) => (
-              <a
-                key={item.name}
+    <section className="overflow-hidden border-y border-ink/10 bg-white py-5 md:py-6">
+      <div className="flux-shell grid items-center gap-4 md:grid-cols-[auto_1fr] md:gap-8">
+        <p className="flux-kicker shrink-0 text-ink/45">Find Flux on</p>
+        <div className="relative min-w-0 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          <div className="marquee-track flex w-max gap-3 py-1 [animation-direction:reverse]">
+            {(["first", "second"] as const).map(copy =>
+              recognition.map(item => (
+                <a
+                key={`${copy}-${item.name}`}
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View Flux on ${item.name}`}
-                className="flex h-20 items-center justify-center rounded-xl bg-cream px-4 transition-transform hover:-translate-y-1"
+                className="flex h-16 w-[190px] shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream px-5 transition-transform hover:-translate-y-1"
               >
-                <Image src={item.src} alt={item.name} width={220} height={80} className={`max-h-10 object-contain ${item.wide ? "w-[85%]" : "w-16"}`} />
+                <Image src={item.src} alt={item.name} width={220} height={80} className={`max-h-9 object-contain ${item.wide ? "w-[132px]" : "w-16"}`} />
               </a>
-            ))}
+              )),
+            )}
           </div>
         </div>
       </div>
