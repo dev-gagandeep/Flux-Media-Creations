@@ -170,7 +170,13 @@ export default function Footer() {
         <p className="text-xs text-cream/25">
           © {year} {SITE.name}. All rights reserved.
         </p>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+          <Link href="/the-problem" className="text-xs text-cream/25 hover:text-cream/50 transition-colors">
+            The problem
+          </Link>
+          <Link href="/sitemap.xml" className="text-xs text-cream/25 hover:text-cream/50 transition-colors">
+            Sitemap
+          </Link>
           <Link href="/privacy" className="text-xs text-cream/25 hover:text-cream/50 transition-colors">
             Privacy policy
           </Link>

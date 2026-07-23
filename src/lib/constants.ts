@@ -184,7 +184,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "review-automation-new-jersey",
     title: "Review Automation for New Jersey Businesses",
-    metaTitle: "Review Automation for New Jersey Businesses",
+    metaTitle: "Automate Customer Reviews in New Jersey | Flux",
     metaDescription:
       "Learn how New Jersey businesses can automate Google review requests with SMS, email, GoHighLevel, Zapier, and Make to improve Map Pack visibility.",
     excerpt:
@@ -588,6 +588,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "wordpress-ghl-growth-system-us-businesses",
     title: "WordPress + GoHighLevel Growth System for US Businesses: The Practical 2026 Playbook",
+    metaTitle: "WordPress + GoHighLevel Growth System Guide | Flux",
     excerpt:
       "A full-stack guide to building a conversion-focused WordPress website and GoHighLevel follow-up engine that turns more traffic into booked calls and qualified customers.",
     date: "2026-04-13",
@@ -677,7 +678,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "how-to-set-up-gohighlevel-missed-call-text-back",
     title: "How to Set Up GoHighLevel Missed Call Text-Back (Step-by-Step for 2026)",
-    metaTitle: "How to Set Up GoHighLevel Missed Call Text-Back (Step-by-Step Guide for 2026)",
+    metaTitle: "Set Up GoHighLevel Missed Call Text-Back | Flux",
     metaDescription:
       "Set up GoHighLevel missed call text-back for service businesses and stop losing leads to unanswered calls.",
     excerpt:

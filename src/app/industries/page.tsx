@@ -6,7 +6,7 @@ import { INDUSTRY_DETAILS } from "@/lib/industry-content";
 import { generateMeta } from "@/lib/seo";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "Industries We Serve — Healthcare, Home Services, Real Estate & More | Flux Media Creations",
+  absoluteTitle: "Industries We Serve | Operating Intelligence by Flux",
   description:
     "WordPress web design and GoHighLevel automation for healthcare, home services, real estate, and wellness brands across the US, UK, and Canada.",
   path: "/industries",

@@ -108,8 +108,14 @@ export const schemaOrganization = {
   logo: `${SITE.url}/og-image.svg`,
   description: "Flux is an Operating Intelligence Company that builds connected growth systems for service businesses.",
   foundingLocation: {
-    "@type": "Country",
-    name: "United States",
+    "@type": "Place",
+    name: "Garhshankar, Punjab, India",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Garhshankar",
+    addressRegion: "Punjab",
+    addressCountry: "IN",
   },
   slogan: "Operating Intelligence for Service Businesses",
   foundingDate: "2022",

@@ -6,7 +6,7 @@ import { generateMeta } from "@/lib/seo";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "Contact Flux Media Creations | WordPress Website & GoHighLevel Automation Agency",
+  absoluteTitle: "Contact Flux | Websites and Business Automation",
   description:
     "Contact Flux Media Creations for WordPress website design, GoHighLevel setup, CRM automation, missed-call text-back, appointment booking, and lead generation systems for service businesses.",
   path: "/contact",
