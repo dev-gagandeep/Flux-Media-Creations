@@ -64,18 +64,23 @@ const FAQ = [
 
 export default function ServicesPage() {
   return (
-    <>
+    <main className="services-page">
       {/* Hero */}
-      <section className="section pt-40 md:pt-48 pb-20 max-w-[1400px] mx-auto">
-        <p className="text-sm uppercase tracking-widest text-ink/30 mb-5">Implementation services</p>
-        <TextReveal
-          text="Everything your business needs one team, fully delivered."
-          className="font-display font-semibold text-4xl md:text-6xl max-w-3xl mb-6"
-          as="h1"
-        />
-        <p className="text-base text-ink/50 max-w-xl leading-relaxed">
-          We don't hand things off or outsource. Every site we build, every automation we set up, and every visibility system we shape — it's done by us, start to finish.
-        </p>
+      <section className="services-hero relative isolate overflow-hidden border-b border-ink/10 bg-pulse-light px-5 pb-16 pt-28 md:px-10 md:pb-20 md:pt-32">
+        <div className="services-orb services-orb-one" aria-hidden="true" />
+        <div className="services-orb services-orb-two" aria-hidden="true" />
+        <div className="services-hero-grid absolute inset-0 -z-10 opacity-50" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-[1400px] border-t border-ink/15 pt-5">
+          <p className="text-sm uppercase tracking-widest text-flux mb-5">Implementation services</p>
+          <TextReveal
+            text="Everything your business needs one team, fully delivered."
+            className="font-display font-semibold text-4xl md:text-6xl max-w-3xl mb-6"
+            as="h1"
+          />
+          <p className="text-base text-ink/55 max-w-xl leading-relaxed">
+            We don't hand things off or outsource. Every site we build, every automation we set up, and every visibility system we shape — it's done by us, start to finish.
+          </p>
+        </div>
       </section>
 
       {/* Service cards */}
@@ -236,6 +241,6 @@ export default function ServicesPage() {
       </section>
 
       <CTA />
-    </>
+    </main>
   );
 }

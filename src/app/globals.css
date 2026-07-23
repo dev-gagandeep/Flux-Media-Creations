@@ -72,13 +72,15 @@ h1, h2, h3, h4, h5 {
 /* Nav link underline animation */
 .nav-link {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 1px;
   left: 0;
   width: 0;
   height: 1.5px;
@@ -239,6 +241,126 @@ h1, h2, h3, h4, h5 {
 
 .section-sm {
   padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 4.5rem);
+}
+
+/* Services index: compact editorial rhythm and the fluid Flux 2.0 hero. */
+.services-page .section {
+  padding-top: clamp(4rem, 6vw, 6rem);
+  padding-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+.services-page .section-sm {
+  padding-top: clamp(3rem, 4.5vw, 4.5rem);
+  padding-bottom: clamp(3rem, 4.5vw, 4.5rem);
+}
+
+.services-page .section-sm.pt-0 {
+  padding-top: 0;
+}
+
+.services-hero-grid {
+  background-image:
+    linear-gradient(rgba(6, 7, 10, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 7, 10, .045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.services-orb {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(44px);
+  will-change: transform, border-radius;
+}
+
+.services-orb-one {
+  width: min(34rem, 60vw);
+  aspect-ratio: 1;
+  right: -9rem;
+  top: -10rem;
+  background: rgba(130, 163, 255, .55);
+  animation: services-orb-one 18s ease-in-out infinite;
+}
+
+.services-orb-two {
+  width: min(25rem, 52vw);
+  aspect-ratio: 1;
+  left: -8rem;
+  bottom: -12rem;
+  border-radius: 999px;
+  background: rgba(255, 92, 53, .2);
+  animation: services-orb-two 22s ease-in-out infinite;
+}
+
+@keyframes services-orb-one {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0); border-radius: 42% 58% 65% 35%; }
+  35% { transform: translate3d(-4rem, 2rem, 0) rotate(14deg); border-radius: 62% 38% 44% 56%; }
+  70% { transform: translate3d(1rem, 4rem, 0) rotate(-9deg); border-radius: 36% 64% 55% 45%; }
+}
+
+@keyframes services-orb-two {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  45% { transform: translate3d(4rem, -2rem, 0) scale(1.12); }
+  75% { transform: translate3d(1rem, 1rem, 0) scale(.94); }
+}
+
+.legal-copy {
+  max-width: 54rem;
+}
+
+.legal-copy section {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+}
+
+.legal-copy section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.legal-copy h2 {
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-weight: 550;
+  letter-spacing: -.04em;
+}
+
+.legal-copy h3 {
+  margin-block: 1.5rem .65rem;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.legal-copy p,
+.legal-copy address {
+  color: rgba(6, 7, 10, .62);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.legal-copy p + p {
+  margin-top: 1rem;
+}
+
+.legal-copy ul {
+  margin-block: 1rem 1.25rem;
+  padding-left: 1.25rem;
+  color: rgba(6, 7, 10, .62);
+  list-style: disc;
+}
+
+.legal-copy li {
+  margin-top: .4rem;
+  line-height: 1.75;
+}
+
+.legal-copy a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: .2em;
 }
 
 /* Flux editorial system */
