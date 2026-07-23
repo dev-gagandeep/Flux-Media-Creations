@@ -65,7 +65,7 @@ const stats = [
   { label: "Serving Clients Worldwide", Icon: Globe2 },
   { label: "50+ Digital Projects Delivered", Icon: Layers3 },
   { label: "5-Star Client Satisfaction", Icon: BadgeCheck },
-  { label: "WordPress + Automation Specialists", Icon: Workflow },
+  { label: "AI-Powered Digital Growth Agency", Icon: Workflow },
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
