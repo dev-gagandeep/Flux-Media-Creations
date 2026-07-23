@@ -24,6 +24,20 @@ export const SOCIAL_LINKS = [
   { label: "X", href: "https://x.com/fluxmediacrt_" },
 ];
 
+export const PUBLIC_PROFILES = [
+  "https://www.goodfirms.co/company/flux-media-creations",
+  "https://clutch.co/profile/flux-media-creations",
+  "https://www.trustpilot.com/review/fluxmediacreations.com",
+  "https://www.sortlist.com/agency/flux-media-creations",
+  "https://www.awwwards.com/fluxmediacreations/",
+  "https://99designs.com/profiles/fluxmediacreations",
+  "https://medium.com/@fluxmediacreations",
+  "https://dev.to/fluxmediacreations",
+  "https://github.com/flux-media-creations",
+  "https://www.quora.com/profile/Flux-Media-Creations",
+  "https://wellfound.com/u/gagandeep_flux",
+];
+
 export const NAV_LINKS = [
   { label: "Why Flux", href: "/operating-intelligence" },
   { label: "Solutions", href: "/solutions" },

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE, SOCIAL_LINKS, TESTIMONIALS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
+import AuthorityEcosystem from "@/components/brand/AuthorityEcosystem";
 
 export const metadata: Metadata = generateMeta({
   absoluteTitle: "About Flux Media Creations | Founder-Led WordPress & GoHighLevel Agency",
@@ -87,7 +88,10 @@ export default function AboutPage() {
       url: SITE.url,
     },
     url: `${SITE.url}/about`,
-    sameAs: SOCIAL_LINKS.map((link) => link.href),
+    sameAs: [
+      ...SOCIAL_LINKS.map((link) => link.href),
+      "https://www.linkedin.com/in/gagan-deep-1609341b7",
+    ],
   };
 
   return (
@@ -134,6 +138,14 @@ export default function AboutPage() {
                 {SITE.founder}
               </p>
               <p className="mt-1 text-xs uppercase tracking-widest text-ink/35">{SITE.founderTitle}</p>
+              <a
+                href="https://www.linkedin.com/in/gagan-deep-1609341b7"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-ink/15 px-3 py-1.5 text-xs font-semibold text-ink/55 transition-colors hover:border-[#0A66C2] hover:text-[#0A66C2]"
+              >
+                LinkedIn ↗
+              </a>
             </div>
           </div>
         </div>
@@ -246,6 +258,8 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <AuthorityEcosystem />
 
       <section className="bg-blush/45 px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-3xl text-center">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { m, useScroll, useTransform } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, Check, Database, MessageSquare, Phone, Radio, Workflow } from "lucide-react";
 import { useRef } from "react";
+import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 
 const leaks = [
   ["Discovery", "Budget is allocated by assumption because nobody knows which channels actually produce customers."],
@@ -38,6 +39,13 @@ const faqs = [
   ["What data does Revenue Intelligence use?", "Website behavior, call logs, form submissions, chat and message history, and CRM activity, connected together rather than reviewed separately."],
 ];
 
+const signalNodes = [
+  { Icon: Database, x: "12%", y: "28%" },
+  { Icon: Phone, x: "76%", y: "18%" },
+  { Icon: MessageSquare, x: "82%", y: "72%" },
+  { Icon: Workflow, x: "20%", y: "76%" },
+];
+
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return <m.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .14 }} transition={{ delay, duration: .7, ease: [0.16, 1, 0.3, 1] }} className={className}>{children}</m.div>;
 }
@@ -47,11 +55,10 @@ function Heading({ eyebrow, children, light = false }: { eyebrow: string; childr
 }
 
 function SignalField() {
-  const nodes = [{ Icon: Database, x: "12%", y: "28%" }, { Icon: Phone, x: "76%", y: "18%" }, { Icon: MessageSquare, x: "82%", y: "72%" }, { Icon: Workflow, x: "20%", y: "76%" }];
   return <div className="relative min-h-[410px] overflow-hidden rounded-[2rem] bg-ink text-white">
     <m.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-[42%_58%_62%_38%] border border-white/15" />
     <m.div animate={{ rotate: -360 }} transition={{ duration: 24, repeat: Infinity, ease: "linear" }} className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-[62%_38%_44%_56%] bg-flux/85 blur-[1px]" />
-    {nodes.map(({ Icon, x, y }, index) => <m.span key={`${x}-${y}`} style={{ left: x, top: y }} animate={{ y: [0, -10, 0], scale: [1, 1.07, 1] }} transition={{ duration: 3.6 + index, repeat: Infinity, ease: "easeInOut" }} className="absolute z-10 flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur"><Icon size={20} /></m.span>)}
+    {signalNodes.map(({ Icon, x, y }, index) => <m.span key={`${x}-${y}`} style={{ left: x, top: y }} animate={{ y: [0, -10, 0], scale: [1, 1.07, 1] }} transition={{ duration: 3.6 + index, repeat: Infinity, ease: "easeInOut" }} className="absolute z-10 flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur"><Icon size={20} /></m.span>)}
     <div className="absolute inset-0 flex items-center justify-center"><div className="z-10 text-center"><Radio className="mx-auto mb-3" /><p className="flux-kicker text-white">One connected view</p></div></div>
   </div>;
 }
@@ -63,6 +70,8 @@ export default function RevenueIntelligencePage() {
 
   return <>
     <section className="relative overflow-hidden bg-cream pb-16 pt-28 md:pt-32"><m.div animate={{ x: [0, 70, -30, 0], y: [0, -40, 30, 0], borderRadius: ["45% 55% 64% 36%", "63% 37% 42% 58%", "38% 62% 55% 45%", "45% 55% 64% 36%"] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-32 top-24 h-[30rem] w-[30rem] bg-pulse opacity-40 blur-2xl" /><div className="flux-shell relative z-10"><nav aria-label="Breadcrumb" className="border-t border-ink/15 pt-5 text-xs text-ink/45"><Link href="/">Home</Link><span className="mx-2">/</span><span>Revenue Intelligence</span></nav><div className="grid gap-12 py-12 lg:grid-cols-[1.18fr_.82fr] lg:items-end lg:py-16"><m.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .82 }}><p className="flux-kicker mb-7 text-flux">Revenue Intelligence</p><h1 className="max-w-6xl font-display text-[clamp(3.4rem,6.2vw,6.5rem)] font-medium leading-[.91] tracking-[-.07em]">Turn disconnected business data into <span className="text-flux">Revenue Intelligence.</span></h1></m.div><m.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .15, duration: .72 }} className="border-t border-ink/15 pt-6"><p className="text-lg leading-8 text-ink/65">Most businesses don&apos;t have a data problem. They have data everywhere: a CRM, website, call logs, forms, emails, and spreadsheets. What they lack is a way to see how those pieces connect.</p><p className="mt-5 text-lg leading-8 text-ink/65">Revenue Intelligence connects those signals into something a business can actually act on.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/business-intelligence-audit" className="flux-button flux-button-red">Get a free Revenue Intelligence Assessment <ArrowUpRight size={16} /></Link><a href="#framework" className="flux-button flux-button-line">See how the framework works</a></div></m.div></div><a href="#hidden-problem" className="group ml-auto flex w-fit items-center gap-3 text-xs font-bold uppercase tracking-[.12em] text-ink/45">Follow the signals <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-500 group-hover:translate-y-1 group-hover:bg-ink group-hover:text-white"><ArrowDownRight size={16} /></span></a></div></section>
+
+    <PlatformEcosystem variant="intelligence" />
 
     <section id="hidden-problem" className="bg-white py-24 md:py-36"><div className="flux-shell"><Heading eyebrow="The hidden growth problem">Each system tells a partial story. None tells the whole one.</Heading><div className="mt-14 grid gap-10 lg:grid-cols-[.55fr_.45fr]"><Reveal className="space-y-7 text-xl leading-9 text-ink/65"><p>Most growing service businesses have already invested in the obvious things: a CRM, marketing budget, analytics, and automation. Yet growth still feels harder than it should, and nobody can say exactly why.</p><p>The tools don&apos;t talk to each other. Marketing knows how many leads arrived, but not which became customers. Sales knows which deals closed, but not which channel or page produced them. The CRM records calls and emails, but not what happened before the customer picked up the phone.</p><p>When leadership decides what to fix, the answer is often a guess dressed up as a decision because the evidence is scattered across five logins never designed to be read together.</p><p>Revenue Intelligence closes this gap—not by adding another dashboard, but by connecting what is already collected so it can be understood.</p></Reveal><SignalField /></div></div></section>
 

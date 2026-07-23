@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { m } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, Check, MoveRight } from "lucide-react";
+import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
+import { RecognitionStrip } from "@/components/brand/AuthorityEcosystem";
 
 const framework = [
   {
@@ -100,6 +102,8 @@ export default function HomeV2() {
         <div className="mt-16 grid gap-12 lg:grid-cols-2"><Reveal><p className="text-xl leading-9 text-white/65">We are not a marketing agency selling services one at a time. Flux builds connected systems underneath how a business finds, wins, and keeps customers—from discovery and website behavior to inquiry progression and business learning.</p></Reveal><Reveal delay={.1}><p className="text-xl leading-9 text-white/65">Operating Intelligence means discovery, the website, revenue tracking, follow-up, and automation working from the same source of truth and improving as they run.</p><Link href="/operating-intelligence" className="flux-button mt-8 border border-white/25 text-white">Explore Operating Intelligence <ArrowUpRight size={16} /></Link></Reveal></div>
       </div></section>
 
+      <PlatformEcosystem variant="full" />
+
       <section className="bg-cream py-24 md:py-36"><div className="flux-shell"><SectionHead kicker="Operating Intelligence framework" title="Five systems. One connected business." />
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{framework.map((item, index) => <m.div key={item.title} initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ delay: index * .07, duration: .65 }} className={`${index < 2 ? "lg:col-span-6" : index === 2 ? "lg:col-span-5" : index === 3 ? "lg:col-span-7" : "lg:col-span-12"}`}><Link href={item.href} className={`${item.tone} group flex min-h-[380px] flex-col justify-between rounded-[2rem] p-8 transition-[transform,border-radius,box-shadow] duration-500 hover:-translate-y-2 hover:rounded-[2.6rem] hover:shadow-[0_30px_80px_rgba(6,7,10,.15)] md:p-10`}><div className="flex justify-between"><span className="text-xs font-bold opacity-50">{item.number}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-[clamp(2.25rem,3.6vw,3.75rem)] font-medium leading-[1]">{item.title}</h3><p className="mt-5 max-w-2xl text-sm leading-7 opacity-65">{item.body}</p></div></Link></m.div>)}</div>
       </div></section>
@@ -112,6 +116,8 @@ export default function HomeV2() {
         <Reveal className="mt-12 max-w-4xl"><p className="text-xl leading-9 text-ink/65">Flux starts with appointment-based service businesses, especially healthcare clinics and practices. The same underlying problem extends across home services, legal, wellness, and professional services: fragmented systems, inconsistent follow-up, and no clear view of where customers are won or lost.</p></Reveal>
         <div className="mt-16 grid gap-px overflow-hidden rounded-[2rem] bg-ink/15 md:grid-cols-2">{industries.map(([title, body, href], index) => <Link key={title} href={href} className="group min-h-[300px] bg-white p-8 transition-colors duration-500 hover:bg-ink hover:text-white md:p-10"><div className="flex h-full flex-col justify-between"><div className="flex justify-between"><span className="text-xs font-bold text-flux">0{index + 1}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-3xl font-medium md:text-4xl">{title}</h3><p className="mt-4 max-w-xl text-sm leading-7 opacity-60">{body}</p></div></div></Link>)}</div>
       </div></section>
+
+      <RecognitionStrip />
 
       <section className="bg-white py-24 md:py-36"><div className="flux-shell"><SectionHead kicker="Why Flux" title="We are not selling you a website. We are building the system behind it." />
         <div className="mt-16 grid gap-5 lg:grid-cols-3">{["Start with where customers are being lost—not a predetermined deliverable.", "Build only what closes the gap, connected to what is already in place.", "Measure the pipeline and customer progression, not a list of completed tasks."].map((item, index) => <Reveal key={item} delay={index * .08} className="rounded-[2rem] border border-ink/15 p-8 md:p-10"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white"><Check size={18} /></span><p className="mt-20 font-display text-2xl font-medium leading-tight md:text-3xl">{item}</p></Reveal>)}</div>

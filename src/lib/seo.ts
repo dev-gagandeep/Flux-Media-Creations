@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE, SOCIAL_LINKS } from "./constants";
+import { PUBLIC_PROFILES, SITE, SOCIAL_LINKS } from "./constants";
 
 // Temporary launch guard. Set to false only when the new site is approved for indexing.
 const TEMPORARY_SITE_NOINDEX = true;
@@ -130,7 +130,7 @@ export const schemaOrganization = {
   email: SITE.email,
   telephone: SITE.phone,
   knowsAbout: ["Operating Intelligence", "Revenue Intelligence", "Customer Progression", "AI Discovery", "Patient Revenue Systems"],
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href)],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href), ...PUBLIC_PROFILES],
 };
 
 export const schemaWebsite = {
@@ -297,7 +297,7 @@ export const schemaHomeAgency = {
       },
     ],
   },
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href)],
+  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href), ...PUBLIC_PROFILES],
 };
 
 export const schemaHomeFaq = {

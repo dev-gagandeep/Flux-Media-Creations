@@ -4,6 +4,7 @@ import { generateMeta } from "@/lib/seo";
 import { SERVICES } from "@/lib/constants";
 import CTA from "@/components/sections/CTA";
 import TextReveal from "@/components/ui/TextReveal";
+import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 
 export const metadata: Metadata = generateMeta({
   title: "Implementation Services",
@@ -150,6 +151,8 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+
+      <PlatformEcosystem variant="web" />
 
       <section className="section-sm max-w-[1400px] mx-auto pt-0">
         <div className="rounded-lg border border-flux/15 bg-blush p-8 md:p-10">

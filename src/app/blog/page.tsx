@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 import { getSanityPosts, mergePosts } from "@/lib/sanity";
+import KnowledgeEcosystem from "@/components/brand/KnowledgeEcosystem";
 
 export const metadata: Metadata = generateMeta({
   absoluteTitle: "Insights | AI Search, Business Intelligence & Healthcare Growth",
@@ -34,8 +35,12 @@ const INSIGHT_CATEGORIES = [
   { slug: "healthcare-growth", label: "Healthcare Growth", matches: ["Healthcare Growth", "Healthcare Growth Systems", "Healthcare Automation", "Healthcare SEO"] },
 ];
 
+const INSIGHT_CATEGORY_BY_MATCH = new Map(
+  INSIGHT_CATEGORIES.flatMap(item => item.matches.map(match => [match, item] as const)),
+);
+
 function insightCategory(category: string) {
-  return INSIGHT_CATEGORIES.find(item => item.matches.includes(category)) ?? INSIGHT_CATEGORIES[1];
+  return INSIGHT_CATEGORY_BY_MATCH.get(category) ?? INSIGHT_CATEGORIES[1];
 }
 
 const fallbackImages = ["/images/blog/go-high-level.webp", "/images/blog/wordpress-dashboard.png", "/og-image.svg"];
@@ -81,7 +86,8 @@ export default async function BlogPage({ searchParams }: { searchParams?: Promis
   const query = searchParams ? await searchParams : undefined;
   const allPosts = mergePosts(await getSanityPosts(), localPosts);
   const selected = INSIGHT_CATEGORIES.find(item => item.slug === query?.category);
-  const posts = selected ? allPosts.filter(post => selected.matches.includes(post.category)) : allPosts;
+  const selectedMatches = selected ? new Set(selected.matches) : null;
+  const posts = selectedMatches ? allPosts.filter(post => selectedMatches.has(post.category)) : allPosts;
   const latestPost = posts[0] ?? allPosts[0];
   const otherPosts = posts.slice(1);
   const sidebarPosts = posts.slice(0, 4);
@@ -234,6 +240,7 @@ export default async function BlogPage({ searchParams }: { searchParams?: Promis
           </aside>
         </div>
       </section>
+      <KnowledgeEcosystem />
     </main>
   );
 }
