@@ -39,6 +39,7 @@ const groups = {
     logos: [
       logo("Airtable", "/images/ecosystem/airtable.svg", true),
       logo("Google Analytics", "/images/ecosystem/google-analytics.png", true),
+      logo("Microsoft Clarity", "/images/ecosystem/microsoft-clarity.webp", true),
       logo("Google Search Console", "/images/ecosystem/google-search-console.jpg", true),
     ],
   },
