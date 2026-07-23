@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import { PUBLIC_PROFILES, SITE, SOCIAL_LINKS } from "./constants";
 
-// Temporary launch guard. Set to false only when the new site is approved for indexing.
-const TEMPORARY_SITE_NOINDEX = true;
-
 interface SeoProps {
   title?: string;
   absoluteTitle?: string;
   description?: string;
   path?: string;
   image?: string;
-  noIndex?: boolean;
   socialTitle?: string;
   socialDescription?: string;
   twitterTitle?: string;
@@ -47,7 +43,6 @@ export function generateMeta({
   description = SITE.description,
   path = "",
   image = "/og-image.svg",
-  noIndex = false,
   socialTitle,
   socialDescription,
   twitterTitle,
@@ -58,8 +53,6 @@ export function generateMeta({
   const url = `${SITE.url}${path}`;
   const shareTitle = socialTitle ?? fullTitle;
   const shareDescription = normalizeDescription(socialDescription ?? description);
-  const shouldNoIndex = TEMPORARY_SITE_NOINDEX || noIndex;
-
   return {
     title: fullTitle,
     description: metaDescription,
@@ -89,13 +82,11 @@ export function generateMeta({
       images: [image],
     },
     robots: {
-      index: !shouldNoIndex,
-      follow: !shouldNoIndex,
-      nocache: shouldNoIndex,
+      index: true,
+      follow: true,
       googleBot: {
-        index: !shouldNoIndex,
-        follow: !shouldNoIndex,
-        noimageindex: shouldNoIndex,
+        index: true,
+        follow: true,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,

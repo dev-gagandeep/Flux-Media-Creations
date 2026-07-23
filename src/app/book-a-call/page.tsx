@@ -6,7 +6,6 @@ export const metadata: Metadata = generateMeta({
   title: "Book a Call",
   description: "This booking page has moved. Contact Flux Media Creations to start your project.",
   path: "/book-a-call",
-  noIndex: true,
 });
 
 export default function BookACallRedirectPage() {

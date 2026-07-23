@@ -2,6 +2,9 @@
   "name": "fluxmediacreations",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "studio-flux-media-creations"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

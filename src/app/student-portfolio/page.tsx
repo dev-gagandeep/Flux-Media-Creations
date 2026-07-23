@@ -10,7 +10,6 @@ export const metadata: Metadata = generateMeta({
   description:
     "Get a polished one-page student portfolio website with sections for projects, skills, education, resume, and contact links. Built and deployed for students in 24 to 48 hours.",
   path: "/student-portfolio",
-  noIndex: true,
 });
 
 const painPoints = [
