@@ -82,162 +82,141 @@ function PostMeta({ post }: { post: { category: string; date: string; readTime: 
   );
 }
 
-export default async function BlogPage({ searchParams }: { searchParams?: Promise<{ category?: string }> }) {
+const POSTS_PER_PAGE = 6;
+
+function pageHref(page: number, category?: string) {
+  const params = new URLSearchParams();
+  if (category) params.set("category", category);
+  if (page > 1) params.set("page", String(page));
+  const query = params.toString();
+  return query ? `/blog?${query}` : "/blog";
+}
+
+export default async function BlogPage({ searchParams }: { searchParams?: Promise<{ category?: string; page?: string }> }) {
   const query = searchParams ? await searchParams : undefined;
   const allPosts = mergePosts(await getSanityPosts(), localPosts);
   const selected = INSIGHT_CATEGORIES.find(item => item.slug === query?.category);
   const selectedMatches = selected ? new Set(selected.matches) : null;
   const posts = selectedMatches ? allPosts.filter(post => selectedMatches.has(post.category)) : allPosts;
-  const latestPost = posts[0] ?? allPosts[0];
-  const otherPosts = posts.slice(1);
-  const sidebarPosts = posts.slice(0, 4);
-  const categoryCounts = allPosts.reduce<Record<string, number>>((acc, post) => {
-    const label = insightCategory(post.category).label;
-    acc[label] = (acc[label] || 0) + 1;
-    return acc;
-  }, {});
-  const categories = Object.entries(categoryCounts).sort(([a], [b]) => a.localeCompare(b));
+  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+  const requestedPage = Number.parseInt(query?.page ?? "1", 10);
+  const currentPage = Number.isFinite(requestedPage) ? Math.min(Math.max(requestedPage, 1), totalPages) : 1;
+  const visiblePosts = posts.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
 
-      <section className="section mx-auto max-w-[1400px] pb-12 pt-36 md:pt-44">
-        <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-flux">Insights</p>
-        <h1 className="max-w-5xl font-display text-5xl font-semibold leading-[0.95] text-ink md:text-7xl" style={{ letterSpacing: "-0.055em" }}>
-          {selected ? `${selected.label} insights for intelligent growth.` : "Insights for connected, intelligent growth."}
-        </h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-ink/60 md:text-xl md:leading-9">
-          Research and practical guidance across AI search, business intelligence, customer progression, automation, and healthcare growth systems.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/blog" className={`flux-button ${!selected ? "flux-button-red" : "flux-button-line"}`}>All Insights</Link>
-          {INSIGHT_CATEGORIES.map(category => <Link key={category.slug} href={`/blog?category=${category.slug}`} className={`flux-button ${selected?.slug === category.slug ? "flux-button-red" : "flux-button-line"}`}>{category.label}</Link>)}
+      <section className="relative overflow-hidden bg-cream pb-16 pt-32 md:pb-20 md:pt-40">
+        <div className="pointer-events-none absolute -right-32 top-12 h-96 w-96 rounded-full bg-pulse opacity-35 blur-3xl" />
+        <div className="flux-shell relative">
+          <div className="border-t border-ink/15 pt-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flux">Flux Insights</p>
+          </div>
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_.55fr] lg:items-end">
+            <h1 className="max-w-5xl font-display text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-[0.9] tracking-[-.07em] text-ink">
+              {selected ? `${selected.label}, clearly explained.` : "Ideas for a more intelligent business."}
+            </h1>
+            <p className="border-t border-ink/15 pt-6 text-lg leading-8 text-ink/60">
+              Practical guidance across AI search, operating intelligence, customer progression, automation, and healthcare growth.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="section-sm pt-0">
-        <div className="mx-auto grid max-w-[1400px] gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
-          <div className="space-y-8">
-            <article className="overflow-hidden rounded-[2rem] border border-ink/10 bg-white shadow-soft">
-              <Link href={`/blog/${latestPost.slug}`} className="grid min-h-[420px] gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="relative min-h-[260px] bg-ink">
-                  <Image
-                    src={postImage(latestPost)}
-                    alt=""
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 55vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex flex-col justify-between p-7 md:p-10">
-                  <div>
-                    <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-flux">Latest Article</p>
-                    <PostMeta post={latestPost} />
-                    <h2 className="mt-5 font-display text-4xl font-semibold leading-tight text-ink md:text-5xl" style={{ letterSpacing: "-0.04em" }}>
-                      {latestPost.title}
-                    </h2>
-                    <p className="mt-5 text-base leading-8 text-ink/60">{latestPost.excerpt}</p>
-                  </div>
-                  <div className="mt-8 inline-flex text-sm font-semibold uppercase tracking-wide text-flux">
-                    Read article -&gt;
-                  </div>
-                </div>
+      <section className="bg-white py-16 md:py-24">
+        <div className="flux-shell">
+          <nav aria-label="Insight categories" className="flex flex-wrap items-center gap-3 border-y border-ink/10 py-5">
+            <Link href="/blog" className={`flux-button ${!selected ? "flux-button-red" : "flux-button-line"}`}>All Insights</Link>
+            {INSIGHT_CATEGORIES.map(category => (
+              <Link key={category.slug} href={`/blog?category=${category.slug}`} className={`flux-button ${selected?.slug === category.slug ? "flux-button-red" : "flux-button-line"}`}>
+                {category.label}
               </Link>
-            </article>
+            ))}
+          </nav>
 
+          <div className="mt-12 flex items-end justify-between gap-6">
             <div>
-              <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-flux">More Insights</p>
-                  <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl" style={{ letterSpacing: "-0.035em" }}>
-                    Field notes for better growth systems.
-                  </h2>
-                </div>
-                <span className="text-sm font-medium text-ink/45">{otherPosts.length} guides</span>
-              </div>
-
-              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {otherPosts.map((post, index) => (
-                  <article key={post.slug} className="group overflow-hidden rounded-3xl border border-ink/10 bg-white transition hover:-translate-y-1 hover:border-flux/50 hover:shadow-soft">
-                    <Link href={`/blog/${post.slug}`} className="block">
-                      <div className="relative aspect-[16/10] bg-cream">
-                        <Image
-                          src={postImage(post, index)}
-                          alt=""
-                          fill
-                          sizes="(min-width: 1280px) 24vw, (min-width: 768px) 45vw, 100vw"
-                          className="object-cover transition duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="p-5">
-                        <PostMeta post={post} />
-                        <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-ink transition group-hover:text-flux" style={{ letterSpacing: "-0.025em" }}>
-                          {post.title}
-                        </h3>
-                        <p className="mt-4 line-clamp-3 text-sm leading-7 text-ink/58">{post.excerpt}</p>
-                      </div>
-                    </Link>
-                  </article>
-                ))}
-              </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flux">Browse the library</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-[-.04em] text-ink md:text-5xl">
+                {selected?.label ?? "Latest insights"}
+              </h2>
             </div>
+            <p className="text-sm text-ink/45">Page {currentPage} of {totalPages}</p>
           </div>
 
-          <aside className="space-y-5 lg:sticky lg:top-28">
-            <div className="rounded-3xl bg-ink p-6 text-cream">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-flux">Growth Review</p>
-              <h2 className="font-display text-3xl font-semibold leading-tight" style={{ letterSpacing: "-0.035em" }}>
-                Find the leak between traffic and booked calls.
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-cream/60">
-                Send your website and current setup. We will point out the highest-value fixes across page structure, CRM follow-up, local SEO, and conversion flow.
-              </p>
-              <Link href="/contact" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-flux px-5 py-4 text-center text-sm font-semibold uppercase tracking-wide text-white transition hover:-translate-y-0.5">
-                Request Review
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {visiblePosts.map((post, index) => (
+              <article key={post.slug} className="group flex min-h-full flex-col overflow-hidden rounded-[2rem] border border-ink/10 bg-cream transition duration-500 hover:-translate-y-2 hover:border-flux/40 hover:shadow-soft">
+                <Link href={`/blog/${post.slug}`} className="flex h-full flex-col">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+                    <Image
+                      src={postImage(post, index)}
+                      alt={`${post.title} article feature`}
+                      fill
+                      priority={currentPage === 1 && index < 3}
+                      sizes="(min-width: 1280px) 30vw, (min-width: 768px) 48vw, 100vw"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
+                    {currentPage === 1 && index === 0 ? (
+                      <span className="absolute left-5 top-5 rounded-full bg-flux px-4 py-2 text-xs font-semibold uppercase tracking-[.14em] text-white">Newest</span>
+                    ) : null}
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <PostMeta post={post} />
+                    <h3 className="mt-5 font-display text-2xl font-semibold leading-[1.05] tracking-[-.035em] text-ink transition-colors group-hover:text-flux md:text-3xl">
+                      {post.title}
+                    </h3>
+                    <p className="mt-5 line-clamp-3 text-sm leading-7 text-ink/58">{post.excerpt}</p>
+                    <span className="mt-auto pt-7 text-sm font-semibold uppercase tracking-[.12em] text-flux">Read insight →</span>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <nav aria-label="Insights pagination" className="mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-ink/10 pt-7">
+            {currentPage > 1 ? (
+              <Link href={pageHref(currentPage - 1, selected?.slug)} className="flux-button flux-button-line">← Previous</Link>
+            ) : <span />}
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }, (_, index) => index + 1).map(page => (
+                <Link
+                  key={page}
+                  href={pageHref(page, selected?.slug)}
+                  aria-current={page === currentPage ? "page" : undefined}
+                  className={`flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold transition-colors ${page === currentPage ? "bg-ink text-white" : "border border-ink/15 text-ink hover:border-flux hover:text-flux"}`}
+                >
+                  {page}
+                </Link>
+              ))}
+            </div>
+            {currentPage < totalPages ? (
+              <Link href={pageHref(currentPage + 1, selected?.slug)} className="flux-button flux-button-red">Next →</Link>
+            ) : <span />}
+          </nav>
+        </div>
+      </section>
+
+      <section className="bg-pulse-light py-20 md:py-28">
+        <div className="flux-shell">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-ink p-8 text-white md:p-14">
+            <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-flux/30 blur-3xl" aria-hidden="true" />
+            <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[.2em] text-flux">Turn insight into action</p>
+                <h2 className="mt-5 max-w-4xl font-display text-4xl font-semibold leading-[.95] tracking-[-.05em] md:text-6xl">
+                  See where your operating system is losing opportunities.
+                </h2>
+                <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
+                  Measure discovery, customer progression, revenue visibility, automation, and AI readiness in one structured assessment.
+                </p>
+              </div>
+              <Link href="/business-intelligence-audit" className="flux-button flux-button-red whitespace-nowrap">
+                Measure your score →
               </Link>
             </div>
-
-            <div className="rounded-3xl border border-ink/10 bg-white p-6">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-flux">Categories</p>
-              <div className="space-y-2">
-                {categories.map(([category, count]) => (
-                  <div key={category} className="flex items-center justify-between rounded-2xl border border-ink/10 px-4 py-3">
-                    <Link href={`/blog?category=${INSIGHT_CATEGORIES.find(item => item.label === category)?.slug ?? ""}`} className="text-sm font-medium text-ink/70 hover:text-flux">{category}</Link>
-                    <span className="text-xs font-semibold text-ink/35">{count}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-ink/10 bg-white p-6">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-flux">Editor Picks</p>
-              <div className="space-y-4">
-                {sidebarPosts.map((post) => (
-                  <Link key={post.slug} href={`/blog/${post.slug}`} className="block border-b border-ink/10 pb-4 last:border-b-0 last:pb-0">
-                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink/35">{insightCategory(post.category).label}</span>
-                    <span className="mt-2 block text-sm font-semibold leading-6 text-ink transition hover:text-flux">{post.title}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-ink/10 bg-blush p-6">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-flux">Start Here</p>
-              <div className="space-y-3">
-                {[
-                  ["Services", "/services"],
-                  ["Local SEO NJ", "/local-seo-new-jersey"],
-                  ["GoHighLevel Automation", "/services/gohighlevel-automation"],
-                  ["Contact", "/contact"],
-                ].map(([label, href]) => (
-                  <Link key={href} href={href} className="block rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-ink/65 transition hover:text-flux">
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </aside>
+          </div>
         </div>
       </section>
       <KnowledgeEcosystem />

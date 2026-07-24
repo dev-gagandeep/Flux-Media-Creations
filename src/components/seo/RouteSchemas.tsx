@@ -209,32 +209,6 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
     });
   }
 
-  if (pathname.startsWith("/blog/") && pathname.split("/").length === 3) {
-    const slug = pathname.split("/")[2];
-    const post = BLOG_POSTS.find((item) => item.slug === slug);
-
-    if (post) {
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: post.title,
-        description: post.excerpt,
-        datePublished: post.date,
-        author: {
-          "@type": "Person",
-          name: post.author,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: SITE.name,
-          url: SITE.url,
-        },
-        image: toAbsolute(post.cover),
-        mainEntityOfPage: toAbsolute(pathname),
-      });
-    }
-  }
-
   if (pathname === "/industries") {
     schemas.push({
       "@context": "https://schema.org",
@@ -327,7 +301,11 @@ export default function RouteSchemas() {
     if (!pathname) return [];
     if (ROUTES_WITH_COMPLETE_PAGE_SCHEMAS.has(pathname)) return [];
 
-    const jsonLd: JsonLd[] = [getWebPageSchema(pathname), getBreadcrumbSchema(pathname), ...getRouteSpecificSchemas(pathname)];
+    const jsonLd: JsonLd[] = [
+      getWebPageSchema(pathname),
+      ...(pathname.startsWith("/blog/") ? [] : [getBreadcrumbSchema(pathname)]),
+      ...getRouteSpecificSchemas(pathname),
+    ];
 
     return jsonLd;
   }, [pathname]);

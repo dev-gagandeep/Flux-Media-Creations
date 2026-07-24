@@ -57,6 +57,12 @@ const INTERNAL_PAGE_LINKS: Record<string, string> = {
   "Google Business Profile setup": "/local-seo-new-jersey/google-business-profile-setup-new-jersey",
   "Google Business Profile setup for New Jersey": "/local-seo-new-jersey/google-business-profile-setup-new-jersey",
   "GoHighLevel automation": "/services/gohighlevel-automation",
+  "AI Discovery": "/ai-discovery",
+  "Operating Intelligence": "/operating-intelligence",
+  "Business Intelligence Audit": "/business-intelligence-audit",
+  "Healthcare Operating Intelligence": "/industries/healthcare",
+  "Patient Revenue System": "/patient-revenue-system",
+  "Review Automation for New Jersey Businesses": "/blog/review-automation-new-jersey",
 };
 
 const BLOG_INLINE_IMAGES: Record<
@@ -92,6 +98,10 @@ const HEALTHCARE_CTA_POSTS = new Set([
   "gohighlevel-for-clinics-patient-leads",
   "wordpress-ghl-growth-system-us-businesses",
   "how-to-set-up-gohighlevel-missed-call-text-back",
+]);
+
+const AI_VISIBILITY_CTA_POSTS = new Set([
+  "ai-search-visibility-guide-service-businesses",
 ]);
 
 function slugify(input: string) {
@@ -150,9 +160,7 @@ function parseBlogContent(post: BlogPost) {
 function renderParagraphWithLinks(paragraph: string, key: string) {
   const chunks = paragraph.split(/\[([^\]]+)\]/g);
 
-  return (
-    <p key={key}>
-      {chunks.map((chunk, chunkIndex) => {
+  const inline = chunks.map((chunk, chunkIndex) => {
         if (chunkIndex % 2 === 1) {
           const href = INTERNAL_PAGE_LINKS[chunk];
           if (href) {
@@ -164,10 +172,27 @@ function renderParagraphWithLinks(paragraph: string, key: string) {
           }
         }
 
-        return <span key={`${key}-text-${chunkIndex}`}>{chunk}</span>;
-      })}
-    </p>
-  );
+        const strongParts = chunk.split(/\*\*([^*]+)\*\*/g);
+        return (
+          <span key={`${key}-text-${chunkIndex}`}>
+            {strongParts.map((part, partIndex) =>
+              partIndex % 2 === 1 ? <strong key={partIndex} className="font-semibold text-ink">{part}</strong> : part,
+            )}
+          </span>
+        );
+      });
+
+  const numbered = paragraph.match(/^(\d+)\.\s+(.+)$/);
+  if (numbered) {
+    return (
+      <div key={key} className="grid grid-cols-[2.5rem_1fr] gap-4 rounded-2xl border border-ink/10 bg-white p-5">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-flux text-sm font-semibold text-white">{numbered[1]}</span>
+        <div>{renderParagraphWithLinks(numbered[2], `${key}-numbered`)}</div>
+      </div>
+    );
+  }
+
+  return <p key={key}>{inline}</p>;
 }
 
 export async function generateStaticParams() {
@@ -208,6 +233,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const detail = BLOG_DETAILS[post.slug];
   const inlineImages = BLOG_INLINE_IMAGES[post.slug] ?? [];
   const showHealthcareCta = HEALTHCARE_CTA_POSTS.has(post.slug);
+  const showAiVisibilityCta = AI_VISIBILITY_CTA_POSTS.has(post.slug);
   const recentPosts = allPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const sidebarPosts = recentPosts.length > 0 ? recentPosts : allPosts.slice(0, 3);
   const categoryCounts = allPosts.reduce<Record<string, number>>((acc, item) => {
@@ -267,9 +293,69 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           totalTime: detail.howTo.totalTime,
         }
       : null;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.metaDescription ?? post.excerpt,
+    image: `${SITE.url}${post.cover}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: `${SITE.url}/blog/${post.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Gagan Deep",
+      url: `${SITE.url}/about`,
+      sameAs: ["https://www.linkedin.com/in/gagan-deep-1609341b7"],
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE.url}/og-image.svg`,
+      },
+    },
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+      { "@type": "ListItem", position: 2, name: "Insights", item: `${SITE.url}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE.url}/blog/${post.slug}` },
+    ],
+  };
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE.url}/#localbusiness`,
+    name: SITE.name,
+    url: SITE.url,
+    image: `${SITE.url}/og-image.svg`,
+    telephone: SITE.phone,
+    email: SITE.email,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Garhshankar",
+      addressRegion: "Punjab",
+      addressCountry: "IN",
+    },
+    areaServed: ["United States", "Canada", "United Kingdom", "India"],
+    parentOrganization: {
+      "@type": "Organization",
+      "@id": `${SITE.url}/#organization`,
+      name: SITE.name,
+      url: SITE.url,
+    },
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(localBusinessSchema) }} />
       {howToSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(howToSchema) }} /> : null}
       {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} /> : null}
 
@@ -359,6 +445,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </section>
             ) : null}
 
+            {showAiVisibilityCta ? (
+              <section className="relative overflow-hidden rounded-[2rem] bg-ink p-7 text-white md:p-10">
+                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-flux/30 blur-3xl" aria-hidden="true" />
+                <div className="relative">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flux">AI visibility assessment</p>
+                  <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight md:text-4xl">
+                    Find out what AI systems understand—and miss—about your business.
+                  </h2>
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-white/65">
+                    The Business Intelligence Audit reviews discovery, reputation, content structure, customer journey, and AI readiness, then identifies the gaps with the greatest impact.
+                  </p>
+                  <Link href="/business-intelligence-audit" className="mt-7 inline-flex rounded-full bg-flux px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-1">
+                    Start your assessment →
+                  </Link>
+                </div>
+              </section>
+            ) : null}
+
             {post.faq?.length ? (
               <section id="faqs" className="scroll-mt-32 pt-4">
                 <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink mb-6" style={{ letterSpacing: "-0.02em" }}>
@@ -435,18 +539,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <section className="rounded-lg bg-[#1D1738] p-5 text-white">
               <p className="text-lg font-display font-semibold mb-2" style={{ letterSpacing: "-0.02em" }}>
-                {showHealthcareCta ? "Clinic Website + CRM?" : "Ready to Automate?"}
+                {showHealthcareCta ? "Clinic Website + CRM?" : showAiVisibilityCta ? "Can AI find your business?" : "Ready to Automate?"}
               </p>
               <p className="text-sm leading-6 text-white/70 mb-4">
                 {showHealthcareCta
                   ? "See the dedicated healthcare system for websites, reminders, and missed-call recovery."
+                  : showAiVisibilityCta
+                    ? "Measure the gaps across AI discovery, trust signals, content, and connected follow-up."
                   : "Contact us and we&apos;ll map your complete GHL automation roadmap."}
               </p>
               <Link
-                href={showHealthcareCta ? "/healthcare-website-crm" : "/contact"}
+                href={showHealthcareCta ? "/healthcare-website-crm" : showAiVisibilityCta ? "/business-intelligence-audit" : "/contact"}
                 className="inline-flex w-full items-center justify-center rounded-lg bg-[#7C5CFF] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#6d4ff0]"
               >
-                {showHealthcareCta ? "View Healthcare Solution →" : "Contact Us →"}
+                {showHealthcareCta ? "View Healthcare Solution →" : showAiVisibilityCta ? "Start Assessment →" : "Contact Us →"}
               </Link>
             </section>
 
