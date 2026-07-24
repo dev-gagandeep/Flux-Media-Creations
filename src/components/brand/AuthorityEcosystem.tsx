@@ -19,6 +19,7 @@ const credentials = [
 ];
 
 const profiles = [
+  ["As seen on DesignRush", "https://www.designrush.com/agency/website-design-development/in"],
   ["Sortlist", "https://www.sortlist.com/agency/flux-media-creations"],
   ["Wellfound", "https://wellfound.com/u/gagandeep_flux"],
   ["Medium", "https://medium.com/@fluxmediacreations"],

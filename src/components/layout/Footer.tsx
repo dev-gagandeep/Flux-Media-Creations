@@ -171,6 +171,14 @@ export default function Footer() {
           © {year} {SITE.name}. All rights reserved.
         </p>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+          <a
+            href="https://www.designrush.com/agency/website-design-development/in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-cream/25 hover:text-cream/50 transition-colors"
+          >
+            As seen on DesignRush
+          </a>
           <Link href="/the-problem" className="text-xs text-cream/25 hover:text-cream/50 transition-colors">
             The problem
           </Link>
