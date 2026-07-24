@@ -58,6 +58,7 @@ const INTERNAL_PAGE_LINKS: Record<string, string> = {
   "Google Business Profile setup for New Jersey": "/local-seo-new-jersey/google-business-profile-setup-new-jersey",
   "GoHighLevel automation": "/services/gohighlevel-automation",
   "AI Discovery": "/ai-discovery",
+  "AI Search Visibility Guide": "/blog/ai-search-visibility-guide-service-businesses",
   "Operating Intelligence": "/operating-intelligence",
   "Business Intelligence Audit": "/business-intelligence-audit",
   "Healthcare Operating Intelligence": "/industries/healthcare",
@@ -384,7 +385,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="relative aspect-[16/9] bg-cream">
             <Image
               src={post.cover}
-              alt={`${post.title} feature image`}
+              alt={post.coverAlt ?? `${post.title} feature image`}
               fill
               priority
               sizes="(min-width: 1320px) 1320px, 100vw"

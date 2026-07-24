@@ -152,7 +152,7 @@ export default async function BlogPage({ searchParams }: { searchParams?: Promis
                   <div className="relative aspect-[16/10] overflow-hidden bg-ink">
                     <Image
                       src={postImage(post, index)}
-                      alt={`${post.title} article feature`}
+                      alt={post.coverAlt ?? `${post.title} article feature`}
                       fill
                       priority={currentPage === 1 && index < 3}
                       sizes="(min-width: 1280px) 30vw, (min-width: 768px) 48vw, 100vw"
