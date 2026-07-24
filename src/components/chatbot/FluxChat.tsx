@@ -592,6 +592,11 @@ export default function FluxChat() {
         {open && (
           <m.div
             key="chat"
+            data-lenis-prevent
+            data-lenis-prevent-wheel
+            data-lenis-prevent-touch
+            onWheel={(event) => event.stopPropagation()}
+            onTouchMove={(event) => event.stopPropagation()}
             initial={{ opacity: 0, scale: 0.9, y: 20, originX: 1, originY: 1 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.88, y: 16 }}
@@ -746,6 +751,11 @@ export default function FluxChat() {
 
             <div
               ref={scrollRef}
+              data-lenis-prevent
+              data-lenis-prevent-wheel
+              data-lenis-prevent-touch
+              onWheel={(event) => event.stopPropagation()}
+              onTouchMove={(event) => event.stopPropagation()}
               onScroll={(event) => {
                 const element = event.currentTarget;
                 const distanceFromBottom = element.scrollHeight - element.scrollTop - element.clientHeight;
@@ -757,6 +767,7 @@ export default function FluxChat() {
                 minHeight: 0,
                 overflowY: "auto",
                 overscrollBehavior: "contain",
+                overscrollBehaviorY: "contain",
                 touchAction: "pan-y",
                 WebkitOverflowScrolling: "touch",
                 padding: "18px 16px",
