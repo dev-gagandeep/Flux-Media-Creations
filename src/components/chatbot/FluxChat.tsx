@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { AnimatePresence, m } from "framer-motion";
+import Image from "next/image";
 
 interface Message {
   id: string;
@@ -113,19 +114,16 @@ function Bubble({ msg }: { msg: Message }) {
             width: 30,
             height: 30,
             borderRadius: "50%",
-            background: "linear-gradient(145deg, #E54831, #B92818)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontWeight: 700,
-            fontSize: 12,
-            color: "white",
             flexShrink: 0,
-            fontFamily: "Cabinet Grotesk, sans-serif",
             marginBottom: 2,
+            overflow: "hidden",
+            boxShadow: "0 5px 16px rgba(44,104,255,.2)",
           }}
         >
-          F
+          <Image src="/icon.png" alt="" width={30} height={30} aria-hidden="true" />
         </div>
       )}
 
@@ -624,17 +622,14 @@ export default function FluxChat() {
                       width: 36,
                       height: 36,
                       borderRadius: "50%",
-                      background: "linear-gradient(145deg, #E54831, #B92818)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontWeight: 700,
-                      fontSize: 13,
-                      color: "white",
-                      fontFamily: "Cabinet Grotesk, sans-serif",
+                      overflow: "hidden",
+                      boxShadow: "0 8px 24px rgba(44,104,255,.24)",
                     }}
                   >
-                    F
+                    <Image src="/icon.png" alt="Flux" width={36} height={36} priority />
                   </div>
                   <span
                     style={{
