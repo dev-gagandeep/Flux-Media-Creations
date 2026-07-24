@@ -20,16 +20,36 @@ const QUICK_PROMPTS = [
   { emoji: "🌍", label: "Your work", text: "Show me some websites you've built" },
 ];
 
-const GREETING = `Hey! I'm **Flux** - the assistant for **Flux Media Creations**.
+const GREETING = `Hi, I’m **Flux**. Ask me about services, pricing, timelines, or book a free call with Gagan.`;
 
-I can help you with:
-- Services and pricing
-- How we build websites and automations
-- Portfolio examples
-- Getting a quote
-- Contacting the team
+function playOpenSound() {
+  try {
+    const AudioContextClass =
+      window.AudioContext ||
+      (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
 
-What would you like to know?`;
+    const audio = new AudioContextClass();
+    const gain = audio.createGain();
+    gain.connect(audio.destination);
+    gain.gain.setValueAtTime(0.0001, audio.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.075, audio.currentTime + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + 0.32);
+
+    [523.25, 659.25].forEach((frequency, index) => {
+      const tone = audio.createOscillator();
+      tone.type = "sine";
+      tone.frequency.setValueAtTime(frequency, audio.currentTime + index * 0.07);
+      tone.connect(gain);
+      tone.start(audio.currentTime + index * 0.07);
+      tone.stop(audio.currentTime + 0.3);
+    });
+
+    window.setTimeout(() => void audio.close(), 450);
+  } catch {
+    // Browsers may block audio in uncommon privacy modes; opening chat still works.
+  }
+}
 
 function escapeHtml(text: string): string {
   return text
@@ -93,7 +113,7 @@ function Bubble({ msg }: { msg: Message }) {
             width: 30,
             height: 30,
             borderRadius: "50%",
-            background: "#CF3723",
+            background: "linear-gradient(145deg, #E54831, #B92818)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -111,15 +131,15 @@ function Bubble({ msg }: { msg: Message }) {
 
       <div
         style={{
-          maxWidth: "82%",
-          padding: "10px 14px",
-          borderRadius: isUser ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
-          fontSize: 13.5,
-          lineHeight: 1.6,
+          maxWidth: "84%",
+          padding: "11px 14px",
+          borderRadius: isUser ? "18px 18px 6px 18px" : "18px 18px 18px 6px",
+          fontSize: 13,
+          lineHeight: 1.55,
           background: isUser ? "#06070A" : "white",
           color: isUser ? "#F3F4F1" : "#06070A",
-          border: isUser ? "none" : "1px solid rgba(13,13,13,0.08)",
-          boxShadow: isUser ? "none" : "0 1px 8px rgba(0,0,0,0.07)",
+          border: isUser ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(13,13,13,0.07)",
+          boxShadow: isUser ? "0 8px 22px rgba(6,7,10,0.12)" : "0 10px 30px rgba(6,7,10,0.07)",
         }}
       >
         {msg.streaming && msg.content === "" ? (
@@ -212,6 +232,16 @@ export default function FluxChat() {
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const sessionIdRef = useRef("");
+
+  const openChat = () => {
+    if (!open) playOpenSound();
+    setOpen(true);
+  };
+
+  const toggleChat = () => {
+    if (!open) playOpenSound();
+    setOpen((isOpen) => !isOpen);
+  };
 
   useEffect(() => {
     const stored = sessionStorage.getItem("flux-chat-session");
@@ -363,11 +393,12 @@ export default function FluxChat() {
     setLoading(false);
   };
 
-  const chatWidth = expanded ? "min(680px, 96vw)" : "min(400px, 96vw)";
-  const chatHeight = expanded ? "min(680px, 88vh)" : "min(580px, 82vh)";
+  const chatWidth = isMobile ? "calc(100vw - 24px)" : expanded ? "min(680px, calc(100vw - 48px))" : "410px";
+  const chatHeight = isMobile ? "min(620px, calc(100dvh - 174px))" : expanded ? "min(700px, 88vh)" : "590px";
   const launcherBottom = isMobile ? 126 : 24;
   const launcherRight = isMobile ? 16 : 24;
-  const panelBottom = isMobile ? 154 : 90;
+  const panelBottom = isMobile ? 150 : 92;
+  const panelRight = isMobile ? 12 : 20;
 
   return (
     <>
@@ -390,18 +421,19 @@ export default function FluxChat() {
         .flux-ta { scrollbar-width:none; }
         .flux-ta::-webkit-scrollbar { display:none; }
         .flux-qbtn {
-          font-size:11.5px;
-          padding:5px 11px;
+          font-size:11px;
+          font-weight:600;
+          padding:7px 12px;
           border-radius:100px;
-          border:1px solid rgba(13,13,13,0.11);
-          background:white;
+          border:1px solid rgba(13,13,13,0.09);
+          background:rgba(255,255,255,0.78);
           color:#06070A;
           cursor:pointer;
           font-family:Satoshi,Inter,sans-serif;
           transition:all 0.15s;
           white-space:nowrap;
         }
-        .flux-qbtn:hover { border-color:#CF3723; color:#CF3723; transform:translateY(-1px); }
+        .flux-qbtn:hover { border-color:rgba(207,55,35,.5); color:#CF3723; background:white; transform:translateY(-1px); box-shadow:0 6px 16px rgba(6,7,10,.06); }
         .flux-hbtn {
           width:30px;
           height:30px;
@@ -464,7 +496,7 @@ export default function FluxChat() {
                 fontFamily: "Satoshi, Inter, sans-serif",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
               }}
-              onClick={() => setOpen(true)}
+              onClick={openChat}
             >
               💬 Chat with us
             </m.button>
@@ -474,7 +506,7 @@ export default function FluxChat() {
         <button
           type="button"
           aria-label={open ? "Close chat" : "Open chat"}
-          onClick={() => setOpen((isOpen) => !isOpen)}
+          onClick={toggleChat}
           className="flux-fab"
           style={{
             width: 56,
@@ -563,13 +595,14 @@ export default function FluxChat() {
             style={{
               position: "fixed",
               bottom: panelBottom,
-              right: 16,
+              right: panelRight,
               width: chatWidth,
               height: chatHeight,
-              background: "#F3F4F1",
-              borderRadius: "20px",
-              boxShadow: "0 24px 80px rgba(0,0,0,0.18), 0 4px 20px rgba(0,0,0,0.1)",
-              border: "1px solid rgba(13,13,13,0.08)",
+              background: "rgba(246,245,242,0.96)",
+              borderRadius: isMobile ? "24px" : "26px",
+              boxShadow: "0 32px 100px rgba(6,7,10,0.22), 0 8px 30px rgba(6,7,10,0.1)",
+              border: "1px solid rgba(255,255,255,0.8)",
+              backdropFilter: "blur(22px)",
               display: "flex",
               flexDirection: "column",
               overflow: "hidden",
@@ -577,7 +610,7 @@ export default function FluxChat() {
               transition: "width 0.35s cubic-bezier(0.16,1,0.3,1), height 0.35s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
-            <div style={{ background: "#06070A", padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
+            <div style={{ background: "linear-gradient(135deg, #07080B 0%, #111319 100%)", padding: "14px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0, borderBottom: "1px solid rgba(255,255,255,.08)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <div style={{ position: "relative" }}>
                   <div
@@ -585,12 +618,12 @@ export default function FluxChat() {
                       width: 36,
                       height: 36,
                       borderRadius: "50%",
-                      background: "#CF3723",
+                      background: "linear-gradient(145deg, #E54831, #B92818)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontWeight: 700,
-                      fontSize: 14,
+                      fontSize: 13,
                       color: "white",
                       fontFamily: "Cabinet Grotesk, sans-serif",
                     }}
@@ -615,22 +648,22 @@ export default function FluxChat() {
                   <div
                     style={{
                       fontSize: 14,
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#F3F4F1",
                       fontFamily: "Cabinet Grotesk, sans-serif",
-                      letterSpacing: "-0.02em",
+                      letterSpacing: "-0.01em",
                     }}
                   >
                     Flux Assistant
                   </div>
-                  <div style={{ fontSize: 12, color: "rgba(250,248,244,0.42)", display: "flex", alignItems: "center", gap: 5 }}>
+                  <div style={{ fontSize: 11, color: "rgba(250,248,244,0.46)", display: "flex", alignItems: "center", gap: 5, marginTop: 1 }}>
                     {loading ? (
                       <>
                         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E", display: "inline-block", animation: "fluxDot 1.2s ease-in-out infinite" }} />
                         Typing...
                       </>
                     ) : (
-                      "Online · Usually replies instantly"
+                      "AI-powered · Online"
                     )}
                   </div>
                 </div>
@@ -710,7 +743,7 @@ export default function FluxChat() {
               </div>
             </div>
 
-            <div className="flux-scroll" style={{ flex: 1, overflowY: "auto", padding: "14px 14px", display: "flex", flexDirection: "column", gap: 12, background: "#F4F2EE" }}>
+            <div className="flux-scroll" style={{ flex: 1, overflowY: "auto", padding: "18px 16px", display: "flex", flexDirection: "column", gap: 14, background: "radial-gradient(circle at 100% 0%, rgba(207,55,35,.055), transparent 34%), linear-gradient(180deg, #F7F6F3 0%, #F1EFEB 100%)" }}>
               {msgs.map((message) => (
                 <Bubble key={message.id} msg={message} />
               ))}
@@ -725,7 +758,7 @@ export default function FluxChat() {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div style={{ padding: "10px 14px", borderTop: "1px solid rgba(6,7,10,0.06)", display: "flex", flexWrap: "wrap", gap: 7, background: "#F3F4F1" }}>
+                  <div className="flux-scroll" style={{ padding: "10px 14px", borderTop: "1px solid rgba(6,7,10,0.06)", display: "flex", gap: 7, overflowX: "auto", background: "rgba(246,245,242,.92)" }}>
                     {QUICK_PROMPTS.map((prompt) => (
                       <button
                         type="button"
@@ -742,7 +775,7 @@ export default function FluxChat() {
             </AnimatePresence>
 
             <div
-              style={{ padding: "10px 12px 10px", background: "#F3F4F1", borderTop: "1px solid rgba(6,7,10,0.07)", flexShrink: 0 }}
+              style={{ padding: "11px 12px 10px", background: "rgba(246,245,242,.96)", borderTop: "1px solid rgba(6,7,10,0.07)", flexShrink: 0 }}
             >
               <div
                 style={{
@@ -750,10 +783,10 @@ export default function FluxChat() {
                   alignItems: "flex-end",
                   gap: 8,
                   background: "white",
-                  border: "1.5px solid rgba(13,13,13,0.1)",
-                  borderRadius: 16,
+                  border: "1px solid rgba(13,13,13,0.1)",
+                  borderRadius: 18,
                   padding: "9px 10px 9px 14px",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+                  boxShadow: "0 8px 24px rgba(6,7,10,0.07)",
                 }}
               >
                 <label htmlFor="flux-chat-message" className="sr-only">Message Flux</label>
