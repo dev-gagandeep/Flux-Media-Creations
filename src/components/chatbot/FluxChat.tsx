@@ -9,6 +9,7 @@ interface Message {
   content: string;
   timestamp: Date;
   streaming?: boolean;
+  bookingUrl?: string;
 }
 
 const QUICK_PROMPTS = [
@@ -153,6 +154,42 @@ function Bubble({ msg }: { msg: Message }) {
                 }}
               />
             )}
+            {msg.bookingUrl ? (
+              <div
+                style={{
+                  marginTop: msg.content ? 10 : 0,
+                  padding: 12,
+                  borderRadius: 12,
+                  background: "#F4F2EE",
+                  border: "1px solid rgba(13,13,13,0.08)",
+                }}
+              >
+                <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 4 }}>Book a free 30-minute call</div>
+                <div style={{ fontSize: 12, color: "rgba(6,7,10,0.58)", marginBottom: 10 }}>
+                  Choose a time that works for you directly in Calendly.
+                </div>
+                <a
+                  href={msg.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minHeight: 36,
+                    padding: "0 14px",
+                    borderRadius: 10,
+                    background: "#CF3723",
+                    color: "white",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    textDecoration: "none",
+                  }}
+                >
+                  Book a time →
+                </a>
+              </div>
+            ) : null}
           </>
         )}
       </div>
@@ -174,6 +211,14 @@ export default function FluxChat() {
 
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const sessionIdRef = useRef("");
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("flux-chat-session");
+    const sessionId = stored || crypto.randomUUID();
+    sessionStorage.setItem("flux-chat-session", sessionId);
+    sessionIdRef.current = sessionId;
+  }, []);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 640px)");
@@ -221,31 +266,88 @@ export default function FluxChat() {
         setUnread((count) => count + 1);
       }
 
-      const reply = getFallbackResponse(trimmed);
-      let i = 0;
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sessionId: sessionIdRef.current || crypto.randomUUID(),
+            messages: [...msgs, userMsg].map(({ role, content }) => ({ role, content })),
+          }),
+        });
 
-      const interval = window.setInterval(() => {
-        i += 1;
-        const partial = reply.slice(0, i * 3);
-        const isStreaming = i * 3 < reply.length;
+        if (!response.body) throw new Error("Chat stream unavailable");
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
 
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split("\n");
+          buffer = lines.pop() ?? "";
+
+          for (const line of lines) {
+            if (!line.trim()) continue;
+            const event = JSON.parse(line) as {
+              type: "text" | "booking" | "lead_submitted";
+              content?: string;
+              url?: string;
+            };
+
+            if (event.type === "text" && event.content) {
+              setMsgs((prev) =>
+                prev.map((message) =>
+                  message.id === assistantMsgId
+                    ? { ...message, content: message.content + event.content }
+                    : message
+                )
+              );
+            }
+
+            if (event.type === "booking" && event.url) {
+              setMsgs((prev) =>
+                prev.map((message) =>
+                  message.id === assistantMsgId
+                    ? {
+                        ...message,
+                        content: message.content || "Absolutely — choose a convenient time below.",
+                        bookingUrl: event.url,
+                      }
+                    : message
+                )
+              );
+            }
+
+            if (event.type === "lead_submitted") {
+              sessionStorage.setItem("flux-chat-lead-submitted", "true");
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Flux chat error:", error);
         setMsgs((prev) =>
           prev.map((message) =>
-            message.id === assistantMsgId ? { ...message, content: partial, streaming: isStreaming } : message
+            message.id === assistantMsgId
+              ? {
+                  ...message,
+                  content:
+                    "I couldn’t connect just now. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892.",
+                }
+              : message
           )
         );
-
-        if (!isStreaming) {
-          window.clearInterval(interval);
-          setLoading(false);
-        }
-      }, 15);
-
-      return () => {
-        window.clearInterval(interval);
+      } finally {
+        setMsgs((prev) =>
+          prev.map((message) =>
+            message.id === assistantMsgId ? { ...message, streaming: false } : message
+          )
+        );
+        setLoading(false);
       }
     },
-    [loading, open]
+    [loading, msgs, open]
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -728,99 +830,4 @@ export default function FluxChat() {
       </AnimatePresence>
     </>
   );
-}
-
-function getFallbackResponse(input: string): string {
-  const q = input.toLowerCase();
-
-  if (q.match(/price|cost|how much|pricing|charge|fee/)) {
-    return `Our services start from:
-
-- **WordPress Website** - from $500 (7-10 days)
-- **GoHighLevel Automation** - from $300 (5-7 days)
-- **Full Growth System** (Website + GHL) - from $1,300 (14-21 days) <- most popular
-- **Airtable CRM & Business Hub** - from $200
-- **Make & Zapier Automation** - from $150
-- **Monthly Maintenance** - from $150/month
-- **Search Visibility Engine** - from $400
-
-For a custom quote based on your needs, reach us on WhatsApp at **+91 6284957892**, or email **contact@fluxmediacreations.com**.`;
-  }
-
-  if (q.match(/how fast|how long|timeline|deliver|days|weeks/)) {
-    return `Our typical delivery times:
-
-- **GHL automation only** - 5-7 days
-- **WordPress website** - 7-10 days
-- **Full system (Website + GHL)** - 14-21 days
-
-Every project starts with a Figma design you approve before we write code. You can contact us here: **fluxmediacreations.com/contact**`;
-  }
-
-  if (q.match(/ghl|gohighlevel|go high level|crm|automation|sms|missed call/)) {
-    return `Yes, GoHighLevel is one of our core specialties.
-
-We set up pipelines, missed-call text-back, appointment calendars, SMS and email sequences, and A2P 10DLC registration so messages land properly.
-
-GHL automation starts from **$300**. The full connected website + GHL system starts from **$1,300**.`;
-  }
-
-  if (q.match(/healthcare|medical|clinic|doctor|pain|ortho|dental|physio|health/)) {
-    return `Healthcare is one of our main focus areas.
-
-We've built systems for pain management clinics, vein centers, orthopedic practices, and multi-specialty medical platforms. We keep client details private, but can discuss relevant patterns during a discovery call.
-
-To discuss your clinic, email **contact@fluxmediacreations.com**.`;
-  }
-
-  if (q.match(/book|call|meeting|talk|discovery|schedule|contact/)) {
-    return `Absolutely, the first conversation is free.
-
-You can reach us here:
-- **Email:** contact@fluxmediacreations.com
-- **WhatsApp:** +91 6284957892
-- **Contact page:** fluxmediacreations.com/contact
-
-We usually reply within a few hours.`;
-  }
-
-  if (q.match(/project|example|site|built|made/)) {
-    return `We keep client names and live project links private.
-
-What we can share is the type of systems we build:
-- WordPress websites for clinics and service businesses
-- GoHighLevel CRM pipelines and missed-call text-back
-- Appointment booking, reminders, review requests, and lead tracking
-- SEO-ready service and location page structures
-
-For a private walkthrough, email **contact@fluxmediacreations.com**.`;
-  }
-
-  if (q.match(/seo|rank|google|search|ai search|aeo|geo/)) {
-    return `We offer **AI & Digital Growth Strategy** starting from **$350/month**.
-
-This covers SEO, AEO, and GEO so your business can get found across Google and AI search tools.
-
-If you want a strategy recommendation for your business, email **contact@fluxmediacreations.com**.`;
-  }
-
-  if (q.match(/who|about|gagan|founder|team|company|studio/)) {
-    return `Flux Media Creations is founded and led by **Gagan Deep**, a WordPress developer and GoHighLevel specialist based in India serving clients globally.
-
-You work directly with the person building your project, without account-manager handoffs.
-
-You can learn more at **fluxmediacreations.com/about**.`;
-  }
-
-  if (q.match(/hi|hello|hey|start|help/)) {
-    return `Hi there.
-
-I can help with pricing, services, timelines, private project-fit questions, and contacting the team. What would you like to know?`;
-  }
-
-  return `The best next step is to contact us directly so we can give you a precise answer for your project.
-
-- **WhatsApp:** +91 6284957892
-- **Email:** contact@fluxmediacreations.com
-- **Contact page:** fluxmediacreations.com/contact`;
 }
