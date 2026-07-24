@@ -5,6 +5,7 @@ import PageTransition from "@/components/ui/PageTransition";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import StickyCTA from "@/components/layout/StickyCTA";
+import SmartPopup from "@/components/layout/SmartPopup";
 
 export default function RootLayoutClient({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<any>(null);
@@ -49,6 +50,7 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
       </PageTransition>
       <Footer />
       <StickyCTA />
+      <SmartPopup />
     </div>
   );
 }

@@ -350,6 +350,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       url: SITE.url,
     },
   };
+  const middleIndex = Math.floor(blocks.length / 2);
 
   return (
     <>
@@ -392,8 +393,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </figure>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-          <div className="order-2 lg:order-1 space-y-6 text-base leading-8 text-ink/75">
+        <div className="mx-auto max-w-4xl space-y-6 text-base leading-8 text-ink/75">
             {blocks.map((block, index) => (
               <div key={block.type === "section" ? block.id : `paragraph-${block.body.slice(0, 80)}`} className="space-y-6">
                 {block.type === "section" ? (
@@ -427,41 +427,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       <figcaption className="px-4 py-3 text-sm text-ink/55">{image.caption}</figcaption>
                     </figure>
                   ))}
+
+                {index === middleIndex ? (
+                  <section className="relative my-10 overflow-hidden rounded-[2rem] bg-ink p-7 text-white md:p-10">
+                    <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-flux/30 blur-3xl" aria-hidden="true" />
+                    <div className="relative">
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flux">
+                        {showHealthcareCta ? "For healthcare clinics" : showAiVisibilityCta ? "AI visibility assessment" : "Turn insight into action"}
+                      </p>
+                      <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight md:text-4xl">
+                        {showHealthcareCta
+                          ? "Connect the clinic website, CRM, booking, and follow-up."
+                          : showAiVisibilityCta
+                            ? "Find out what AI systems understand—and miss—about your business."
+                            : "See where your growth system is losing opportunities."}
+                      </h2>
+                      <p className="mt-5 max-w-2xl text-base leading-8 text-white/65">
+                        {showHealthcareCta
+                          ? "Explore the clinic-specific system for appointment conversion, reminders, missed-call recovery, and patient follow-up."
+                          : showAiVisibilityCta
+                            ? "The Business Intelligence Audit reviews discovery, reputation, content structure, customer journey, and AI readiness."
+                            : "Measure discovery, customer progression, revenue visibility, automation, and AI readiness in one structured assessment."}
+                      </p>
+                      <Link
+                        href={showHealthcareCta ? "/healthcare-website-crm" : "/business-intelligence-audit"}
+                        className="mt-7 inline-flex rounded-full bg-flux px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-1"
+                      >
+                        {showHealthcareCta ? "View the healthcare system →" : "Start your assessment →"}
+                      </Link>
+                    </div>
+                  </section>
+                ) : null}
               </div>
             ))}
-
-            {showHealthcareCta ? (
-              <section className="rounded-lg border border-flux/15 bg-blush p-6">
-                <p className="text-xs uppercase tracking-widest text-flux mb-4">For healthcare clinics</p>
-                <h2 className="font-display text-2xl md:text-3xl font-semibold text-ink mb-3" style={{ letterSpacing: "-0.02em" }}>
-                  Want the website and GoHighLevel system built together?
-                </h2>
-                <p className="text-sm leading-7 text-ink/68 mb-5">
-                  Our healthcare landing page breaks down the clinic-specific version: WordPress website, CRM pipeline, appointment reminders, missed-call text-back, and post-launch support.
-                </p>
-                <Link href="/healthcare-website-crm" className="inline-flex items-center rounded-lg px-5 py-3 text-sm font-medium text-white" style={{ background: "var(--flux)" }}>
-                  View Healthcare Website &amp; CRM Solutions →
-                </Link>
-              </section>
-            ) : null}
-
-            {showAiVisibilityCta ? (
-              <section className="relative overflow-hidden rounded-[2rem] bg-ink p-7 text-white md:p-10">
-                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-flux/30 blur-3xl" aria-hidden="true" />
-                <div className="relative">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flux">AI visibility assessment</p>
-                  <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight md:text-4xl">
-                    Find out what AI systems understand—and miss—about your business.
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-white/65">
-                    The Business Intelligence Audit reviews discovery, reputation, content structure, customer journey, and AI readiness, then identifies the gaps with the greatest impact.
-                  </p>
-                  <Link href="/business-intelligence-audit" className="mt-7 inline-flex rounded-full bg-flux px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-1">
-                    Start your assessment →
-                  </Link>
-                </div>
-              </section>
-            ) : null}
 
             {post.faq?.length ? (
               <section id="faqs" className="scroll-mt-32 pt-4">
@@ -513,110 +511,70 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </ul>
               </section>
             ) : null}
+        </div>
+
+        <section className="mt-16 border-t border-ink/10 pt-10">
+          <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[.2em] text-flux">Continue exploring</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-[-.04em] text-ink md:text-4xl">Article resources</h2>
+            </div>
+            <Link href="/blog" className="text-sm font-semibold text-flux hover:underline">View all insights →</Link>
           </div>
 
-          <aside className="order-1 lg:order-2">
-            <div className="lg:sticky lg:top-28 space-y-4">
-              {toc.length ? (
-                <section className="rounded-lg border border-ink/10 bg-white p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Table of Contents</p>
-                  <nav aria-label="Table of contents">
-                    <ul className="space-y-2.5 text-sm text-ink/65">
-                      {toc.map((item) => (
-                        <li key={item.id}>
-                          <a
-                            href={`#${item.id}`}
-                            className={`block hover:text-flux transition-colors ${item.level === 3 ? "pl-4 text-[13px]" : ""}`}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                </section>
-              ) : null}
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {toc.length ? (
+              <section className="rounded-2xl border border-ink/10 bg-white p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-ink/40">Table of contents</p>
+                <nav aria-label="Table of contents" className="mt-4">
+                  <ul className="space-y-2.5 text-sm text-ink/65">
+                    {toc.map((item) => (
+                      <li key={item.id}>
+                        <a href={`#${item.id}`} className={`block transition-colors hover:text-flux ${item.level === 3 ? "pl-3 text-[13px]" : ""}`}>
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </section>
+            ) : null}
 
-            <section className="rounded-lg bg-[#1D1738] p-5 text-white">
-              <p className="text-lg font-display font-semibold mb-2" style={{ letterSpacing: "-0.02em" }}>
-                {showHealthcareCta ? "Clinic Website + CRM?" : showAiVisibilityCta ? "Can AI find your business?" : "Ready to Automate?"}
-              </p>
-              <p className="text-sm leading-6 text-white/70 mb-4">
-                {showHealthcareCta
-                  ? "See the dedicated healthcare system for websites, reminders, and missed-call recovery."
-                  : showAiVisibilityCta
-                    ? "Measure the gaps across AI discovery, trust signals, content, and connected follow-up."
-                  : "Contact us and we&apos;ll map your complete GHL automation roadmap."}
-              </p>
-              <Link
-                href={showHealthcareCta ? "/healthcare-website-crm" : showAiVisibilityCta ? "/business-intelligence-audit" : "/contact"}
-                className="inline-flex w-full items-center justify-center rounded-lg bg-[#7C5CFF] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#6d4ff0]"
-              >
-                {showHealthcareCta ? "View Healthcare Solution →" : showAiVisibilityCta ? "Start Assessment →" : "Contact Us →"}
-              </Link>
-            </section>
-
-            <section className="rounded-lg border border-ink/10 bg-white p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Recent Posts</p>
-              <div className="space-y-4">
+            <section className="rounded-2xl border border-ink/10 bg-white p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink/40">Recent posts</p>
+              <div className="mt-4 space-y-4">
                 {sidebarPosts.map((item) => (
-                  <article key={item.slug} className="border-b border-ink/8 pb-4 last:border-b-0 last:pb-0">
-                    <Link href={`/blog/${item.slug}`} className="text-sm font-medium leading-6 text-ink hover:text-flux transition-colors">
-                      {item.title}
-                    </Link>
-                    <p className="mt-1 text-xs text-ink/40">
-                      {new Date(item.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                    </p>
+                  <article key={item.slug} className="border-b border-ink/10 pb-4 last:border-0 last:pb-0">
+                    <Link href={`/blog/${item.slug}`} className="text-sm font-medium leading-6 text-ink transition-colors hover:text-flux">{item.title}</Link>
                   </article>
                 ))}
               </div>
             </section>
 
-            <section className="rounded-lg border border-ink/10 bg-white p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Services We Offer</p>
-              <div className="space-y-1">
-                {SERVICES.map((service) => (
-                  <Link
-                    key={service.slug}
-                    href={service.href}
-                    className="flex items-center justify-between rounded-md px-2 py-2 text-sm text-ink/70 transition-colors hover:bg-ink/5 hover:text-flux"
-                  >
-                    <span>{service.title}</span>
-                    <span aria-hidden="true">›</span>
+            <section className="rounded-2xl border border-ink/10 bg-white p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink/40">Services we offer</p>
+              <div className="mt-3 space-y-1">
+                {SERVICES.slice(0, 6).map((service) => (
+                  <Link key={service.slug} href={service.href} className="flex items-center justify-between rounded-lg px-2 py-2 text-sm text-ink/70 transition-colors hover:bg-ink/5 hover:text-flux">
+                    <span>{service.title}</span><span aria-hidden="true">›</span>
                   </Link>
                 ))}
               </div>
             </section>
 
-            <section className="rounded-lg border border-ink/10 bg-white p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Categories</p>
-              <div className="space-y-2">
+            <section className="rounded-2xl border border-ink/10 bg-white p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink/40">Categories</p>
+              <div className="mt-4 space-y-3">
                 {Object.entries(categoryCounts).map(([category, count]) => (
                   <div key={category} className="flex items-center justify-between text-sm text-ink/70">
                     <span>{category}</span>
-                    <span className="rounded-full bg-[#7C5CFF]/10 px-2 py-0.5 text-xs font-medium text-[#7C5CFF]">
-                      {count}
-                    </span>
+                    <span className="rounded-full bg-flux/10 px-2 py-0.5 text-xs font-medium text-flux">{count}</span>
                   </div>
                 ))}
               </div>
             </section>
-
-            <section className="rounded-lg border border-ink/10 bg-white p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink mb-4">Need Help Fast?</p>
-              <a
-                href={`https://wa.me/${SITE.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-flux hover:underline"
-              >
-                Chat on WhatsApp
-                <span aria-hidden="true">↗</span>
-              </a>
-            </section>
-            </div>
-          </aside>
-        </div>
+          </div>
+        </section>
       </article>
     </>
   );
