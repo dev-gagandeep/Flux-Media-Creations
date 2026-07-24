@@ -230,8 +230,10 @@ export default function FluxChat() {
   const [isMobile, setIsMobile] = useState(false);
 
   const endRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const sessionIdRef = useRef("");
+  const shouldAutoScrollRef = useRef(true);
 
   const openChat = () => {
     if (!open) playOpenSound();
@@ -260,8 +262,11 @@ export default function FluxChat() {
   }, []);
 
   useEffect(() => {
-    if (open) {
-      endRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (open && shouldAutoScrollRef.current && scrollRef.current) {
+      scrollRef.current.scrollTo({
+        top: scrollRef.current.scrollHeight,
+        behavior: "smooth",
+      });
     }
   }, [msgs, open]);
 
@@ -281,6 +286,7 @@ export default function FluxChat() {
 
       setShowQuick(false);
       setInput("");
+      shouldAutoScrollRef.current = true;
       if (inputRef.current) {
         inputRef.current.style.height = "auto";
       }
@@ -743,7 +749,28 @@ export default function FluxChat() {
               </div>
             </div>
 
-            <div className="flux-scroll" style={{ flex: 1, overflowY: "auto", padding: "18px 16px", display: "flex", flexDirection: "column", gap: 14, background: "radial-gradient(circle at 100% 0%, rgba(207,55,35,.055), transparent 34%), linear-gradient(180deg, #F7F6F3 0%, #F1EFEB 100%)" }}>
+            <div
+              ref={scrollRef}
+              onScroll={(event) => {
+                const element = event.currentTarget;
+                const distanceFromBottom = element.scrollHeight - element.scrollTop - element.clientHeight;
+                shouldAutoScrollRef.current = distanceFromBottom < 80;
+              }}
+              className="flux-scroll"
+              style={{
+                flex: "1 1 0",
+                minHeight: 0,
+                overflowY: "auto",
+                overscrollBehavior: "contain",
+                touchAction: "pan-y",
+                WebkitOverflowScrolling: "touch",
+                padding: "18px 16px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 14,
+                background: "radial-gradient(circle at 100% 0%, rgba(207,55,35,.055), transparent 34%), linear-gradient(180deg, #F7F6F3 0%, #F1EFEB 100%)",
+              }}
+            >
               {msgs.map((message) => (
                 <Bubble key={message.id} msg={message} />
               ))}
@@ -844,7 +871,7 @@ export default function FluxChat() {
                 </button>
               </div>
 
-              <div style={{ textAlign: "center", marginTop: 7, fontSize: 12, color: "rgba(13,13,13,0.28)", fontFamily: "Satoshi, Inter, sans-serif" }}>
+              <div style={{ marginTop: 8, display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap", gap: "4px 10px", textAlign: "center", fontSize: 11, color: "rgba(13,13,13,0.34)", fontFamily: "Satoshi, Inter, sans-serif" }}>
                 <span>
                   Powered by{" "}
                   <a
@@ -856,6 +883,15 @@ export default function FluxChat() {
                     Flux Media Creations
                   </a>
                 </span>
+                <span aria-hidden="true" style={{ color: "rgba(13,13,13,.16)" }}>•</span>
+                <a
+                  href="https://www.trustpilot.com/review/fluxmediacreations.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#087D61", fontWeight: 700, textDecoration: "none" }}
+                >
+                  ★ Review us on Trustpilot
+                </a>
               </div>
             </div>
           </m.div>
