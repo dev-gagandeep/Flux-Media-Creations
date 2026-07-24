@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { AnimatePresence, m } from "framer-motion";
 import Image from "next/image";
+import { SITE } from "@/lib/constants";
 
 interface Message {
   id: string;
@@ -507,27 +508,62 @@ export default function FluxChat() {
           )}
         </AnimatePresence>
 
-        <button
-          type="button"
-          aria-label={open ? "Close chat" : "Open chat"}
-          onClick={toggleChat}
-          className="flux-fab"
-          style={{
-            width: 56,
-            height: 56,
-            borderRadius: "50%",
-            background: "#CF3723",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "none",
-            cursor: "pointer",
-            position: "relative",
-            animation: "fluxPulse 2.5s ease-in-out infinite",
-            transition: "transform 0.2s cubic-bezier(0.16,1,0.3,1)",
-            boxShadow: "0 4px 20px rgba(207,55,35,0.38)",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <AnimatePresence>
+            {!open ? (
+              <m.a
+                href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Flux Media Creations, I would like to discuss a project.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Flux on WhatsApp"
+                title="Chat on WhatsApp"
+                initial={{ opacity: 0, scale: 0.8, x: 8 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.8, x: 8 }}
+                whileHover={{ scale: 1.08, y: -2 }}
+                whileTap={{ scale: 0.94 }}
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: "50%",
+                  background: "#25D366",
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 10px 28px rgba(37,211,102,.3)",
+                  border: "1px solid rgba(255,255,255,.8)",
+                }}
+              >
+                <svg width="25" height="25" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M27.1 4.9A15.1 15.1 0 0 0 3.35 22.98L1.2 30.8l8.02-2.1A15.08 15.08 0 0 0 16 30.42h.01A15.14 15.14 0 0 0 27.1 4.9Z" fill="currentColor"/>
+                  <path d="M16 27.86a12.5 12.5 0 0 1-6.37-1.74l-.46-.27-4.76 1.25 1.27-4.64-.3-.48A12.52 12.52 0 1 1 16 27.86Zm6.87-9.37c-.38-.19-2.23-1.1-2.58-1.23-.34-.13-.59-.19-.84.19-.25.37-.97 1.23-1.19 1.48-.22.25-.44.28-.81.09-.38-.19-1.59-.59-3.03-1.87a11.3 11.3 0 0 1-2.1-2.61c-.22-.38-.02-.58.17-.77.17-.17.37-.44.56-.66.19-.22.25-.37.37-.62.13-.25.07-.47-.03-.66-.09-.19-.84-2.02-1.16-2.77-.3-.73-.61-.63-.84-.64h-.72c-.25 0-.66.09-1 .47-.35.37-1.31 1.28-1.31 3.12s1.34 3.62 1.53 3.87c.19.25 2.64 4.03 6.39 5.65.89.38 1.59.61 2.13.78.89.28 1.71.24 2.35.15.72-.11 2.23-.91 2.55-1.79.31-.87.31-1.62.22-1.78-.09-.16-.34-.25-.72-.44Z" fill="#25D366"/>
+                </svg>
+              </m.a>
+            ) : null}
+          </AnimatePresence>
+
+          <button
+            type="button"
+            aria-label={open ? "Close chat" : "Open chat"}
+            onClick={toggleChat}
+            className="flux-fab"
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: "50%",
+              background: "#CF3723",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "none",
+              cursor: "pointer",
+              position: "relative",
+              animation: "fluxPulse 2.5s ease-in-out infinite",
+              transition: "transform 0.2s cubic-bezier(0.16,1,0.3,1)",
+              boxShadow: "0 4px 20px rgba(207,55,35,0.38)",
+            }}
+          >
           <AnimatePresence mode="wait">
             {open ? (
               <m.span
@@ -585,7 +621,8 @@ export default function FluxChat() {
               </m.div>
             )}
           </AnimatePresence>
-        </button>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
