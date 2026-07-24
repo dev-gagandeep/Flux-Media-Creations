@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LOCATION_PAGES, SITE, NAV_LINKS, SOCIAL_LINKS, TOOLS } from "@/lib/constants";
+import CookieSettingsButton from "@/components/layout/CookieSettingsButton";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -171,6 +172,7 @@ export default function Footer() {
           © {year} {SITE.name}. All rights reserved.
         </p>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+          <CookieSettingsButton />
           <a
             href="https://www.designrush.com/agency/website-design-development/in"
             target="_blank"
