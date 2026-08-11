@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { FormEvent, useMemo, useRef, useState } from "react";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Check, Loader2, RotateCcw } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, Loader2, RotateCcw } from "@/components/ui/animated-icons";
 
 const ACCESS_KEY = "9c81aa58-8835-4d78-87db-6a707c241ba9";
 const areas = [

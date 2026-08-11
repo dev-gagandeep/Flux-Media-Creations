@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, BadgeCheck, Check, Globe2, Layers3, MoveRight, Workflow } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, BadgeCheck, Check, Globe2, Layers3, MoveRight, Workflow } from "@/components/ui/animated-icons";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 import { RecognitionStrip } from "@/components/brand/AuthorityEcosystem";
 

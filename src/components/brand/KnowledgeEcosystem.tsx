@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "@/components/ui/animated-icons";
 
 const channels = [
   { name: "Medium", src: "/images/ecosystem/medium.svg", href: "https://medium.com/@fluxmediacreations" },

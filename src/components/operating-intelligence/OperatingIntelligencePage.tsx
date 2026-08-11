@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { m, useScroll, useTransform } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Bot, BrainCircuit, Search, Workflow, ChartNoAxesCombined } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Bot, BrainCircuit, Search, Workflow, ChartNoAxesCombined } from "@/components/ui/animated-icons";
 import { useRef } from "react";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 

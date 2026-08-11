@@ -3,7 +3,7 @@
 import { safeJsonLd } from "@/lib/json-ld";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "@/components/ui/animated-icons";
 import { m } from "framer-motion";
 import { SITE } from "@/lib/constants";
 import type { StrategicPageContent } from "@/lib/flux2";

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, m } from "framer-motion";
-import { ChevronDown, MoveRight } from "lucide-react";
+import { ChevronDown, MoveRight } from "@/components/ui/animated-icons";
 import { SITE } from "@/lib/constants";
 
 type NavItem = { name: string; href: string; note?: string };

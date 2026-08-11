@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { m, useScroll, useTransform } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Check, CircleDot, MessageSquare, MoveRight } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, CircleDot, MessageSquare, MoveRight } from "@/components/ui/animated-icons";
 import { useRef } from "react";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 
