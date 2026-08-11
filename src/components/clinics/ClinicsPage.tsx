@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Check, X } from "@/components/ui/animated-icons";
+import { ArrowDownRight, ArrowUpRight, Check, X } from "lucide-react";
 
 const leakage = [
   ["01", "Discovery", "They can't find or understand you.", "Your clinic does not show up for the searches patients use, or the site does not make it obvious what you treat and why someone should choose you."],

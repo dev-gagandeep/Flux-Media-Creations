@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Ban, BrainCircuit, Link2, Sparkles, Users, Workflow } from "@/components/ui/animated-icons";
+import { ArrowDownRight, ArrowUpRight, Ban, BrainCircuit, Link2, Sparkles, Users, Workflow } from "lucide-react";
 
 const principles = [
   ["01", "Connection creates intelligence", "A disconnected business sees pieces. A connected business sees the whole picture.", "Before adding or automating, Flux connects the perspectives already inside the business. Intelligence is not another product. It emerges when information that already exists can finally talk to itself.", Link2],

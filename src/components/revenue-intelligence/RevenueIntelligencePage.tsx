@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { m, useScroll, useTransform } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Check, Database, MessageSquare, Phone, Radio, Workflow } from "@/components/ui/animated-icons";
+import { ArrowDownRight, ArrowUpRight, Check, Database, MessageSquare, Phone, Radio, Workflow } from "lucide-react";
 import { useRef } from "react";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 

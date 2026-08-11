@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Bot, Cable, CircleOff, Droplets, Layers3, Users } from "@/components/ui/animated-icons";
+import { ArrowDownRight, ArrowUpRight, Bot, Cable, CircleOff, Droplets, Layers3, Users } from "lucide-react";
 
 const faqs = [
   ["What is the biggest challenge businesses face today?", "The biggest challenge is not access to technology. It is the inability to connect systems, customer information, and workflows into one intelligent operating foundation."],

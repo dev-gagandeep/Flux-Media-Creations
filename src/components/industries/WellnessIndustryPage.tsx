@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight } from "@/components/ui/animated-icons";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 
 const journey = [

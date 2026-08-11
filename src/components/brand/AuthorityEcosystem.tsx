@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "@/components/ui/animated-icons";
+import { ArrowUpRight } from "lucide-react";
 
 const recognition = [
   { name: "Clutch", src: "/images/ecosystem/clutch.png", href: "https://clutch.co/profile/flux-media-creations" },
