@@ -48,10 +48,10 @@ const C = {
 // ── CONTENT ────────────────────────────────────────────────────
 
 const STATS = [
-  { n:"90%",  l:"search online before booking a dental appointment", s:"NOVA Advertising, 2025" },
-  { n:"87%",  l:"use Google to find local dental services",          s:"BrightLocal, 2026" },
-  { n:"7×",   l:"more clicks for complete vs incomplete GBP profile", s:"SearchX, 2026" },
-  { n:"75%",  l:"of dental searches now influenced by AI results",   s:"SearchX, 2026" },
+  { n:"01", l:"Clear Google Business Profile information", s:"Discovery foundation" },
+  { n:"02", l:"Useful procedure and location content", s:"Search relevance" },
+  { n:"03", l:"Consistent practice information and reviews", s:"Local trust" },
+  { n:"04", l:"Measurement tied to calls and appointment enquiries", s:"Business reporting" },
 ];
 
 const SERVICES = [
@@ -70,19 +70,19 @@ const SERVICES = [
   {
     icon:"building",
     title:"Local citation building for New Jersey dental practices",
-    body:"Consistent NAP (name, address, phone) across Healthgrades, Zocdoc, WebMD, Yelp, the NJ Dental Association directory, and 40+ other platforms is a core local ranking signal. We audit your existing citations, fix inconsistencies, and build new listings on the highest authority dental and local NJ directories.",
+    body:"Consistent name, address, and phone information across relevant healthcare and local directories supports accurate discovery. We audit existing citations, correct inconsistencies, and prioritize legitimate directories that match the practice and market.",
     kw:["dental practice citations NJ","NAP consistency dentist NJ"],
   },
   {
     icon:"star",
     title:"Patient review automation",
-    body:"Review signals account for 20% of Google Maps local pack ranking weight (Whitespark, 2026). Businesses with 50+ Google reviews are 266% more likely to appear in the Map Pack than those with fewer than 10 (BrightLocal, 2026). We set up an automated SMS and email review request sequence that fires within 2 hours of a completed appointment, so every satisfied patient becomes a new Google review without any manual effort from your front desk.",
+    body:"Consistent, policy-compliant review requests can support local trust and give prospective patients useful context. We can configure consent-aware SMS or email workflows after an appropriate appointment status, while the practice controls eligibility, timing, and messaging.",
     kw:["patient review automation NJ","dental reviews Google NJ"],
   },
   {
     icon:"spark",
     title:"AI search visibility for dental practices",
-    body:"75% of dental searches are now influenced by AI generated results (SearchX, 2026). When a patient asks Google AI Overviews or ChatGPT 'best dentist in Bergen County NJ,' we structure your content, schema markup, and GBP listing to be cited in those AI generated answers, an advantage most NJ dental practices aren't pursuing yet.",
+    body:"AI-assisted search can interpret business profiles, structured website content, reputable third-party information, and clear service explanations. We improve those foundations so the practice is easier to understand; no provider can guarantee an AI citation or recommendation.",
     kw:["AI search dental NJ","dentist AI Overviews visibility NJ"],
   },
   {
@@ -104,11 +104,11 @@ const WHY_DENTAL = [
   },
   {
     title:"High value procedures need local visibility",
-    body:"Procedures like dental implants, Invisalign, and cosmetic dentistry carry lifetime values of $3,000 to $15,000 per patient. Patients searching for these procedures by name with a New Jersey location modifier are high intent, commercial searches. A practice that ranks for 'dental implants Bergen County NJ' or 'Invisalign Jersey City' captures significant revenue from search alone.",
+    body:"Patients searching for procedures such as dental implants, Invisalign, and cosmetic dentistry with a New Jersey location modifier often have specific commercial intent. Clear, accurate procedure pages help a practice explain suitability, build trust, and become relevant for those searches without promising a particular ranking or revenue result.",
   },
   {
     title:"AI and Google Overviews are changing dental search",
-    body:"Google AI Overviews now appear for 68% of all local queries (Whitespark, 2026). When a patient types 'who is the best dentist in Essex County NJ,' an AI generated answer appears above the Map Pack. 75% of dental searches are influenced by these AI results (SearchX, 2026). Dental practices that optimize for AI citation capture a significant share of zero click visibility.",
+    body:"AI-assisted results are becoming part of some dental discovery journeys. Clear entity information, accurate service content, structured data, and reputable third-party profiles can help systems understand a practice, but inclusion and placement are controlled by the search platform.",
   },
 ];
 
@@ -116,7 +116,7 @@ const PROCESS = [
   { n:"01", t:"Local SEO audit", d:"We audit your GBP listing, website on page signals, citation consistency, review count and velocity, and current Map Pack positions across your target NJ search terms. Every gap is documented and prioritized by impact." },
   { n:"02", t:"Keyword and competitor research", d:"We identify the highest value dental search terms in your NJ service area, general dentistry, emergency care, cosmetic procedures, pediatric dentistry, and analyze the top ranking dental practices to understand exactly what signals are driving their Map Pack positions." },
   { n:"03", t:"GBP and on page optimization", d:"We implement every GBP improvement (category, services, photos, description, attributes) and optimize your website's dental service pages for NJ local search intent. We also create new location specific pages if needed." },
-  { n:"04", t:"Citation building and NAP cleanup", d:"We build your dental practice's citations across Healthgrades, Zocdoc, WebMD, Yelp, the NJ Dental Association, and 40+ additional directories, fixing any NAP inconsistencies that are suppressing your local authority signals." },
+  { n:"04", t:"Citation and NAP cleanup", d:"We review relevant healthcare and local directories, correct inconsistent practice information, and prioritize legitimate listings that match the practice and service area." },
   { n:"05", t:"Review automation setup", d:"We configure your review request workflow, automated SMS and email sequences that fire after each completed appointment, directing patients to your Google review form without any manual effort from your front desk staff." },
   { n:"06", t:"AI visibility structuring", d:"We optimize your website content and GBP listing for AI search citation, structured FAQ sections, entity clear service descriptions, and schema markup that helps Google AI Overviews and ChatGPT identify and cite your practice in local dental queries." },
 ];
@@ -128,7 +128,7 @@ const FAQS = [
   },
   {
     q:"How long does local SEO take to show results for a dental practice?",
-    a:"Most NJ dental practices see initial Google Maps improvements within 60 to 90 days of a full local SEO implementation. Ranking in the top 3 Map Pack positions for competitive terms like 'dentist Newark NJ' or 'cosmetic dentist Bergen County' typically takes 4 to 6 months of consistent optimization. Less competitive NJ markets and procedure specific keywords can show movement within 30 to 45 days.",
+    a:"Timelines vary by the practice's starting position, market competition, proximity, website quality, Google Business Profile, reviews, and ongoing work. Flux reports leading indicators and qualified enquiry activity without promising a ranking position or deadline.",
   },
   {
     q:"What Google Business Profile category should a dentist use in New Jersey?",
@@ -136,11 +136,11 @@ const FAQS = [
   },
   {
     q:"How many Google reviews does a dental practice need to rank in New Jersey?",
-    a:"Businesses with 50+ Google reviews are 266% more likely to appear in the Local Pack than those with fewer than 10 reviews (BrightLocal, 2026). For most NJ dental markets, 25 to 50 reviews is the first meaningful threshold. Consistent review velocity, four to five new reviews per month, is more important than a high total count reached all at once.",
+    a:"There is no universal review count that guarantees a ranking. Relevance, proximity, prominence, review quality and recency, profile completeness, and the competitive market all matter. The practice should request reviews consistently and follow platform policies without gating or incentives.",
   },
   {
     q:"Can local SEO help my dental practice show up in ChatGPT and Google AI Overviews?",
-    a:"Yes. 75% of dental searches are now influenced by AI generated results (SearchX, 2026). Google AI Overviews and AI assistants like ChatGPT pull dental practice information from GBP listings, structured website content, and schema markup. We optimize your practice's online presence specifically for AI search citation, an advantage most NJ dental competitors haven't implemented.",
+    a:"Local SEO foundations can also help AI systems understand a practice. Flux improves business information, service content, structured data, and third-party consistency, but cannot guarantee that ChatGPT, Google AI Overviews, or another system will cite or recommend a practice.",
   },
   {
     q:"Does my dental practice need a separate SEO page for each procedure?",
@@ -253,7 +253,7 @@ export default function LocalSEODentistsNJ(){
             </div>
 
             <p style={{fontSize:"1rem",color:C.muted,lineHeight:1.8,marginBottom:"1.75rem",maxWidth:510}}>
-              90% of patients search online before booking a dental appointment.<span className="src">NOVA Advertising, 2025</span> If your practice isn't in the top 3 Google Maps listings when they search, they call your competitor. Flux Media Creations fixes that, for dental practices across New Jersey.
+              Patients use search, maps, reviews, and practice websites to compare local dental options. If your information is incomplete or your services are difficult to understand, relevant appointment enquiries can go elsewhere. Flux improves that discovery foundation for dental practices across New Jersey.
             </p>
             <div style={{display:"flex",gap:".75rem",flexWrap:"wrap"}}>
               <a href="#contact" className="btn-p">Get your free NJ website audit →</a>
@@ -271,7 +271,7 @@ export default function LocalSEODentistsNJ(){
               <span style={{background:C.gBg,color:C.green,fontSize:".75rem",fontWeight:500,padding:"4px 10px",borderRadius:6,border:`1px solid ${C.gBorder}`}}>Active system</span>
             </div>
             {[
-              {n:"01",t:"Patient searches",d:"'Dentist near me Newark NJ', your practice appears in the top 3 Google Maps listings with 4.8 stars and 60+ reviews."},
+              {n:"01",t:"Patient searches",d:"A nearby patient searches for a dentist or a specific procedure and sees accurate, useful information about the practice."},
               {n:"02",t:"Clicks your GBP listing",d:"They see professional photos, your services listed (implants, Invisalign, emergency), and call directly from Google, no website visit needed."},
               {n:"03",t:"Calls or books online",d:"Click to call from Maps, direction requests, or appointment booking link, all tracked in your monthly SEO performance report."},
               {n:"04",t:"Leaves a Google review",d:"Automated SMS fires 2 hours after their appointment: 'Thank you for visiting [Practice]! We'd love your feedback...', review collection on autopilot."},
@@ -353,7 +353,7 @@ export default function LocalSEODentistsNJ(){
               Complete local SEO for NJ dental practices
             </h2>
             <p style={{color:C.muted,marginTop:".75rem",maxWidth:540,margin:".75rem auto 0",fontSize:".95rem",lineHeight:1.7}}>
-              Every service is built around the specific ranking signals that determine which dental practices appear in the top 3 Google Maps listings in your NJ market.
+              Every service supports accurate discovery, relevant local content, trustworthy practice information, and useful measurement. Rankings remain controlled by the search platform and are never guaranteed.
             </p>
           </div>
           <div className="three-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.25rem"}}>
@@ -448,7 +448,7 @@ export default function LocalSEODentistsNJ(){
               <div>
                 <span style={{fontSize:".75rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",color:C.accent,display:"block",marginBottom:".75rem"}}>AI Search in 2026</span>
                 <h2 style={{fontSize:"clamp(1.65rem,3vw,2.4rem)",fontWeight:600,letterSpacing:"-0.02em",lineHeight:1.2,marginBottom:"1.25rem"}}>
-                  75% of dental searches are now influenced by AI, is your practice visible?
+                  Is your dental practice understandable across both search and AI-assisted discovery?
                 </h2>
                 <p style={{color:C.dMuted,lineHeight:1.8,fontSize:".95rem",marginBottom:"1rem"}}>
                   Google AI Overviews now appear at the top of search results for the majority of local dental queries. When a patient in Bergen County asks Google "who is the best dentist near me" or asks ChatGPT for a dentist recommendation, AI engines generate an answer from structured GBP data, website content, and schema markup.
@@ -520,7 +520,7 @@ export default function LocalSEODentistsNJ(){
                   <span style={{color:C.accent}}>actually searching.</span>
                 </h2>
                 <p style={{color:C.dMuted,lineHeight:1.8,marginBottom:"1.75rem"}}>
-                  Book a free dental SEO strategy call. We'll review your current Google Maps presence, identify what's preventing your practice from appearing in the top 3 local listings, and give you a clear action plan, no obligation, no jargon.
+                  Start with the Business Intelligence Assessment. We will review your current search and customer journey, identify the clearest gaps, and explain the next useful step without promising a ranking position.
                 </p>
                 {["Full GBP audit for your dental practice","NJ competitor ranking analysis","Patient review strategy included","AI search visibility assessment","Clear pricing, no long term lock in"].map(item=>(
                   <div key={item} style={{display:"flex",alignItems:"center",gap:".75rem",marginBottom:".55rem"}}>

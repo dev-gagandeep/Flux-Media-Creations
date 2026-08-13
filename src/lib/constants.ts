@@ -1054,21 +1054,21 @@ export const SERVICES = [
   {
     number: "01",
     slug: "wordpress-website-build",
-    title: "WordPress Website Build",
+    title: "Website Growth System",
     description:
-      "Custom WordPress website design built from Figma to go-live. Mobile-first, SEO-optimized, and consistently hitting PageSpeed 90+ scores. Designed for healthcare clinics, home service businesses, and real estate professionals who need a site that actually converts visitors into leads.",
+      "A conversion-focused website foundation that can include strategy, design, development, mobile optimization, lead capture, booking, analytics, technical SEO, and CRM integration.",
     tags: ["WordPress", "Elementor", "Figma", "SEO"],
-    from: "$500",
+    from: "Scoped to requirements",
     href: "/services/wordpress-website-build",
   },
   {
     number: "02",
     slug: "gohighlevel-automation",
-    title: "GoHighLevel Setup & Automation",
+    title: "Lead Conversion System",
     description:
       "Full GoHighLevel CRM setup for your business: lead pipelines, missed call text-back, appointment booking, SMS reminders, review generation, and A2P SMS registration. Stop losing leads to slow response times.",
     tags: ["GoHighLevel", "SMS Automation", "CRM", "A2P"],
-    from: "$300",
+    from: "Custom implementation",
     href: "/services/gohighlevel-automation",
   },
   {
@@ -1078,17 +1078,17 @@ export const SERVICES = [
     description:
       "Appointment booking automation for clinics using GoHighLevel CRM, website forms, missed-call recovery, SMS reminders, staff notifications, no-show follow-up, and patient inquiry tracking.",
     tags: ["Clinics", "Booking", "GHL", "Reminders"],
-    from: "$500",
+    from: "Custom implementation",
     href: "/services/clinic-appointment-booking-automation",
   },
   {
     number: "04",
     slug: "full-growth-system",
-    title: "Full Growth System",
+    title: "Complete Growth System",
     description:
-      "Your WordPress website and GoHighLevel CRM fully connected and working together. Every form submission triggers an instant automated follow-up. One agency, one point of contact, everything built and delivered in 14–21 days.",
+      "A custom connected system spanning discovery, conversion, lead capture, CRM, follow-up, booking, automation, and measurement. Only the capabilities required by the customer journey are included.",
     tags: ["Website", "GHL", "Automation", "Integrated"],
-    from: "$1,300",
+    from: "Custom partnership",
     href: "/services/full-growth-system",
     featured: true,
   },
@@ -1099,17 +1099,17 @@ export const SERVICES = [
     description:
       "Custom Airtable CRM and business hub for service businesses to manage leads, clients, projects, tasks, operations, workflows, dashboards, and reporting in one organized system.",
     tags: ["Airtable", "CRM", "Operations", "Dashboards"],
-    from: "$500",
+    from: "Scoped to requirements",
     href: "/services/airtable-business-hub",
   },
   {
     number: "06",
     slug: "make-zapier-automation",
-    title: "Make & Zapier Automation",
+    title: "Business Automation System",
     description:
       "Make and Zapier automation workflows for leads, forms, CRM updates, notifications, reporting, task creation, and no-code app integrations.",
     tags: ["Make", "Zapier", "Workflows", "Integrations"],
-    from: "$300",
+    from: "Scoped to complexity",
     href: "/services/make-zapier-automation",
   },
   {
@@ -1119,17 +1119,17 @@ export const SERVICES = [
     description:
       "Monthly WordPress and GoHighLevel maintenance with updates, backups, security checks, form testing, workflow checks, CRM support, and small content edits.",
     tags: ["Support", "Maintenance", "Security", "GHL"],
-    from: "$150/mo",
+    from: "Based on support scope",
     href: "/services/monthly-maintenance",
   },
   {
     number: "08",
     slug: "search-visibility-engine",
-    title: "SEO Search Visibility Engine",
+    title: "Search Growth System",
     description:
       "SEO service for Google, Maps, and AI search visibility. We build service pages, local SEO structure, schema, internal links, and answer-ready content for service businesses.",
     tags: ["SEO", "Maps", "AEO", "GEO"],
-    from: "$500",
+    from: "Based on market and scope",
     href: "/services/search-visibility-engine",
   },
   {
@@ -1139,7 +1139,7 @@ export const SERVICES = [
     description:
       "Healthcare SEO service for clinics and medical practices. We build service pages, local SEO, provider trust signals, schema, and patient-focused content to drive appointments.",
     tags: ["Healthcare SEO", "Clinic SEO", "Local SEO", "Schema"],
-    from: "$700",
+    from: "Based on market and scope",
     href: "/services/healthcare-seo-structure",
   },
 ];
@@ -1782,30 +1782,8 @@ export const PROCESS_STEPS = [
   },
 ];
 
-export const STATS = [
-  { number: "4+", label: "Years — Building WordPress + GoHighLevel systems for US businesses" },
-  { number: "6", label: "Healthcare & service brands delivered" },
-  { number: "90+", label: "PageSpeed score on every site we build" },
-  { number: "14 Days", label: "Average project delivery time" },
-];
-
 export const TOOLS = [
   "WordPress", "GoHighLevel", "Airtable", "Figma",
   "Elementor", "Make", "Zapier", "Cloudflare",
   "Google Analytics 4", "Rank Math SEO", "Lenis", "GSAP",
-];
-
-export const TESTIMONIALS = [
-  {
-    quote: "Gagan built our healthcare website in under two weeks. The GoHighLevel automation he set up catches every missed patient call — we've recovered appointments we would have lost completely. Our Google ranking improved in the first month. Best investment we made for our practice.",
-    author: "Healthcare Client",
-    location: "New Jersey, US",
-    role: "Pain Management Clinic",
-  },
-  {
-    quote: "The website speed and design exceeded our expectations. From the first call, communication was always clear and fast. Gagan understood exactly what a medical practice needs — a site that builds trust and makes booking easy. We saw a measurable increase in online appointment requests within 30 days.",
-    author: "Medical Practice",
-    location: "New Jersey, US",
-    role: "Specialty Clinic",
-  },
 ];

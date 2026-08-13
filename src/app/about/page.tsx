@@ -2,14 +2,14 @@ import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SITE, SOCIAL_LINKS, TESTIMONIALS } from "@/lib/constants";
+import { SITE, SOCIAL_LINKS } from "@/lib/constants";
 import { generateMeta } from "@/lib/seo";
 import AuthorityEcosystem from "@/components/brand/AuthorityEcosystem";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "About Flux Media Creations | Founder-Led WordPress & GoHighLevel Agency",
+  absoluteTitle: "About Flux Media Creations | Operating Intelligence for Service Businesses",
   description:
-    "Meet Gagan Deep, founder of Flux Media Creations. We build premium WordPress websites, organic SEO foundations, and GoHighLevel automation systems for service businesses.",
+    "Meet Gagan Deep and learn how Flux evolved from website delivery into connected operating intelligence systems for US service businesses.",
   path: "/about",
   image: "/images/gagan-deep.jpg",
 });
@@ -36,25 +36,19 @@ const principles = [
 const timeline = [
   {
     label: "01",
-    title: "From development to systems thinking",
-    body: "Flux started with WordPress delivery, but the work quickly moved beyond pages and plugins. The real value came from connecting the website to the lead process behind it.",
+    title: "Websites revealed the larger problem",
+    body: "Flux began with website design and development. That work made one thing clear: a stronger interface could not fix a disconnected lead journey on its own.",
   },
   {
     label: "02",
-    title: "A focused service-business niche",
-    body: "Healthcare clinics, home service companies, and real estate teams all need fast trust and fast follow-up. That pattern shaped the agency's focus.",
+    title: "Search and conversion came next",
+    body: "Projects expanded into search structure, conversion pathways, analytics, and the questions customers need answered before they contact a service business.",
   },
   {
     label: "03",
-    title: "Website plus automation as one build",
-    body: "Today, Flux builds the front-end experience and the GoHighLevel backend together so leads are captured, acknowledged, tracked, and followed up properly.",
+    title: "Connected systems became the work",
+    body: "CRM, follow-up, booking, automation, integrations, and business data moved into the same scope. Operating Intelligence is the name for that practical evolution—not a claim that Flux started there.",
   },
-];
-
-const proofStats = [
-  { value: "4+", label: "Years building WordPress and automation systems" },
-  { value: "90+", label: "PageSpeed target for every website build" },
-  { value: "14-21", label: "Days for full website plus GHL systems" },
 ];
 
 const industryBlocks = [
@@ -103,20 +97,20 @@ export default function AboutPage() {
           <div>
             <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-flux">About Flux Media Creations</p>
             <h1 className="font-display text-5xl font-semibold leading-[0.96] md:text-7xl" style={{ letterSpacing: "0" }}>
-              Founder-led digital systems for service businesses that cannot afford to lose leads.
+              Founder-led operating intelligence for service businesses.
             </h1>
             <p className="mt-7 max-w-3xl text-base leading-8 text-ink/58 md:text-lg">
-              Flux Media Creations is a focused WordPress, SEO, and GoHighLevel agency led by Gagan Deep. We build premium websites and automation systems that help service businesses get found, earn trust, capture enquiries, and follow up before leads go cold.
+              Flux Media Creations connects the systems behind customer acquisition and follow-up: website, search visibility, lead capture, CRM, booking, automation, and business data. The work is led directly by Gagan Deep and shaped around the point where opportunities are being lost.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Link
-                href="/contact"
+                href="/business-intelligence-audit"
                 className="inline-flex items-center justify-center rounded-full bg-flux px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,92,53,0.22)]"
               >
-                Start a project
+                Start your assessment
               </Link>
               <Link href="/services" className="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink/65 transition-colors hover:border-ink/35 hover:text-ink">
-                Explore services
+                Explore the systems
               </Link>
             </div>
           </div>
@@ -151,19 +145,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-20 md:px-10 md:py-24">
-        <div className="mx-auto grid max-w-[1400px] gap-5 md:grid-cols-3">
-          {proofStats.map((item) => (
-            <div key={item.label} className="rounded-xl border border-ink/8 bg-blush/35 p-6">
-              <p className="font-display text-5xl font-semibold text-flux" style={{ letterSpacing: "0" }}>
-                {item.value}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-ink/55">{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="bg-white px-6 pb-24 md:px-10 md:pb-32">
         <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="lg:sticky lg:top-28">
@@ -172,7 +153,7 @@ export default function AboutPage() {
               Built from one simple observation.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-ink/58">
-              Most businesses do not lose leads because they lack tools. They lose leads because their website, CRM, forms, calls, reminders, and team handoff are disconnected. Flux exists to make those pieces work as one system.
+              Most service businesses do not lack tools. They lack a reliable connection between the website, search, CRM, calls, forms, booking, follow-up, and the people responsible for the next action. Flux exists to make those pieces work as one system.
             </p>
           </div>
 
@@ -195,10 +176,10 @@ export default function AboutPage() {
           <div>
             <p className="mb-5 text-xs uppercase tracking-widest text-cream/30">Operating principles</p>
             <h2 className="font-display text-4xl font-semibold leading-none md:text-6xl" style={{ letterSpacing: "0" }}>
-              Premium design. Practical systems. Clear ownership.
+              Technical capability. Practical business thinking. Clear ownership.
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-cream/50 md:text-base">
-              The work is intentionally narrow: WordPress websites, organic SEO foundations, GoHighLevel automation, and the integration layer between them. That focus keeps delivery sharper.
+              Flux stays honest about its scale: founder-led strategy and implementation, specialist platforms where appropriate, and no pretense of being a large consultancy. The advantage is direct accountability from diagnosis through delivery.
             </p>
           </div>
 
@@ -242,40 +223,23 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-24 md:px-10">
-        <div className="mx-auto grid max-w-[1400px] gap-5 md:grid-cols-2">
-          {TESTIMONIALS.map((item) => (
-            <blockquote key={`${item.author}-${item.role}`} className="rounded-xl border border-ink/8 bg-white p-7">
-              <p className="text-4xl font-display font-bold text-flux">&ldquo;</p>
-              <p className="mt-2 text-sm leading-7 text-ink/65">{item.quote}</p>
-              <div className="mt-6 border-t border-ink/8 pt-5">
-                <p className="text-sm font-medium text-ink">{item.author}</p>
-                <p className="mt-1 text-xs uppercase tracking-widest text-ink/35">
-                  {item.role} · {item.location}
-                </p>
-              </div>
-            </blockquote>
-          ))}
-        </div>
-      </section>
-
       <AuthorityEcosystem />
 
       <section className="bg-blush/45 px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-5 text-xs uppercase tracking-widest text-flux">Work with us</p>
           <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl" style={{ letterSpacing: "0" }}>
-            If you need a website that generates leads and a CRM that follows up automatically, we should talk.
+            Start with where customers are being lost—not a predetermined deliverable.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-ink/55 md:text-base">
-            Send the project details. We will review your current setup, identify the biggest lead leak, and recommend the fastest path to a cleaner growth system.
+            Complete the Business Intelligence Assessment. Flux will review your current setup and recommend the clearest next step across website, search, lead conversion, automation, and measurement.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
-              href="/contact"
+              href="/business-intelligence-audit"
               className="inline-flex items-center justify-center rounded-full bg-flux px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_18px_45px_rgba(255,92,53,0.22)]"
             >
-              Contact us
+              Start your assessment
             </Link>
             <Link
               href="/services"

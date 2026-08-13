@@ -2,47 +2,10 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, BadgeCheck, Check, Globe2, Layers3, MoveRight, Workflow } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, MoveRight } from "lucide-react";
 import PlatformEcosystem from "@/components/brand/PlatformEcosystem";
 import { RecognitionStrip } from "@/components/brand/AuthorityEcosystem";
-
-const framework = [
-  {
-    number: "01",
-    title: "Market Presence Intelligence",
-    body: "Being findable now means being understood and trusted by Google, AI search tools like ChatGPT and Gemini, Google Maps, and every platform a customer checks before choosing you. Flux structures your business information, reviews, and content so search and AI systems can recommend you with confidence.",
-    href: "/ai-discovery",
-    tone: "bg-pulse-light text-ink",
-  },
-  {
-    number: "02",
-    title: "Digital Headquarters",
-    body: "Most websites are digital brochures. Flux turns them into working environments that answer questions, capture the right information, and route customers toward booking without requiring someone to manually manage every step.",
-    href: "/services/wordpress-website-build",
-    tone: "bg-ink text-white",
-  },
-  {
-    number: "03",
-    title: "Revenue Intelligence",
-    body: "See where opportunities come from, where they stall, and where revenue is actually won or lost. Replace guesswork with a structured view of the real pipeline.",
-    href: "/revenue-intelligence",
-    tone: "bg-flux text-white",
-  },
-  {
-    number: "04",
-    title: "Customer Progression",
-    body: "Acknowledge inquiries quickly, follow up consistently, and guide each person toward a booked appointment or closed sale—whether it is 9am or 11pm on Sunday.",
-    href: "/customer-progression",
-    tone: "bg-sage text-ink",
-  },
-  {
-    number: "05",
-    title: "AI Workforce Systems",
-    body: "Deploy AI as a working part of the business: answering routine questions, recovering missed calls, qualifying inquiries, and flagging what genuinely needs a human.",
-    href: "/services/gohighlevel-automation",
-    tone: "bg-pulse text-white",
-  },
-];
+import { CORE_SYSTEMS } from "@/lib/offers";
 
 const industries = [
   ["Healthcare", "Clinics and practices where patient trust, response time, and appointment progression directly affect access to care.", "/industries/healthcare"],
@@ -61,11 +24,11 @@ const faqs = [
   ["What is a Business Intelligence Assessment?", "It is a review of how a business currently handles discovery, response time, follow up, and conversion, identifying where customers are being lost before any system is built or changed."],
 ];
 
-const stats = [
-  { label: "Serving Clients Worldwide", Icon: Globe2 },
-  { label: "50+ Digital Projects Delivered", Icon: Layers3 },
-  { label: "5-Star Client Satisfaction", Icon: BadgeCheck },
-  { label: "AI-Powered Digital Growth Agency", Icon: Workflow },
+const signals = [
+  ["Website", "Turn attention into clear next steps."],
+  ["Search", "Build relevant organic and local visibility."],
+  ["Lead conversion", "Route and follow up with every opportunity."],
+  ["Automation & data", "Connect systems and make performance visible."],
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -81,23 +44,23 @@ export default function HomeV2() {
     <>
       <section className="relative overflow-hidden bg-cream pb-10 pt-24 md:pt-28">
         <div className="flux-shell">
-          <div className="flex items-center justify-between border-y border-ink/15 py-3"><p className="flux-kicker text-ink/55">Operating Intelligence Company</p><p className="hidden text-xs font-semibold text-ink/45 sm:block">Connected systems · Built to improve</p></div>
+          <div className="flex items-center justify-between border-y border-ink/15 py-3"><p className="flux-kicker text-ink/55">Operating Intelligence for Service Businesses</p><p className="hidden text-xs font-semibold text-ink/45 sm:block">Connected systems · Built to improve</p></div>
           <div className="grid gap-12 py-10 md:py-14 lg:grid-cols-[1.25fr_.75fr] lg:items-end lg:py-16">
             <m.div initial={{ opacity: 0, y: 44 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .85, ease: [0.16, 1, 0.3, 1] }}>
               <h1 className="max-w-6xl font-display text-[clamp(3.35rem,6.4vw,6.8rem)] font-medium leading-[.92] tracking-[-.07em]">Your business doesn&apos;t need more tools. <span className="text-flux">It needs them to talk.</span></h1>
             </m.div>
             <m.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .18, duration: .72 }} className="border-t border-ink/15 pt-6">
-              <p className="text-lg leading-8 text-ink/65">Most businesses are not short on technology. What they lack is a system where the website, CRM, booking, follow-up, AI, and business data work together. Flux builds that connective layer so every inquiry and next action moves automatically, in the right direction.</p>
-              <div className="mt-8 flex flex-wrap gap-3"><Link href="/business-intelligence-audit" className="flux-button flux-button-red">Start your assessment <ArrowUpRight size={16} /></Link><Link href="/operating-intelligence" className="flux-button flux-button-line">How it works</Link></div>
+              <p className="text-lg leading-8 text-ink/65">Flux connects your website, search visibility, lead capture, CRM, customer follow-up, booking, automation, and business data into one practical system—so fewer opportunities fall through the cracks.</p>
+              <div className="mt-8 flex flex-wrap gap-3"><Link href="/business-intelligence-audit" className="flux-button flux-button-red">Start your assessment <ArrowUpRight size={16} /></Link><Link href="/services" className="flux-button flux-button-line">Explore the five systems</Link></div>
             </m.div>
           </div>
           <Link href="#business-shift" className="group ml-auto flex w-fit items-center gap-3 py-4 text-xs font-bold uppercase tracking-[.12em] text-ink/45">Explore the shift <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-500 group-hover:translate-y-1 group-hover:bg-ink group-hover:text-white"><ArrowDownRight size={16} /></span></Link>
         </div>
       </section>
 
-      <section aria-label="Flux at a glance" className="border-y border-ink/10 bg-white">
+      <section aria-label="The connected Flux system" className="border-y border-ink/10 bg-white">
         <div className="flux-shell grid sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map(({ label, Icon }, index) => (
+          {signals.map(([label, body], index) => (
             <m.div
               key={label}
               initial={{ opacity: 0, y: 18 }}
@@ -106,10 +69,8 @@ export default function HomeV2() {
               transition={{ delay: index * .07, duration: .55 }}
               className="flex min-h-32 items-center gap-4 border-b border-ink/10 py-6 sm:px-6 sm:first:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pulse-light text-flux">
-                <Icon size={21} strokeWidth={1.8} />
-              </span>
-              <p className="max-w-[15rem] font-display text-xl font-medium leading-tight">{label}</p>
+              <span className="font-display text-sm font-semibold text-flux">0{index + 1}</span>
+              <div><p className="font-display text-lg font-medium leading-tight">{label}</p><p className="mt-2 max-w-[15rem] text-xs leading-5 text-ink/45">{body}</p></div>
             </m.div>
           ))}
         </div>
@@ -132,7 +93,7 @@ export default function HomeV2() {
       <PlatformEcosystem variant="full" />
 
       <section className="bg-cream py-16 md:py-24"><div className="flux-shell"><SectionHead kicker="Operating Intelligence framework" title="Five systems. One connected business." />
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{framework.map((item, index) => <m.div key={item.title} initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ delay: index * .07, duration: .65 }} className={`${index < 2 ? "lg:col-span-6" : index === 2 ? "lg:col-span-5" : index === 3 ? "lg:col-span-7" : "lg:col-span-12"}`}><Link href={item.href} className={`${item.tone} group flex min-h-[380px] flex-col justify-between rounded-[2rem] p-8 transition-[transform,border-radius,box-shadow] duration-500 hover:-translate-y-2 hover:rounded-[2.6rem] hover:shadow-[0_30px_80px_rgba(6,7,10,.15)] md:p-10`}><div className="flex justify-between"><span className="text-xs font-bold opacity-50">{item.number}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-[clamp(2.25rem,3.6vw,3.75rem)] font-medium leading-[1]">{item.title}</h3><p className="mt-5 max-w-2xl text-sm leading-7 opacity-65">{item.body}</p></div></Link></m.div>)}</div>
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{CORE_SYSTEMS.map((item, index) => <m.div key={item.title} initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ delay: index * .07, duration: .65 }} className={`${index < 2 ? "lg:col-span-6" : index === 2 ? "lg:col-span-5" : index === 3 ? "lg:col-span-7" : "lg:col-span-12"}`}><Link href={item.href} className={`${item.tone} group flex min-h-[380px] flex-col justify-between rounded-[2rem] p-8 transition-[transform,border-radius,box-shadow] duration-500 hover:-translate-y-2 hover:rounded-[2.6rem] hover:shadow-[0_30px_80px_rgba(6,7,10,.15)] md:p-10`}><div className="flex justify-between"><span className="text-xs font-bold opacity-50">{item.number}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-[clamp(2.25rem,3.6vw,3.75rem)] font-medium leading-[1]">{item.title}</h3><p className="mt-5 max-w-2xl text-sm leading-7 opacity-65">{item.shortDescription}</p></div></Link></m.div>)}</div>
       </div></section>
 
       <section className="bg-white py-16 md:py-24"><div className="flux-shell"><SectionHead kicker="Systems" title="From discovery to improvement, every handoff is designed as one journey." />

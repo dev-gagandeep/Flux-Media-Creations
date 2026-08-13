@@ -18,7 +18,7 @@ export const INDUSTRY_DETAILS: IndustryDetail[] = [
     body: [
       "Healthcare is the industry where your website's credibility is most important and most difficult to establish. A potential patient is making a decision about their health. They're anxious, often in pain, and comparing you with two or three other clinics they found on Google. Your website has roughly five seconds to communicate that you are trustworthy, competent, and the right choice for their condition.",
       "We've built WordPress websites for pain management clinics, vein treatment centers, orthopedic practices, telehealth providers, and multi-specialty medical groups across the United States, with especially strong experience around New Jersey, New York, and California. Every healthcare site we build is designed around one core objective: turning a patient search into a booked appointment.",
-      "In practice, that means a mobile experience that loads quickly, provider profiles that build trust immediately, service pages written in plain language patients actually understand, and booking pathways that stay simple enough to complete without friction. We also shape intake handling around HIPAA-conscious form flows so submitted information is treated appropriately.",
+      "In practice, that means a mobile experience that loads quickly, provider profiles that build trust, service pages written in plain language, and booking pathways that stay simple enough to complete without friction. We shape intake handling around the clinic's documented privacy, security, vendor, and compliance requirements; the healthcare organization remains responsible for its overall obligations.",
       "On the GoHighLevel side, clinics face a brutal response-time problem. A patient who calls at 10pm and gets voicemail often calls the next clinic before 10:05pm. Our healthcare automation setups typically include missed call text-back within 30 seconds, instant form-to-SMS confirmation, nurture sequences for undecided leads, appointment reminders, no-show recovery, and automated review requests that support local healthcare rankings.",
       "The common thread across all of it is patient confidence. The design has to feel clinical without being cold, the copy has to explain complex care without jargon, and the automation has to move quickly without sounding robotic. That combination is what turns search traffic into appointments instead of abandoned tabs.",
     ],
@@ -29,7 +29,7 @@ export const INDUSTRY_DETAILS: IndustryDetail[] = [
       "Online appointment booking integration",
       "Telehealth and patient portal integration pages",
       "Insurance and accepted plans pages",
-      "HIPAA-safe patient intake forms",
+      "Privacy-conscious patient enquiry forms",
       "Multi-location pages for clinic groups",
       "GoHighLevel missed call text-back",
       "Patient lead nurture sequences by SMS and email",

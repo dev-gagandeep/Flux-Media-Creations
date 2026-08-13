@@ -20,7 +20,7 @@ const industryPageSchema = {
     "WordPress web design and GoHighLevel automation for healthcare clinics, home service businesses, real estate professionals, and beauty and wellness brands.",
   url: `${SITE.url}/industries`,
   provider: {
-    "@type": "ProfessionalService",
+    "@type": "Organization",
     name: "Flux Media Creations",
     url: SITE.url,
     founder: {

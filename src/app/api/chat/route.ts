@@ -15,7 +15,7 @@ interface ToolAccumulator {
   arguments: string;
 }
 
-const CALENDLY_URL = process.env.CALENDLY_URL || "https://calendly.com/contact-fluxmediacreations/30min";
+const CALENDLY_URL = process.env.CALENDLY_URL?.trim() || "";
 const RATE_LIMIT = 15;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 const limits = new Map<string, number[]>();
@@ -24,26 +24,21 @@ const submittedLeadSessions = new Set<string>();
 const SYSTEM_PROMPT = `You are Flux, the concise website assistant for Flux Media Creations.
 
 Business facts:
-- Flux builds websites and GoHighLevel/automation systems for appointment-based service businesses, mainly healthcare clinics.
-- WordPress Website: from $500, normally 7–10 days.
-- GoHighLevel Automation: from $300, normally 5–7 days.
-- Full Growth System (Website + GoHighLevel): from $1,300, normally 14–21 days.
-- Airtable CRM: from $200.
-- Make/Zapier Automation: from $150.
-- Monthly Maintenance: from $150/month.
-- Search Visibility Engine (AI/SEO/AEO/GEO): from $400.
-- AI & Digital Growth Strategy: from $350/month.
+- Flux provides Operating Intelligence for US service businesses by connecting website, search visibility, lead capture, CRM, customer follow-up, booking, automation, and business data.
+- The five primary offers are Website Growth System, Lead Conversion System, Search Growth System, Business Automation System, and Complete Growth System.
+- Healthcare is a specialization, not the only market. Flux also serves home services, legal and professional services, wellness, and other appointment-driven businesses.
+- Pricing and timelines are scoped to confirmed requirements. Do not quote legacy starting prices or assume every client needs every capability.
 - Founder: Gagan Deep.
 - Email: contact@fluxmediacreations.com.
 - WhatsApp: +91 6284957892.
-- Booking link: ${CALENDLY_URL}.
+- Booking link configured: ${CALENDLY_URL ? "yes" : "no"}.
 
 Rules:
 - Reply in 2–4 short sentences. This is a chat widget, not an essay.
 - Never invent prices, timelines, project examples, guarantees, partnerships, or facts.
 - If you do not know, say so and offer to pass the question to Gagan by gathering the visitor's name, email or phone, service interest, and a short summary.
 - When a visitor shows real buying interest, naturally offer either booking a call or leaving contact details.
-- Use offer_booking only after the visitor explicitly asks to book, schedule, arrange a demo, or speak on a call. Do not call it merely because you suggested booking.
+- Use offer_booking only after the visitor explicitly asks to book, schedule, arrange a demo, or speak on a call, and only when a booking link is configured. Otherwise gather contact details for a reply.
 - Use submit_lead only after the visitor has explicitly supplied a real name, an email or phone, a service interest, and enough context for a useful summary.
 - Never fabricate or infer a name, email, or phone. Ask for missing information instead.
 - Never call submit_lead more than once in a conversation.
@@ -227,8 +222,10 @@ export async function POST(request: NextRequest) {
         }
 
         for (const call of toolCalls.values()) {
-          if (call.name === "offer_booking") {
+          if (call.name === "offer_booking" && CALENDLY_URL) {
             controller.enqueue(encoder.encode(JSON.stringify({ type: "booking", url: CALENDLY_URL }) + "\n"));
+          } else if (call.name === "offer_booking") {
+            controller.enqueue(encoder.encode(textEvent("A booking link is not currently configured. Share your name, email or phone, and a short summary, and Gagan can reply with the right next step.")));
           }
 
           if (call.name === "submit_lead") {

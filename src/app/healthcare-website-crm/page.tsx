@@ -162,46 +162,18 @@ const processSteps = [
 ];
 
 const pricingRows = [
-  ["Healthcare website design", "$3,500-$8,000", "Included"],
-  ["GoHighLevel CRM setup", "$500-$2,000", "Included"],
-  ["Appointment booking integration", "$300-$800", "Included"],
-  ["SMS automation and missed-call text-back", "$200-$600", "Included"],
-  ["HIPAA-aware intake form structure", "$200-$500", "Included"],
-  ["SEO structure and speed optimization", "$400-$1,200", "Included"],
-  ["Recorded walkthrough and 30-day support", "$450-$1,000", "Included"],
-];
-
-const testimonials = [
-  {
-    metric: "37%",
-    metricLabel: "estimated reduction in missed-call loss within 45 days",
-    name: "Pain Management Clinic",
-    location: "New Jersey",
-    quote:
-      "The new website made booking clearer, and the automation catches patient inquiries we used to miss. The handover was simple for our team.",
-  },
-  {
-    metric: "2.1x",
-    metricLabel: "increase in online appointment request visibility",
-    name: "Specialty Healthcare Practice",
-    location: "United States",
-    quote:
-      "Flux understood that a medical site has to build trust quickly. The pages load fast, the contact flow is easy, and follow-up is no longer manual.",
-  },
-  {
-    metric: "24/7",
-    metricLabel: "instant SMS response coverage for new inquiries",
-    name: "Pain and Vein Center",
-    location: "New Jersey",
-    quote:
-      "We had a site that looked acceptable but did not move patients forward. Connecting the website to GoHighLevel changed the way our leads are handled.",
-  },
+  ["Healthcare website strategy and build", "Pages, content, integrations, and migration"],
+  ["CRM and patient-enquiry workflow", "Current platform, pipeline, permissions, and handoff"],
+  ["Appointment booking integration", "Scheduling platform and workflow complexity"],
+  ["Follow-up and missed-call workflows", "Channels, consent, messaging, and routing"],
+  ["Privacy-conscious intake structure", "Data collected, storage, access, and vendor requirements"],
+  ["Search structure and performance", "Market, locations, competition, and content scope"],
 ];
 
 const faqs = [
   {
     q: "Do Healthcare Clinics Need HIPAA-Compliant Forms?",
-    a: "Yes. If your healthcare clinic collects sensitive patient information through website forms, HIPAA-compliant forms are highly recommended. Standard contact forms may not securely protect patient data, which can create compliance risks. A properly configured healthcare website should use secure form handling, encrypted data transmission, protected storage systems, and restricted access controls to help safeguard patient information. At Flux Media Creations, we help healthcare practices implement secure lead capture systems and compliant workflows designed for modern patient communication.",
+    a: "If a clinic collects protected health information, the complete workflow—not only the visible form—must be reviewed against its legal, vendor, storage, access, and Business Associate Agreement requirements. Flux can implement privacy-conscious digital systems with appropriate requirements in mind; the healthcare organization remains responsible for its overall compliance obligations and should confirm them with qualified legal or compliance advisers.",
   },
   {
     q: "Can GoHighLevel Work for Medical Practices?",
@@ -629,10 +601,10 @@ export default function HealthcareWebsiteCrmPage() {
         <section className="section max-w-[1400px] mx-auto">
           <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Pricing comparison</p>
           <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-5" style={{ letterSpacing: "-0.03em" }}>
-            What clinics normally pay separately vs. one focused bundle.
+            Scope the connected system around the clinic&apos;s actual requirements.
           </h2>
           <p className="text-base leading-8 text-ink/62 max-w-4xl mb-8">
-            Hiring a designer, developer, CRM consultant, and automation specialist separately gets expensive quickly. Our healthcare bundle starts from <strong>$1,300</strong> and keeps one team responsible for the full system, from{" "}
+            Healthcare implementations vary because websites, booking, CRM, messaging, data handling, locations, and existing platforms are different. Flux defines the required scope before quoting and keeps one accountable implementation path from{" "}
             <Link href="/services/wordpress-website-build" className="text-flux hover:underline">
               WordPress development
             </Link>{" "}
@@ -641,43 +613,18 @@ export default function HealthcareWebsiteCrmPage() {
           <div className="overflow-hidden rounded-lg border border-ink/10 bg-white">
             <div className="grid grid-cols-[1.2fr_0.9fr_0.8fr] bg-ink text-cream text-xs uppercase tracking-widest">
               <div className="p-4">What you need</div>
-              <div className="p-4">Separately</div>
-              <div className="p-4">Our bundle</div>
+              <div className="p-4 col-span-2">What determines scope</div>
             </div>
-            {pricingRows.map(([item, individual, bundled]) => (
+            {pricingRows.map(([item, scope]) => (
               <div key={item} className="grid grid-cols-[1.2fr_0.9fr_0.8fr] border-t border-ink/8 text-sm">
                 <div className="p-4 text-ink/72">{item}</div>
-                <div className="p-4 text-ink/45">{individual}</div>
-                <div className="p-4 font-medium text-flux">{bundled}</div>
+                <div className="col-span-2 p-4 text-ink/55">{scope}</div>
               </div>
             ))}
             <div className="grid grid-cols-[1.2fr_0.9fr_0.8fr] border-t border-ink/10 bg-blush text-sm font-medium">
-              <div className="p-4">Estimated total</div>
-              <div className="p-4">$5,550-$14,100+</div>
-              <div className="p-4 text-flux">From $1,300</div>
+              <div className="p-4">Engagement</div>
+              <div className="col-span-2 p-4 text-flux">Custom implementation based on confirmed requirements</div>
             </div>
-          </div>
-        </section>
-
-        <section className="section-sm max-w-[1400px] mx-auto">
-          <p className="text-xs uppercase tracking-widest text-ink/35 mb-4">Social proof</p>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold max-w-5xl mb-8" style={{ letterSpacing: "-0.03em" }}>
-            Built for clinics that need trust, speed, and cleaner patient follow-up.
-          </h2>
-          <div className="grid gap-5 md:grid-cols-3">
-            {testimonials.map((item) => (
-              <blockquote key={item.name} className="rounded-lg border border-ink/10 bg-white p-6">
-                <div className="mb-5 rounded-lg bg-blush p-4">
-                  <p className="font-display text-4xl font-semibold text-flux" style={{ letterSpacing: "-0.03em" }}>{item.metric}</p>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-ink/45">{item.metricLabel}</p>
-                </div>
-                <p className="text-sm leading-7 text-ink/68 mb-5">&ldquo;{item.quote}&rdquo;</p>
-                <footer>
-                  <p className="font-medium text-ink">{item.name}</p>
-                  <p className="text-xs text-ink/45 mt-1">{item.location}</p>
-                </footer>
-              </blockquote>
-            ))}
           </div>
         </section>
 
@@ -691,8 +638,8 @@ export default function HealthcareWebsiteCrmPage() {
               Get a healthcare website audit and clinic growth review. We will look at your current website, patient inquiry flow, appointment path, and the highest-leverage automation to build first.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <Link href="/contact" className="inline-flex items-center justify-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]" style={{ background: "var(--flux)" }}>
-                Get a Healthcare Website Audit →
+              <Link href="/business-intelligence-audit" className="inline-flex items-center justify-center gap-3 rounded-lg px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--flux-dark)]" style={{ background: "var(--flux)" }}>
+                Start Your Assessment →
               </Link>
               <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/15 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white/30">
                 See How Your Clinic Can Automate Follow-Up

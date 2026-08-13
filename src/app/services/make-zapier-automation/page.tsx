@@ -118,7 +118,7 @@ export default function MakeZapierAutomationPage() {
           { title: "Optimization", body: "We refine the workflow after testing so it is reliable and practical." },
         ]}
         pricingTitle="Make and Zapier Automation Pricing"
-        pricingIntro="Our Make and Zapier automation service starts from $300. Pricing depends on the number of workflows, connected apps, steps, conditions, custom logic, testing needs, and documentation."
+        pricingIntro="Business automation is scoped according to the workflows, integrations, data movement, testing, documentation, and operational complexity involved."
         pricingItems={[
           { title: "Simple Automation", body: "Best for one basic workflow, such as form submission to CRM or new lead notification." },
           { title: "Business Workflow Automation", body: "Best for multi-step workflows involving CRM, Airtable, spreadsheets, tasks, notifications, and follow-up." },

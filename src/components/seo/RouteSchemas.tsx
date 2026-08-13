@@ -120,7 +120,7 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
       name: `About ${SITE.name}`,
       url: toAbsolute(pathname),
       mainEntity: {
-        "@type": "ProfessionalService",
+        "@type": "Organization",
         name: SITE.name,
         url: SITE.url,
       },
@@ -134,7 +134,7 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
       name: `Contact ${SITE.name}`,
       url: toAbsolute(pathname),
       mainEntity: {
-        "@type": "ProfessionalService",
+        "@type": "Organization",
         name: SITE.name,
         email: SITE.email,
         telephone: SITE.phone,
@@ -187,7 +187,7 @@ function getRouteSpecificSchemas(pathname: string): JsonLd[] {
         description: service.outcome,
         url: toAbsolute(pathname),
         provider: {
-          "@type": "ProfessionalService",
+          "@type": "Organization",
           name: SITE.name,
           url: SITE.url,
         },

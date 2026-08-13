@@ -216,7 +216,7 @@ const processSteps = [
 const pricingCards = [
   {
     title: "Beginner Site",
-    price: "Starting at $500",
+    price: "Scoped to requirements",
     body: "Great for small businesses that want a clean, professional online presence with core pages like homepage, about, services, and contact.",
   },
   {
@@ -226,7 +226,7 @@ const pricingCards = [
   },
   {
     title: "Complete Growth Website + CRM",
-    price: "Starting at $1,300",
+    price: "Custom implementation",
     body: "Great for companies that want a WordPress website connected to GoHighLevel automation, lead capture, pipeline setup, missed call text back, and follow-up workflows.",
     href: "/services/full-growth-system",
   },
@@ -266,7 +266,7 @@ const locations = [
 const faqs = [
   {
     q: "How much does a WordPress website cost?",
-    a: "Our WordPress website design service starts from $500. The final cost depends on the number of pages, design complexity, content requirements, forms, integrations, SEO setup, and whether you need a new website or redesign.",
+    a: "Website Growth System projects are scoped around page count, design complexity, content, forms, booking, integrations, analytics, SEO foundations, migration, and whether the current website can be improved or needs to be replaced.",
   },
   {
     q: "Is WordPress good for small business websites?",
@@ -682,7 +682,7 @@ export default function WordPressWebsiteBuildPage() {
             Cost of designing a WordPress website.
           </h2>
           <p className="mb-8 max-w-4xl text-base leading-8 text-ink/62">
-            Our WordPress website design service starts at $500. Final price depends on number of pages, content needs, design complexity, forms, integrations, booking features, CRM setup, SEO requirements, and whether you need a new website or redesign.
+            Website Growth System projects are scoped after reviewing page count, content, design complexity, forms, integrations, booking, CRM, analytics, search requirements, migration, and the condition of the current website.
           </p>
           <div className="grid gap-5 md:grid-cols-3">
             {pricingCards.map((card) => (

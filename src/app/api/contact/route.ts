@@ -12,6 +12,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const name = asString(body.name);
   const business = asString(body.business);
+  const website = asString(body.website);
   const email = asString(body.email);
   const phone = asString(body.phone);
   const industry = asString(body.industry);
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
   const message = asString(body.message);
   const consent = Boolean(body.consent);
 
-  if (!name || !business || !email || !phone || !industry || !service || !budget || !message || !consent) {
+  if (!name || !business || !email || !industry || !service || !message || !consent) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
@@ -29,6 +30,7 @@ export async function POST(req: NextRequest) {
     submittedAt: new Date().toISOString(),
     name,
     business,
+    website,
     email,
     phone,
     industry,

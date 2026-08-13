@@ -80,7 +80,7 @@ function FallbackServicePage({ slug }: { slug: string }) {
     serviceType: service.serviceType,
     description: service.outcome,
     provider: {
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       name: SITE.name,
       url: SITE.url,
       email: SITE.email,
@@ -277,7 +277,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     serviceType: service.serviceType,
     description: detail.metaDescription,
     provider: {
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       name: SITE.name,
       url: SITE.url,
       email: SITE.email,

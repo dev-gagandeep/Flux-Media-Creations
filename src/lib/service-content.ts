@@ -185,7 +185,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       plans: [
         {
           name: "Clinic Booking Automation",
-          price: "from $500",
+          price: "scoped to requirements",
           timeline: "7-14 days",
           bestFor: "Clinics that already have a website or want booking workflows added to a healthcare website build.",
           note: "GoHighLevel subscription, SMS carrier costs, compliance modules, and third-party tools are purchased directly by the clinic when required.",
@@ -355,10 +355,10 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       plans: [
         {
           name: "Full Growth System",
-          price: "from $1,300",
+          price: "custom implementation",
           timeline: "14–21 days",
           payment: "50% upfront · 50% on launch",
-          note: "GoHighLevel Starter plan ($97/mo) is purchased directly by you from GoHighLevel and is not included in our fee.",
+          note: "Any required platform subscription is purchased directly by you and is separate from Flux implementation fees. Confirm current vendor pricing before choosing a plan.",
           items: [
             "Custom WordPress website with up to 10 pages",
             "Full Figma design for all pages",
@@ -383,12 +383,12 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       label: "Questions about the Full Growth System",
       title: "What people ask before starting.",
       items: [
-        { q: "Can I get just the website or just the automation instead?", a: "Yes. Our WordPress Website Build starts from $500 and our GoHighLevel Automation setup starts from $300. The Full Growth System is the strongest option when you need both built together and connected from the start." },
+        { q: "Can I get just the website or just the automation instead?", a: "Yes. Flux scopes the Website Growth System and Lead Conversion System independently when that is all the customer journey needs. The Complete Growth System is for requirements that genuinely cross several systems." },
         { q: "Do you build the GoHighLevel automations while building the website?", a: "Yes. Design, development, and GHL configuration run in parallel. We do not finish the website and then start the automation later." },
         { q: "What if I already have a GoHighLevel account?", a: "We audit your existing setup, clean up what is not working, and build on top of what is salvageable. We will tell you honestly what should stay and what needs to be rebuilt." },
         { q: "What if I already have a WordPress website?", a: "We can connect your existing WordPress site to a new GoHighLevel system, or recommend a rebuild if the current site is holding back rankings or conversions." },
         { q: "Is the Full Growth System suitable for a brand new business?", a: "Absolutely. Starting with both your website and CRM connected from day one is often the cleanest possible setup." },
-        { q: "What ongoing costs should I expect after launch?", a: "Plan for the GoHighLevel Starter plan at $97 per month, WordPress hosting typically around $20–$50 per month, and optional monthly maintenance if you want ongoing hands-on support." },
+        { q: "What ongoing costs should I expect after launch?", a: "Ongoing costs can include hosting, CRM or messaging subscriptions, third-party applications, usage fees, and optional support. Flux confirms the required platforms and directs you to current vendor pricing before implementation." },
       ],
     },
     finalCta: {
@@ -403,7 +403,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "airtable-business-hub",
     metaTitle: "Airtable CRM Setup & Business Hub for Small Businesses | Flux Media Creations",
     metaDescription:
-      "Custom Airtable CRM, project tracker, client portal, automations, and dashboards for small businesses. Done-for-you Airtable setup from $200.",
+      "Custom Airtable CRM, project tracking, operational workflows, and dashboards scoped around the way the business actually works.",
     image: {
       src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
       alt: "Business dashboard and analytics workspace representing a custom Airtable operations hub.",
@@ -414,7 +414,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     heroBody:
       "Airtable is one of the most flexible operations tools available to small and mid-sized service businesses, and most businesses are using only a fraction of what it can do. We build custom Airtable CRM systems, project trackers, client portals, and automated dashboards that replace scattered spreadsheets, messy inboxes, and manual reporting with one clean system your team can actually use.",
     heroStats: [
-      { value: "from $200", label: "Starting investment for a custom Airtable build" },
+      { value: "Custom", label: "Scoped to data, workflows, permissions, and integrations" },
       { value: "5–7 Days", label: "Average delivery timeline" },
       { value: "1 Platform", label: "Replaces spreadsheets, project tools, and manual reports" },
       { value: "100%", label: "Custom built for your workflow" },
@@ -487,7 +487,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       plans: [
         {
           name: "Starter Hub",
-          price: "from $200",
+          price: "scoped to requirements",
           timeline: "5–7 days",
           bestFor: "Solo operators and small teams needing one clean system",
           items: [
@@ -501,7 +501,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Business Hub",
-          price: "from $400",
+          price: "scoped to requirements",
           timeline: "7–10 days",
           bestFor: "Growing service businesses needing CRM plus project management",
           items: [
@@ -517,7 +517,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Full Operations Hub",
-          price: "from $700",
+          price: "scoped to requirements",
           timeline: "10–14 days",
           bestFor: "Teams with complex workflows needing full operations visibility",
           note: "Airtable Free can work for Starter Hub. Larger builds may benefit from Airtable Team depending on users and automation volume.",
@@ -558,7 +558,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "make-zapier-automation",
     metaTitle: "Make & Zapier Automation Setup Service for US Businesses | Flux Media Creations",
     metaDescription:
-      "Make and Zapier automation workflows that connect your tools, route leads, and eliminate manual work. Done-for-you automation from $150.",
+      "Business automation that connects tools, routes information, and reduces repetitive work without making a particular automation platform the product.",
     image: {
       src: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80",
       alt: "Code and automation workflow visual on a screen representing connected tools running in the background.",
@@ -567,9 +567,9 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     preHeadline: "Workflow Automation · Make · Zapier · Webhooks",
     heroTitle: "Connect Your Tools. Eliminate Manual Work. Build Automation Workflows That Run Your Business in the Background.",
     heroBody:
-      "Every hour your team spends copying data between tools, manually updating spreadsheets, or chasing down information that should have been routed automatically is an hour not spent on work that grows the business. We design and build Make and Zapier workflows that connect your existing tools and eliminate repetitive manual tasks, starting from $150 and delivered within days.",
+      "Every hour your team spends copying data between tools, manually updating spreadsheets, or chasing information that should have been routed automatically is time taken from higher-value work. We design and build maintainable workflows around the applications, data, testing, and operational ownership required.",
     heroStats: [
-      { value: "from $150", label: "Automation workflow starting investment" },
+      { value: "Custom", label: "Scoped to workflow and integration complexity" },
       { value: "3–7 Days", label: "Average build and delivery timeline" },
       { value: "1,000+", label: "Tools connectable via Make and Zapier" },
       { value: "0", label: "Manual steps required after go-live" },
@@ -632,7 +632,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       plans: [
         {
           name: "Single Workflow",
-          price: "from $150",
+          price: "scoped to complexity",
           timeline: "3–5 days",
           bestFor: "One specific automation you need built fast",
           items: [
@@ -645,7 +645,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Automation Bundle",
-          price: "from $400",
+          price: "scoped to complexity",
           timeline: "5–10 days",
           bestFor: "Businesses wanting 3–5 connected automations",
           items: [
@@ -659,7 +659,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Full Automation Buildout",
-          price: "from $700",
+          price: "scoped to complexity",
           timeline: "10–14 days",
           bestFor: "Teams wanting a deeper automated operations layer",
           note: "Make and Zapier subscription costs are separate and paid directly to the platform you use.",
@@ -698,7 +698,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "monthly-maintenance",
     metaTitle: "WordPress & GoHighLevel Monthly Maintenance Service | Flux Media Creations",
     metaDescription:
-      "WordPress updates, security scans, backups, GoHighLevel monitoring, speed checks, and content updates. Maintenance from $150/mo.",
+      "Ongoing website and workflow monitoring, updates, testing, content support, and optimization scoped around the systems in use.",
     image: {
       src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80",
       alt: "Cybersecurity and site monitoring visual representing maintenance, uptime, and system protection.",
@@ -709,7 +709,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     heroBody:
       "An unmanaged WordPress website is a security liability, a performance risk, and a potential SEO disaster waiting to happen. Outdated plugins, missed core updates, and unmonitored automations do not just cause headaches. They lose leads and rankings. Our Monthly Maintenance plan keeps your WordPress site and GoHighLevel system secure, fast, and working exactly as intended, every month, handled directly by us.",
     heroStats: [
-      { value: "from $150/mo", label: "Monthly maintenance starting rate" },
+      { value: "Ongoing", label: "Support level scoped to the systems in use" },
       { value: "24hr", label: "Maximum response time for reported issues" },
       { value: "Monthly", label: "WordPress core, plugin, and theme updates" },
       { value: "Direct", label: "WhatsApp and email access with no ticket queue" },
@@ -776,7 +776,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       plans: [
         {
           name: "WordPress Essential",
-          price: "$150/month",
+          price: "scoped monthly support",
           bestFor: "Simple WordPress sites with lower update frequency",
           items: [
             "Monthly core, plugin, and theme updates",
@@ -791,7 +791,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "WordPress + GHL",
-          price: "$250/month",
+          price: "scoped monthly support",
           bestFor: "Businesses running WordPress and GoHighLevel together",
           items: [
             "Everything in WordPress Essential",
@@ -805,7 +805,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Priority Care",
-          price: "$400/month",
+          price: "scoped monthly support",
           bestFor: "Healthcare clinics and businesses where downtime has direct revenue impact",
           note: "All plans are month-to-month with no long-term contract.",
           items: [
@@ -845,7 +845,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     slug: "search-visibility-engine",
     metaTitle: "Search Visibility Engine — SEO, Google Maps & AI Search for Service Businesses | Flux Media Creations",
     metaDescription:
-      "Get found on Google Search, Google Maps, ChatGPT, and Perplexity with search visibility systems for US service businesses. From $400.",
+      "Build relevant visibility across Google Search, Google Maps, and AI-assisted discovery with a Search Growth System for service businesses.",
     image: {
       src: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
       alt: "Search analytics and performance dashboard representing SEO, Google Maps, and AI search visibility.",
@@ -857,7 +857,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       "Search has changed. Your potential clients are not just typing into Google anymore. They are asking ChatGPT, searching in Perplexity, using AI Overviews, and checking Google Maps before they ever visit a website. The Search Visibility Engine builds your presence across all of these discovery channels so the right people find you first, trust you faster, and contact you directly.",
     heroStats: [
       { value: "3 Channels", label: "Google Search, Google Maps, and AI results" },
-      { value: "from $400", label: "Starting investment" },
+      { value: "Ongoing", label: "Engagement based on market, competition, and scope" },
       { value: "90 Days", label: "Typical timeframe for first ranking improvements" },
       { value: "1 System", label: "Built and managed by one team" },
     ],
@@ -920,7 +920,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
       plans: [
         {
           name: "Visibility Foundation",
-          price: "from $400",
+          price: "scoped engagement",
           bestFor: "Businesses that want the technical SEO and GBP base set up correctly first",
           items: [
             "Technical SEO audit and fix report",
@@ -935,7 +935,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Growth Visibility",
-          price: "from $400/month",
+          price: "scoped monthly engagement",
           bestFor: "Businesses committed to building search presence over time",
           items: [
             "Everything in Visibility Foundation during month one",
@@ -950,7 +950,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
         },
         {
           name: "Full Visibility System",
-          price: "from $700/month",
+          price: "scoped monthly engagement",
           bestFor: "Businesses targeting competitive markets or multiple service areas",
           note: "Visibility Foundation can be done standalone or used as month one of a monthly plan.",
           items: [

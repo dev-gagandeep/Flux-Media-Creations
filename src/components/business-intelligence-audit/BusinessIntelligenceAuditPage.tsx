@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FormEvent, useMemo, useRef, useState } from "react";
 import { m } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, Check, Loader2, RotateCcw } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const ACCESS_KEY = "9c81aa58-8835-4d78-87db-6a707c241ba9";
 const areas = [
@@ -61,6 +62,7 @@ function AuditForm() {
       if (!response.ok) throw new Error(`Submission failed with status ${response.status}`);
       const result = await response.json();
       if (!result.success) throw new Error("Submission failed");
+      trackEvent("business_intelligence_assessment_submit", { score_band: band[0], score });
       setStep(3); setStatus("idle");
     } catch {
       setStatus("error");
@@ -83,7 +85,7 @@ function AuditForm() {
     {step === 2 ? <div><div className="rounded-[1.75rem] bg-ink p-7 text-white md:p-9"><div className="flex items-end justify-between"><div><p className="flux-kicker text-white/45">Estimated score</p><p className="mt-5 font-display text-6xl font-medium">{score}<span className="text-2xl text-white/35">/100</span></p></div><span className="rounded-full bg-flux px-4 py-2 text-xs font-bold uppercase tracking-wider">{band[0]}</span></div><div className="mt-7 h-2 overflow-hidden rounded-full bg-white/15"><m.div initial={{ scaleX: 0 }} animate={{ scaleX: score / 100 }} transition={{ duration: 1 }} className="h-full bg-flux" /></div><p className="mt-6 text-sm leading-7 text-white/60">{band[1]}</p></div><div className="my-7"><p className="text-sm font-semibold">Your first opportunities</p><div className="mt-3 grid gap-3 md:grid-cols-2">{weakest.map(item => <div key={item.label} className="rounded-xl bg-cream p-4 text-sm"><span className="text-flux">●</span> Strengthen {item.label.toLowerCase()}</div>)}</div></div>
       <form onSubmit={submitContact} className="space-y-5 border-t border-ink/15 pt-7"><div><h3 className="font-display text-2xl font-medium">Send your assessment to Flux</h3><p className="mt-2 text-sm leading-6 text-ink/55">Share your details after seeing the score so we can review your answers and help map the highest-impact gaps.</p></div><div className="grid gap-5 md:grid-cols-2"><label><span className="text-sm font-semibold">Name</span><input name="name" required className={inputClass} /></label><label><span className="text-sm font-semibold">Email</span><input name="email" type="email" required className={inputClass} /></label></div><label className="block"><span className="text-sm font-semibold">Phone <span className="font-normal text-ink/40">(optional)</span></span><input name="phone" type="tel" className={inputClass} /></label><input type="checkbox" name="botcheck" aria-hidden="true" aria-label="Leave this field empty" className="hidden" tabIndex={-1} autoComplete="off" /><label className="flex items-start gap-3 text-xs leading-6 text-ink/55"><input type="checkbox" required className="mt-1 accent-flux" />I agree that Flux may contact me about this assessment. My information will only be used to respond to this request.</label><button type="submit" disabled={status === "sending"} className="flux-button flux-button-red w-full justify-center disabled:opacity-60">{status === "sending" ? <><Loader2 className="animate-spin" size={16} /> Sending assessment…</> : <>Send my assessment <ArrowUpRight size={16} /></>}</button>{status === "error" ? <p role="alert" className="rounded-xl bg-red-50 p-4 text-sm text-red-700">The assessment could not be sent. Please check your connection and try again.</p> : null}<button type="button" onClick={() => setStep(1)} className="mx-auto flex items-center gap-2 text-xs font-semibold text-ink/45 hover:text-ink"><RotateCcw size={13} /> Edit assessment answers</button></form>
     </div> : null}
-    {step === 3 ? <div className="py-10 text-center"><span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-flux text-white"><Check size={28} /></span><h3 className="mt-7 font-display text-4xl font-medium">Assessment received.</h3><p className="mx-auto mt-4 max-w-lg text-base leading-8 text-ink/60">Your score was {score}/100. Flux will review your answers and respond within 24 hours with the clearest next opportunity.</p><Link href="/operating-intelligence" className="flux-button flux-button-line mt-8">Explore Operating Intelligence</Link></div> : null}
+    {step === 3 ? <div className="py-10 text-center"><span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-flux text-white"><Check size={28} /></span><h3 className="mt-7 font-display text-4xl font-medium">Assessment received.</h3><p className="mx-auto mt-4 max-w-lg text-base leading-8 text-ink/60">Your estimated score was {score}/100. Flux will review your answers and reply with the clearest next opportunity.</p><Link href="/operating-intelligence" className="flux-button flux-button-line mt-8">Explore Operating Intelligence</Link></div> : null}
   </div>;
 }
 

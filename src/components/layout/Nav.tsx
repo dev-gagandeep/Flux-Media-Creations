@@ -10,12 +10,12 @@ type NavItem = { name: string; href: string; note?: string };
 type NavGroup = { label: string; href?: string; items: NavItem[] };
 
 const solutions: NavItem[] = [
-  { name: "Patient Revenue System", href: "/patient-revenue-system", note: "Healthcare discovery through long-term relationship" },
-  { name: "Patient Revenue System for Clinics", href: "/clinics", note: "Recover patient enquiry and appointment leakage" },
-  { name: "Revenue Intelligence", href: "/revenue-intelligence", note: "Connect marketing, sales, CRM, and revenue signals" },
-  { name: "AI Discovery", href: "/ai-discovery", note: "Visibility across Google and AI recommendation systems" },
-  { name: "Customer Progression", href: "/customer-progression", note: "Move every enquiry toward the right next action" },
-  { name: "Implementation Services", href: "/services", note: "Website, CRM, SEO, and automation delivery" },
+  { name: "Website Growth System", href: "/services/wordpress-website-build", note: "Conversion-focused website, lead capture, analytics, and integration" },
+  { name: "Lead Conversion System", href: "/customer-progression", note: "CRM, routing, booking, and consistent customer follow-up" },
+  { name: "Search Growth System", href: "/services/search-visibility-engine", note: "Organic, local, and AI-assisted discovery built over time" },
+  { name: "Business Automation System", href: "/services/make-zapier-automation", note: "Connect applications, data, reporting, and repetitive workflows" },
+  { name: "Complete Growth System", href: "/operating-intelligence", note: "A custom connection from discovery through measurement" },
+  { name: "Healthcare Systems", href: "/patient-revenue-system", note: "Clinic-specific enquiry, booking, and patient progression" },
 ];
 
 const groups: NavGroup[] = [
@@ -63,7 +63,7 @@ export default function Nav() {
       <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 md:h-20 md:px-9">
         <Link href="/" className="font-display text-2xl font-semibold tracking-[-.03em]">Flux<span className="text-flux">.</span></Link>
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
-          <DesktopMenu label="Solutions" items={solutions} open={openMenu === "Solutions"} active={active(solutions)} wide onOpen={() => setOpenMenu("Solutions")} onClose={close} />
+          <DesktopMenu label="Solutions" href="/services" items={solutions} open={openMenu === "Solutions"} active={active(solutions)} wide onOpen={() => setOpenMenu("Solutions")} onClose={close} />
           {groups.map(group => <DesktopMenu key={group.label} {...group} open={openMenu === group.label} active={active(group.items)} onOpen={() => setOpenMenu(group.label)} onClose={close} />)}
           <Link href="/about" className={`nav-link py-2 text-[13px] font-semibold tracking-[-.01em] ${pathname === "/about" ? "active" : ""}`}>Company</Link>
         </nav>

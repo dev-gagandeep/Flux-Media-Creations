@@ -459,7 +459,7 @@ export default function HealthcareSeoStructurePage() {
 
         <Section eyebrow="Pricing" title="Healthcare SEO Pricing Structure">
           <p className="max-w-3xl text-ink/60 leading-8 mb-8">
-            Healthcare SEO structure starts at $700. Pricing is based on clinic size, number of services, number of locations, content needs, technical SEO issues, Google Business Profile setup, and whether you need new pages or existing page rewrites.
+            Healthcare search engagements are scoped around clinic size, services, locations, competition, content needs, technical issues, Google Business Profile requirements, and whether pages need to be created or improved.
           </p>
           <div className="grid md:grid-cols-3 gap-5">
             {pricing.map(([title, body]) => (

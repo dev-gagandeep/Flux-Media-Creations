@@ -125,7 +125,7 @@ export default function AirtableBusinessHubPage() {
           { title: "Handoff and Training", body: "We show your team how to use the system and manage daily operations inside Airtable." },
         ]}
         pricingTitle="Airtable CRM Setup Pricing"
-        pricingIntro="Our Airtable CRM and Business Hub setup starts from $500. Final pricing depends on the number of tables, workflows, automations, integrations, dashboards, forms, user roles, and complexity of your operations."
+        pricingIntro="Airtable implementation is scoped around tables, workflows, automations, integrations, dashboards, forms, permissions, migration, and operational complexity."
         pricingItems={[
           { title: "Starter Airtable CRM", body: "Best for businesses that need lead tracking, client records, basic views, and simple follow-up management." },
           { title: "Business Operations Hub", body: "Best for businesses that need CRM, project tracking, tasks, dashboards, forms, and internal workflows." },

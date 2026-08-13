@@ -90,12 +90,12 @@ export default function Footer() {
           <p className="text-xs text-cream/30 uppercase tracking-widest mb-5">Solutions</p>
           <ul className="flex flex-col gap-3">
             {[
-              ["Patient Revenue System", "/patient-revenue-system"],
-              ["Patient Revenue System for Clinics", "/clinics"],
-              ["Revenue Intelligence", "/revenue-intelligence"],
-              ["Customer Progression", "/customer-progression"],
-              ["AI Discovery", "/ai-discovery"],
-              ["Implementation Services", "/services"],
+              ["Website Growth System", "/services/wordpress-website-build"],
+              ["Lead Conversion System", "/customer-progression"],
+              ["Search Growth System", "/services/search-visibility-engine"],
+              ["Business Automation System", "/services/make-zapier-automation"],
+              ["Complete Growth System", "/operating-intelligence"],
+              ["Healthcare Systems", "/patient-revenue-system"],
             ].map(([label, href]) => (
               <li key={href}>
                 <Link href={href} className="text-sm text-cream/60 hover:text-cream transition-colors">{label}</Link>
@@ -127,7 +127,7 @@ export default function Footer() {
             </li>
             <li>
               <p className="text-xs text-cream/30 mb-1">Serving</p>
-              <p className="text-sm text-cream/70">US clients — worldwide</p>
+              <p className="text-sm text-cream/70">US service businesses — delivered remotely</p>
             </li>
           </ul>
         </div>

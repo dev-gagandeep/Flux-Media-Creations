@@ -106,7 +106,7 @@ export const schemaOrganization = {
   alternateName: SITE.name,
   url: SITE.url,
   logo: `${SITE.url}/og-image.svg`,
-  description: "Flux is an Operating Intelligence Company that builds connected growth systems for service businesses.",
+  description: "Flux connects websites, search visibility, lead capture, CRM, customer follow-up, automation, and business data for service businesses.",
   foundingLocation: {
     "@type": "Place",
     name: "Garhshankar, Punjab, India",
@@ -118,7 +118,6 @@ export const schemaOrganization = {
     addressCountry: "IN",
   },
   slogan: "Operating Intelligence for Service Businesses",
-  foundingDate: "2022",
   founder: {
     "@type": "Person",
     name: SITE.founder,
@@ -158,7 +157,7 @@ export const schemaHomePage = {
     name: SITE.name,
     alternateName: SITE.shortName,
     description: SITE.description,
-    knowsAbout: ["Operating Intelligence", "Revenue Intelligence", "Customer Progression", "AI Discovery", "Patient Revenue Systems"],
+    knowsAbout: ["Operating Intelligence", "Website Growth Systems", "Lead Conversion Systems", "Search Growth Systems", "Business Automation Systems"],
     areaServed: ["United States", "Canada", "United Kingdom", "India"],
   },
   mainEntity: {
@@ -167,134 +166,30 @@ export const schemaHomePage = {
       {
         "@type": "Service",
         position: 1,
-        name: "Market Presence Intelligence",
+        name: "Website Growth System",
       },
       {
         "@type": "Service",
         position: 2,
-        name: "Digital Headquarters",
+        name: "Lead Conversion System",
       },
       {
         "@type": "Service",
         position: 3,
-        name: "Revenue Intelligence",
+        name: "Search Growth System",
       },
       {
         "@type": "Service",
         position: 4,
-        name: "Customer Progression",
+        name: "Business Automation System",
       },
       {
         "@type": "Service",
         position: 5,
-        name: "AI Workforce Systems",
+        name: "Complete Growth System",
       },
     ],
   },
-};
-
-export const schemaHomeAgency = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${SITE.url}/#organization`,
-  name: SITE.name,
-  alternateName: SITE.shortName,
-  url: SITE.url,
-  logo: `${SITE.url}/og-image.svg`,
-  description: SITE.description,
-  slogan: "Operating Intelligence for Service Businesses",
-  foundingDate: "2022",
-  email: SITE.email,
-  telephone: SITE.phone,
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "IN",
-  },
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: SITE.phoneIndia,
-      contactType: "customer support",
-      availableLanguage: "English",
-      areaServed: ["US", "GB", "CA", "IN"],
-    },
-  ],
-  areaServed: [
-    { "@type": "Country", name: "United States" },
-    { "@type": "Country", name: "United Kingdom" },
-    { "@type": "Country", name: "Canada" },
-    { "@type": "Country", name: "India" },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Web & Automation Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        name: "WordPress Website Build",
-        description:
-          "Custom-designed, lightning-fast WordPress sites built from Figma to go-live. Mobile-first, SEO-ready, PageSpeed 90+.",
-        price: "500",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/wordpress-website-build`,
-      },
-      {
-        "@type": "Offer",
-        name: "GoHighLevel Automation",
-        description:
-          "Full GHL setup: pipelines, missed call text-back, appointment booking, SMS reminders, review generation. A2P verified.",
-        price: "300",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/gohighlevel-automation`,
-      },
-      {
-        "@type": "Offer",
-        name: "Full Growth System",
-        description:
-          "WordPress site + GHL automation fully connected. Every form submission triggers instant follow-up.",
-        price: "1300",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/full-growth-system`,
-      },
-      {
-        "@type": "Offer",
-        name: "Airtable Business Hub",
-        description:
-          "Custom Airtable CRM, project tracker, and client portal. Automated email triggers and visual dashboards.",
-        price: "200",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/airtable-business-hub`,
-      },
-      {
-        "@type": "Offer",
-        name: "Make / Zapier Automation",
-        description:
-          "Connect any tools: Facebook Lead Ads -> GHL -> Airtable -> Calendar. Multi-platform lead routing built in hours.",
-        price: "150",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/make-zapier-automation`,
-      },
-      {
-        "@type": "Offer",
-        name: "Monthly Maintenance",
-        description:
-          "WordPress updates, security scans, backups, GHL monitoring, speed checks, content updates. Direct access to us.",
-        price: "150",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/monthly-maintenance`,
-      },
-      {
-        "@type": "Offer",
-        name: "Search Visibility Engine",
-        description:
-          "A smarter discovery system for search, maps, and AI-driven results. Built to help the right people find you faster.",
-        price: "400",
-        priceCurrency: "USD",
-        url: `${SITE.url}/services/search-visibility-engine`,
-      },
-    ],
-  },
-  sameAs: [`https://wa.me/${SITE.whatsapp}`, ...SOCIAL_LINKS.map((link) => link.href), ...PUBLIC_PROFILES],
 };
 
 export const schemaHomeFaq = {
@@ -355,58 +250,6 @@ export const schemaHomeFaq = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "It is a review Flux conducts of how a business currently handles discovery, response time, follow up, and conversion, identifying where customers are being lost before any system is built or changed.",
-      },
-    },
-  ],
-};
-
-export const schemaHomeReviews = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Flux Media Creations",
-  url: `${SITE.url}/`,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: "2",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: "Healthcare Client",
-      },
-      reviewBody:
-        "Gagan built our healthcare site in under 2 weeks. The GHL automation he set up catches every missed call - we've recovered patients we would have lost completely.",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Flux Media Creations",
-      },
-    },
-    {
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: "Medical Practice",
-      },
-      reviewBody:
-        "The website speed and design are exactly what we needed. Our Google ranking improved within the first month. Communication was always clear and fast.",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Flux Media Creations",
       },
     },
   ],

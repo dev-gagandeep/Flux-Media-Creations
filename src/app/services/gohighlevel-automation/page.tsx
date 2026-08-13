@@ -164,7 +164,7 @@ const comparisonRows = [
 const pricingCards = [
   {
     title: "Small Setup",
-    price: "Starting at $300",
+    price: "Custom implementation",
     body: "Perfect for companies that need easy CRM setup, missed-call text back, basic lead capture, and appointment reminders.",
   },
   {
@@ -174,7 +174,7 @@ const pricingCards = [
   },
   {
     title: "Full Growth System",
-    price: "Starting at $1,300",
+    price: "Custom connected system",
     body: "Ideal for businesses that need a WordPress website and GoHighLevel CRM automation built as one lead generation system.",
     href: "/services/full-growth-system",
   },
@@ -312,7 +312,7 @@ export default function GoHighLevelAutomationPage() {
                 We build the backend system that keeps each opportunity moving, from missed call text backs to appointment reminders, sales pipeline setup, and lead nurturing.
               </p>
               <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-[0_12px_35px_rgba(13,13,13,0.04)]">From $300 and up</span>
+                <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-[0_12px_35px_rgba(13,13,13,0.04)]">Scoped to your lead flow</span>
                 {heroTags.slice(0, 4).map((item) => (
                   <span key={item} className="rounded-full border border-flux/10 bg-blush px-4 py-2 text-xs text-ink/65">{item}</span>
                 ))}
@@ -550,7 +550,7 @@ export default function GoHighLevelAutomationPage() {
             GoHighLevel automation cost.
           </h2>
           <p className="mb-8 max-w-4xl text-base leading-8 text-ink/62">
-            Our GoHighLevel automation setup begins at $300. Pricing is based on number of workflows, pipeline complexity, integrations, calendars, forms, SMS/email sequences, reporting needs, and whether we are connecting the system to an existing website or building a full WordPress + GoHighLevel growth system.
+            Lead Conversion System work is scoped around workflows, pipeline complexity, integrations, calendars, forms, messaging, consent requirements, reporting, migration, and the systems already in place.
           </p>
           <div className="grid gap-5 md:grid-cols-3">
             {pricingCards.map((card) => (

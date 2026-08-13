@@ -111,7 +111,7 @@ export default function MonthlyMaintenancePage() {
           { title: "Improve", body: "Where useful, we recommend small improvements that reduce lead leakage and technical risk." },
         ]}
         pricingTitle="WordPress & GoHighLevel Monthly Maintenance Pricing"
-        pricingIntro="Our monthly maintenance plans start from $150/month. Pricing depends on your website size, plugin stack, update frequency, content edit needs, GoHighLevel complexity, number of workflows, number of forms, and support level."
+        pricingIntro="Ongoing support is scoped around website size, platform complexity, update frequency, workflow monitoring, content needs, response expectations, and support level."
         pricingItems={[
           { title: "Website Care Plan", body: "Best for businesses that need WordPress updates, backups, security checks, form testing, and small content edits." },
           { title: "Website + CRM Maintenance Plan", body: "Best for businesses using WordPress and GoHighLevel together for leads, forms, calendars, workflows, and follow-up." },

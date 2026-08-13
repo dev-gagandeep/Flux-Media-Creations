@@ -6,19 +6,19 @@ import { generateMeta } from "@/lib/seo";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = generateMeta({
-  absoluteTitle: "Contact Flux | Websites and Business Automation",
+  absoluteTitle: "Contact Flux | Business Intelligence Assessment",
   description:
-    "Contact Flux Media Creations for WordPress website design, GoHighLevel setup, CRM automation, missed-call text-back, appointment booking, and lead generation systems for service businesses.",
+    "Tell Flux where your website, search, lead capture, CRM, follow-up, automation, or reporting is breaking down and get a clear next-step recommendation.",
   path: "/contact",
 });
 
 const helpItems = [
-  ["WordPress website design", "Custom WordPress websites built for speed, mobile experience, SEO structure, trust, and lead generation."],
-  ["GoHighLevel setup and automation", "CRM pipelines, calendars, forms, missed-call text-back, SMS workflows, email follow-up, reminders, review requests, and reporting."],
-  ["Website + CRM growth systems", "A complete system where your website captures demand and GoHighLevel manages the follow-up."],
-  ["Healthcare website and automation systems", "Clinic websites, service pages, appointment booking flows, intake pathways, patient follow-up, and healthcare-focused SEO structure."],
-  ["Local SEO and search visibility", "Service page mapping, location pages, on-page SEO, schema, Google Maps visibility, and content planning."],
-  ["Maintenance and optimization", "Ongoing WordPress updates, GHL workflow monitoring, speed improvements, content edits, and conversion fixes."],
+  ["Website Growth System", "Strategy, conversion-focused design, development, lead capture, booking, analytics, technical SEO foundations, and CRM integration."],
+  ["Lead Conversion System", "CRM pipelines, lead routing, follow-up, booking workflows, reminders, review workflows, reactivation, and conversion tracking."],
+  ["Search Growth System", "Technical and on-page SEO, local search, Google Business Profile, content architecture, reporting, and AI-search considerations."],
+  ["Business Automation System", "APIs, webhooks, application integrations, data synchronization, internal workflows, and reporting automation."],
+  ["Complete Growth System", "A custom connection from discovery and website conversion through CRM, follow-up, automation, and measurement."],
+  ["Healthcare specialization", "Clinic and practice systems shaped around patient enquiries, booking, appropriate data handling, and clear staff ownership."],
 ];
 
 const fitItems = [
@@ -31,10 +31,10 @@ const fitItems = [
 ];
 
 const faqs = [
-  ["Do I need a new website or just GoHighLevel?", "It depends on where leads are being lost. If your website is outdated, unclear, slow, or not ranking, you may need a better WordPress structure first. If you already get inquiries but lose them because of slow response time, missed calls, or poor follow-up, GoHighLevel automation may be the better first step."],
+  ["Do I need a new website or a better lead system?", "It depends on where opportunities are being lost. Flux reviews the current journey before recommending a website change, CRM work, search engagement, automation, or a connected combination."],
   ["Can you connect my existing WordPress website to GoHighLevel?", "Yes. Forms, calls, calendars, landing pages, and lead sources can be connected to GoHighLevel so inquiries enter your CRM pipeline and trigger the correct follow-up workflows."],
   ["Do you work with clients outside India?", "Yes. Flux Media Creations serves US clients and worldwide businesses, with target regions including the United States, Canada, the United Kingdom, New Jersey, New York, and India."],
-  ["What should I send before contacting you?", "Send your website link if you have one, your business type, your main services, the problem you want to fix, and whether you need website design, GoHighLevel setup, automation, SEO, or a complete growth system."],
+  ["What should I send before contacting you?", "Share your website if you have one, your business type, the primary challenge, and any current systems involved. You do not need to diagnose the solution first."],
   ["Can you help healthcare clinics?", "Yes. Healthcare is a core focus, including pain clinics, vein clinics, orthopedic practices, telehealth providers, wellness providers, and specialty practices."],
 ];
 
@@ -57,14 +57,14 @@ export default function ContactPage() {
           <div>
             <p className="text-sm uppercase tracking-widest text-flux font-semibold mb-5">Contact Flux Media Creations</p>
             <h1 className="font-display font-semibold text-4xl md:text-6xl max-w-5xl mb-6" style={{ letterSpacing: "-0.035em" }}>
-              Let&apos;s build a website and CRM system that turns more visitors into leads.
+              Start with the gap—not a predetermined deliverable.
             </h1>
             <div className="space-y-5 text-base md:text-lg text-ink/58 leading-8 max-w-3xl">
               <p>
-                Tell us what you are trying to build, fix, or improve. We help service businesses create WordPress websites, GoHighLevel CRM systems, automation workflows, booking funnels, and lead-generation systems that capture inquiries and follow up before prospects go cold.
+                Tell us where your customer journey is breaking down. Flux connects websites, search visibility, lead capture, CRM, follow-up, booking, automation, and business data so fewer opportunities disappear between systems.
               </p>
               <p>
-                Whether you need a new website, a GoHighLevel setup, missed-call text-back, appointment booking automation, healthcare website structure, local SEO improvements, or a complete website plus CRM growth system, we will review your situation and recommend the clearest next step.
+                The assessment comes first. We review the current situation and recommend the smallest useful scope—one system or a connected implementation—without forcing a new platform where the existing one can work.
               </p>
               <p>
                 We work with healthcare clinics, home service companies, real estate professionals, wellness brands, professional service businesses, and local teams that depend on fast response times and consistent follow-up.
@@ -72,7 +72,7 @@ export default function ContactPage() {
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="#project-form" className="inline-flex items-center gap-3 rounded-full bg-flux px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white">
-                Send your project details <span aria-hidden="true">-&gt;</span>
+                Start your assessment <span aria-hidden="true">-&gt;</span>
               </Link>
               <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full border border-ink/15 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink">
                 Message us on WhatsApp

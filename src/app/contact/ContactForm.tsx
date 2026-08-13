@@ -2,30 +2,31 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 const SERVICES_OPTIONS = [
-  "WordPress Website",
-  "GHL Automation Setup",
-  "Full Growth System (Website + GHL)",
-  "Healthcare Website System",
-  "Local SEO",
-  "Monthly Maintenance",
+  "Website Growth System",
+  "Lead Conversion System",
+  "Search Growth System",
+  "Business Automation System",
+  "Complete Growth System",
   "Not sure yet",
 ];
 
-const BUDGETS = ["Under $300", "$300-$600", "$600-$1,200", "$1,200+", "Let's discuss"];
+const PROJECT_STAGES = ["Exploring options", "Ready to scope", "Improving an existing system", "Urgent operational issue"];
 
 type ContactFormProps = {
   submitLabel?: string;
 };
 
-export default function ContactForm({ submitLabel = "Send your project details ->" }: ContactFormProps) {
+export default function ContactForm({ submitLabel = "Send your assessment request ->" }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
     business: "",
+    website: "",
     email: "",
     phone: "",
     industry: "",
@@ -39,8 +40,8 @@ export default function ContactForm({ submitLabel = "Send your project details -
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (!form.service || !form.budget) {
-      setError("Please select a service and budget range.");
+    if (!form.service) {
+      setError("Please select the system you are most interested in.");
       return;
     }
     setLoading(true);
@@ -54,6 +55,7 @@ export default function ContactForm({ submitLabel = "Send your project details -
       });
 
       if (res.ok) {
+        trackEvent("contact_form_submit", { service_interest: form.service, industry: form.industry });
         setSubmitted(true);
       } else {
         setError("Something went wrong. Please email us directly.");
@@ -69,10 +71,10 @@ export default function ContactForm({ submitLabel = "Send your project details -
     return (
       <div className="rounded-3xl border border-ink/10 bg-white p-10 text-center">
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blush text-2xl text-flux">OK</div>
-        <h2 className="font-display text-2xl font-semibold mb-3">Message received.</h2>
-        <p className="text-sm text-ink/55 leading-7 mb-6">We will review the details and reply with the clearest next step.</p>
-        <Link href="/services" className="text-sm font-semibold text-flux">
-          Explore services -&gt;
+        <h2 className="font-display text-2xl font-semibold mb-3">Assessment request received.</h2>
+        <p className="text-sm text-ink/55 leading-7 mb-6">We will review your current situation and reply with the clearest next step. No booking link or automated sales call is required.</p>
+        <Link href="/operating-intelligence" className="text-sm font-semibold text-flux">
+          See how the systems connect -&gt;
         </Link>
       </div>
     );
@@ -91,14 +93,19 @@ export default function ContactForm({ submitLabel = "Send your project details -
         </div>
       </div>
 
+      <div>
+        <label htmlFor="contact-website" className="text-xs text-ink/40 block mb-1.5">Website</label>
+        <input id="contact-website" name="website" type="url" className="flux-input" placeholder="https://yourbusiness.com" value={form.website} onChange={(event) => set("website", event.target.value)} />
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="contact-email" className="text-xs text-ink/40 block mb-1.5">Email *</label>
           <input id="contact-email" name="email" required type="email" className="flux-input" placeholder="you@business.com" value={form.email} onChange={(event) => set("email", event.target.value)} />
         </div>
         <div>
-          <label htmlFor="contact-phone" className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp *</label>
-          <input id="contact-phone" name="phone" required className="flux-input" placeholder="+1 555 000 0000" value={form.phone} onChange={(event) => set("phone", event.target.value)} />
+          <label htmlFor="contact-phone" className="text-xs text-ink/40 block mb-1.5">Phone / WhatsApp (optional)</label>
+          <input id="contact-phone" name="phone" className="flux-input" placeholder="+1 555 000 0000" value={form.phone} onChange={(event) => set("phone", event.target.value)} />
         </div>
       </div>
 
@@ -116,7 +123,7 @@ export default function ContactForm({ submitLabel = "Send your project details -
       </div>
 
       <fieldset>
-        <legend className="text-xs text-ink/40 block mb-2">What do you need? *</legend>
+        <legend className="text-xs text-ink/40 block mb-2">Which system is closest to your need? *</legend>
         <div className="flex flex-wrap gap-2">
           <input type="hidden" id="contact-service" name="service" value={form.service} />
           {SERVICES_OPTIONS.map((service) => (
@@ -138,36 +145,36 @@ export default function ContactForm({ submitLabel = "Send your project details -
       </fieldset>
 
       <fieldset>
-        <legend className="text-xs text-ink/40 block mb-2">Budget range *</legend>
+        <legend className="text-xs text-ink/40 block mb-2">Project stage (optional)</legend>
         <div className="flex flex-wrap gap-2">
           <input type="hidden" id="contact-budget" name="budget" value={form.budget} />
-          {BUDGETS.map((budget) => (
+          {PROJECT_STAGES.map((stage) => (
             <button
-              key={budget}
+              key={stage}
               type="button"
-              onClick={() => set("budget", budget)}
+              onClick={() => set("budget", stage)}
               className="rounded-full border px-3 py-1.5 text-xs transition"
               style={{
-                background: form.budget === budget ? "var(--ink)" : "transparent",
-                color: form.budget === budget ? "var(--cream)" : "var(--ink-muted)",
-                borderColor: form.budget === budget ? "var(--ink)" : "rgba(13,13,13,0.12)",
+                background: form.budget === stage ? "var(--ink)" : "transparent",
+                color: form.budget === stage ? "var(--cream)" : "var(--ink-muted)",
+                borderColor: form.budget === stage ? "var(--ink)" : "rgba(13,13,13,0.12)",
               }}
             >
-              {budget}
+              {stage}
             </button>
           ))}
         </div>
       </fieldset>
 
       <div>
-        <label htmlFor="contact-message" className="text-xs text-ink/40 block mb-1.5">Tell us about your project *</label>
+        <label htmlFor="contact-message" className="text-xs text-ink/40 block mb-1.5">What is the primary challenge? *</label>
         <textarea
           required
           id="contact-message"
           name="message"
           className="flux-input resize-none"
           rows={4}
-          placeholder="Send your website link, business type, services, and the problem you want to fix."
+          placeholder="Where are opportunities getting lost today? Include any current website, CRM, booking, search, follow-up, or reporting issues."
           value={form.message}
           onChange={(event) => set("message", event.target.value)}
         />

@@ -429,7 +429,7 @@ export default function SearchVisibilityEnginePage() {
 
         <Section eyebrow="Pricing" title="Search Visibility Engine Pricing">
           <p className="max-w-3xl text-ink/60 leading-8 mb-8">
-            Our Search Visibility Engine starts at $500. Cost depends on page count, website size, technical issues, target locations, content needs, local SEO requirements, and whether we are optimizing existing pages or building the SEO structure from scratch.
+            Search Growth engagements are scoped around market competition, page count, technical issues, target locations, content needs, local search requirements, and whether the existing structure can be improved or needs to be rebuilt.
           </p>
           <div className="grid md:grid-cols-3 gap-5">
             {pricing.map(([title, body]) => (

@@ -13,10 +13,10 @@ export const metadata: Metadata = generateMeta({
 
 const faqs = [
   ["What is local SEO for dentists in New Jersey?", "Local SEO for dentists in New Jersey is the process of optimizing a dental practice's online presence to appear in Google Maps, the local Map Pack, and AI-generated local search results when nearby patients search for dental services."],
-  ["How long does local SEO take to show results for a dental practice?", "Most NJ dental practices see initial Google Maps improvements within 60 to 90 days of a full local SEO implementation. More competitive Map Pack terms usually take 4 to 6 months of consistent optimization."],
+  ["How long does local SEO take to show results for a dental practice?", "Timelines vary by the practice's starting position, proximity, competition, website, Google Business Profile, reviews, and ongoing work. Flux reports progress without promising a ranking position or deadline."],
   ["What Google Business Profile category should a dentist use in New Jersey?", "The primary Google Business Profile category for a dental practice should be Dentist. Secondary categories should reflect actual services such as Cosmetic dentist, Pediatric dentist, Emergency dental service, or Dental implants periodontist."],
   ["How many Google reviews does a dental practice need to rank in New Jersey?", "Most NJ dental markets need a strong base of reviews and steady review velocity. Consistent new Google reviews, strong ratings, and review responses all support Map Pack performance."],
-  ["Can local SEO help my dental practice show up in ChatGPT and Google AI Overviews?", "Yes. AI search systems use clear business entities, Google Business Profile data, structured website content, FAQs, reviews, and schema to understand and cite local dental practices."],
+  ["Can local SEO help my dental practice show up in ChatGPT and Google AI Overviews?", "Local search foundations can help AI systems understand a practice. Clear business information, structured content, reputable third-party profiles, and schema may improve understanding, but no provider can guarantee a citation or recommendation."],
   ["Does my dental practice need a separate SEO page for each procedure?", "Dedicated service pages for high-value procedures such as dental implants, Invisalign, emergency dentistry, and cosmetic dentistry usually perform better than a single generic services page."],
   ["What NJ cities does Flux Media Creations serve for dental SEO?", "Flux Media Creations provides local SEO for dental practices across New Jersey, including Newark, Jersey City, Hoboken, Hackensack, Montclair, Morristown, Bergen County, Essex County, Hudson County, and nearby markets."],
 ];
@@ -31,16 +31,6 @@ const serviceSchema = {
   description:
     "Flux Media Creations provides local SEO for dental practices in New Jersey, including Google Business Profile optimization, dental website SEO, citations, patient review automation, and AI search visibility.",
   url: `${SITE.url}/local-seo-new-jersey/local-seo-dentists-new-jersey`,
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: SITE.name,
-  url: SITE.url,
-  telephone: SITE.phone,
-  email: SITE.email,
-  areaServed: [{ "@type": "State", name: "New Jersey" }],
 };
 
 const faqSchema = {
@@ -81,7 +71,6 @@ export default function LocalSEODentistsNewJerseyPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }} />
