@@ -179,7 +179,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-xs text-cream/25 hover:text-cream/50 transition-colors"
           >
-            As seen on DesignRush
+            DesignRush Verified Agency
           </a>
           <Link href="/the-problem" className="text-xs text-cream/25 hover:text-cream/50 transition-colors">
             The problem

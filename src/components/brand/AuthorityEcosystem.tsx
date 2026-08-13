@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const recognition = [
+  { name: "DesignRush Verified Agency", src: "/images/ecosystem/designrush-verified-agency.svg", href: "https://www.designrush.com/agency/website-design-development/in", wide: true, verified: true },
   { name: "Clutch", src: "/images/ecosystem/clutch.png", href: "https://clutch.co/profile/flux-media-creations" },
   { name: "GoodFirms", src: "/images/ecosystem/goodfirms.jpeg", href: "https://www.goodfirms.co/company/flux-media-creations" },
   { name: "Trustpilot", src: "/images/ecosystem/trustpilot.webp", href: "https://www.trustpilot.com/review/fluxmediacreations.com", wide: true },
@@ -43,9 +44,9 @@ export function RecognitionStrip() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View Flux on ${item.name}`}
-                className="flex h-20 w-[220px] shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream px-6 transition-transform hover:-translate-y-1"
+                className={`flex h-20 shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream px-6 transition-transform hover:-translate-y-1 ${item.verified ? "w-[300px]" : "w-[220px]"}`}
               >
-                <Image src={item.src} alt={item.name} width={240} height={90} className={`max-h-12 object-contain ${item.wide ? "w-[160px]" : "w-20"}`} />
+                <Image src={item.src} alt={item.name} width={382} height={99} className={`max-h-12 object-contain ${item.verified ? "w-[240px]" : item.wide ? "w-[160px]" : "w-20"}`} />
               </a>
               )),
             )}
@@ -79,9 +80,9 @@ export default function AuthorityEcosystem() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`View Flux on ${item.name}`}
-                  className="group relative flex min-h-[150px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-ink/10 bg-cream p-6 transition-[border-color,box-shadow,transform] hover:-translate-y-1 hover:border-flux/35 hover:shadow-[0_18px_50px_rgba(6,7,10,.09)]"
+                  className={`group relative flex min-h-[150px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-ink/10 bg-cream p-6 transition-[border-color,box-shadow,transform] hover:-translate-y-1 hover:border-flux/35 hover:shadow-[0_18px_50px_rgba(6,7,10,.09)] ${item.verified ? "sm:col-span-2" : ""}`}
                 >
-                  <Image src={item.src} alt={item.name} width={280} height={120} className={`max-h-16 object-contain ${item.wide ? "w-[80%]" : "w-24"}`} />
+                  <Image src={item.src} alt={item.name} width={382} height={99} className={`object-contain ${item.verified ? "max-h-20 w-[min(100%,360px)]" : item.wide ? "max-h-16 w-[80%]" : "max-h-16 w-24"}`} />
                   <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 text-ink/25 transition-colors group-hover:text-flux" />
                 </a>
               ))}
