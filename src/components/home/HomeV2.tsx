@@ -31,6 +31,16 @@ const signals = [
   ["Automation & data", "Connect systems and make performance visible."],
 ];
 
+const foundingPartnerBenefits = [
+  "Custom professional website design",
+  "Mobile responsive development",
+  "Conversion-focused structure",
+  "Lead capture setup",
+  "Basic SEO foundation",
+  "Analytics & tracking setup",
+  "Business growth consultation",
+];
+
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return <m.div initial={{ opacity: 0, y: 38 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .18 }} transition={{ delay, duration: .72, ease: [0.16, 1, 0.3, 1] }} className={className}>{children}</m.div>;
 }
@@ -55,6 +65,48 @@ export default function HomeV2() {
             </m.div>
           </div>
           <Link href="#business-shift" className="group ml-auto flex w-fit items-center gap-3 py-4 text-xs font-bold uppercase tracking-[.12em] text-ink/45">Explore the shift <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-500 group-hover:translate-y-1 group-hover:bg-ink group-hover:text-white"><ArrowDownRight size={16} /></span></Link>
+        </div>
+      </section>
+
+      <section aria-labelledby="founding-partner-heading" className="relative overflow-hidden bg-[#050608] py-8 text-[#F4F4F1] md:py-12">
+        <div aria-hidden="true" className="absolute -right-24 -top-40 h-80 w-80 rounded-full bg-[#DB3826]/15 blur-[100px]" />
+        <div aria-hidden="true" className="absolute -bottom-40 left-[18%] h-64 w-64 rounded-full bg-[#383B7C]/20 blur-[110px]" />
+        <div className="flux-shell relative">
+          <m.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: .2 }}
+            transition={{ duration: .72, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[.035] shadow-[0_28px_90px_rgba(0,0,0,.35)] md:rounded-[2.25rem]"
+          >
+            <div className="grid lg:grid-cols-[1.06fr_.94fr]">
+              <div className="relative p-7 sm:p-9 md:p-12 lg:p-14">
+                <div className="mb-9 flex flex-wrap items-center gap-3">
+                  <span className="rounded-full border border-[#DB3826]/45 bg-[#DB3826]/10 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[.18em] text-[#F4F4F1]">Founding Partner Program</span>
+                  <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[.13em] text-white/55"><span className="h-1.5 w-1.5 rounded-full bg-[#DB3826] shadow-[0_0_14px_#DB3826]" />Only 5 spots available</span>
+                </div>
+                <h2 id="founding-partner-heading" className="max-w-3xl font-display text-[clamp(2.5rem,4.4vw,4.8rem)] font-medium leading-[.96] tracking-[-.06em]">Accepting 5 Businesses for Our <span className="text-[#DB3826]">Founding Partner Program</span></h2>
+                <p className="mt-7 max-w-2xl text-base leading-7 text-white/65 md:text-lg md:leading-8">Get a conversion-focused website and online growth foundation with no upfront development fee.</p>
+                <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                  <Link href="/contact?program=founding-partner" className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#DB3826] px-7 text-sm font-bold text-white shadow-[0_16px_45px_rgba(219,56,38,.28)] transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 hover:bg-[#c83222] hover:shadow-[0_20px_55px_rgba(219,56,38,.38)] sm:w-auto">Apply For Your Spot <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></Link>
+                  <p className="text-xs leading-5 text-white/45">Available for clinics and service businesses.</p>
+                </div>
+              </div>
+              <div className="relative border-t border-white/10 bg-white/[.025] p-7 sm:p-9 md:p-12 lg:border-l lg:border-t-0 lg:p-14">
+                <div aria-hidden="true" className="absolute right-8 top-8 h-20 w-20 rounded-full border border-[#AEC6FA]/15" />
+                <p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#AEC6FA]">The growth foundation</p>
+                <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                  {foundingPartnerBenefits.map((benefit, index) => (
+                    <li key={benefit} className={`${index === foundingPartnerBenefits.length - 1 ? "sm:col-span-2 lg:col-span-1 xl:col-span-2" : ""} flex items-start gap-3 rounded-2xl border border-white/[.08] bg-black/20 px-4 py-3.5 text-sm leading-6 text-white/75`}>
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#D7E3D0] text-[#050608]"><Check size={12} strokeWidth={3} /></span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5 text-[10px] font-semibold uppercase tracking-[.16em] text-white/35"><span>Built for conversion</span><span className="text-[#DB3826]">01 / 05</span></div>
+              </div>
+            </div>
+          </m.div>
         </div>
       </section>
 

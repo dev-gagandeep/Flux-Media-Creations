@@ -1,95 +1,59 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-type PopupKind = "assessment" | "newsletter" | "exit";
+const SESSION_KEY = "flux-founding-partner-popup-v1";
 
-const SESSION_KEY = "flux-popup-shown";
-const WEB3FORMS_ACCESS_KEY = "9c81aa58-8835-4d78-87db-6a707c241ba9";
-
-const solutionPaths = new Set([
-  "/solutions",
-  "/patient-revenue-system",
-  "/clinics",
-  "/revenue-intelligence",
-  "/ai-discovery",
-  "/customer-progression",
-  "/services",
-]);
-
-const excludedPaths = new Set([
-  "/business-intelligence-audit",
-  "/contact",
-  "/privacy",
-  "/terms",
-]);
+const benefits = [
+  "Custom website design",
+  "Mobile responsive build",
+  "Conversion-focused structure",
+  "Lead capture setup",
+  "Basic SEO foundation",
+  "Analytics & tracking",
+  "Growth consultation",
+];
 
 export default function SmartPopup() {
   const pathname = usePathname();
-  const [kind, setKind] = useState<PopupKind | null>(null);
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [open, setOpen] = useState(false);
   const openRef = useRef(false);
 
   useEffect(() => {
-    openRef.current = Boolean(kind);
-  }, [kind]);
+    openRef.current = open;
+  }, [open]);
 
   useEffect(() => {
-    setKind(null);
-    setStatus("idle");
-    setEmail("");
+    setOpen(false);
+    if (sessionStorage.getItem(SESSION_KEY)) return;
 
-    if (excludedPaths.has(pathname) || sessionStorage.getItem(SESSION_KEY)) return;
-
-    const isArticle = pathname === "/blog" || pathname.startsWith("/blog/");
-    const isHighIntent =
-      pathname === "/" ||
-      pathname.startsWith("/industries") ||
-      solutionPaths.has(pathname);
     let armedForExit = false;
-
-    const show = (nextKind: PopupKind) => {
+    const show = () => {
       if (openRef.current || sessionStorage.getItem(SESSION_KEY)) return;
-      sessionStorage.setItem(SESSION_KEY, nextKind);
+      sessionStorage.setItem(SESSION_KEY, "shown");
       openRef.current = true;
-      setKind(nextKind);
+      setOpen(true);
     };
 
     const scrollTrigger = () => {
       const available = document.documentElement.scrollHeight - window.innerHeight;
-      if (available <= 0) return;
-      const progress = window.scrollY / available;
-
-      if (isArticle && progress >= 0.45) show("newsletter");
-      if (isHighIntent && progress >= 0.5) show("assessment");
+      if (available > 0 && window.scrollY / available >= 0.35) show();
     };
-
-    const timer = isHighIntent
-      ? window.setTimeout(() => show("assessment"), 22000)
-      : undefined;
+    const timer = window.setTimeout(show, 14000);
     const armTimer = window.setTimeout(() => {
       armedForExit = true;
-    }, 8000);
-
+    }, 6000);
     const exitTrigger = (event: MouseEvent) => {
-      if (
-        armedForExit &&
-        event.clientY <= 0 &&
-        !event.relatedTarget &&
-        window.matchMedia("(pointer: fine)").matches
-      ) {
-        show("exit");
-      }
+      if (armedForExit && event.clientY <= 0 && !event.relatedTarget && window.matchMedia("(pointer: fine)").matches) show();
     };
 
     window.addEventListener("scroll", scrollTrigger, { passive: true });
     document.addEventListener("mouseout", exitTrigger);
-
     return () => {
-      if (timer) window.clearTimeout(timer);
+      window.clearTimeout(timer);
       window.clearTimeout(armTimer);
       window.removeEventListener("scroll", scrollTrigger);
       document.removeEventListener("mouseout", exitTrigger);
@@ -97,148 +61,74 @@ export default function SmartPopup() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!kind) return;
+    if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setKind(null);
+      if (event.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [kind]);
+  }, [open]);
 
-  async function submitNewsletter(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus("sending");
-
-    const formData = new FormData();
-    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-    formData.append("email", email);
-    formData.append("subject", "New Flux Insights subscriber");
-    formData.append("from_name", "Flux Website Popup");
-    formData.append("message", `New monthly insights signup from ${pathname}`);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-      const data = (await response.json()) as { success?: boolean };
-      setStatus(data.success ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (!kind) return null;
-
-  const isNewsletter = kind === "newsletter";
-  const content =
-    kind === "assessment"
-      ? {
-          eyebrow: "Free 20-minute assessment",
-          title: "How connected is your operating system?",
-          description:
-            "Find out where your business is losing customers in a free 20-minute assessment. No generic pitch, just a clear picture of what’s working and what’s leaking.",
-          button: "Start My Free Assessment",
-          dismiss: "Not right now",
-        }
-      : kind === "exit"
-        ? {
-            eyebrow: "Before you go",
-            title: "Before you go, one question.",
-            description:
-              "Do you know where your business is actually losing customers? Most don’t, until they run the assessment. It takes 20 minutes and costs nothing.",
-            button: "Show Me the Gaps",
-            dismiss: "I’ll pass",
-          }
-        : {
-            eyebrow: "Monthly intelligence",
-            title: "Enjoying this? Get insights like this in your inbox.",
-            description:
-              "One practical email a month on AI search, automation, and growth for appointment-based businesses. No fluff, no spam.",
-            button: "Send Me the Insights",
-            dismiss: "No thanks",
-          };
+  if (!open) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/45 p-3 backdrop-blur-sm sm:items-center sm:p-6"
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-[#050608]/75 p-3 backdrop-blur-md sm:items-center sm:p-6"
       role="presentation"
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) setKind(null);
+        if (event.target === event.currentTarget) setOpen(false);
       }}
     >
       <section
         role="dialog"
         aria-modal="true"
-        aria-labelledby="smart-popup-title"
-        className="relative w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/15 bg-ink px-6 py-8 text-white shadow-2xl sm:px-10 sm:py-10"
+        aria-labelledby="founding-popup-title"
+        aria-describedby="founding-popup-description"
+        className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-4xl overflow-y-auto rounded-[1.75rem] border border-white/15 bg-[#050608] text-[#F4F4F1] shadow-[0_35px_110px_rgba(0,0,0,.65)] sm:max-h-[calc(100dvh-3rem)] sm:rounded-[2.25rem]"
       >
-        <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-flux/30 blur-3xl" aria-hidden="true" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#DB3826]/20 blur-[90px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 left-1/3 h-52 w-52 rounded-full bg-[#383B7C]/20 blur-[90px]" />
         <button
           type="button"
           aria-label="Close popup"
-          onClick={() => setKind(null)}
-          className="absolute right-5 top-5 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/15 text-xl text-white/70 transition hover:rotate-90 hover:border-white/35 hover:text-white"
+          onClick={() => setOpen(false)}
+          className="absolute right-4 top-4 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-[#050608]/70 text-xl text-white/70 backdrop-blur transition hover:rotate-90 hover:border-white/35 hover:text-white sm:right-5 sm:top-5"
         >
           ×
         </button>
 
-        <div className="relative">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-flux">{content.eyebrow}</p>
-          <h2 id="smart-popup-title" className="mt-5 max-w-lg font-display text-3xl font-semibold leading-tight tracking-[-0.035em] sm:text-4xl">
-            {content.title}
-          </h2>
-          <p className="mt-5 max-w-lg text-base leading-7 text-white/65">{content.description}</p>
-
-          {isNewsletter ? (
-            status === "success" ? (
-              <div className="mt-7 rounded-2xl border border-white/15 bg-white/10 p-5">
-                <p className="font-semibold">You’re on the list.</p>
-                <p className="mt-1 text-sm text-white/60">The next practical Flux insight will arrive in your inbox.</p>
-              </div>
-            ) : (
-              <form onSubmit={submitNewsletter} className="mt-7">
-                <label htmlFor="popup-email" className="sr-only">Email address</label>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <input
-                    id="popup-email"
-                    name="email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    placeholder="Your email address"
-                    className="min-h-12 flex-1 rounded-full border border-white/20 bg-white/10 px-5 text-sm text-white outline-none placeholder:text-white/40 focus:border-flux"
-                  />
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="min-h-12 rounded-full bg-flux px-6 text-sm font-semibold text-white transition hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-60"
-                  >
-                    {status === "sending" ? "Sending…" : content.button}
-                  </button>
-                </div>
-                {status === "error" ? <p className="mt-3 text-sm text-red-300">Something went wrong. Please try again.</p> : null}
-              </form>
-            )
-          ) : (
+        <div className="relative grid lg:grid-cols-[1.08fr_.92fr]">
+          <div className="p-6 pb-7 sm:p-10 lg:p-12">
+            <div className="flex flex-wrap items-center gap-3 pr-10">
+              <span className="rounded-full border border-[#DB3826]/45 bg-[#DB3826]/10 px-3 py-2 text-[9px] font-bold uppercase tracking-[.18em]">Founding Partner Program</span>
+              <span className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.13em] text-white/55"><span className="h-1.5 w-1.5 rounded-full bg-[#DB3826] shadow-[0_0_12px_#DB3826]" />Only 5 spots available</span>
+            </div>
+            <h2 id="founding-popup-title" className="mt-6 max-w-2xl font-display text-[clamp(2.15rem,4vw,4rem)] font-medium leading-[.96] tracking-[-.055em]">
+              Get your growth foundation built with <span className="text-[#DB3826]">no upfront development fee.</span>
+            </h2>
+            <p id="founding-popup-description" className="mt-5 max-w-xl text-sm leading-6 text-white/60 sm:text-base sm:leading-7">Flux is accepting five clinics and service businesses for a conversion-focused website and online growth foundation.</p>
             <Link
-              href="/business-intelligence-audit"
-              onClick={() => setKind(null)}
-              className="mt-7 inline-flex min-h-12 items-center rounded-full bg-flux px-6 text-sm font-semibold text-white transition hover:-translate-y-1"
+              href="/contact?program=founding-partner"
+              onClick={() => setOpen(false)}
+              className="group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#DB3826] px-7 py-4 text-sm font-bold text-white shadow-[0_16px_45px_rgba(219,56,38,.3)] transition-[transform,box-shadow,background-color] hover:-translate-y-0.5 hover:bg-[#c83222] hover:shadow-[0_20px_55px_rgba(219,56,38,.4)] sm:w-auto"
             >
-              {content.button} →
+              Apply For Your Spot <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
-          )}
+            <p className="mt-4 text-[11px] leading-5 text-white/40">Available for clinics and service businesses.</p>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => setKind(null)}
-            className="mt-5 block text-sm text-white/45 underline-offset-4 transition hover:text-white hover:underline"
-          >
-            {content.dismiss}
-          </button>
+          <div className="border-t border-white/10 bg-white/[.035] p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10 lg:pt-16">
+            <p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#AEC6FA]">What&apos;s included</p>
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="flex items-center gap-3 rounded-xl border border-white/[.08] bg-black/20 px-3.5 py-2.5 text-xs leading-5 text-white/70 sm:text-sm">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#D7E3D0] text-[#050608]"><Check size={11} strokeWidth={3} /></span>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+            <button type="button" onClick={() => setOpen(false)} className="mt-5 text-xs text-white/35 underline-offset-4 transition hover:text-white hover:underline">Maybe later</button>
+          </div>
         </div>
       </section>
     </div>
