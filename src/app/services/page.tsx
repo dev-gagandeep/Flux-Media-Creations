@@ -66,6 +66,8 @@ export default function ServicesPage() {
 
       <PlatformEcosystem variant="web" />
 
+      <section className="bg-white px-5 py-10 md:px-10"><div className="mx-auto flex max-w-[1400px] flex-col justify-between gap-6 rounded-[2rem] bg-ink p-8 text-white md:flex-row md:items-end md:p-10"><div><p className="flux-kicker text-flux">Website growth strategy</p><h2 className="mt-5 max-w-3xl font-display text-3xl font-medium md:text-5xl">See how a service business website becomes a customer growth system.</h2></div><Link href="/reports/service-business-website-growth-report-2026" className="flux-button flux-button-red shrink-0">Read the 2026 report <ArrowUpRight size={16} /></Link></div></section>
+
       <section className="section-sm bg-white">
         <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[.4fr_.6fr]">
           <div><p className="flux-kicker text-flux">How Flux scopes the work</p><h2 className="mt-7 font-display text-4xl font-medium tracking-[-.05em] md:text-6xl">Business outcomes before technologies.</h2></div>

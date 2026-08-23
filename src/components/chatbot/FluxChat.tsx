@@ -89,8 +89,8 @@ function renderMd(text: string): string {
       '<a class="flux-chat-text-link" href="mailto:$1">$1</a>'
     )
     .replace(
-      /(\+91\s?6284957892)/g,
-      (match) => `<a class="flux-chat-text-link" href="tel:${match.replace(/\s+/g, "")}">${match}</a>`
+      /(\+91\s?99159\s?93444)/g,
+      (match) => `<a class="flux-chat-text-link" href="https://wa.me/919915993444" target="_blank" rel="noopener noreferrer">${match}</a>`
     )
     .replace(/^### (.+)$/gm, '<p style="font-weight:700;margin:8px 0 3px;font-family:Cabinet Grotesk,sans-serif">$1</p>')
     .replace(/^- (.+)$/gm, "<li>$1</li>")
@@ -368,7 +368,7 @@ export default function FluxChat() {
               ? {
                   ...message,
                   content:
-                    "I couldn’t connect just now. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892.",
+                    "I couldn’t connect just now. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444.",
                 }
               : message
           )

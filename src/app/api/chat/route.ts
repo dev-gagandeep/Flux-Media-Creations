@@ -30,7 +30,7 @@ Business facts:
 - Pricing and timelines are scoped to confirmed requirements. Do not quote legacy starting prices or assume every client needs every capability.
 - Founder: Gagan Deep.
 - Email: contact@fluxmediacreations.com.
-- WhatsApp: +91 6284957892.
+- WhatsApp: +91 99159 93444.
 - Booking link configured: ${CALENDLY_URL ? "yes" : "no"}.
 
 Rules:
@@ -124,14 +124,14 @@ export async function POST(request: NextRequest) {
 
   if (isRateLimited(sessionId)) {
     return new Response(
-      textEvent("You’ve reached the hourly chat limit. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892 and we’ll help directly."),
+      textEvent("You’ve reached the hourly chat limit. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444 and we’ll help directly."),
       { status: 429, headers: { "Content-Type": "application/x-ndjson" } }
     );
   }
 
   if (!process.env.GROQ_API_KEY) {
     return new Response(
-      textEvent("I’m temporarily unavailable. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892 and the team will help directly."),
+      textEvent("I’m temporarily unavailable. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444 and the team will help directly."),
       { headers: { "Content-Type": "application/x-ndjson" } }
     );
   }
@@ -157,7 +157,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Groq connection error:", error);
     return new Response(
-      textEvent("I couldn’t connect just now. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892."),
+      textEvent("I couldn’t connect just now. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444."),
       { headers: { "Content-Type": "application/x-ndjson" } }
     );
   }
@@ -168,8 +168,8 @@ export async function POST(request: NextRequest) {
     return new Response(
       textEvent(
         isBusy
-          ? "I’m getting a lot of questions right now. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892 and we’ll help directly."
-          : "I couldn’t answer that just now. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892."
+          ? "I’m getting a lot of questions right now. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444 and we’ll help directly."
+          : "I couldn’t answer that just now. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444."
       ),
       { headers: { "Content-Type": "application/x-ndjson" } }
     );
@@ -246,7 +246,7 @@ export async function POST(request: NextRequest) {
               controller.enqueue(encoder.encode(textEvent(`Thanks ${lead.name}, I’ve passed this to Gagan and you’ll hear back within a few hours. Anything else I can help with?`)));
             } catch (error) {
               console.error("chat tool lead error:", error);
-              controller.enqueue(encoder.encode(textEvent("I couldn’t send that just now. Please email contact@fluxmediacreations.com or WhatsApp +91 6284957892 directly.")));
+              controller.enqueue(encoder.encode(textEvent("I couldn’t send that just now. Please email contact@fluxmediacreations.com or WhatsApp +91 99159 93444 directly.")));
             }
           }
         }

@@ -83,6 +83,7 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+          <Link href="/reports/service-business-website-growth-report-2026" className="mt-5 inline-block text-sm font-semibold text-flux hover:text-cream transition-colors">2026 Website Growth Report →</Link>
         </div>
 
         {/* Solutions */}

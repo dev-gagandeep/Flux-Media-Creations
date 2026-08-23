@@ -247,6 +247,12 @@ export default function AboutPage() {
             >
               View services
             </Link>
+            <Link
+              href="/reports/service-business-website-growth-report-2026"
+              className="inline-flex items-center justify-center rounded-full border border-ink/15 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ink/65 transition-colors hover:border-flux hover:text-flux"
+            >
+              Website growth report
+            </Link>
           </div>
         </div>
       </section>

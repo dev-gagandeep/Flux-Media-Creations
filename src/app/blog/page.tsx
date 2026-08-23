@@ -27,11 +27,23 @@ const FEATURED_POST = {
   content: [],
 };
 
-const localPosts = [FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const WEBSITE_GROWTH_REPORT_POST = {
+  slug: "service-business-website-growth-strategy-2026",
+  title: "Service Business Website Growth Strategy for 2026",
+  excerpt: "How service businesses can connect visibility, trust, conversion, mobile experience, and automation into a website growth system.",
+  date: "2026-08-22",
+  readTime: "10 min read",
+  category: "Business Growth",
+  author: "Gagan Deep",
+  cover: "/images/reports/service-business-growth-report-og.png",
+  content: [],
+};
+
+const localPosts = [WEBSITE_GROWTH_REPORT_POST, FEATURED_POST, ...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const INSIGHT_CATEGORIES = [
   { slug: "ai-search", label: "AI Search", matches: ["AI Search", "Local SEO and Search Visibility", "Discovery and Visibility", "Website Development"] },
-  { slug: "business-intelligence", label: "Business Intelligence", matches: ["Business Intelligence", "Growth Systems", "GoHighLevel Automation", "CRM and Automation", "Website + Automation", "Operations and CRM", "Automation Workflows", "Ongoing Support"] },
+  { slug: "business-intelligence", label: "Business Intelligence", matches: ["Business Growth", "Business Intelligence", "Growth Systems", "GoHighLevel Automation", "CRM and Automation", "Website + Automation", "Operations and CRM", "Automation Workflows", "Ongoing Support"] },
   { slug: "healthcare-growth", label: "Healthcare Growth", matches: ["Healthcare Growth", "Healthcare Growth Systems", "Healthcare Automation", "Healthcare SEO"] },
 ];
 

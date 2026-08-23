@@ -148,6 +148,18 @@ export default function HomeV2() {
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">{CORE_SYSTEMS.map((item, index) => <m.div key={item.title} initial={{ opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ delay: index * .07, duration: .65 }} className={`${index < 2 ? "lg:col-span-6" : index === 2 ? "lg:col-span-5" : index === 3 ? "lg:col-span-7" : "lg:col-span-12"}`}><Link href={item.href} className={`${item.tone} group flex min-h-[380px] flex-col justify-between rounded-[2rem] p-8 transition-[transform,border-radius,box-shadow] duration-500 hover:-translate-y-2 hover:rounded-[2.6rem] hover:shadow-[0_30px_80px_rgba(6,7,10,.15)] md:p-10`}><div className="flex justify-between"><span className="text-xs font-bold opacity-50">{item.number}</span><span className="living-arrow"><ArrowUpRight /></span></div><div><h3 className="font-display text-[clamp(2.25rem,3.6vw,3.75rem)] font-medium leading-[1]">{item.title}</h3><p className="mt-5 max-w-2xl text-sm leading-7 opacity-65">{item.shortDescription}</p></div></Link></m.div>)}</div>
       </div></section>
 
+      <section className="bg-cream pb-16 md:pb-24">
+        <div className="flux-shell">
+          <Reveal className="relative overflow-hidden rounded-[2rem] bg-[#050608] p-7 text-[#F4F4F1] md:p-12">
+            <div aria-hidden="true" className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#DB3826]/25 blur-[90px]" />
+            <div className="relative grid gap-10 lg:grid-cols-[.68fr_.32fr] lg:items-end">
+              <div><p className="flux-kicker text-[#DB3826]">Featured Report</p><h2 className="mt-6 max-w-4xl font-display text-[clamp(2.7rem,5vw,5rem)] font-medium leading-[.96] tracking-[-.055em]">2026 Service Business Website Growth Report</h2><p className="mt-6 max-w-2xl text-base leading-8 text-white/60">Learn how modern businesses use websites, SEO and automation to generate more customers online.</p></div>
+              <div className="lg:text-right"><Link href="/reports/service-business-website-growth-report-2026" className="flux-button flux-button-red">Read The Report <ArrowUpRight size={16} /></Link><p className="mt-4 text-xs text-white/35">Free research report · 2026 edition</p></div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-white py-16 md:py-24"><div className="flux-shell"><SectionHead kicker="Systems" title="From discovery to improvement, every handoff is designed as one journey." />
         <div className="mt-16 overflow-hidden rounded-[2rem] border border-ink/15">{[["Operating Intelligence", "/operating-intelligence"], ["Patient Revenue System", "/patient-revenue-system"], ["Healthcare", "/industries/healthcare"], ["AI Discovery", "/ai-discovery"], ["Business Intelligence Audit", "/business-intelligence-audit"], ["Insights", "/blog"]].map(([label, href], index) => <Link key={href} href={href} className="group grid grid-cols-[3rem_1fr_auto] items-center gap-4 border-b border-ink/15 px-6 py-7 transition-colors duration-500 last:border-0 hover:bg-pulse-light md:px-10 md:py-9"><span className="text-xs font-bold text-flux">0{index + 1}</span><span className="font-display text-2xl font-medium transition-transform duration-500 group-hover:translate-x-3 md:text-4xl">{label}</span><MoveRight className="transition-transform duration-500 group-hover:translate-x-2" /></Link>)}</div>
       </div></section>

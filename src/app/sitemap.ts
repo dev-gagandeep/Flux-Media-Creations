@@ -33,6 +33,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE.url}/industries/wellness`, priority: 0.75, changeFrequency: "monthly" as const, lastModified: FLUX2_LAST_MODIFIED },
     { url: `${SITE.url}/process`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/blog`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: BLOG_LAST_MODIFIED },
+    { url: `${SITE.url}/reports/service-business-website-growth-report-2026`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE.url}/blog/service-business-website-growth-strategy-2026`, priority: 0.78, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/blog/healthcare-website-design-clinic-conversions`, priority: 0.75, changeFrequency: "monthly" as const, lastModified: BLOG_LAST_MODIFIED },
     { url: `${SITE.url}/contact`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/web-development-ai-automation-new-york`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: LOCATION_LAST_MODIFIED },
