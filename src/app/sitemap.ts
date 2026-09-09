@@ -25,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE.url}/business-intelligence-audit`, priority: 0.95, changeFrequency: "monthly" as const, lastModified: FLUX2_LAST_MODIFIED },
     { url: `${SITE.url}/services`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
     { url: `${SITE.url}/healthcare-website-crm`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: SERVICE_LAST_MODIFIED },
+    { url: `${SITE.url}/website-development-for-real-estate-business`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: new Date("2026-09-09") },
     { url: `${SITE.url}/locations`, priority: 0.8, changeFrequency: "weekly" as const, lastModified: LOCATION_LAST_MODIFIED },
     { url: `${SITE.url}/industries`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE.url}/industries/healthcare`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: FLUX2_LAST_MODIFIED },
